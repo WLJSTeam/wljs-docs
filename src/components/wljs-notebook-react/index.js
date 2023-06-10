@@ -3,10 +3,25 @@ import styles from './styles.css';
 
 import * as fflate from 'fflate';
 
-import useIsBrowser from '@docusaurus/useIsBrowser';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
+import useExternalScripts from "./scripts"
 
-//window.OfflineMode = true;
+if (ExecutionEnvironment.canUseDOM) {
+
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/interpreter.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/core.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wolfram-js-frontend@master/public/dist/merged.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/src/boxes.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-markdown-support@master/dist/kernel.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@master/dist/kernel.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@master/dist/kernel.js");
+    useExternalScripts("https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@master/dist/kernel.js");
+
+    window.OfflineMode = true;
+
+}
 
 function strToBin(s) {
     const a = [];
@@ -27,18 +42,7 @@ export default function Notebook({children, code, name, width, height}) {
 
 
     useEffect(async () => {
-        /*await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/interpreter.js")
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/core.js")
-        
-        await import("./frontend.js")
-        
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js")
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/src/boxes.js")
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-markdown-support@master/dist/kernel.js")
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@master/dist/kernel.js")
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@master/dist/kernel.js")
-        
-        await import("https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@master/dist/kernel.js")*/
+
 
         const decompressed = fflate.decompressSync(fflate.strToU8(atob(code), true));
         const origText = fflate.strFromU8(decompressed);
