@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwljs_docs=self.webpackChunkwljs_docs||[]).push([[2974],{2962:e=>{e.exports=JSON.parse('{"label":"facebook","permalink":"/wljs-interpreter/blog/tags/facebook","allTagsPath":"/wljs-interpreter/blog/tags","count":1}')}}]);
