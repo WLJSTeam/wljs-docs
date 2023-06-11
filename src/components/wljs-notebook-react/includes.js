@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
 const list = [
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/interpreter.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@master/dist/core.js",
