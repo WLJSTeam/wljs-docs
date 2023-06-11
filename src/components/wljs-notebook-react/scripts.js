@@ -1,4 +1,6 @@
-export default function useExternalScripts({ url }){
+import React, { useEffect } from 'react';
+
+export function useExternalScripts( url ){
     useEffect(() => {
       const head = document.querySelector("head");
       const script = document.createElement("script");
@@ -11,4 +13,19 @@ export default function useExternalScripts({ url }){
         head.removeChild(script);
       };
     }, [url]);
+  };
+
+  export function addExternalScripts( src ){
+    useEffect(() => {
+      const head = document.querySelector("head");
+      const script = document.createElement("script");
+  
+      script.setAttribute("type", "module");
+      script.innerText = src;
+      head.appendChild(script);
+  
+      return () => {
+        head.removeChild(script);
+      };
+    }, [src]);
   };

@@ -15,7 +15,10 @@ Compared to Mathematica the cell design has mostly flat structure similar to Jup
 Output cells are editable
 :::
 
+import Component from '@site/src/components/wljs-notebook-react/includes';
 import Notebook from '@site/src/components/wljs-notebook-react';
+
+<Component></Component>
 
 ## Wolfram Language
 When you start typing the language you are using assumed to be WL. By pressing `Shift-Enter` you can start evaluation
