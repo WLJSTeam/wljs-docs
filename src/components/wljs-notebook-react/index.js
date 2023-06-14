@@ -15,7 +15,8 @@ function strToBin(s) {
 }
 
 if (ExecutionEnvironment.canUseDOM) {
-    window.loadedNotebooks = {};
+    
+    window.OfflineMode = true;
 }
 
 export default function Notebook({children, code, name, width, height}) {

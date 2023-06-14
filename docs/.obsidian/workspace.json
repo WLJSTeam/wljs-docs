@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Export/React component.md",
                 "mode": "source",
                 "source": false
               }
@@ -120,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Export/React component.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +137,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Export/React component.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -160,7 +160,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md"
+                "file": "frontend/Export/React component.md"
               }
             }
           }
@@ -184,8 +184,21 @@
   },
   "active": "dba664960fa1ee87",
   "lastOpenFiles": [
-    "frontend/Tutorial/GUI Overview.md",
+    "frontend/Development/TODO.md",
+    "frontend/Tutorial/Dynamics.md",
+    "frontend/Tutorial/files/InteractiveGraphics.wl",
+    "frontend/Tutorial/files/Interactive-graphics.wl",
+    "frontend/front-end-functions.md",
+    "Excalidraw/Drawing 2023-06-12 22.05.53.excalidraw.md",
+    "Excalidraw",
     "frontend/Tutorial/Cells structure.md",
+    "frontend/Tutorial/Export notebook.md",
+    "frontend/Tutorial/files/SliderExampleStandalone.wl",
+    "frontend/Tutorial/files/SliderExample.wl",
+    "frontend/Tutorial/Customizing output.md",
+    "frontend/Tutorial/files/SparklesPlot.wl",
+    "frontend/Tutorial/files",
+    "frontend/Tutorial/GUI Overview.md",
     "frontend/Development/Plugins/intro.md",
     "frontend/Development/Plugins",
     "interpreter/Advanced/meta-markers.md",
@@ -198,9 +211,7 @@
     "frontend/Export/React component.md",
     "imgs/Screenshot 2023-06-10 at 14.56.41.png",
     "interpreter/Advanced/symbols.md",
-    "frontend/Tutorial",
     "interpreter/Advanced/containers.md",
-    "frontend/Development/TODO.md",
     "frontend/introduction.md",
     "interpreter/intro.md",
     "imgs/logo.svg",
@@ -210,20 +221,8 @@
     "frontend/Cell types/Markdown.md",
     "frontend/Cell types/Wolfram Language.md",
     "frontend/executables.md",
-    "frontend/Cell types/Untitled",
-    "frontend/Export",
-    "frontend/Development",
-    "frontend/Cell types",
-    "frontend/Dynamics",
-    "frontend/front-end-functions.md",
     "graphics/graphics3d.md",
     "graphics/graphics.md",
-    "interpreter/Extras/reference.md",
-    "interpreter/Advanced/architecture.md",
-    "interpreter/Basics/js-access.md",
-    "interpreter/Basics/scripts.md",
-    "interpreter/Basics/syntax.md",
-    "graphics",
     "imgs/FE data binding.excalidraw 1.svg",
     "imgs/FE data binding.excalidraw.svg",
     "imgs/Calling as FE.excalidraw.svg",

@@ -1606,5 +1606,156 @@ table.container {
 	border: none;
 }
 
+form.oi-file {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+form > .drop-zone {
+    outline: dashed 2px #c2c2c2;
+
+    margin: auto;
+    position: relative;
+    transition: .3s;    
+}
+
+
+
+form.oi-file > .enter {
+    --g: 1em;     /* the gap */
+    --b: 2px;    /* border thickness*/
+    --c: #c2c2c2;/* the color */
+    
+    
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+    background:
+      var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+      var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b),var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+
+    --_p: 100%;
+    outline-style: none;
+}
+
+form > .drop-zone > label {
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+    min-width: 10em;
+    text-align: center;
+    line-height: revert;
+    min-height: 1em;
+    padding: 1em;
+}
+
+
+form.oi-range {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /*! min-height: 25.5px; */
+}
+
+@media only screen and (min-width: 30em) {
+form.oi-range > label {
+    flex-shrink: 0;
+    align-self: start;
+    padding: 5px 0 4px 0;
+    min-width: 120px;
+    margin-right: 6.5px;
+    /*! padding-right: 5em; */
+}
+form.oi-range {
+    flex-wrap: nowrap;
+    width: auto;
+    /*! max-width: 100%; */
+    position: relative;
+    /*! display: flex; */
+    margin: 0;
+    padding: 0.5em;
+    height: auto;
+    /*! padding-right: 3em; */
+}
+}
+
+.oi-range-input {
+    display: flex;
+    /*! align-items: center; */
+    width: 100%;
+    /*! height: quto; */
+}
+
+.oi-range-input>input[type=number] {
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 1.5;
+    text-overflow: ellipsis;
+    width: 5em;
+}
+
+.oi-range-input>input[type=range] {
+    margin: 0;
+    margin-left: 6.5px;
+}
+
+.oi-button {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /*! min-height: 25.5px; */
+    font: 13px/1.2;
+}
+
+form.oi-button {
+    flex-wrap: nowrap;
+    width: auto;
+    /*! max-width: 100%; */
+    position: relative;
+    /*! display: flex; */
+    margin: 0;
+    padding: 0.5em;
+    height: auto;
+    /*! padding-right: 3em; */
+}
+
+
+form.oi-toggle {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /*! min-height: 25.5px; */
+}
+
+@media only screen and (min-width: 30em) {
+form.oi-toggle > label {
+    flex-shrink: 0;
+    align-self: start;
+    padding: 5px 0 4px 0;
+    min-width: 120px;
+    margin-right: 6.5px;
+    /*! padding-right: 5em; */
+}
+form.oi-toggle {
+    flex-wrap: nowrap;
+    width: auto;
+    /*! max-width: 100%; */
+    position: relative;
+    /*! display: flex; */
+    margin: 0;
+    padding: 0.5em;
+    height: auto;
+    /*! padding-right: 3em; */
+}
+}
+
 
 
