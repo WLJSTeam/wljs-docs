@@ -233,6 +233,7 @@ Do[
 
 What it does is shown on the gif below, however you can try it by yourself by openning tutorials in the examples folder.
 
+![](../imgs/ezgif.com-optimize-2.gif)
 
 See more about JS cells in [Cell types](Cell%20types.md).
 
@@ -589,7 +590,7 @@ Do[
 
 Then you will see a nice animation and each instance you copied will be updated as well
 
-
+![](../imgs/ezgif.com-video-to-gif-6.gif)
 
 Check out [Cell types](Cell%20types.md) and JS section to see the further progress on this example.
 
@@ -706,7 +707,7 @@ Therefore __it is enough for the child frontend objects to catch `virtual_uid` a
 
 However it solves our problem with `Graphics3D` dynamics flawessly
 
-
+![](../imgs/ezgif.com-video-to-gif-688.gif)
 
 As you can see, there is no explicitly mentioned `CreateFrontEnObject` for `Sphere`, but its JS representation has `.virtual = true` attribute.
 

@@ -10,6 +10,10 @@ When you open an editor and __start typing__, the following happens
 
 In this sense your input cell is __an ultimate tool__.
 
+<<<<<<< HEAD
+=======
+![[ezgif.com-video-to-gif-4.gif]]
+>>>>>>> e7b73df70c567ba4b97e70f57fa8d5abc31d191f
 
 :::tip
 To specify the type of a cell - use a prefix in the first line of the cell
