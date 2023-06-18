@@ -10,7 +10,6 @@ When you open an editor and __start typing__, the following happens
 
 In this sense your input cell is __an ultimate tool__.
 
-![[ezgif.com-video-to-gif-4.gif]]
 
 :::tip
 To specify the type of a cell - use a prefix in the first line of the cell
