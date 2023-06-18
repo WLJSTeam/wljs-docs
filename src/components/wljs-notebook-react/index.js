@@ -15,9 +15,14 @@ function strToBin(s) {
 }
 
 if (ExecutionEnvironment.canUseDOM) {
-    
+    window.eventAttr = {};
     window.OfflineMode = true;
 }
+
+function generateGuid() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+    }
 
 export default function Notebook({children, code, name, width, height}) {
     /*const zipped = Pako.ungzip(atob(code).split('').map(function (e) {
@@ -30,13 +35,24 @@ export default function Notebook({children, code, name, width, height}) {
     
 
 //window.OfflineMode = true;
-    useEffect(async () => {
-        if (ExecutionEnvironment.canUseDOM) {
-        if (name in window.loadedNotebooks) return;
+    useEffect( () => {
+      if (ExecutionEnvironment.canUseDOM) {
+        //alert('use effect... on' + name);
+        const uid = generateGuid();
         
-        window.loadedNotebooks[name] = true;
+        
+        const func = async () => {
+            window.LoadedWLJSForSure = true
+            //if (name in window.loadedNotebooks) return;
+            if (uid in window.eventAttr) {
+                //alert('rejected on' + name);
+                return;
+            }
 
-        window.addEventListener("load-wljs", async () => {
+            //window.loadedNotebooks[name] = true;
+            window.eventAttr[uid] = true;
+
+            //alert('add cells '+name);
             const decompressed = fflate.decompressSync(fflate.strToU8(atob(code), true));
             const origText = fflate.strFromU8(decompressed);
             
@@ -60,7 +76,20 @@ export default function Notebook({children, code, name, width, height}) {
                 console.log(obj);
                 await interpretate(obj, env);
             }
-        });
+
+            //window.removeEventListener("load-wljs", func);
+        }
+
+        if (window.LoadedWLJSForSure) func(); else window.addEventListener("load-wljs", func);
+
+        return () => {
+            //alert('removed');
+            Object.values(window.CellHashStorage).forEach((c)=>{
+                console.log(c);
+                if (c?.type === "input") c.dispose();
+            });
+            //document.getElementById(name).parentNode.parentNode.remove();
+          };
     }
     
 

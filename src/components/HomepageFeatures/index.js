@@ -2,44 +2,82 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+import Notebook from '@site/src/components/wljs-notebook-react';
+
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '2D Input',
+    notebook: (
+      <>
+        
+        <Notebook code="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" name="snowsuit-cdcef">snowsuit-cdcef</Notebook>
+
+      </>
+    ),
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Mix math and code together using oustanding CodeMirror 6 editor.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Customized cells',
+    notebook: (
+      <>
+        
+        <Notebook code="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" name="preservative-a7670">preservative-a7670</Notebook>
+
+      </>
+    ),
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Write in Markdown, Javascript, HTML, Mermaid or add a language you like. 
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'GUI Building blocks',
+    notebook: (
+      <>
+        
+
+<Notebook code="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" name="confirm-a4acd">confirm-a4acd</Notebook>
+
+      </>
+    ),
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Most essential UI elements are provided (sliders, text-boxes, buttons). <b>Try to drag this slider!</b>
       </>
     ),
   },
+  {
+    title: 'Dynamics support',
+    notebook: (
+      <>
+        
+        
+
+
+
+<Notebook code="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" name="narrator-4919a">narrator-4919a</Notebook>
+
+
+      </>
+    ),
+    description: (
+      <>
+        All build-in graphics support dynamic updates with a smooth transitions for all data points.
+      </>
+    ),
+  },  
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({notebook, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {notebook}
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>

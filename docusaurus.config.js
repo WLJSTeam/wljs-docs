@@ -4,12 +4,15 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const math = require('remark-math');
+const katex = require('rehype-katex');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'log',
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'WLJS',
+  tagline: 'Open-source Wolfram Frontend & Interpreter written in Javascript',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -20,8 +23,17 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'JerryI', // Usually your GitHub org/user name.
+  projectName: 'wljs-docs', // Usually your repo name.
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -30,7 +42,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  
   presets: [
     [
       'classic',
@@ -40,19 +52,26 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+         // editUrl:
+         //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        remarkPlugins: [math],
+        rehypePlugins: [katex],
+
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        
       }),
     ],
+    
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      remarkPlugins: [math],
+      rehypePlugins: [katex],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -80,27 +99,18 @@ const config = {
             position: 'left',
             label: 'Frontend',            
           },    
-          {to: '/blog', label: 'Blog', position: 'left'},
+          /*{to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/JerryI/wolfram-js-frontend',
             label: 'GitHub',
             position: 'right',
-          },
+          },*/
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
+          /*{
             title: 'Community',
             items: [
               {
@@ -116,22 +126,26 @@ const config = {
                 href: 'https://twitter.com/docusaurus',
               },
             ],
-          },
+          },*/
           {
             title: 'More',
             items: [
-              {
+              /*{
                 label: 'Blog',
                 to: '/blog',
+              },*/
+              {
+                label: 'GitHub Frontend',
+                href: 'https://github.com/JerryI/wolfram-js-frontend',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+                label: 'GitHub WLJS',
+                href: 'https://github.com/JerryI/wljs-interpreter',
+              },              
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `${new Date().getFullYear()} WLJS`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/dracula'),
@@ -139,7 +153,14 @@ const config = {
         additionalLanguages: ['wolfram']
       },
     }),
+
+    markdown: {
+      mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
 };
 
 
 module.exports = config;
+
+

@@ -46,6 +46,14 @@ EventBind[slider, Function[data,
 ]]
 ```
 
+or (synonym)
+
+```mathematica
+EventHandler[slider, Function[data,
+//...
+]]
+```
+
 ### Performance tips
 You can explicitly choose what will be interpreted on the frontend or backend. We have a few possibilities for our function inside `Line` expression
 
@@ -85,6 +93,13 @@ Graphics[{Cyan, Line[Table[{Cos[x], Sin[Hold[v] x]}, {x,0,2$Pi$, 0.01}]]}]
 That will be __a horrible solution__ 👎🏼  Imagine, each time `Table` iterator `x` goes through the range of values, it creates a sublist of `Sin` and `Cos` functions, that contains dynamic variable `v`.  Then you end up with many instances of `v`. 
 
 :::danger
+```mathematica
+Line[Table[Expression[Hold[symbol]], {i, 10}]]
+```
+Creates `10` instances of `symbol`. `Line` function will be called __10__ times on each update of `symbol`!
+:::
+
+:::danger
 Do not put dynamic symbols inside large `Table`. Try to minimize the number of its copies made.
 :::
 
@@ -106,13 +121,27 @@ Graphics[{Cyan, Line[With[{y = v}, Table[{Cos[x], Sin[y x]}, {x,0,2$Pi$, 0.01}]]
 
 This __will save up a lot of resources__ 👍🏼 
 
+:::tip
+```mathematica
+Line[With[{y = symbol}, Table[Expression[y], {i, 10}]]]
+```
+Creates only 1 instance of `symbol`. A `Line` function will be called __1__ time per update of a `symbol`.
+:::
+
+:::tip
+```mathematica
+Line[symbol//Hold], ... Line[symbol//Hold]
+```
+This is ok, each `Line` is bounded to its own `symbol` instance. Therefore on update of `symbol`, each `Line` expression will be reevaluated once.
+:::
+
 #### Standalone frontend version 🎡
 Since frontend has [WLJS](../../interpreter/intro.md) interpreter, sometimes you can omit the communication with Wolfram Kernel. Therefore it allows to build interactive embeddable notebooks, that can work without `wolframscript` installed. See more [Export notebook](Export%20notebook.md).
 
 Firstly, underneath `InputRange` there is frontend function `RangeView`, which provides low-level access to a slider
 
 ```mathematica
-RangeView[{0,6,0.5, V}]//CreateFrontEndObject
+RangeView[{0,6,0.5, V}]//Hold//CreateFrontEndObject
 ```
 
 The keyword `CreateFrontEndObject` is used to manually execute inside the container the corresponding function. It detect a symbol `V`, which is undefined as assign to it a value from a slider. Now we can to the same trick with `Graphics`
