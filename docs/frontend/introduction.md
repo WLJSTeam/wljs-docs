@@ -16,9 +16,17 @@ title: ''
 </div>
 
 
+<div align="center">
+
+[Start from here!](instruction.md)
+
+</div>
 
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 <HomepageFeatures />
 
+Sliders and dynamics
 
+<h3 style={{'text-align': 'center'}}>How it works</h3>
+Scheme with browser and etc

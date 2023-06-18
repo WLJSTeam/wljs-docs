@@ -4,7 +4,8 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 const list = [
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/dist/interpreter.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/dist/core.js",
-    "https://cdn.jsdelivr.net/gh/JerryI/wolfram-js-frontend@master/public/dist/merged.js",
+    "/wljs-docs/js/merged.js",
+    //"https://cdn.jsdelivr.net/gh/JerryI/wolfram-js-frontend@master/public/dist/merged.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/src/boxes.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-markdown-support@master/dist/kernel.js",
@@ -13,6 +14,20 @@ const list = [
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@master/dist/kernel.js"
 ];
+/*
+const list = [
+  "/wljs-docs/js/interpreter.js",
+  "/wljs-docs/js/core.js",
+  "/wljs-docs/js/merged.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/src/boxes.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-markdown-support@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@master/dist/kernel.js"
+];
+*/
 
 
 export function loadScript(url) {
@@ -27,7 +42,7 @@ export function loadScript(url) {
       script.onerror = () => {
         reject('cannot load script '+ url)
       }
-      document.getElementById('helmet').appendChild(script);
+      document.head.appendChild(script);
     }
     })
   }
@@ -37,12 +52,21 @@ export function loadScript(url) {
 export default function Component() {
     useEffect(async () => {
         if (ExecutionEnvironment.canUseDOM) {
+          
           window.loadedNotebooks = {};
-        for (const a of list) {
+          if (window.LoadedWLJS) {
+            //alert('already loading...');
+            return;
+          }
+
+          //alert('loading...');
+
+          for (const a of list) {
             await loadScript(a);
-        }
+          }
         
-            window.dispatchEvent(event);
+          window.LoadedWLJS = true;
+          window.dispatchEvent(event);
         }
     }, []);
 

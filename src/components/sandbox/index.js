@@ -30,7 +30,7 @@ export default function Sandbox({children, code, width, height}) {
  
   </head>
   <body>
-    <div id="canvas"></div>
+    <div id="canvas" style="text-align:center"></div>
 
     
     <script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@main/dist/interpreter.js"></script>

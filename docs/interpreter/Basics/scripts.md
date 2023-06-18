@@ -37,7 +37,7 @@ FrontEndVirtual[{
 }]; 
 ```
 
-It creates a special object called [Virtual Container](../../frontend/front-end-functions.md), that has its identity, local memory and can be connected to a chain to other functions. More about it you can read in the [Advanced guide](../Advanced/containers.md). As well as all functions, which use DOM elements to draw need to be executed inside `FrontEndVirtual`. 
+It creates a special object called [Virtual Container](../../frontend/Advanced/front-end-functions.md), that has its identity, local memory and can be connected to a chain to other functions. More about it you can read in the [Advanced guide](../Advanced/containers.md). As well as all functions, which use DOM elements to draw need to be executed inside `FrontEndVirtual`. 
 
 Then if one change the variable later
 
