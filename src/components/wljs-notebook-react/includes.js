@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const list = [
-    "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/dist/interpreter.js",
-    "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/dist/core.js",
+    "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/src/interpreter.js",
+    "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/src/core.js",
     "/wljs-docs/js/merged.js",
     //"https://cdn.jsdelivr.net/gh/JerryI/wolfram-js-frontend@master/public/dist/merged.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js",
@@ -12,7 +12,8 @@ const list = [
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@master/dist/kernel.js",
-    "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@master/dist/kernel.js"
+    "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@latest/dist/kernel.js",
+    "https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@latest/dist/kernel_old.js"
 ];
 /*
 const list = [

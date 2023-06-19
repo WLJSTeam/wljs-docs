@@ -52,7 +52,7 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Dynamics support',
+    title: 'SVG Graphics',
     notebook: (
       <>
         
@@ -67,7 +67,30 @@ const FeatureList = [
     ),
     description: (
       <>
-        All build-in graphics support dynamic updates with a smooth transitions for all data points.
+        Most Wolfram Mathematica's plotting functions were recreated using modern web-tools like D3, Plotly & THREE.
+      </>
+    ),
+  }, 
+
+  {
+    title: 'Embed & Export. Run locally or in a cloud',
+    notebook: (
+      <>
+        
+        
+
+
+
+
+
+<Notebook code="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" name="foreclosure-04617">foreclosure-04617</Notebook>
+
+
+      </>
+    ),
+    description: (
+      <>
+        Share your notebook as a standalone .html file or React component keeping graphs interactive.
       </>
     ),
   },  
