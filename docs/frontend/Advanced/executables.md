@@ -2,7 +2,9 @@
 sidebar_position: 3
 ---
 :::danger
-Is in development
+This chapter is a mess, sorry ;()
+> @JerryI
+
 :::
 # Working with containers
 
@@ -81,6 +83,19 @@ CreateFrontEndObject[
 
 The result will be the same.
 
+## As a way to execute expressions on frontend
+Using it together with `Hold` or `FrontEndOnly` forces Wolfram Kernel to send the expression as it is to the frontend (browser), where it will be executed entirely by WLJS.
+
+One can you very far for that. For example, this entire animation is created in this manner and no communication with Wolfram Kernel happens
+
+<Notebook code="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" name="lapdog-e71e3">lapdog-e71e3</Notebook>
+
+:::caution
+Please, do not use infinite `While` loops inside frontend expressions. There is no way, how it can be interrupted (apart from reloading a page). Even if you destroy a cell, it will continue to work in a background.
+:::
+
+The difference between `FrontSubmit` and `CreateFrontEndObject` is that the last one provides a dedicated DOM element to draw (memory, identity and etc) and stores the data in a storage. However, one can do it manually, see how - [wljs graphics](../../interpreter/Basics/graphics.md).
+
 ## As a data pointer
 Wolfram JS Frontend mostly utilizes containers to store and execute data like `Graphics`, `List` which is bounded to the data on the server (Wolfram Kernel) in the first place. But nothing can limit us from using for more general cases. 
 
@@ -124,6 +139,8 @@ CreateFrontEndObject[FrontEndOnly[
 ]]
 ```
 
+Here `ListLinePlotly` will not be visible for Wolfram Kernel (server)
+
 :::tip
 Use `FrontEndOnly` or `Hold` expression inside a frontend object to force Wolfram Kernel evaluation in the browser, i.e. in WLJS Interpreter.
 :::
@@ -139,22 +156,23 @@ CreateFrontEndObject[
 or even like this
 
 ```mathematica
-CreateFrontEndObject[	ListLinePlotly@FrontEndRef[FrontEndExecutable["uid"]]
+CreateFrontEndObject[
+	ListLinePlotly@FrontEndRef[FrontEndExecutable["uid"]]
 ]
 ```
 
 and since `ListLinePlotly` is a __registered object__
 
 :::info
-On registered symbols `CreateFrontEndObject` is applied automatically, when it goes to the output cell. Use 
+On registered symbols `CreateFrontEndObject` is applied automatically, when it goes to the output. Use 
 ```mathematica
 RegisterWebObject[ListLinePlotly]
 ```
+to assign this property to your expression
 :::
 
 :::info
-All input UI elements like sliders, buttons are [Event-generators](Event-generators.md), that has a field `view`, on which `CreateFrontEndObject` is applied
-
+All input UI elements like __sliders__, __buttons__ are [Event-generators](Event-generators.md), that has a field `view`, on which `CreateFrontEndObject` is also applied automatically
 :::
 
 ```mathematica
@@ -165,35 +183,81 @@ See in action
 
 <Notebook code="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" name="poisoning-79454">poisoning-79454</Notebook>
 
-Here we wrapped the given data into `FrontEndOnly`, that holds the expressions for WL and prevents evaluation on. the server, leaving the code to be executed on the frontend. In the the latest example instead of `FrontEndOnly` we used `FrontEndRef`, that basically holds `FrontEndExecutable` and prevents it from the evaluation.
+Here we wrapped the given data into `FrontEndOnly`, that holds the expressions for WL and prevents evaluation on the server, leaving the code to be executed on the frontend. In the the latest example instead of `FrontEndOnly` we used `FrontEndRef`, that basically holds `FrontEndExecutable` and prevents it from the evaluation.
 
-:::tip
-If you are looking for just dynamic binding between variables and plotting functions, do not use `CreateFrontEndObject`, __use simple dynamic variables__ - see tutorial [Dynamics](../Tutorial/Dynamics.md)
-:::
-
-:::caution
-Dynamic symbols like `a`
-```mathematica
-a = Table[i^2, {i,1,10}];
-ListLinePlotly[Hold[a]]
-```
-do not create real `FrontEndExecutable`, but __only virtual type__ (see [symbols](../../interpreter/Advanced/symbols.md)), therefore when you export a notebook the information will be lost.
-:::
-
-If you do not want CodeMirror to replace it with a decorations use non-executable synonym 
+If you __do not want CodeMirror to replace it with a decoration__ use non-executable synonym 
 
 ```mathematica
 FrontEndExecutable["uid"] -> FrontEndRef["uid"]
 ```
 
-### Mutability
-Each time you reevaluate the cell content, where the object was created - an Evaluator (`Kernel/Evaluator.wl`) fires `ExtendDefinitions` on a master kernel. It compares the new objects to the old data in the Notebook object property and shares the changed objects across all connected clients (associated with the given notebook).
+### Dynamic binding
+:::tip
+If you are looking for __just dynamic binding between variables and plotting functions, do not use `CreateFrontEndObject`__, __use simple dynamic variables__ - see tutorial [Dynamics](../Tutorial/Dynamics.md)
+:::
+
+:::info
+Dynamic symbols like `a`
+```mathematica
+a = Table[i^2, {i,1,10}];
+ListLinePlotly[Hold[a]]
+```
+do not create real `FrontEndExecutable`, but __only virtual type of a container__ (see [symbols](../../interpreter/Advanced/symbols.md)), therefore when you export a notebook __the information will be lost__.
+:::
+
+Let us have a look at two identical examples
+
+##### Easy way
+*first cell*
+```mathematica
+a = Table[i^2, {i, 1, 10}];
+ListLinePlotly[Hold[a]]
+```
+
+*second cell*
+```mathematica
+a = Table[i, {i, 1, 10}];
+```
+
+After the evaluation you will see a transition of the same output of the first cell. I.e. the __symbols `a` and `ListLinePlotly` are bounded__.
+
+:::info
+A virtual container with `a` inside is bounded to the normal container, where `ListLinePlotly` is executed
+:::
+
+:::caution
+The information will be lost on export to `.html` file. A notebook requires connected Wolfram Kernel.
+:::
+
+##### Hard way
+*first cell*
+```mathematica
+CreateFrontEndObject[Table[i^2, {i, 1, 10}], "a"];
+ListLinePlotly[FrontEndRef["a"]]
+```
+
+*second cell*
+```mathematica
+FrontEndRef["a"] = Table[i, {i, 1, 10}];
+```
+
+:::info
+A normal container with `a` inside is bounded to the normal container, where `ListLinePlotly` is executed
+:::
+
+:::info
+The information about `a` object is stored to the notebook. It is safe to export
+:::
+
+Therefore, all frontend objects aka `FrontEndExecutable` are dynamic by the default. The change in one will cause the updates to ones, which depends on it. This behaviuor is archived by collecting all calls of frontend functions and storing them to special handlers assigned to each frontend object. In principle we do not even need WL Kernel to update the content.
+
+Now we can look deeper on how to mutate them
 
 #### Direct update (the fastest)
 Sends the data directly to the frontend leaving out the master kernel (see [[Evaluation]])
 
 ```mathematica
-SetFrontEndObject["uid",
+SetFrontEndObject["a",
 	Table[i^3, {i,1,10}]
 ] // FrontSubmit;
 ```
@@ -201,7 +265,7 @@ SetFrontEndObject["uid",
 or in the same fashion, but prettier 
 
 ```mathematica
-SetFrontEndObject[FrontEndExecutable["uid"],
+SetFrontEndObject[FrontEndExecutable["a"],
 	Table[i^3, {i,1,10}]
 ] // FrontSubmit;
 ```
@@ -209,13 +273,13 @@ SetFrontEndObject[FrontEndExecutable["uid"],
 or even better (WOW)
 
 ```mathematica
-FrontEndExecutable["uid"] = Table[i^3, {i,1,10}]
+FrontEndExecutable["a"] = Table[i^3, {i,1,10}]
 ```
 
 or if you do not want CM6 to draw it
 
 ```mathematica
-FrontEndRef["uid"] = Table[i^3, {i,1,10}]
+FrontEndRef["a"] = Table[i^3, {i,1,10}]
 ```
 
 ![[../../imgs/plotly-dynamic.gif]]
@@ -226,66 +290,23 @@ In principle one can send any command to be executed on the frontend using `Fron
 To call any JavaScript function defined in `core` context, use `FrontSubmit` expression on on the desired Wolfram Expression. There is 1:1 correspondence with respect to Wolfram Language symbols, please see [WLJS interpreter](../../../interpreter/intro.md) for more information.
 :::
 
-### Nesting
-==I STOPPED HERE==
-One can create a frontend object, that has a reference to another one and etc. The benefits of this approach you will see in [Dynamic binding](#Dynamic%20binding) section
+Let us have a look on another example below
 
-![](../../imgs/manipulate-frontend-example.excalidraw.svg)
-
-in the example above it shows how typical `Manipulate` function can be imlemented. In the simples case it has three parts
-- a slider to control the variables
-- a graphical object (Plot) that shows the results
-- the data, that is provided to the plotting function
-
-and actaully there is a forth one - `Panel`, which holds the first two. All of them are frontend objects. Of course this contruction can be generated automatically
-
-```mathematica
-slider = Slider[];
-...
-With[{plot = CreateFrontEndObject[ListLinePlotly[FrontEndRef["data"]], "plot"]},
-	With[{slider = CreateFrontEndObject[slider, "slider"]},
-		CreateFrontEndObject[FrontEndOnly@Panel[{slider, plot}], "panel"]
-	]
-]
-```
-
-or it can be rewritten in a more compact way (if you want to use IDs)
-
-```mathematica
-slider = Slider[];
-...
-CreateFrontEndObject[slider, "slider"];
-CreateFrontEndObject[ListLinePlotly[FrontEndRef["data"]], "plot"];
-
-CreateFrontEndObject[Panel[{FrontEndRef["slider"], FrontEndRef["plot"]}]]
-```
-
-the last one goes to the output cell. But sure, you will also need to define a handler for a slider on Wolfram Kernel's side to update `data` object.
-
-### Dynamic binding
-The ideas for WLJS Frontened were inspired by an amazing project [Observable](https://observablehq.com/@jerryi) - JS notebook interface working in the browser, where the dynamics was polished perfectly.
-
-In Observable all expressions are `Dynamic` in terms of Mathematica by the default. Me, as a maintener (@JerryI) tried to bring it as close as possible to such behaviour, leaving out laggs as possible of Mathematica's frontened.
-
-Therefore, ==all frontened objects aka `FrontEndExecutable` are dynamic by the default==. The change in one will cause the updates to ones, which depends on it. This behaviuor is achived by collecting all calls of frontened functions and storing them to special handlers assigned to each frontend object. In principle we do not even need WL Kernel to update the content.
-
-Let us try to explain it in following example
-
-*create such an object*
+*create data object*
 ```mathematica
 CreateFrontEndObject[ Table[Sin[i]//N, {i,0,2Pi,0.1}] , "myObject"]
 ```
 
-*create a visualiser for it*
+*create a visualizer for it*
 ```mathematica
 CreateFrontEndObject[FrontEndOnly[
   ListLinePlotly[FrontEndExecutable["myObject"]]
 ], "visualiser"]
 ```
 
-The last cell creates another frontend object `"visualiser"`, which depends on the `"myObject"`. [WLJS Interpreter](https://github.com/JerryI/wljs-interpreter) creates a straightforward "link" between them
+The last cell creates another frontend object `"visualiser"`, which depends on the `"myObject"`. [WLJS Interpreter](../../interpreter/intro.md) creates a straightforward "link" between them
 $$myObject \rightarrow visualiser$$
-where any changes to `"myObject"` will lead to internal reavaluation (on frontend's side!) of `FrontEndOnly` function and its content, i.e. call somewhere the following
+where any changes to `"myObject"` will lead to internal reevaluation (on frontend's side!) of `FrontEndOnly` function and its content, i.e. call somewhere the following
 
 *make changes directly*
 ```mathematica
@@ -309,9 +330,50 @@ After than you will see a nice animation of the output of second cell without ac
 
 ![[../../imgs/plotly-dynamic.gif]]
 
-One could argue that this is an actual reevaluation, which might be quite slow. However, during this process ==an additional information to the whole stack of called functions is provided regaring of a type of an update, i.e. restyling, data update, data append and etc==. Therefore, each WLJS function can optimise its behaviour to gain perfomance - see section `Methods` in [WLJS Interpreter](https://github.com/JerryI/wljs-interpreter) and [Frontend functions](Frontend%20functions.md)
+One could argue that this is an actual reevaluation, which might be quite slow. However, during this process __an additional information to the whole stack of called functions is provided regarding a type of an update, i.e. restyling, data update, data append and etc__. Therefore, each WLJS function can optimize its behavior to gain performance - see section `Methods` in [wljs architecture](../../interpreter/Advanced/architecture.md)
 
-This is a just a top of the surface, the things you can do with it are quite bigger...
+We scratched only a top of the surface, the things you can do with it are quite bigger...
+
+### What is a container and what is not
+Let us start with an example
+
+<Notebook code="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" name="balking-08c73">balking-08c73</Notebook>
+
+Here, sort of `Manipulate` expression is implemented at a low-level. Considering the fact, that `Column` symbol expands into a set of boxes interpreted by frontend (see more [Decorations](../Decorations.md)), __there is no actual nesting of containers happens__.
+
+:::info
+`Column` expression on output expands into a [decoration](../Decorations.md) called `CM6Grid` being evaluated.
+:::
+
+One can illustrate it as follows
+
+![](../../imgs/container-nested-1.excalidraw.svg)
+
+Due to the properties of editable decoration, it spawns two extra embedded editors, where uneditable decoration / container is executed. Each container fetch the data from the object storage (`RangeView` and `ListLinePlotly`).
+
+:::info
+`InputRange` expands into `RangeView` being evaluated. See why at wljs-input package docs.
+:::
+
+Download notebook
+- __[Columns](files/Column.wl)__
+
+Now let's make an actual nested containers.
+
+A funny example,  where we make a custom container, that modifies the way how objects are displayed
+
+<Notebook code="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" name="cringing-22a90">cringing-22a90</Notebook>
+
+Since there is only one `wljs-editor` was spawned, we had to tell to the Kernel explicitly, what we what to execute on the frontend's side (browser). The result can be illustrated as follows
+
+![](../../imgs/container-nested-2.excalidraw.svg)
+
+In the `SpecialView` we append two more DOM elements with a random rotation applied, on which two more containers are executed. This is a true nested containers structure.
+
+Download notebook
+- __[FunnyView](files/FunnyView.wl)__
+
+The dynamic binding is also enabled, but will not be performed, since there is no `update` method defined for `core.SpecialView`. 
 
 ### Instancing
 Each call of `FrontEndExecutable["uid"]` creates an instance of the corresponding object with its local memory (see more [Frontend functions](Frontend%20functions.md)). So copying and pasting
@@ -324,7 +386,7 @@ you will create separate objects connected to the same storage item with `uid` a
 
 ![](../../imgs/intancing.excalidraw.svg)
 
-### 🚧 Applying | Injection arguments
+### 🚧 Injecting arguments
 :::danger
 The feature is still not implemented
 :::
@@ -334,8 +396,7 @@ The idea is that sometimes we do not need to create separate `FrontEndExecutable
 FrontEndExecutable["uid", extra arguments...]
 ```
 
-If it would be possible, one could also add support `Function` symbol to the frontend. And then, we can for sure perform recalculations directly on the frontend! See more in [Frontend functions](Frontend%20functions.md)
-
+If it would be possible, one could also add support `Function` symbol to the frontend. And then, we can for sure perform recalculations directly on the frontend!
 
 ## Cheat-sheet
 for the brief explanation
@@ -346,7 +407,7 @@ for the brief explanation
 For the best experience - check the tutorial [[How to work with ]], which is a real notebook exported from the frontend to a standalone `.html` file.
 
 ### How to create
-For the registered types (see [Writting WebObject](Writting%20WebObject.md))
+For the registered types
 
 ```mathematica
 ListLinePlotly[{1,2,3,4,5}]
@@ -395,18 +456,18 @@ CreateFrontEndObject[
 ]
 ```
 
-after the evaluating, all instances of `FrontEndExecutable["myId"]` shown on the screen in any cell will be updated. Check the tutorial [W] to see it in a better way.
+after the evaluating, all instances of `FrontEndExecutable["myId"]` shown on the screen in any cell will be updated. 
 
 But this is slow, direct update is faster
 
 ```mathematica
-SetFrontEndObject["myId", ListLinePlotly[{1,2,3,4,5}//Reverse]] // SendToFrontEnd;
+SetFrontEndObject["myId", ListLinePlotly[{1,2,3,4,5}//Reverse]] // FrontSubmit;
 ```
 
 this is also valid
 
 ```mathematica
-SetFrontEndObject[FrontEndExecutable["myId"], ListLinePlotly[{1,2,3,4,5}//Reverse]] // SendToFrontEnd;
+SetFrontEndObject[FrontEndExecutable["myId"], ListLinePlotly[{1,2,3,4,5}//Reverse]] // FrontSubmit;
 ```
 
 and this is too
@@ -444,7 +505,7 @@ FrontEndExecutable["myDataId"] = RandomReal[{-1,1}, 4];
 or attach a slider to it
 
 ```mathematica
-slider = Slider[0,1,0.1];
+slider = InputRange[0,1,0.1];
 Function[x, FrontEndExecutable["myDataId"] = x RandomReal[{-1,1}, 4]] // slider;
 
 slider
@@ -456,4 +517,5 @@ One can compress small objects in way like
 FrontEndInlineExecutable["Compressed expression"]
 ```
 
-This is how `Iconize` function is working
+Use `Compress` expression to provide a compressed string to it.
+PS: This is how `Iconize` function is working

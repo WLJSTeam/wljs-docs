@@ -6,7 +6,6 @@
       {
         "id": "077a5c9f24ec1f70",
         "type": "tabs",
-        "dimension": 54.61811722912966,
         "children": [
           {
             "id": "dba664960fa1ee87",
@@ -14,31 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Customizing IO/Canvas.md",
+                "file": "frontend/Tutorial/Cells structure.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "ff2d70badcb5f593",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "imgs/virtualContainer.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "984f0833f7dc7ad9",
+            "id": "aba2053324417d39",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Tutorial/Dynamics.md",
+                "file": "frontend/Advanced/executables.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "ab55bbd81d796e0d",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "imgs/container-nested-2.excalidraw.md"
               }
             }
           },
@@ -58,48 +57,11 @@
             "id": "260bd2dc9bf63fb9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "frontend/introduction.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "e6645aa1ca03f702",
-        "type": "tabs",
-        "dimension": 45.381882770870334,
-        "children": [
-          {
-            "id": "6b85132c983694f9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "frontend/Tutorial/Dynamics.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3f47d56c79058f3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "interpreter/Advanced/containers.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -165,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Tutorial/Dynamics.md",
+                "file": "frontend/Tutorial/Cells structure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Tutorial/Dynamics.md",
+                "file": "frontend/Tutorial/Cells structure.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -205,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Tutorial/Dynamics.md"
+                "file": "frontend/Tutorial/Cells structure.md"
               }
             }
           }
@@ -227,43 +189,46 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "984f0833f7dc7ad9",
+  "active": "dba664960fa1ee87",
   "lastOpenFiles": [
-    "frontend/Customizing IO/Canvas.md",
-    "frontend/Advanced/files",
-    "frontend/Advanced/front-end-functions.md",
-    "frontend/Advanced/frontend-objects.md",
+    "frontend/Tutorial/Dynamics.md",
+    "frontend/Tutorial/Export notebook.md",
+    "frontend/Tutorial/GUI Overview.md",
+    "frontend/Tutorial/Input elements.md",
+    "frontend/Tutorial/Plotting functions.md",
+    "frontend/instruction.md",
+    "frontend/Decorations.md",
+    "frontend/Expressions representation.md",
+    "frontend/Mathematica vs WLJS.md",
     "frontend/Advanced/executables.md",
+    "frontend/Advanced/front-end-functions.md",
     "frontend/Advanced/Event-generators.md",
+    "frontend/Advanced/frontend-objects.md",
+    "imgs/container-nested-2.excalidraw.md",
+    "imgs/container-nested-2.excalidraw.svg",
+    "imgs/container-nested-1.excalidraw.svg",
+    "imgs/container-nested-1.excalidraw.md",
+    "frontend/Advanced/files/FunnyView.wl",
+    "frontend/Advanced/files/Column.wl",
+    "frontend/Customizing IO/Canvas.md",
+    "imgs/virtualContainer.excalidraw.md",
+    "fullstack/intro.md",
+    "fullstack/IO Blocks.md",
+    "fullstack/From notebook to page.md",
+    "fullstack",
+    "frontend/Advanced/files",
     "frontend/Tutorial/Plugins.md",
     "frontend/Export/PDF.md",
     "frontend/Export/React component.md",
     "frontend/Tutorial/Cells structure.md",
-    "frontend/Tutorial/Export notebook.md",
-    "frontend/Tutorial/GUI Overview.md",
-    "frontend/Tutorial/Plotting functions.md",
-    "frontend/Expressions representation.md",
-    "frontend/Decorations.md",
     "frontend/Cell types/Wolfram Language.md",
     "frontend/introduction.md",
-    "interpreter/Advanced/containers.md",
-    "frontend/Customizing IO/Boxes.md",
     "frontend/Customizing IO/Boxes",
-    "frontend/Customizing IO/Custom cells.md",
-    "frontend/Customizing IO/UI elements.md",
-    "frontend/Development/Making new cell types/Processors.md",
     "frontend/Development/Making new UI elements",
     "frontend/Development/Making new cell types",
-    "frontend/Tutorial/Dynamics.md",
-    "frontend/Cell types/Javascript.md",
-    "frontend/Evaluation/Dynamic.md",
-    "frontend/Evaluation/Static.md",
     "frontend/Customizing output/Making Frontend Views for symbols._md",
     "frontend/Development/_category_ copy.json",
     "frontend/Export/_category_.json",
-    "frontend/Advanced/_category_.json",
-    "frontend/Cell types/_category_.json",
-    "frontend/Evaluation/_category_.json",
     "imgs/tutor-1-img-emptycell.png",
     "imgs/tutor-1-img-contourplot.png",
     "imgs/tutor-1-img-consolelog.png",
@@ -271,8 +236,6 @@
     "imgs/Screenshot 2023-03-31 at 16.09.54.png",
     "imgs/Screenshot 2023-03-31 at 16.09.04.png",
     "imgs/Screenshot 2023-03-31 at 16.07.58.png",
-    "imgs/Screenshot 2023-03-31 at 16.06.38.png",
-    "imgs/Screenshot 2023-03-31 at 16.01.28.png",
-    "imgs/Screenshot 2023-03-31 at 15.59.37.png"
+    "imgs/Screenshot 2023-03-31 at 16.06.38.png"
   ]
 }

@@ -12,7 +12,7 @@ const config = {
   onBrokenLinks: 'log',
   onBrokenMarkdownLinks: 'log',
   title: 'WLJS',
-  tagline: 'Open-source Wolfram Frontend & Interpreter written in Javascript',
+  tagline: 'Open-source Wolfram Frontend & Interpreter & Fullstack Framework written in Javascript',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -98,7 +98,13 @@ const config = {
             sidebarId: 'frontendSidebar',
             position: 'left',
             label: 'Frontend',            
-          },    
+          }, 
+          {
+            type: 'docSidebar',
+            sidebarId: 'webSidebar',
+            position: 'left',
+            label: 'Web Apps',            
+          },              
           /*{to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/JerryI/wolfram-js-frontend',

@@ -21,7 +21,7 @@ i.e. this is an executable object, written as a sort of computable WL functions.
 
 The power of Mathematica's frontend, that it expands and follows the paradigm of WL, where 
 
-> Everything is symbol
+> Everything is an expression
 
 to all interactive objects, including mostly graphics. It makes you feel like you are still operating a bunch of symbolic expressions underneath it
 

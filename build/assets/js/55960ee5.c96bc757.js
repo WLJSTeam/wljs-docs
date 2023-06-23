@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwljs_docs=self.webpackChunkwljs_docs||[]).push([[4121],{8070:s=>{s.exports=JSON.parse('[{"label":"excalidraw","permalink":"/wljs-docs/docs/tags/excalidraw","count":18}]')}}]);
