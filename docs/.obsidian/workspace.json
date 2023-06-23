@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Advanced/front-end-functions.md",
                 "mode": "source",
                 "source": false
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Advanced/front-end-functions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Advanced/front-end-functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md"
+                "file": "frontend/Advanced/front-end-functions.md"
               }
             }
           }
@@ -191,6 +191,16 @@
   },
   "active": "dba664960fa1ee87",
   "lastOpenFiles": [
+    "frontend/Advanced/executables.md",
+    "frontend/Advanced/Event-generators.md",
+    "frontend/Customizing IO/Boxes.md",
+    "frontend/Customizing IO/Canvas.md",
+    "frontend/Export/React component.md",
+    "frontend/Tutorial/Plugins.md",
+    "frontend/Expressions representation.md",
+    "frontend/Mathematica vs WLJS.md",
+    "frontend/Advanced/front-end-functions.md",
+    "frontend/Tutorial/Cells structure.md",
     "frontend/Tutorial/Dynamics.md",
     "frontend/Tutorial/Export notebook.md",
     "frontend/Tutorial/GUI Overview.md",
@@ -198,11 +208,6 @@
     "frontend/Tutorial/Plotting functions.md",
     "frontend/instruction.md",
     "frontend/Decorations.md",
-    "frontend/Expressions representation.md",
-    "frontend/Mathematica vs WLJS.md",
-    "frontend/Advanced/executables.md",
-    "frontend/Advanced/front-end-functions.md",
-    "frontend/Advanced/Event-generators.md",
     "frontend/Advanced/frontend-objects.md",
     "imgs/container-nested-2.excalidraw.md",
     "imgs/container-nested-2.excalidraw.svg",
@@ -210,19 +215,14 @@
     "imgs/container-nested-1.excalidraw.md",
     "frontend/Advanced/files/FunnyView.wl",
     "frontend/Advanced/files/Column.wl",
-    "frontend/Customizing IO/Canvas.md",
     "imgs/virtualContainer.excalidraw.md",
     "fullstack/intro.md",
     "fullstack/IO Blocks.md",
     "fullstack/From notebook to page.md",
     "fullstack",
     "frontend/Advanced/files",
-    "frontend/Tutorial/Plugins.md",
     "frontend/Export/PDF.md",
-    "frontend/Export/React component.md",
-    "frontend/Tutorial/Cells structure.md",
     "frontend/Cell types/Wolfram Language.md",
-    "frontend/introduction.md",
     "frontend/Customizing IO/Boxes",
     "frontend/Development/Making new UI elements",
     "frontend/Development/Making new cell types",

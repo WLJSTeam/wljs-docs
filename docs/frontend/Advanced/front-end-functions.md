@@ -1,10 +1,10 @@
 ---
 sidebar_position: 2
 ---
+# Functions
 :::danger
 Is in development
 :::
-# Functions
 To have an overview of all function - see [reference](../../interpreter/Extras/reference.md)
 Let us start from the simplest stuff
 

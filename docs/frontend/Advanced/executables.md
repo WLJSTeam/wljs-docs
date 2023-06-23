@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 ---
+# Working with containers
 :::danger
 This chapter is a mess, sorry ;()
 > @JerryI
 
 :::
-# Working with containers
 
 import Component from '@site/src/components/wljs-notebook-react/includes';
 import Notebook from '@site/src/components/wljs-notebook-react';
@@ -282,7 +282,7 @@ or if you do not want CM6 to draw it
 FrontEndRef["a"] = Table[i^3, {i,1,10}]
 ```
 
-![[../../imgs/plotly-dynamic.gif]]
+![plotly-dynamic](../../imgs/plotly-dynamic.gif)
 
 In principle one can send any command to be executed on the frontend using `FrontSubmit` see [Dynamics](../Tutorial/Dynamics.md)
 
@@ -328,7 +328,7 @@ Do[
 
 After than you will see a nice animation of the output of second cell without actual reevaluation
 
-![[../../imgs/plotly-dynamic.gif]]
+![plotly-dynamic](../../imgs/plotly-dynamic.gif)
 
 One could argue that this is an actual reevaluation, which might be quite slow. However, during this process __an additional information to the whole stack of called functions is provided regarding a type of an update, i.e. restyling, data update, data append and etc__. Therefore, each WLJS function can optimize its behavior to gain performance - see section `Methods` in [wljs architecture](../../interpreter/Advanced/architecture.md)
 
