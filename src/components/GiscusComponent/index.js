@@ -8,7 +8,7 @@ export default function GiscusComponent() {
   return (
     <Giscus    
       repo="JerryI/wljs-docs"
-      repoId="wljs-docs"
+      repoId="MDEwOlJlcG9zaXRvcnkxODk2MjE2MDc="
       category="General"
       categoryId="DIC_kwDOJt0OyM4CX4n6"  // E.g. id of "General"
       mapping="url"                        // Important! To map comments to URL

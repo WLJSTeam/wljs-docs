@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwljs_docs=self.webpackChunkwljs_docs||[]).push([[6362],{2600:s=>{s.exports=JSON.parse('{"label":"frontend","permalink":"/wljs-docs/blog/tags/frontend","allTagsPath":"/wljs-docs/blog/tags","count":4}')}}]);
