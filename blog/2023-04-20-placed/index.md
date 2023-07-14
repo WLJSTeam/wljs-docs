@@ -8,6 +8,12 @@ enableComments: true
 ![](screenshot(5).png)
 To add new elements to a plot / graph there is no need in full reevaluation of a cell or using dynamic binding. Since the context of executing is stored together with an object, one can simply evaluate (in-place) the needed expression.
 <!--truncate-->
+
+import Component from '@site/src/components/wljs-notebook-react/includes';
+import Notebook from '@site/src/components/wljs-notebook-react';
+
+<Component></Component>
+
 Let's have a look at the following example
 
 ```mathematica
