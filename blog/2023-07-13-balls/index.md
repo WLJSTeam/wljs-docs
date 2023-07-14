@@ -3,6 +3,7 @@ slug: balls-example
 title: Interactive graphics example
 authors: jerryi
 tags: [frontend, dynamics]
+enableComments: true
 ---
 
 import Component from '@site/src/components/wljs-notebook-react/includes';

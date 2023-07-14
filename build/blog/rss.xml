@@ -40,5 +40,17 @@
             <category>dynamics</category>
             <category>events</category>
         </item>
+        <item>
+            <title><![CDATA[middleware]]></title>
+            <link>https://jerryi.github.io/wljs-docs/blog/2023/05/11/middleware</link>
+            <guid>https://jerryi.github.io/wljs-docs/blog/2023/05/11/middleware</guid>
+            <pubDate>Thu, 11 May 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[placed]]></title>
+            <link>https://jerryi.github.io/wljs-docs/blog/2023/04/20/placed</link>
+            <guid>https://jerryi.github.io/wljs-docs/blog/2023/04/20/placed</guid>
+            <pubDate>Thu, 20 Apr 2023 00:00:00 GMT</pubDate>
+        </item>
     </channel>
 </rss>

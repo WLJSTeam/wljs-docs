@@ -51,4 +51,16 @@
         <category label="dynamics" term="dynamics"/>
         <category label="events" term="events"/>
     </entry>
+    <entry>
+        <title type="html"><![CDATA[middleware]]></title>
+        <id>https://jerryi.github.io/wljs-docs/blog/2023/05/11/middleware</id>
+        <link href="https://jerryi.github.io/wljs-docs/blog/2023/05/11/middleware"/>
+        <updated>2023-05-11T00:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[placed]]></title>
+        <id>https://jerryi.github.io/wljs-docs/blog/2023/04/20/placed</id>
+        <link href="https://jerryi.github.io/wljs-docs/blog/2023/04/20/placed"/>
+        <updated>2023-04-20T00:00:00.000Z</updated>
+    </entry>
 </feed>

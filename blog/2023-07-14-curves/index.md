@@ -3,6 +3,7 @@ slug: curvesfit-example
 title: Interactive curves fitting example
 authors: jerryi
 tags: [frontend, dynamics, fitting]
+enableComments: true
 ---
 
 import Component from '@site/src/components/wljs-notebook-react/includes';

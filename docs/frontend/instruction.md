@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+enableComments: true
 ---
 # Quick start
 Frontend __does not require anything installed__ apart from `wolframscript` (see Freeware [Wolfram Engine](https://www.wolfram.com/engine/) or Wolfram Kernel). 
