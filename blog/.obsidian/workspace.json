@@ -1,0 +1,165 @@
+{
+  "main": {
+    "id": "dce48ea393c96a70",
+    "type": "split",
+    "children": [
+      {
+        "id": "e94c97d50c178152",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "664ad1d00a81af99",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2023-06-10-events.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e6fb3363694addcc",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ab899f4c32cf054",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da28561d70fe6d3c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "74f54afdf426c321",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "aa58cea2cf6212f7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "420f44f8eca0a7b9",
+    "type": "split",
+    "children": [
+      {
+        "id": "e3dc21d21f30a3d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d4206c9b4e78ee2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2023-06-10-events.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b851d0d5cf322486",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2023-06-10-events.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a8c5bdbcafea3224",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d8b220da886794ed",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2023-06-10-events.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "664ad1d00a81af99",
+  "lastOpenFiles": [
+    "2023-07-13-balls/index.md",
+    "2023-07-14-curves/index.md",
+    "2023-06-10-events.md",
+    "2023-06-10-events",
+    "2023-07-14-curves/CurvesFit.wl",
+    "2023-07-14-curves/ezgif.com-video-to-gif-18.gif",
+    "2023-07-14-curves",
+    "2023-07-13-balls/ezgif.com-video-to-gif-17.gif",
+    "2023-07-13-balls/ezgif.com-video-to-gif-16.gif",
+    "2023-07-13-balls/Balls.nb",
+    "2023-07-13-balls/Balls.wl",
+    "2023-07-13-balls/docusaurus-plushie-banner.jpeg"
+  ]
+}

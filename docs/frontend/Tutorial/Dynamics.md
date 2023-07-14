@@ -185,6 +185,7 @@ It looks similar to Mathematica's implementation, where one can add an event han
 The following event are available
 - `drag` - provides a list of two coordinates
 - `zoom` - provides one relative scaling number
+- `click` - provides coordinates, where the cursor clicked
 
 :::note
 Event handlers wrapped around graphics primitives are parts of [wljs-graphics-d3](https://github.com/JerryI/wljs-graphics-d3) library.
@@ -196,6 +197,8 @@ Inline event handlers defined around `Graphics` primitives are executed on Wolfr
 
 Download notebook
 __[InteractiveGraphics](files/InteractiveGraphics.wl)__
+
+
 
 
 

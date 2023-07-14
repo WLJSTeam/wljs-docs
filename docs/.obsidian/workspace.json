@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/front-end-functions.md",
+                "file": "frontend/Tutorial/Dynamics.md",
                 "mode": "source",
                 "source": false
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Advanced/front-end-functions.md",
+                "file": "frontend/Tutorial/Dynamics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Advanced/front-end-functions.md",
+                "file": "frontend/Tutorial/Dynamics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Advanced/front-end-functions.md"
+                "file": "frontend/Tutorial/Dynamics.md"
               }
             }
           }
@@ -191,23 +191,39 @@
   },
   "active": "dba664960fa1ee87",
   "lastOpenFiles": [
+    "frontend/Tutorial/Export notebook.md",
+    "frontend/Tutorial/GUI Overview.md",
+    "frontend/Tutorial/Input elements.md",
+    "frontend/Tutorial/Plotting functions.md",
+    "frontend/Mathematica vs WLJS.md",
+    "frontend/Examples",
+    "frontend/Tutorial/Dynamics.md",
+    "frontend/Expressions representation.md",
+    "imgs/Screenshot 2023-07-12 at 23.48.08.png",
+    "imgs/Screenshot 2023-07-09 at 11.02.53.png",
+    "imgs/Screenshot 2023-07-07 at 22.25.05.png",
+    "imgs/Screenshot 2023-07-06 at 19.16.12.png",
+    "frontend/Decorations.md",
+    "imgs/Screenshot 2023-07-06 at 18.00.15.png",
+    "frontend/instruction.md",
+    "fullstack/From notebook to a web page.md",
+    "fullstack/IO Blocks.md",
+    "fullstack/intro.md",
+    "graphics/graphics.md",
+    "frontend/Advanced/front-end-functions.md",
+    "blog/2021-08-26-welcome/index.md",
+    "blog/2021-08-26-welcome/docusaurus-plushie-banner.jpeg",
+    "blog/authors.yml",
+    "blog/2021-08-26-welcome",
+    "blog/2021-08-01-mdx-blog-post.mdx",
+    "blog",
     "frontend/Advanced/executables.md",
     "frontend/Advanced/Event-generators.md",
     "frontend/Customizing IO/Boxes.md",
     "frontend/Customizing IO/Canvas.md",
     "frontend/Export/React component.md",
     "frontend/Tutorial/Plugins.md",
-    "frontend/Expressions representation.md",
-    "frontend/Mathematica vs WLJS.md",
-    "frontend/Advanced/front-end-functions.md",
     "frontend/Tutorial/Cells structure.md",
-    "frontend/Tutorial/Dynamics.md",
-    "frontend/Tutorial/Export notebook.md",
-    "frontend/Tutorial/GUI Overview.md",
-    "frontend/Tutorial/Input elements.md",
-    "frontend/Tutorial/Plotting functions.md",
-    "frontend/instruction.md",
-    "frontend/Decorations.md",
     "frontend/Advanced/frontend-objects.md",
     "imgs/container-nested-2.excalidraw.md",
     "imgs/container-nested-2.excalidraw.svg",
@@ -215,27 +231,10 @@
     "imgs/container-nested-1.excalidraw.md",
     "frontend/Advanced/files/FunnyView.wl",
     "frontend/Advanced/files/Column.wl",
-    "imgs/virtualContainer.excalidraw.md",
-    "fullstack/intro.md",
-    "fullstack/IO Blocks.md",
-    "fullstack/From notebook to page.md",
     "fullstack",
     "frontend/Advanced/files",
-    "frontend/Export/PDF.md",
-    "frontend/Cell types/Wolfram Language.md",
     "frontend/Customizing IO/Boxes",
-    "frontend/Development/Making new UI elements",
-    "frontend/Development/Making new cell types",
-    "frontend/Customizing output/Making Frontend Views for symbols._md",
-    "frontend/Development/_category_ copy.json",
-    "frontend/Export/_category_.json",
     "imgs/tutor-1-img-emptycell.png",
-    "imgs/tutor-1-img-contourplot.png",
-    "imgs/tutor-1-img-consolelog.png",
-    "imgs/Screenshot 2023-03-31 at 16.15.21.png",
-    "imgs/Screenshot 2023-03-31 at 16.09.54.png",
-    "imgs/Screenshot 2023-03-31 at 16.09.04.png",
-    "imgs/Screenshot 2023-03-31 at 16.07.58.png",
-    "imgs/Screenshot 2023-03-31 at 16.06.38.png"
+    "imgs/tutor-1-img-contourplot.png"
   ]
 }

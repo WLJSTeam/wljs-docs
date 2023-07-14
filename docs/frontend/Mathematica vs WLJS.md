@@ -1,3 +1,91 @@
-:::danger
-Is in development
+---
+sidebar_position: 7
+---
+
+import Component from '@site/src/components/wljs-notebook-react/includes';
+import Notebook from '@site/src/components/wljs-notebook-react';
+
+<Component></Component>
+
+From the first sight, it feels similar, however there are some key difference compared to the way how you work with Mathematica's frontend and WLJS.
+
+:::caution
+Not even 10% of the functions of Mathematica's frontend were implemented. It is not possible in general due to obvious reasons (paid software, a large team and many years of development process)
 :::
+
+## UI & Cells operation
+Mathematica is a desktop application, while WLJS Frontend __is a web-based__, since it runs a web-server to which you connect using any modern browser.
+
+WLJS Frontend __is decoupled from the computing Wolfram Kernel__. Whatever happens to the secondary Kernel, __it will not lead to the data loss__.
+
+Cell's __structure is flat__, while in Mathematica Notebooks it is nested.
+
+## Mathematical input
+The goal is to make it as close as possible to Mathematica. Most functions are recreated and shortcuts are preserved.
+
+<div style={{ width: '50%', float: 'left', clear: 'left' }}>
+
+![](../imgs/Screenshot%202023-07-06%20at%2018.00.15.png)
+
+</div>
+
+<div style={{ width: '50%', float: 'right', clear: 'right' }}>
+
+<Notebook code="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" name="undesirably-3ac86">undesirably-3ac86</Notebook>
+
+</div>
+
+There are less complexity involved in an expression representation compared to Mathematica (see more @ [Expressions representation](Expressions%20representation.md)).
+
+:::danger
+Navigation between mathematical expressions is currently in development. It does require a mouse pointer to move the cursor inside the inner blocks.
+:::
+
+## Input elements
+`Slider` and most Mathematica's input elements are replaced with [wljs-inputs](https://github.com/JerryI/wljs-inputs) and event-based approach. For example
+
+<div style={{ width: '50%', float: 'left', clear: 'left' }}>
+
+![](../imgs/Screenshot%202023-07-06%20at%2019.16.12.png)
+
+</div>
+
+<div style={{ width: '50%', float: 'right', clear: 'right' }}>
+
+<Notebook code="H4sIACHgp2QAA+1aW2/cuBX+K+q8ZAuYMu+UkmyA7iBFFnD7sAX8UNtINZLG1mIiDST5kv31/Q4lamYcx7HTpltkNbZHOuTh4bl9RxTps7OzRVqkMrHcMW5Ky7TIHctW+RpfQpQuzVxR2sXR2eKXrL4sT6vyloiTqusXR/xIHPGY/swFcVxvysXR4sXbm7LuX9CdWIlVAQEscSvDdL5asUwIxay0midJmeWFeLG4wOcImvy1ber+bV0s2zLry2W52ZCM112Z91VTR/km67ofzxc5Othtm223ZRutaUxZF6xuivJ8EUVd/3FTgqvZZnnVf3wZiVfnizfndYTP66K6mcT0TbMTQ6NZV/Z9VV92LPMTdjvhxNtBeu7pviyqPlv5adbZpsO84wRhkj3y4XnRcDBo4lxd9z1s7T9uSfpAPTbxJHbV1/etKIoH5/DzVB8uo9uq6K8wVBjIuSqry6s+UF2b4/a4u7k8hpgYV1AP6Xs8qPiIKZ9X8KryIXuyrZ+zBdpFN0jMn5o7MPOIR1LjF6KytspomqKsyfPt9b7HcLuuNhvKqOu2xYzLZtO0aL37sKmJ4arvty+Pj29vb+NbFTft5bHknJNT9qQUbXb5Hk3v3/+DMq/4Ger/lHUlK7P0evMr49GOo7r++y/Nmtw7JqmPAFI02d69GiMQqJyUeRm1l6vsB2OOIqOOIu2OIh6rP+8y+kF/bLP+apqib7O6Wzfth5dRl2eb8gcZcxIQFej8m425dEpHSZzgRi9tLJ3QSaAjG2snLNHUTLS1UgjQRmhrTgSPZcJVpONEKqmXoLUEv46tw08E2oDQqeVpIGQipCFOE6k4McJ4Ni9eoS2NnVRW0f0yjQ1PXDq2K54Yf5+4JAUtjITqKnY65fIEpigpFVRMrU1OZJxyJ2XoXkpcSYkwXMbGcJd40TJWSnBSB3phnFDOtwvwaEtjRjVHerJhokcDYytdSt4YrY+d01oE75yYWKXSkDe995Zm1IW8mzoVmdglCd/3/kF0/omwvz6m6D4c/deUms8E6Z8Y+zJQKYN/B6B+x+j8tAbVTU02e1TCM1dS30j9jp/y374Q9YelejkAqkhyjjwULEbKMxnJjknc40tGdBkacYsv+dsHtCc5A3/EJ4Zu6KSfUcoogGEAZ/ZZ/DbSuWefOrupd5IwqkMKge95+kTP0uerfDuX1rm03i+tjH11df1vLoOmJZ09WNIRdVh4BVxIrYfVJyj5a3fHVIKgOicT1Oc3AwaImbVY5YOlxCK/oRUmBlXbT1uHAkSpQtFTMbeJXYJW+BBtTYLqhDBLPAMEfpG0hhJBv0Nqngr5bmxZgokjiSIhiV9xYhJxogXkihhK+nabCGCE0sQ6LxcZTVckqu/HG4e/jvQpSSf+gQbWJGUVaMUFASXlBnpKgCdKSW+DVFGpS8CsYgkqXJcTLYFoKONimypL+tJgF0Nh563wolEGgPOdKkhMJzWmmmhzulNMY5BJfK83jOAgtDfQG65jJRLrDfeO0UDu4Ffvsp1bvVdP8BcdONZ7H8qMccHFu3UMGy5KKDCqWMMIAi686sM3agevCmgz0tCcnBooXJwZerUky4WWzvsvFcb4AuiE91+aYnIUQFRIJEDMU0XdTquBlgp10ALpziEWsNmiiKEY4VWSEiY2aeIiTGQid+oZfAPsGFnTGC+bltJsEIX6Bg0FcfqpUgTQSp+mXhPUQzeSpCi8JmUivWFkSIqaBVxMZlP2IIb7NBIY4gNNoUdtCm6kRIHgyc0jOlCDAhwfXFfsStQOjZ/nfT5YoUWaEshGsAKj1jqoOYIVued8PDVCq+lDYLUDWMeWpfaPCAIDlepUU4BGsCIsAJCnPVgRHKdQggNYERzn8NgIYN3RA1gnegQrZV+KqQJY6VGSpqCh+Q6teDgROIcLPaqIAoMkVQJUw9AA1iA6gDVMHcC6owmsgQpgDYYFsAbDA1iDY0awBpft3Oq9iqcugXXn2MH79Ngd4jKCNYQtgBWlShOWA1jlpN0A1kAPYJ2oEaygDT03A1ixpEk0bAhgBc0tnqcBrMhgq+0OrLGzKXGPWI2tUlB1wmqssQJAUYxE5E6AJHAMLf4J73knsA6iJqyOMwWsBkVGrAY9A1aDHQGrwc6A1T3aY3WiR6wGLwas3gPHl9YLX7FgeH18uHG0T4d7+vlkQ2lcKIS9LMC5IjzztUpXNpFMyVJjX08X2NLLEganuqJY2zU2+A4WE/fU2R5uuG0zvChhBtSdsCu2a4qohoC4vLc59WRFGGNVvb3uB7c+tn22abKibNmmqsto755VxYbWRve9eP8u9CM+w7biG2xUni3+0nVNXmXU4Pc6x53MqvDbmE+xANuYewO76rL2Q/Omra/zZovXW1lioXrIRms+z+aNP+wrsj7zfXfRjxF/dV7/TDx+F/Zs3Hi9iI6PI6iOyc7uLg6H51fVZtB+vNvvROTCFm243e+uy7uhc7g5GNmWN8M4f3PY1Wy7x7w5vN+Dw6eH3/TdWVt12032cfRZUX6o2rZp7zm1x7bw4C4E2+8bo/fhXeMp3s9J4+a6h4sZMT6W0ChHeKdYY59cm5Jpo9YsWVvBcp6jdSVFVq6R0IO0KaPPyfIvZdpTRP9nmTZo9ZlUC758e1fm1/614+z8SQcE54s5/eZDi/nQYj60mA8t5p21+dDiu0TnfGgxH1rMpfU7Kq3zocV8aDEfWsyHFvOhxXxoMR9azIcWv/+hBZZLSVFgNZ/JJGU6k9hpxzOBlWKdG7MuAaHDxcS3OrR4iiL/34cWT7HgGx5azNvB/6PTiDQzKrO5YEbT/9jr1LGkVAVL8e/2meWWc/e1pxFPEf0NTyPw7vivP2IaXVz8GyDCxlCYMQAA" name="cornucopia-2e324">cornucopia-2e324</Notebook>
+
+</div>
+
+
+:::info
+Here `Assign[x]` function is equivalent to
+```mathematica
+EventHandler[#, Function[data, x = data]]&
+```
+:::
+
+## Boxes
+Most boxes are not available (for example the output of `Now`) excluding most common that comes with math, i.e. `Grid`, `Column`, `Fraction`... See more @ [Decorations](Decorations.md) 
+
+## Dynamics
+There is such thing as `Dynamic` and `DynamicModule` in WLJS Frontend compared to Mathematica. The dynamic binding happens between a specific expressions (__if they support__) and does not necessary cause a full reevaluation
+
+<div style={{ width: '50%', float: 'left', clear: 'left' }}>
+
+![](../imgs/Screenshot%202023-07-09%20at%2011.02.53.png)
+
+</div>
+
+<div style={{ width: '50%', float: 'right', clear: 'right' }}>
+<Notebook code="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" name="inbred-18d12">inbred-18d12</Notebook>
+
+![](../imgs/Screenshot%202023-07-12%20at%2023.48.08.png)
+
+</div>
+
+:::info
+Here `Plot` expression does not support dynamic updates, therefore a user has to implement it manually using `ListLinePlotly` function. 
+:::
+
+
+

@@ -103,10 +103,10 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'webSidebar',
             position: 'left',
-            label: 'Web Apps',            
+            label: 'Hydrator',            
           },              
-          /*{to: '/blog', label: 'Blog', position: 'left'},
-          {
+          {to: '/blog', label: 'Blog', position: 'left'},
+          /*{
             href: 'https://github.com/JerryI/wolfram-js-frontend',
             label: 'GitHub',
             position: 'right',
@@ -136,10 +136,10 @@ const config = {
           {
             title: 'More',
             items: [
-              /*{
+              {
                 label: 'Blog',
                 to: '/blog',
-              },*/
+              },
               {
                 label: 'GitHub Frontend',
                 href: 'https://github.com/JerryI/wolfram-js-frontend',

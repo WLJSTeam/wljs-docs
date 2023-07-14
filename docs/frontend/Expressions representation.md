@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 The aim is to make a compromise between `DisplayForm` and `InputForm` representations Wolfram Expressions on the frontend's side.
 
