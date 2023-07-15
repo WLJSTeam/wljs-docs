@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jerryi.github.io/wljs-docs/blog</id>
     <title>WLJS Blog</title>
-    <updated>2023-07-14T00:00:00.000Z</updated>
+    <updated>2023-07-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jerryi.github.io/wljs-docs/blog"/>
     <subtitle>WLJS Blog</subtitle>
     <icon>https://jerryi.github.io/wljs-docs/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Hydrator (HTML) experimantal feature]]></title>
+        <id>https://jerryi.github.io/wljs-docs/blog/hydrator-xp</id>
+        <link href="https://jerryi.github.io/wljs-docs/blog/hydrator-xp"/>
+        <updated>2023-07-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Here is an experimental feature provided by wljs-hydrator engine, that simply renders frontend object into a given div element]]></summary>
+        <content type="html"><![CDATA[<div id="helmet"></div><p>Here is an experimental feature provided by <a href="https://github.com/JerryI/wljs-hydrator" target="_blank" rel="noopener noreferrer">wljs-hydrator</a> engine, that simply renders frontend object into a given <code>div</code> element</p><main id="frontend-editor" class="main-container styles-container-editor"><div id="frontend-editor-content" class="group-container"><div id="seasonably-220a6"></div></div></main>]]></content>
+        <author>
+            <name>Kirill Vasin</name>
+            <uri>https://github.com/JerryI</uri>
+        </author>
+        <category label="frontend" term="frontend"/>
+        <category label="html" term="html"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Interactive curves fitting example]]></title>
         <id>https://jerryi.github.io/wljs-docs/blog/curvesfit-example</id>

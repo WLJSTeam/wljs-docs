@@ -4,10 +4,20 @@
         <title>WLJS Blog</title>
         <link>https://jerryi.github.io/wljs-docs/blog</link>
         <description>WLJS Blog</description>
-        <lastBuildDate>Fri, 14 Jul 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Jul 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Hydrator (HTML) experimantal feature]]></title>
+            <link>https://jerryi.github.io/wljs-docs/blog/hydrator-xp</link>
+            <guid>https://jerryi.github.io/wljs-docs/blog/hydrator-xp</guid>
+            <pubDate>Sat, 15 Jul 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Here is an experimental feature provided by wljs-hydrator engine, that simply renders frontend object into a given div element]]></description>
+            <content:encoded><![CDATA[<div id="helmet"></div><p>Here is an experimental feature provided by <a href="https://github.com/JerryI/wljs-hydrator" target="_blank" rel="noopener noreferrer">wljs-hydrator</a> engine, that simply renders frontend object into a given <code>div</code> element</p><main id="frontend-editor" class="main-container styles-container-editor"><div id="frontend-editor-content" class="group-container"><div id="seasonably-220a6"></div></div></main>]]></content:encoded>
+            <category>frontend</category>
+            <category>html</category>
+        </item>
         <item>
             <title><![CDATA[Interactive curves fitting example]]></title>
             <link>https://jerryi.github.io/wljs-docs/blog/curvesfit-example</link>
