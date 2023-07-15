@@ -7,7 +7,7 @@ export default function GiscusComponent() {
 
   return (
     <Giscus    
-      repo="JerryI/wljs-docs"
+      repo="JerryI/wljs-docs"n
       repoId="MDEwOlJlcG9zaXRvcnkxODk2MjE2MDc="
       category="General"
       categoryId="DIC_kwDOJt0OyM4CX4n6"  // E.g. id of "General"
