@@ -58,6 +58,11 @@ const config = {
         rehypePlugins: [katex],
 
         },
+
+        blog: {
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
