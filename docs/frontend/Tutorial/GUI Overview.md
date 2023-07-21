@@ -54,3 +54,16 @@ On the left side the file explorer is located, by clicking on a magnification gl
 ![](../../imgs/Screenshot%202023-06-10%20at%2015.39.22.png)
 
 </div>
+
+
+### Project cell's output to the separate window
+:::caution
+In development
+:::
+Using the keyword
+
+```mathematica
+// WindowProjector
+```
+
+One can redirect the output to a new window maintaining the dynamics and user input intact. [Based on this](https://blog.bitsrc.io/4-ways-to-communicate-across-browser-tabs-in-realtime-e4f5f6cbedca) technology.

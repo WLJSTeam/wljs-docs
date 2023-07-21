@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Customizing IO/HTML Template.md",
+                "file": "wsx/intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Customizing IO/HTML Template.md",
+                "file": "wsx/intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Customizing IO/HTML Template.md",
+                "file": "wsx/intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Customizing IO/HTML Template.md"
+                "file": "wsx/intro.md"
               }
             }
           }
@@ -191,17 +191,19 @@
   },
   "active": "dba664960fa1ee87",
   "lastOpenFiles": [
+    "frontend/Mathematica vs WLJS.md",
+    "wsx/intro.md",
     "fullstack/From notebook to a web page.md",
+    "wsx",
     "fullstack/IO Blocks.md",
     "fullstack/intro.md",
+    "frontend/Tutorial/GUI Overview.md",
     "frontend/Customizing IO/HTML Template.md",
     "frontend/Customizing IO/Canvas.md",
     "frontend/Tutorial/Dynamics.md",
     "frontend/Tutorial/Export notebook.md",
-    "frontend/Tutorial/GUI Overview.md",
     "frontend/Tutorial/Input elements.md",
     "frontend/Tutorial/Plotting functions.md",
-    "frontend/Mathematica vs WLJS.md",
     "frontend/Examples",
     "frontend/Expressions representation.md",
     "imgs/Screenshot 2023-07-12 at 23.48.08.png",
@@ -229,12 +231,10 @@
     "imgs/container-nested-2.excalidraw.md",
     "imgs/container-nested-2.excalidraw.svg",
     "imgs/container-nested-1.excalidraw.svg",
-    "imgs/container-nested-1.excalidraw.md",
     "frontend/Advanced/files/FunnyView.wl",
     "frontend/Advanced/files/Column.wl",
     "fullstack",
     "frontend/Advanced/files",
-    "frontend/Customizing IO/Boxes",
     "imgs/tutor-1-img-emptycell.png",
     "imgs/tutor-1-img-contourplot.png"
   ]

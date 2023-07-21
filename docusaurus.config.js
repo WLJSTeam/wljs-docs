@@ -106,9 +106,9 @@ const config = {
           }, 
           {
             type: 'docSidebar',
-            sidebarId: 'webSidebar',
+            sidebarId: 'wsxSidebar',
             position: 'left',
-            label: 'Hydrator',            
+            label: 'WSX',            
           },              
           {to: '/blog', label: 'Blog', position: 'left'},
           /*{
