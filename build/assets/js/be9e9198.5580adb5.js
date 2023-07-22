@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwljs_docs=self.webpackChunkwljs_docs||[]).push([[5698],{3777:s=>{s.exports=JSON.parse('{"label":"devnotes","permalink":"/wljs-docs/blog/tags/devnotes","allTagsPath":"/wljs-docs/blog/tags","count":1}')}}]);

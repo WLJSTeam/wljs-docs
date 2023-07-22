@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "dba664960fa1ee87",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wsx/intro.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "aba2053324417d39",
             "type": "leaf",
             "state": {
@@ -127,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "wsx/intro.md",
+                "file": "frontend/Advanced/executables.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "wsx/intro.md",
+                "file": "frontend/Advanced/executables.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wsx/intro.md"
+                "file": "frontend/Advanced/executables.md"
               }
             }
           }
@@ -189,12 +177,12 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "dba664960fa1ee87",
+  "active": "aba2053324417d39",
   "lastOpenFiles": [
-    "frontend/Mathematica vs WLJS.md",
     "wsx/intro.md",
-    "fullstack/From notebook to a web page.md",
     "wsx",
+    "frontend/Mathematica vs WLJS.md",
+    "fullstack/From notebook to a web page.md",
     "fullstack/IO Blocks.md",
     "fullstack/intro.md",
     "frontend/Tutorial/GUI Overview.md",
@@ -228,7 +216,6 @@
     "frontend/Tutorial/Plugins.md",
     "frontend/Tutorial/Cells structure.md",
     "frontend/Advanced/frontend-objects.md",
-    "imgs/container-nested-2.excalidraw.md",
     "imgs/container-nested-2.excalidraw.svg",
     "imgs/container-nested-1.excalidraw.svg",
     "frontend/Advanced/files/FunnyView.wl",

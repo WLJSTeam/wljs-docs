@@ -4,7 +4,7 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 const list = [
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/src/interpreter.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@latest/src/core.js",
-    "https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@main/dist/kernel.js",
+    "https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/dist/kernel.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@master/src/boxes.js",
     "https://cdn.jsdelivr.net/gh/JerryI/wljs-markdown-support@master/dist/kernel.js",

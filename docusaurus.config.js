@@ -92,24 +92,24 @@ const config = {
             position: 'left', 
             label: 'Interpreter',
           },
-          {
+          /*{
             type: 'docSidebar',
             sidebarId: 'graphicsSidebar',
             position: 'left',
             label: 'Graphics',
-          },      
+          },  */    
           {
             type: 'docSidebar',
             sidebarId: 'frontendSidebar',
             position: 'left',
             label: 'Frontend',            
           }, 
-          {
+          /*{
             type: 'docSidebar',
             sidebarId: 'wsxSidebar',
             position: 'left',
             label: 'WSX',            
-          },              
+          },*/              
           {to: '/blog', label: 'Blog', position: 'left'},
           /*{
             href: 'https://github.com/JerryI/wolfram-js-frontend',
