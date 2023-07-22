@@ -60,7 +60,7 @@ export default function Notebook({children, code, name, width, height}) {
             
             
             
-            console.log(name);
+            console.warn(name);
             
             for (const obj of data[0]) {
                 const o = new ObjectStorage(obj[0]);
@@ -68,6 +68,16 @@ export default function Notebook({children, code, name, width, height}) {
                 o.cached = true;
             }
 
+            if (data.length > 2) {
+                console.warn('symbols restore');
+                console.log(data);
+                for (const obj of data[2]) {
+                    console.log(obj);
+                    //FrontEndRestoreSymbol
+                }
+            }
+
+        
 
 
             for (const obj of data[1]) {
