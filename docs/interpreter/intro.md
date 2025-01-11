@@ -9,7 +9,7 @@ title: ''
 ***written in Javascript***
 
 </div>
-<h4 style={{'text-align': 'center'}}><a href="https://github.com/JerryI/wolfram-js-frontend">Github repository</a> of the project</h4>
+<h4 style={{'text-align': 'center'}}><a href="https://github.com/JerryI/wljs-interpreter">Github repository</a> of the project</h4>
 
 :::note
 This code is executing in your browser now
@@ -18,13 +18,13 @@ This code is executing in your browser now
 
 <iframe style={{border: 'none', 'border-radius': '10px', width: '100%', height: '100%', 'min-height': '500px'}} src="https://jerryi.github.io/wljs-interpreter/?example=boat.txt&logs=false&full=true"></iframe> 
 
-This project is originally a base for [Wolfram Language JS Frontend](https://github.com/JerryI/wolfram-js-frontend), that interprets the results produced by Wolfram Kernel (Wolfram Engine, Mathematica) using the same symbolic expressions for functions, procedures and variables allowing to have dynamic plots, graphics and many more. 
+This project is originally a base for `Graphics3D` to [ThreeJS converter](https://mathematica.stackexchange.com/a/215025/53728) that interprets the results produced by Wolfram Kernel (Wolfram Engine, Mathematica) using the same symbolic expressions for functions, procedures and plots the results using Javascript. Later on it became in integral part of Web Applications framework such as WLX and WLJS Notebook aka Frontend.
 
-This approach was generalized to the standalone interpreter that works in the browser and acts like a bridge between JavaScript world and Wolfram Language expressions. In a combination with [web sockets protocol to communicate with Wolfram Kernel](https://github.com/JerryI/tinyweb-mathematica) it allows making sort of interactive web-applications.
+It was generalized to a standalone interpreter that works in the browser and acts like a bridge between Javascript world and Wolfram Language.
 
 :::info
 
-This is not meant for the heavy computations, the average performance for a synthetic tests __demonstrates ~0.25 computing power compared to the native Wolfram Kernel__. Not all functions supported by Mathematica are implemented, see [Reference](Extras/reference.md).
+This is not meant for the heavy computations, pattern matching is missing as well as an entire standard library.
 
 :::
 

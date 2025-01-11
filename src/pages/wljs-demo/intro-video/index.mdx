@@ -1,0 +1,35 @@
+# Tracking objects in a video
+Import a sample video
+
+*source: https://www.azonano.com/nanotechnology-video-details.aspx?VidID=47*
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/80fd8e49-4821-43db-bc01-7348cc554624.txt').default} notebook={require('./attachments/notebook-80f.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"ee8b024a-a889-403a-8658-81726bf9f5a2"} type={"Input"} opts={{}} >{`video%20%3D%20%28%2A%20import%20a%20video%20here%20%2A%29`}</WLJSEditor>
+
+Extract a frame and find the features
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"debb10e1-8cdd-47a3-95d4-af4fcc787cbc"} type={"Input"} opts={{}} >{`With%5B%7Bframes%20%3D%20VideoExtractFrames%5Bvideo%2C%20%7B1%2C2%7D%5D%7D%2C%0A%20%20HighlightImage%5Bframes%2F%2FFirst%2C%20%7BYellow%2C%20ImageFeatureTrack%5Bframes%2C%20MaxFeatures-%3E25%2C%20Tolerance-%3E0.01%5D%20%2F%2F%20First%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"02f4a28b-353f-47c2-a856-293d5f1bec0a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22383b2c5f-67cb-451c-b4ea-38be171175d1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG1sYJxklm6bpmpknJ%2BmamBom6yaZpCbqGlskpRqaGxqam6YYAgCFyhWb%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Track them in all frames
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"8d6ad469-70f0-4757-9792-7273ab22b6b8"} type={"Input"} opts={{}} >{`features%20%3D%20ImageFeatureTrack%5BVideoExtractFrames%5Bvideo%2C%20All%5D%2C%20MaxFeatures-%3E25%2C%20Tolerance-%3E0.01%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"b4d6067a-8c92-4216-9f3c-629805f1ca7f"} type={"Input"} opts={{}} >{`tracks%20%3D%20Map%5BDeleteMissing%2C%20features%20%2F%2F%20Transpose%5D%3B%0AListLinePlot%5Btracks%2C%20AspectRatio%20-%3E%201%2C%20PlotRange%20-%3E%20All%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"ed9cbc4b-b45d-4d96-83d1-bd435e475e8f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e99d3a72-1456-46ce-8948-39ba26b6fdcf%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1paphgnmhvpGpqYmumamCWn6lpYmljoGlsmJRqZJZmlpSSnAQB9%2BRW8%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Overlay plot with our image
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"014bec05-05e6-4cf1-ac3c-c1ea3c8d26f1"} type={"Input"} opts={{}} >{`HighlightImage%5BVideoExtractFrames%5Bvideo%2C%201%5D%2C%20%7B%0A%20%20Yellow%2C%20Opacity%5B0.3%5D%2C%20Line%20%2F%40%20tracks%0A%7D%5D%3B%0A%0AMagnify%5B%25%2C%202%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"80fd8e49-4821-43db-bc01-7348cc554624"} id={"5d779927-f1fc-485f-8644-38a3c83472fa"} type={"Output"} opts={{}} >{`%28%2ABB%5B%2A%29%28%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ae07abff-e730-4405-9f46-3e9973c4ad50%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6YamCcmpaXpppobG%2BiamBiY6lqmmZjpGqdaWpobJ5skppgaAACMFRWp%22%2A%29%28%2A%5DVB%2A%29%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkAguqcxJdcqvgIiA5INKc1KLeYEM38T0vMy0zOTEksz8PIg8K5AIycxNLc4EczmBhGdeRmpRZklqCpoJPGDDizIL%2FPM88wpKS8B63RJzilMB244hlA%3D%3D%22%2A%29%28%2A%5DBB%2A%29`}</WLJSEditor>

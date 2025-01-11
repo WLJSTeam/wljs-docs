@@ -1,0 +1,16 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "draft": "checkbox",
+    "env": "multitext",
+    "update": "checkbox",
+    "virtual": "checkbox",
+    "needsContainer": "checkbox",
+    "registered": "checkbox",
+    "internal": "checkbox",
+    "": "checkbox",
+    "numericArray": "checkbox"
+  }
+}

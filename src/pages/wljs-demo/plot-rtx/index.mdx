@@ -1,0 +1,29 @@
+# Path-tracing Graphics
+Our rendering engine allows to use path-tracing method (provided by [@gkjohnson](https://github.com/gkjohnson/three-gpu-pathtracer)) to output 3D geometry.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/10858b9c-8559-4c23-b07c-831e0be02f17.txt').default} notebook={require('./attachments/notebook-108.wln').default}/>
+
+
+
+
+**Warning: this is very resource consuming feature**
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"f69ec998-efc6-4a2a-ba42-eb8212daa87e"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225fd39e7f-0161-4a45-97b1-a82408c75df8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6alGFummqfpGhiaGeqaJJqY6lqaJxnqJloYmRhYJJubpqRZAAB%2FbhVR%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"6bf4286f-ef9c-4826-9e15-1a69990af8cd"} type={"Input"} opts={{}} >{`Graphics3D%5B%20Table%5BWith%5B%7Bp%20%3D%20%7Bi%2C%20j%2C%20k%7D%2F5%7D%2C%20%7BRGBColor%5Bp%5D%2C%20Opacity%5B.75%5D%2C%20Cuboid%5Bp%2C%20p%20%2B%20.15%5D%7D%5D%2C%20%7Bi%2C%205%7D%2C%20%7Bj%2C%205%7D%2C%20%7Bk%2C%205%7D%5D%2C%20RTX-%3ETrue%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"de65ae6a-ff83-423b-a61b-c7ea39f06c73"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2294768841-0a94-40c8-a67a-8b2e55769100%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5qYm1lYmBjqGiRamuiaGCRb6CaamSfqWiQZpZqamptZGhoYAABvTRSQ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Another example transformation enables RTX for a regular 3D plot
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"46cb3c6b-77cf-4083-8158-7ece7f522e42"} type={"Input"} opts={{}} >{`Plot3D%5BSin%5Bx%5D%20Cos%5By%5D%2C%20%7Bx%2C-10%2C10%7D%2C%20%7By%2C-10%2C10%7D%5D%5B%5B1%5D%5D%3B%0AGraphics3D%5B%7B%25%2C%20Graphics3D%60Materials%5B%22Glass%22%5D%2C%20Red%2C%20Sphere%5B%7B0%2C0%2C2%7D%2C%204%5D%7D%2C%20RTX-%3ETrue%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"03060eec-d8ff-4799-b79b-5ecc16c17e20"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2217095412-a398-40c7-b6ee-ee62d6f3e363%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5obWJqaGBrpJhpbWuiaGCSb6yaZpabqpqaaGaWYpRmnGpsZAwB0ohVL%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"d6998c88-0853-4e1d-a317-ef1aa0c10a8f"} type={"Input"} opts={{}} >{`RegionPlot3D%5Bx%20y%20z%20%3C%201%2C%20%7Bx%2C%20-5%2C%205%7D%2C%20%7By%2C%20-5%2C%205%7D%2C%20%7Bz%2C%20-5%2C%205%7D%2C%20%0A%20%20%20PlotStyle%20-%3E%20%7BDirective%5BCyan%2C%20%22Roughness%22-%3E0.0%5D%7D%2C%20%0A%20%20%20Mesh%20-%3E%20None%2C%20%0A%20%20%20Lighting-%3E%7B%0A%20%20%20%20%20SpotLight%5BGreen%2C%20%7B-2.7718%2C%20-8.7007%2C%208.1559%7D%5D%2C%20%0A%20%20%20%20%20SpotLight%5BRed%2C%20%7B-2.7718%2C%208.7007%2C%208.1559%7D%5D%0A%20%20%7D%0A%5D%3B%0AInsert%5B%25%2C%20RTX-%3EFalse%2C%20%7B-1%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"10858b9c-8559-4c23-b07c-831e0be02f17"} id={"746bee41-cb6b-4760-bc92-5139947f224e"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d71cce8a-3023-46a5-85f5-f7baa4e58e9b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gbJienWiTqGhsYGeuamCWa6lqYppnqppknJSaapJpapFomAQCJChYK%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

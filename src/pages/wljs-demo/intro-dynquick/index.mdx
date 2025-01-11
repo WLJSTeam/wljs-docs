@@ -1,0 +1,27 @@
+## How to quickly convert any Input element to a dynamic symbol
+There is a built-in convertor function, it generates a symbol and covers it with a slider (by alternating the output form). The slider generates events, which mutate the generated symbol
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/217b41b6-089a-41d3-b832-2b73af9014c7.txt').default} notebook={require('./attachments/notebook-217.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"48657b85-2bbe-4915-b39e-e88070346384"} type={"Input"} opts={{}} >{`InputRange%5B0%2C1%2C0.1%5D%20%2F%2F%20Offload%60FromEventObject`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"aa1d7709-3dc9-4bef-a7db-e6469fe89e8f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Offload%5BOffloadGenerated18%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1haJKVaWqbqGpgnG%2BmaGJgk6VpYJlromhqZpRqZJJmbpRobAgB9iRUm%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Then just copy and paste it
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"19260fbd-a403-4cd6-b5d4-212083474476"} type={"Input"} opts={{}} >{`Disk%5B%7B0%2C0%7D%2C%20%28%2AVB%5B%2A%29%28Offload%5BOffloadGenerated18%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1haJKVaWqbqGpgnG%2BmaGJgk6VpYJlromhqZpRqZJJmbpRobAgB9iRUm%22%2A%29%28%2A%5DVB%2A%29%5D%20%2F%2F%20Graphics%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"249817d5-a897-4c4f-b446-63b42d2f50c4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a87108f7-1f20-4ae5-b1b7-fdb7c7389946%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1qYGxpYpJnrGqYZGeiaJKaa6iYZJpnrpqUkmSebG1tYWpqYAQCB8BWB%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+One can apply any expressions over it, for example
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"140ea838-0261-4d1a-b21a-dd0d709e8fde"} type={"Input"} opts={{}} >{`Disk%5B%7B0%2C0%7D%2C%20%28%2ASpB%5B%2A%29Power%5B%28%2AVB%5B%2A%29%28Offload%5BOffloadGenerated17%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxqlplkkm5rppqQZmeiamCWZ6iYmmafoGqeaGxibphqkWhgaAACPKBXQ%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%20%2F%2F%20Graphics%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"217b41b6-089a-41d3-b832-2b73af9014c7"} id={"05c46419-c06d-4c52-9326-372e81cb3031"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2272a1fc56-7bbd-4d63-837e-8894caa340fb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxslGqYlm5rpmiclpeiapJgZ61oYm6fqWlhYmiQnJhqbGKQlAQCHMRXa%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

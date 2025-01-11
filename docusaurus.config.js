@@ -1,36 +1,121 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// `@type` JSDoc annotations allow editor autocompletion and type checking
+// (when paired with `@ts-check`).
+// There are various equivalent ways to declare your Docusaurus config.
+// See: https://docusaurus.io/docs/api/docusaurus-config
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
+
+const matchCM = new RegExp(/^```(?:\w+) @ *\n([\s\S]*?)``` *$/gm);
+
+const replacer = (string, match) => {
+  const wrapped = '<CodeMirror>{`' + match.trim().replaceAll('`', '\\`') + '`}</CodeMirror>'
+  return wrapped 
+}
+
+const workaround = (string) => string.replaceAll(matchCM, replacer)
+
+const math = require('remark-math');
+const katex = require('rehype-katex');
+
+const scripts = [
+  /*"/wljs-interpreter/src/interpreter.js",
+  "/wljs-interpreter/src/core.js",
+  "/wljs-cells/src/module.js",
+  "/wljs-editor/dist/kernel.js",
+  "/wljs-editor/src/boxes.js",
+  "/wljs-editor/src/objects.js",
+  "/wljs-sharedlib-three/dist/kernel.js"
+  "/wljs-sharedlib-d3/dist/kernel.js",
+  "/wljs-graphics-d3/dist/kernel.js",
+  "/wljs-graphics3d-threejs/dist/kernel.js"*/
+  
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/interpreter.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/core.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@dev/src/module.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/boxes.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/metamarkers.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/objects.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/frontsubmit.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@dev/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@dev/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js",   
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@dev/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@dev/src/kernel.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@master/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@master/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@dev/dist/kernel.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@dev/dist/kernel.js",
+
+].map((link) => {
+  return {tagName: 'script', attributes: {
+    type: 'module',
+    src: link
+  }}
+});
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'WLJS Notebook',
+  tagline: 'A lightweight alternative to Mathematica built ontop of Wolfram Engine',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
+  staticDirectories: ['static'],
+  
+  /*
+  url: 'http://127.0.0.1:20540',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
+*/
   url: 'https://jerryi.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/wljs-interpreter/',
+  baseUrl: '/wljs-docs/',
+  
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'JerryI & KirillBelovTest', // Usually your GitHub org/user name.
+  projectName: 'wljs-notebook', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  markdown: {
+    mermaid: true,
+    preprocessor: ({filePath, fileContent}) => {
+      return workaround(fileContent);
+    }
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
+      crossorigin: 'anonymous',
+    },
+  ],
+
+
+
+  headTags: scripts,
 
   presets: [
     [
@@ -38,52 +123,79 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: './sidebars.js',
+          remarkPlugins: [math],
+          routeBasePath: '/',
+          rehypePlugins: [katex],
+
+        exclude: ['/docs/Excalidraw', 'Excalidraw', '/docs/imgs', '/docs/blog'],
+          
+        showLastUpdateTime: true,
         },
+        pages: {
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+        },
+        blog: {
+          path: 'blog',
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          editLocalizedFiles: false,
+          blogTitle: 'WLJS Notebook Blog',
+          blogDescription: 'A various examples from different areas of physics and programming showcasing the features of Wolfram Language',
+          blogSidebarCount: 50,
+          blogSidebarTitle: 'All our posts',
+          routeBasePath: 'blog',
+          include: ['**/*.{md,mdx}'],
+          postsPerPage: 15,
+          showReadingTime: true,         
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+        },     
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'msvalidate.01', content: '558ACAAD3C892A685EC4981186E3711D'},
+        {name: 'google-site-verification', content: "v5kHeI8IZCb5bfzZug5GQ7uRZOeo2VIdj8tcUXpaLTk"}
+      ],
+
+      
+      remarkPlugins: [math],
+      rehypePlugins: [katex],
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'WLJS',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'WLJS Notebook',
+          src: 'img/logo3.svg',
+          srcDark: "img/logo2.svg"
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'interpreterSidebar',
-            position: 'left', 
-            label: 'Interpreter',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Documentation',
           },
+          {to: 'blog', label: 'Blog', position: 'left'}, // or position: 'right'
+          {to: 'releases', label: 'Release notes', position: 'left'}, // or position: 'right'
+          {to: 'wljs-demo', label: 'Demonstration Project', style: {"border": 0, "border-radius": "6px"} , position: 'left'},
+          {to: 'widgets', label: 'Widgets', position: 'left'}, // or position: 'right'
+          {to: "https://github.com/JerryI/wolfram-js-frontend/discussions", label: "Discuss", style: {"border": 0, "border-radius": "6px"} , position: 'right'},
+          {to: "sponsorship", label: "Support us", style: {"border": 0, "border-radius": "6px"} , position: 'right'},
           {
-            type: 'docSidebar',
-            sidebarId: 'graphicsSidebar',
-            position: 'left',
-            label: 'Graphics',
-          },      
-          {
-            type: 'docSidebar',
-            sidebarId: 'frontendSidebar',
-            position: 'left',
-            label: 'Frontend',            
-          },    
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/JerryI/wolfram-js-frontend',
             label: 'GitHub',
             position: 'right',
           },
@@ -93,54 +205,128 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Telegram',
+                href: 'https://t.me/+PBotB9UJw-hiZDEy',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `WLJS Notebook Project is open-source and licensed under GPL3`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/dracula'),
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         additionalLanguages: ['wolfram']
+
       },
+      markdown: {
+        mermaid: true,
+      },
+      themes: ['@docusaurus/theme-mermaid'],
+
+      
     }),
+    plugins: [
+      
+      [
+        '@docusaurus/plugin-content-blog',
+        {
+          /**
+           * Required for any multi-instance plugin
+           */
+          id: 'releases',
+          /**
+           * URL route for the blog section of your site.
+           * *DO NOT* include a trailing slash.
+           */
+          path: 'releases',
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          editLocalizedFiles: false,
+          blogTitle: 'WLJS Notebook Releases',
+          blogDescription: 'Release notes and showcases',
+          blogSidebarCount: 50,
+          blogSidebarTitle: 'All our releases',
+          routeBasePath: 'releases',
+          include: ['**/*.{md,mdx}'],
+          postsPerPage: 15,
+          showReadingTime: true,         
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+        },
+      ],  
+
+      [
+        '@docusaurus/plugin-content-blog',
+        {
+          /**
+           * Required for any multi-instance plugin
+           */
+          id: 'widgets',
+          /**
+           * URL route for the blog section of your site.
+           * *DO NOT* include a trailing slash.
+           */
+          path: 'widgets',
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          editLocalizedFiles: false,
+          blogTitle: 'Standalone Widgets',
+          blogDescription: 'Standalone widgets made using WLJS Notebook',
+          blogSidebarCount: 50,
+          blogSidebarTitle: 'WLJS Widgets',
+          routeBasePath: 'widgets',
+          include: ['**/*.{md,mdx}'],
+          postsPerPage: 15,
+          showReadingTime: true,         
+          blogListComponent: '@theme/BlogListPage',
+          blogPostComponent: '@theme/BlogPostPage',
+          blogTagsListComponent: '@theme/BlogTagsListPage',
+          blogTagsPostsComponent: '@theme/BlogTagsPostsPage',
+          beforeDefaultRemarkPlugins: [],
+          beforeDefaultRehypePlugins: [],
+        },
+      ],       
+      
+    [ require.resolve('docusaurus-lunr-search'), {
+      disableVersioning: true
+    }],
+    function myCustomPlugin(context, options) {
+      return {
+        name: 'custom-webpack-plugin',
+        configureWebpack(config, isServer, utils, content) {
+          return {
+            module: {
+              rules: [
+                {
+                  test: /\.pdf$/,
+                  use: ["file-loader"],
+                },
+                {
+                  test: /\.txt$/,
+                  use: ["file-loader"],
+                },  
+                {
+                  test: /\.wlw$/,
+                  use: ["file-loader"],
+                },               
+                {
+                  test: /\.wln$/,
+                  use: ["file-loader"],
+                }
+              ],
+            },
+          };
+        },
+      };
+    }]
 };
 
-
-module.exports = config;
+export default config;

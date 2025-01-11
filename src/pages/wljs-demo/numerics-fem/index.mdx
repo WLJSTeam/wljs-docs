@@ -1,0 +1,62 @@
+# Realtime Finite Elements Method
+Here we will solve simple 2D wave-equation and visualize it in realtime using polygons
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/2c9ff17a-19f8-4afa-9af7-523cc11e2a29.txt').default} notebook={require('./attachments/notebook-2c9.wln').default}/>
+
+
+
+
+## Initialize mesh
+50x50 equally distributed points on 2D plane
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"1cf13737-8d0f-44fd-acb8-c60521344aff"} type={"Input"} opts={{"InitGroup":true}} >{`field0%20%3D%20Table%5B0.%2C%20%7Bi%2C50%7D%2C%20%7Bj%2C50%7D%5D%3B%0Afield1%20%3D%20field0%3B%0Afield2%20%3D%20field0%3B%0A%0A%28%2A%20initial%20perturbation%20%2A%29%0Afield2%5B%5B25%2C25%5D%5D%20%3D%200.01%3B%0A%0Alattice%20%3D%20Table%5B%7Bi%2Cj%7D%2C%20%7Bi%2C%2050%7D%2C%20%7Bj%2C50%7D%5D%3B%0Amesh%20%3D%20Flatten%5Blattice%2C%201%5D%3B%0A%0AmakeVertices%20%3D%20Compile%5B%7B%7Bf%2C%20_Real%2C%202%7D%2C%20%7Bpairs%2C%20_Integer%2C%202%7D%2C%20%7Bscale%2C%20_Real%7D%7D%2C%0A%20%20Join%5B%23%2C%20%7Bscale%20f%5B%5B%23%5B%5B1%5D%5D%2C%20%23%5B%5B2%5D%5D%5D%5D%7D%5D%20%26%2F%40%20pairs%0A%5D%3B%0A%0Avertices%20%3D%20NumericArray%5BmakeVertices%5Bfield0%2C%20mesh%2C%20300%5D%5D%3B`}</WLJSEditor>
+
+## Triangulation
+This is necessary for plotting the data using 3D polygons. That we keep indexes of all polygons the same, but will update vertices
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"12f685c3-e6ec-42c6-a1f3-6e2bca69cda0"} type={"Input"} opts={{"InitGroup":true}} >{`Needs%5B%22ComputationalGeometry%60%22%5D%3B%0Atriangles2%5Bpoints_%5D%20%3A%3D%20Module%5B%7Btr%2C%20triples%7D%2C%0A%20%20tr%20%3D%20DelaunayTriangulation%5Bpoints%5D%3B%0A%20%20triples%20%3D%20Flatten%5BFunction%5B%7Bv%2C%20list%7D%2C%0A%20%20%20%20%20%20Switch%5BLength%5Blist%5D%2C%0A%20%20%20%20%20%20%20%20%28%2A%20account%20for%20nodes%20with%20connectivity%202%20or%20less%20%2A%29%0A%20%20%20%20%20%20%20%201%2C%20%7B%7D%2C%0A%20%20%20%20%20%20%20%202%2C%20%7BFlatten%5B%7Bv%2C%20list%7D%5D%7D%2C%20%0A%20%20%20%20%20%20%20%20_%2C%20%7Bv%2C%20%23%23%7D%20%26%20%40%40%40%20Partition%5Blist%2C%202%2C%201%2C%20%7B1%2C%201%7D%5D%0A%20%20%20%20%20%20%5D%0A%20%20%20%20%5D%20%40%40%40%20tr%2C%201%5D%3B%0A%20%20Cases%5BGatherBy%5Btriples%2C%20Sort%5D%2C%20a_%20%2F%3B%20Length%5Ba%5D%20%3D%3D%203%20%3A%3E%20a%5B%5B1%5D%5D%5D%5D%0A%0Atriangles%20%3D%20triangles2%5Bmesh%5D%3B`}</WLJSEditor>
+
+Let us check the result
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"dd1cd9cf-4a18-400f-8a01-aad683ccb11a"} type={"Input"} opts={{}} >{`ListPlot%5Bmesh%2C%20PlotStyle-%3E%7BRed%2C%20PointSize%5B0.01%5D%7D%2C%20Prolog-%3E%7BLine%5Bmesh%5B%5B%23%5D%5D%5D%20%26%2F%40%20triangles%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"0317f700-a6fa-4087-9f37-debe5c02764d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251f56b92-40e0-47fb-8b1a-9df9b700dd1d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqmmZolWRrpmhikGuiamKcl6VokGSbqWqakWSaZGxikpBimAACAORXR%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Define our equation
+This is discretization of a wave-equation in a form
+
+$$
+\partial^2_{t,t} f - \alpha^2 \nabla^2 f = 0
+$$
+
+we follows [the following](https://beltoforion.de/en/recreational_mathematics/2d-wave-equation.php) tutorial and rewrite it in a form
+
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"a3d98e7a-8144-48ea-a729-f8c9fd8ab9ff"} type={"Input"} opts={{"InitGroup":true}} >{`update%20%3D%20Compile%5B%7B%7Bi%2C%20_Integer%7D%2C%20%7Bj%2C%20_Integer%7D%2C%20%7Bf%2C%20_Real%2C%202%7D%2C%20%7Bp%2C%20_Real%2C%202%7D%7D%2C%20%0A%20%200.001%20%28If%5Bi-1%20%3E%200%2C%20f%5B%5Bi-1%2C%20j%5D%5D%2C%200%5D%20%2B%20If%5Bi%2B1%20%3C%2051%2C%20f%5B%5Bi%2B1%2C%20j%5D%5D%2C%200%5D%20%2B%20If%5Bj%2B1%3C51%2C%20f%5B%5Bi%2C%20j%2B1%5D%5D%2C%200%5D%20%2B%20If%5Bj-1%20%3E%200%2C%20f%5B%5Bi%2C%20j-1%5D%5D%2C%200%5D%20-%204%20f%5B%5Bi%2Cj%5D%5D%29%0A%2B%202%20f%5B%5Bi%2Cj%5D%5D%20-%20p%5B%5Bi%2Cj%5D%5D%0A%5D%3B`}</WLJSEditor>
+
+Update function calculated a new value at vertex $\{i,j\}$. 
+
+## Realtime modelling
+For displaying we use simple `Polygon` and `GraphicsComplex`
+
+<WLJSHTML>{`%3Cspan%20style%3D%22color%3Ared%22%3ERun%20the%20cell%20below%20after%3C%2Fspan%3E`}</WLJSHTML> __evaluation of the initialization cells__
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"0beef6ce-d1c8-4b8c-90ce-575dc77fc3bc"} type={"Input"} opts={{}} >{`Graphics3D%5B%7BShadows%5BTrue%5D%2C%20SpotLight%5BBlue%2C%20%7B2.4463%2C%2060.1604%2C%209.3104%7D%2C%201.5%2C%203000%5D%2C%20SpotLight%5BRed%2C%20%7B48.1378%2C%2047.8679%2C%2012.4545%7D%2C%201.5%2C%203000%5D%2C%20%0A%20%20Roughness%5B0%5D%2C%0A%20%20GraphicsComplex%5Bvertices%20%2F%2F%20Offload%2C%20Polygon%5Btriangles%5D%5D%2C%0A%20%20AnimationFrameListener%5Bvertices%20%2F%2F%20Offload%2C%20%22Event%22%20-%3E%20%22frame%20calc%22%5D%0A%7D%2C%20ImageSize-%3E500%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"de5db1b4-3bcd-4500-bb8b-7aa6777f26cd"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2293deb6c9-ae46-42de-b1aa-0dd3fdbb85eb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxqnpCaZJVvqJqaamOmaGKWk6iYZJibqGqSkGKelJCVZmKYmAQCW7Bbt%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*try to pan and zoom it ! 😉*
+
+Now we wrap our calculations into a animation cycle
+
+__Evaluate this if animation did not start__
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"92f538ed-02ba-4fc5-9457-211c0a040962"} type={"Input"} opts={{"InitGroup":true}} >{`%28%2ABB%5B%2A%29%28%2Areset%20again%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0Afield0%20%3D%20Table%5B0.%2C%20%7Bi%2C50%7D%2C%20%7Bj%2C50%7D%5D%3B%0Afield1%20%3D%20field0%3B%0Afield2%20%3D%20field0%3B%0A%0A%28%2A%20initial%20perturbation%20%2A%29%0Afield2%5B%5B25%2C25%5D%5D%20%3D%200.01%3B%0A%0AEventHandler%5B%22frame%20calc%22%2C%20Function%5BNull%2C%20%0A%0A%20%20With%5B%7Bi%20%3D%20%23%5B%5B1%5D%5D%2C%20j%20%3D%20%23%5B%5B2%5D%5D%7D%2C%20%0A%20%20%20%20field0%5B%5Bi%2Cj%5D%5D%20%3D%20update%5Bi%2Cj%2C%20field1%2C%20field2%5D%3B%0A%20%20%5D%26%2F%40%20RandomSample%5Bmesh%5D%3B%0A%20%20%0A%20%20field2%20%3D%20field1%3B%0A%20%20field1%20%3D%20field0%3B%0A%20%20%0A%20%20vertices%20%3D%20NumericArray%5BmakeVertices%5Bfield0%2C%20mesh%2C%20300%5D%5D%3B%0A%0A%5D%5D%3B%0A%0A%28%2ABB%5B%2A%29%28%2Akickstarter%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0AEventFire%5B%22frame%20calc%22%2C%20True%5D%3B`}</WLJSEditor>
+
+To stop it
+
+<WLJSEditor display={"codemirror"} nid={"2c9ff17a-19f8-4afa-9af7-523cc11e2a29"} id={"d86b0847-d000-4f20-82ed-c749571a6a86"} type={"Input"} opts={{}} >{`EventRemove%5B%22frame%20calc%22%5D%20`}</WLJSEditor>

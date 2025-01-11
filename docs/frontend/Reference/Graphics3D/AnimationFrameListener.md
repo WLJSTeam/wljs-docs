@@ -1,0 +1,1 @@
+the same as for [AnimationFrameListener](frontend/Reference/Graphics/AnimationFrameListener.md), but in the context of 2D graphics

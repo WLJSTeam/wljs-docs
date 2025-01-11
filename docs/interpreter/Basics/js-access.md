@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Javascript integration
 
-For deep overview of functions, containers and advanced control of evaluation process, please, see pages [executables](../../frontend/executables.md) and [front-end-functions](../../frontend/front-end-functions.md).
+For deep overview of functions, containers and advanced control of evaluation process, please, see pages [symbols](../Advanced/symbols.md) and [containers](../Advanced/containers.md)
 
 ## Reading objects
 Let us define some variable on the page

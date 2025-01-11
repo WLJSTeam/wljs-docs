@@ -1,5 +1,6 @@
 [
   "mdx-as-md-obsidian",
   "obsidian-languagetool-plugin",
-  "obsidian-excalidraw-plugin"
+  "obsidian-excalidraw-plugin",
+  "find-unlinked-files"
 ]

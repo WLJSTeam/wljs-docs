@@ -1,0 +1,57 @@
+# Three-dimensional plots
+Most examples were adapted from the official pages of [Wolfram Language Documentation Center](https://reference.wolfram.com/language/). <WLJSHTML>{`%3Csmall%20%3EThe%20algorithms%20and%20implementations%20of%20those%20functions%20are%20the%20intellectual%20property%20of%20Wolfram%20Research.%20WLJS%20Team%20only%20reimplemented%20underlying%20low-level%20primitives%20such%20as%20%60Line%60%2C%20%60Point%60%2C%20%60Polygon%60%2C%20and%20etc.%3C%2Fsmall%3E`}</WLJSHTML><WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML><WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+## Spherical Plot
+An example of $Y_{2,0}$
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/5b3fddde-8689-4682-96ee-76602726d2a9.txt').default} notebook={require('./attachments/notebook-5b3.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"c2a47066-0430-43ee-bdef-40fd3c45049c"} type={"Input"} opts={{"Hidden":false}} >{`%28%2ASbB%5B%2A%29Subscript%5BY%28%2A%7C%2A%29%2C%28%2A%7C%2A%29k_%2Cq_%5D%28%2A%5DSbB%2A%29%5B%CE%B8_%2C%20%CF%95_%5D%20%3A%3D%20SphericalHarmonicY%5Bk%2Cq%2C%20%CE%B8%2C%20%CF%95%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"21cca8a0-d579-45d0-8f99-16ded27f7dc3"} type={"Input"} opts={{"Hidden":false}} >{`SphericalPlot3D%5B%28%2ASbB%5B%2A%29Subscript%5BY%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%2C0%5D%28%2A%5DSbB%2A%29%5B%CE%B8%2C%20%CF%95%5D%2C%20%7B%CE%B8%2C0%2C%CF%80%7D%2C%20%7B%CF%95%2C0%2C2%CF%80%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"2f64faea-07c7-4518-94eb-bf15d0241fb8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ca72fb9b-551b-4cc5-a054-efa9bdbee236%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyeaG6UlWSbpmpoaJumaJCeb6iYamJropqYlWialJKWmGhmbAQCUWRaL%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Vector Plot 3D
+Visualize vector field in 3D
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"1f5f6e54-6a9a-443d-8da0-0f11306e4a58"} type={"Input"} opts={{"Hidden":false}} >{`VectorPlot3D%5B%7Bx%2C%20y%2C%20z%7D%2C%20%7Bx%2C%20-1%2C%201%7D%2C%20%7By%2C%20-1%2C%201%7D%2C%20%7Bz%2C%20-1%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"44cec85b-25b2-47d5-83e5-b99e718bd5f4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22588f2ea9-afd7-45b4-8d86-be3c5106bb45%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1pYpBmlJlrqJqalmOuamCaZ6FqkWJjpJqUaJ5saGpglJZmYAgCLmBXg%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Plot 3D
+Generates a three-dimensional plot 
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"eadc8a4c-4a3e-400d-80bc-d65f5c31401f"} type={"Input"} opts={{}} >{`Plot3D%5BIm%5BArcSin%5B%28x%20%2B%20I%20y%29%5E4%5D%5D%2C%20%7Bx%2C%20-2%2C%202%7D%2C%20%7By%2C%20-2%2C%202%7D%2C%20%0A%09Mesh%20-%3E%20None%2C%20%0A%09PlotStyle%20-%3E%20Directive%5BYellow%2C%20Opacity%5B0.8%5D%5D%2C%20%0A%09ExclusionsStyle%20-%3E%20%7BNone%2C%20Red%7D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"5bd16912-b6fa-4e22-b624-a6c94a18fcc2"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22abe5f76c-b695-4001-a747-28bddb668b90%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyalmqaZmyXrJplZmuqaGBgY6iaam5jrGlkkpaQkmZlZJFkaAACJ3hWp%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Another example
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"e50071fc-1f31-408e-b55f-9dd3442faa40"} type={"Input"} opts={{}} >{`NDSolve%5B%7BD%5Bu%5Bt%2C%20x%5D%2C%20t%5D%20%3D%3D%20D%5Bu%5Bt%2C%20x%5D%2C%20x%2C%20x%5D%2C%20u%5B0%2C%20x%5D%20%3D%3D%200%2C%20u%5Bt%2C%200%5D%20%3D%3D%20Sin%5Bt%5D%2C%20u%5Bt%2C%205%5D%20%3D%3D%200%7D%2C%20u%2C%20%7Bt%2C%200%2C%2010%7D%2C%20%7Bx%2C%200%2C%205%7D%5D%3B%20%0A%0APlot3D%5BEvaluate%5Bu%5Bt%2C%20x%5D%20%2F.%20%25%5D%2C%20%7Bt%2C%200%2C%2010%7D%2C%20%7Bx%2C%200%2C%205%7D%2C%20PlotRange%20-%3E%20All%2C%20ColorFunction%20-%3E%20%22SunsetColors%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"acb58786-9b80-4484-8db6-014c3f6f6668"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%221b3a992d-5c68-42ab-a966-b967f81c32c6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyYZJ1paGqXomiabWeiaGCUm6SZampnpJlmamadZGCYbGyWbAQCCaxV%2F%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+A __list__ version is also supporte
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"f8de6788-67a3-4dfb-80f0-7b1075412350"} type={"Input"} opts={{"Hidden":false}} >{`data%20%3D%20Table%5BSin%5Bj%5E2%20%2B%20i%5D%2C%20%7Bi%2C%200%2C%20Pi%2C%20Pi%2F5%7D%2C%20%7Bj%2C%200%2C%20Pi%2C%20Pi%2F5%7D%5D%3B%0A%0AListPlot3D%5Bdata%2C%20%20InterpolationOrder%20-%3E%203%2C%20%0A%20ColorFunction%20-%3E%20%22SouthwestColors%22%2C%20BoxRatios-%3E%7B1%2C1%2C0.5%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"6bdcec50-fde8-4c0a-80a8-aa4d90eafa3f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d29a6ad5-357c-4485-a7da-ad735077e6ce%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxhZJpolppjqGpuaJ%2BuamFiY6iaapyTqJqaYG5samJunmiWnAgCG3BXc%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"65ec8bc6-21e6-4aed-969e-508c760c46f0"} type={"Input"} opts={{}} >{`Plot3D%5BSin%5BSqrt%5Bx%5E2%20%2B%20y%5E2%5D%5D%2C%20%7Bx%2C%20-6%2C%206%7D%2C%20%7By%2C%20-6%2C%206%7D%2C%20%0A%20PlotRange%20-%3E%20All%2C%20%0A%20Mesh%20-%3E%20None%2C%20%0A%20ColorFunction%20-%3E%20%22Rainbow%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"15d08ffd-62c0-4be6-8202-df4d9961c33c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%229910a721-a3a6-4be7-9538-5641b7f075f5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1oaGiSaGxnqJhonmumaJKWa61qaGlvompqZGCaZpxmYm6aZAgB14hTt%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Contour Plot 3D
+A 3D version of `ContourPlot` function
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"ef76dc45-430a-4d29-9749-411e2e039465"} type={"Input"} opts={{}} >{`ContourPlot3D%5Bx%5E3%20%2B%20y%5E2%20-%20z%5E2%2C%20%7Bx%2C%20-2%2C%202%7D%2C%20%7By%2C%20-2%2C%202%7D%2C%20%7Bz%2C%20-2%2C%202%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5b3fddde-8689-4682-96ee-76602726d2a9"} id={"95d6a4f8-45e1-4054-bbea-4d94ff3fe422"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2222b03336-28e2-470b-95c1-5add1a541cc8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxklGRgbG5vpGlmkGumamBsk6VqaJhvqmiampBgmmpoYJidbAABy6hUw%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

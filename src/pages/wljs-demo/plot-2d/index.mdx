@@ -1,0 +1,77 @@
+# Two dimensional plots
+Most examples were adapted from the official pages of [Wolfram Language Documentation Center](https://reference.wolfram.com/language/). <WLJSHTML>{`%3Csmall%20%3EThe%20algorithms%20and%20implementations%20of%20those%20functions%20are%20the%20intellectual%20property%20of%20Wolfram%20Research.%20WLJS%20Team%20only%20reimplemented%20underlying%20low-level%20primitives%20such%20as%20%60Line%60%2C%20%60Point%60%2C%20%60Polygon%60%2C%20and%20etc.%3C%2Fsmall%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/8bb201a6-ab20-4540-b1fa-49a595f301e4.txt').default} notebook={require('./attachments/notebook-8bb.wln').default}/>
+
+
+
+
+## Contour Plot
+Generates a contour plot of  $f$ as a function of $\{x,y\}$
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"55f72c2b-d8b5-4f7a-a477-83b4f885e9a3"} type={"Input"} opts={{}} >{`ContourPlot%5B%0A%20%20Cos%5Bx%5D%20%2B%20Cos%5By%5D%2C%20%7Bx%2C%200%2C%204%20Pi%7D%2C%20%7By%2C%200%2C%204%20Pi%7D%0A%2C%20PerformanceGoal-%3E%22Speed%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"23c379d7-a40f-4b3c-a1a4-3d7989e6dc1c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2241a6a71f-5798-4386-9609-f87cceaa5041%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxgmmiWaG6bpmppbWuiaGFuY6VqaGVjqplmYJyenJiaaGpgYAgB3jhUk%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or plot contour lines for which the equation is satisfied
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"bf3edd38-74ef-4600-9b1e-1eb2d2d6faec"} type={"Input"} opts={{}} >{`ContourPlot%5B%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%20%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%3D%3D%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%293%5D%28%2A%5DSpB%2A%29%2C%20%7Bx%2C%20-2%2C%202%7D%2C%20%7By%2C%20-2%2C%202%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"791173ba-7053-4ff8-bbd8-a9f8a8a29522"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2217562242-ec14-4f0d-a6e4-2105f8af166b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5qbmhkZmRjppiYbmuiapBmk6CaapZroGhkamKZZJKYZmpklAQB1eRU3%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### List-version
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"2473e52c-5cd9-4579-9a9d-fd0129f2fafa"} type={"Input"} opts={{}} >{`ListContourPlot%5BTable%5BSin%5Bi%20%2B%20%28%2ASpB%5B%2A%29Power%5Bj%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%2C%20%7Bi%2C%200%2C%203%2C%200.2%7D%2C%20%7Bj%2C%200%2C%203%2C%200.2%7D%5D%2C%20ColorFunction%20-%3E%20%22SunsetColors%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"d636408f-54fd-4357-9439-247be811e99c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225f39bfbd-9f05-402a-98f9-5ff6032a27bb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6YZWyalJaXoWqYZmOqaGBgl6lpapFnqmqalmRkYGyUamSclAQCKzxXd%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Density Plot
+Make a simple styled density plot with a custom color function
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"b9f09f11-8c2d-4391-bc07-296d720cf623"} type={"Input"} opts={{}} >{`CoolColor%5B%20z_%20%5D%20%3A%3D%20RGBColor%5Bz%2C%201%20-%20z%2C%201%5D%3B%0A%0ADensityPlot%5BSin%5Bx%20y%5D%2C%20%7Bx%2C%20-1%2C%201%7D%2C%20%7By%2C%20-1%2C%201%7D%2C%20%0A%20ColorFunction%20-%3E%20CoolColor%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"8bd99b9d-89dd-4b56-b792-59cdb44761ec"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22b287a631-d44e-4654-a042-484cce2fe6f2%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxlZmCeaGRvqppiYpOqamJma6CYamBjpmliYJCenGqWlmqUZAQB7FRVy%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Vector plot
+Generates a vector plot of the vector field $\{v_x, v_y\}$ as a function of $x$ and $y$
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"ce492c23-d6e0-4095-a043-0d1e3cfe4630"} type={"Input"} opts={{}} >{`VectorPlot%5B%7Bx%20%2B%20y%2C%20y%20-%20x%7D%2C%20%7Bx%2C%20-3%2C%203%7D%2C%20%7By%2C%20-3%2C%203%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"c7bc4a80-819e-45f5-ae6d-02e195d5603d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c90ec165-9fa7-4a1f-aa27-1346176a9452%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1sapCYbmpnqWqYlmuuaJBqm6SYmGpnrGhqbmBmamyVampgaAQCGaRVC%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+A __list__ version is also available
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"fe24b35f-8b26-41fb-b7aa-1aac13eade50"} type={"Input"} opts={{}} >{`ListVectorPlot%5BTable%5B%7By%2C%20-x%7D%2C%20%7Bx%2C%20-3%2C%203%2C%200.2%7D%2C%20%7By%2C%20-3%2C%203%2C%200.2%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"e3029f3f-f2ea-4111-b2c4-34b6e1c432c7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d4e33cf6-a00c-45b4-9708-f0217dd0fbff%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5ikGhsnp5npJhoYJOuamCaZ6FqaG1jophkYGZqnpBikJaWlAQCG9hX8%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Stream plot
+Generates a stream plot of the vector field
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"a926400a-1288-4ff3-96e8-11e340011e2f"} type={"Input"} opts={{}} >{`StreamPlot%5B%7B-1%20-%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20y%2C%201%20%2B%20x%20-%20%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%7D%2C%20%7Bx%2C%20-3%2C%203%7D%2C%20%7By%2C%20-3%2C%203%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"a58dd229-f35f-4f16-9c58-330ba4a2b1fd"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22b5c7f485-bb4a-43ff-852e-a6c895c4068e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5kmm6eZWJjqJiWZJOqaGKel6VqYGqXqJpolW1iaJpsYmFmkAgCNLBXl%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Matrixes & Arrays
+Plots a 2D array or matrix
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"59ec487a-c357-425f-b038-577653ef12b8"} type={"Input"} opts={{}} >{`MatrixPlot%5B%0A%20Fourier%5BTable%5B%0A%20%20%20UnitStep%5Bi%2C%204%20-%20i%5D%20UnitStep%5Bj%2C%207%20-%20j%5D%2C%20%7Bi%2C%20-7%2C%207%7D%2C%20%7Bj%2C%20-7%2C%20%0A%20%20%20%207%7D%5D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"0c7b5480-faa7-42e8-868b-cbd55ff723d6"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2240eb9c0a-60bf-413f-8d4b-0b440d1a6312%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxikJlkmGyTqmhkkpemaGBqn6VqkmCTpGiSZmBikGCaaGRsaAQCIDxWF%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Another example
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"3f97b1ba-be40-4fcd-95e8-62b99f80e100"} type={"Input"} opts={{}} >{`MatrixPlot%5BPauliMatrix%5B3%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"dcea3d91-9c7a-4cbc-bd28-8d1e789a69d0"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22490bad61-47c1-46f0-b359-853531993ed7%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1gaJCWmmBnqmpgnAwmzNAPdJGNTS10LU2NTY0NLS%2BPUFHMAebIU7g%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### Array plot
+Generates a plot, where values are shown in a discrete array of blocks
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"9b5f5e5f-9b38-4d83-815d-1673948b0632"} type={"Input"} opts={{}} >{`ArrayPlot%5B%7B%7B1%2C%200%2C%200%2C%20Pink%7D%2C%20%7B1%2C%201%2C%200%2C%20Pink%7D%2C%20%7B1%2C%200%2C%201%2C%20Red%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"8bb201a6-ab20-4540-b1fa-49a595f301e4"} id={"ac54ab50-ec23-4182-9893-1170f3239db2"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d40c935a-36b0-4e55-afd9-4033c89cc91c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gYJFsamybqGpslGeiapJqa6iampVjqmhgYGydbWCYnWxomAwCCMxWj%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

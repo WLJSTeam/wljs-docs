@@ -1,0 +1,9 @@
+{
+"objects":[
+	"Association",
+	["Rule","'ea164bfe-1a61-45eb-8280-f508462829eb'",["Hold",["CellView","'\ngraph LR\n    A[Text Header 3200 byte]  --> B[Binary Header 400 byte]\n    B --> C1[240 byte 1-st trace header] --> T1[samples of 1-st trace]\n    B --> C2[240 byte 2-st trace header] --> T2[samples of 1-st trace]\n    B --> CN[240 byte n-st trace header] --> T3[samples of 1-st trace] \n'",["Rule","'Display'","'mermaid'"]]]]
+], 
+"symbols":[
+	"Association"
+]
+}

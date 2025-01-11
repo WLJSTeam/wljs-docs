@@ -1,0 +1,25 @@
+## Manipulate
+
+Expression dynamics
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/d8e5cdbf-b1fc-4ce3-bec3-aa5b0bf5a224.txt').default} notebook={require('./attachments/notebook-d8e.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"d8e5cdbf-b1fc-4ce3-bec3-aa5b0bf5a224"} id={"a3a07da4-fb50-4349-bbd8-60c064874e83"} type={"Input"} opts={{"Hidden":false}} >{`Manipulate%5BSeries%5BSin%5Bx%5D%2C%20%7Bx%2C0%2Cn%7D%5D%20%2F%2FNormal%2C%20%7Bn%2C%201%2C%2010%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8e5cdbf-b1fc-4ce3-bec3-aa5b0bf5a224"} id={"95d4a06e-0a2a-4c43-9d8e-b837ffcca488"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22fd01d3ac-e95f-408e-b884-6adc9c6c4391%22%2C%20%22Initial%22%20-%3E%20%7B6%7D%2C%20%22View%22%20-%3E%20%229c6e8aac-3b9d-4734-8dfd-a9c58702ff63%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWyabpVokJibrGidZpuiamBub6FqkpKXoJlomm1qYGxilpZkZAwCRvxYZ%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ff4e97f9-78b6-4168-a2da-d08933a410fa%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6WZpFqap1nqmlskmemaGJpZ6CYapSTqphhYWBobJ5oYGqQlAgCIhRWx%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+---
+
+## Manipulate Plot
+A simplifed version of `Manipulate` used for drawing 2D data efficiently
+
+<WLJSEditor display={"codemirror"} nid={"d8e5cdbf-b1fc-4ce3-bec3-aa5b0bf5a224"} id={"5c569b76-36a0-44f1-8807-8175b0553f43"} type={"Input"} opts={{}} >{`ManipulatePlot%5B%7B%0A%20%20Sin%5Bw%20z%20%2B%20p%5D%2C%20%0A%20%20Tanh%5Bw%20z%20%2B%20p%5D%0A%7D%2C%20%7Bz%2C-5%2C5%7D%2C%20%7Bw%2C%200%2C%2010%2C%201%7D%2C%20%7B%7Bp%2C0%7D%2C%20-Pi%2C%20Pi%2C%200.2%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8e5cdbf-b1fc-4ce3-bec3-aa5b0bf5a224"} id={"b643c8c0-cc17-417b-bcf2-e3387cdd6a01"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%225f28eb71-019e-448f-ad02-d569593489e1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6YZWaQmmRvqGhhapuqamFik6SamGBjpppiaWZpaGptYWKYaAgB%2FcBUn%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%223efeb27b-9abb-4b39-b905-7e63ea8f8e0f%22%2C%20%22Initial%22%20-%3E%20%7B5%2C%200.%7D%2C%20%22View%22%20-%3E%20%22277e1e7f-fece-4444-861c-e9ed7740e05f%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5mbpxqmmqfppqUmp%2BqaAIGuhZlhsm6qZWqKubmJQaqBaRoAixEV6Q%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>

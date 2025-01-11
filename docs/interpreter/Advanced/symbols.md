@@ -322,6 +322,7 @@ The last line will cause an update of `MyFunction`.
 ```mathematica
 a = 4;
 ```
+
 :::note
 ❗️ for the first time, there is no instance created, only `core.a`  
 :::
@@ -329,39 +330,49 @@ a = 4;
 ```mathematica
 a = a + 1;
 ```
+
 :::note
 ❗️ set operation blocks instance creating for `a` symbol <br/>
 ✅ set operation causes `update` on the binded containers
 :::
+
 ```mathematica
 While[True,
 	MyFunction[a] (* NO DYNAMIC LINK CREATED *)
 ]
 ```
+
 :::note
 ❗️ while operation blocks instance creating to prevent memory leakage
 :::
+
 ```mathematica
 MyFunction[a] (* DYNAMIC LINK CREATED *)
 ```
+
 :::note
 ✅ `a` now is possibly binded to `MyFunction`, if the last one is a virtual container
 :::
+
 ```mathematica
 data = Table[b[[i]] + b[[i+1]], {i,1,Length[b]-1}];  
 ```
+
 :::note
 ❗️ `Set` blocks instance creating, no dynamic binding possible
 :::
+
 For example, when we plot graphics, by default `Line`, `Point` and etc has virtual type 
 ```mathematica
 Graphics[
 	Table[Line[b[[i]]], {i, Length[b]}]
 ] //FrontEndVirtual
 ```
+
 :::note
 ✅  multiple instances of `b` were created and binded to `Line`
 :::
+
 So this binding happends only between `Line` and `b[[i]]`, no `Graphics` function is involved.
 
 #### 🎡 Example 3

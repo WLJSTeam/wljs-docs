@@ -4,57 +4,38 @@
     "type": "split",
     "children": [
       {
-        "id": "077a5c9f24ec1f70",
+        "id": "545d8c976d506473",
         "type": "tabs",
         "children": [
           {
-            "id": "75dd23279bb371a7",
+            "id": "02b6ebea80256742",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interpreter/Advanced/meta-markers.md",
+                "file": "frontend/Advanced/Components library/Focus button.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Focus button"
             }
           },
           {
-            "id": "dba664960fa1ee87",
+            "id": "32f506b6464e2e07",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Advanced/Command palette/Debugger.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "a27e66879c910246",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "frontend/front-end-functions.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ff2d70badcb5f593",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "imgs/virtualContainer.excalidraw.md"
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Debugger"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -74,7 +55,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -83,28 +66,32 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
+                "query": "Autocom",
+                "matchingCase": true,
+                "explainSearch": true,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
-            "id": "e65244ca3d2dfa15",
+            "id": "417adf5fb721b03b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 294.5
   },
   "right": {
     "id": "a752dd5ced191c4a",
@@ -120,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
+                "file": "frontend/Advanced/Components library/Focus button.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +115,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Focus button"
             }
           },
           {
@@ -137,10 +126,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md",
-                "linksCollapsed": false,
+                "file": "frontend/Reference/Interpreter/Refresh.md",
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Refresh"
             }
           },
           {
@@ -151,7 +142,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -160,16 +153,31 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/Tutorial/Cells structure.md"
-              }
+                "file": "frontend/Reference/Interpreter/Refresh.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Refresh"
+            }
+          },
+          {
+            "id": "afe0967b9f64f51c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,53 +190,53 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "dba664960fa1ee87",
+  "active": "02b6ebea80256742",
   "lastOpenFiles": [
-    "frontend/Tutorial/GUI Overview.md",
-    "frontend/Tutorial/Cells structure.md",
-    "frontend/Development/Plugins/intro.md",
-    "frontend/Development/Plugins",
-    "interpreter/Advanced/meta-markers.md",
-    "frontend/Tutorial/imgs",
-    "frontend/Tutorial/imgs/Screenshot 2023-06-10 at 15.47.13.png",
+    "Screenshot 2025-01-11 at 21.48.59.png",
+    "Screenshot 2025-01-11 at 20.09.26.png",
+    "frontend/Advanced/Components library/Title and footer.md",
+    "frontend/Advanced/Components library/Focus button.md",
+    "frontend/Reference/Image/Rasterize.md",
+    "frontend/Reference/Frontend IO/FrontProxy.md",
+    "frontend/Exporting/Standalone Widgets.md",
+    "frontend/Reference/Image/HighlightImage.md",
+    "frontend/Reference/GUI/InputAutocomplete.md",
+    "frontend/Reference/Frontend IO/SystemOpen.md",
+    "frontend/Reference/Image/Image.md",
+    "frontend/Reference/Image/AnimatedImage.md",
+    "frontend/Reference/Graphics/Scaled.md",
+    "frontend/Advanced/Command palette/Debugger.md",
+    "frontend/Reference/GUI/InputFile.md",
+    "frontend/Reference/Sound/PCMPlayer.md",
+    "frontend/Reference/Sound/EmitSound.md",
+    "frontend/Reference/Sound/Sound.md",
+    "frontend/Reference/Misc/Assert.md",
+    "frontend/Overview.md",
     "frontend/instruction.md",
-    "frontend/Tutorial/_category_.json",
-    "interpreter/Extras/implementation.md",
-    "imgs/Screenshot 2023-06-10 at 15.39.22.png",
-    "frontend/Export/React component.md",
-    "imgs/Screenshot 2023-06-10 at 14.56.41.png",
-    "interpreter/Advanced/symbols.md",
-    "frontend/Tutorial",
-    "interpreter/Advanced/containers.md",
-    "frontend/Development/TODO.md",
-    "frontend/introduction.md",
-    "interpreter/intro.md",
-    "imgs/logo.svg",
-    "frontend/Cell types/Many more....md",
-    "frontend/Cell types/Javascript.md",
-    "frontend/Cell types/HTML.md",
-    "frontend/Cell types/Markdown.md",
-    "frontend/Cell types/Wolfram Language.md",
-    "frontend/executables.md",
-    "frontend/Cell types/Untitled",
-    "frontend/Export",
-    "frontend/Development",
-    "frontend/Cell types",
-    "frontend/Dynamics",
-    "frontend/front-end-functions.md",
-    "graphics/graphics3d.md",
-    "graphics/graphics.md",
-    "interpreter/Extras/reference.md",
-    "interpreter/Advanced/architecture.md",
-    "interpreter/Basics/js-access.md",
-    "interpreter/Basics/scripts.md",
-    "interpreter/Basics/syntax.md",
-    "graphics",
-    "imgs/FE data binding.excalidraw 1.svg",
-    "imgs/FE data binding.excalidraw.svg",
-    "imgs/Calling as FE.excalidraw.svg",
-    "imgs/virtualContainer.excalidraw.svg",
-    "imgs/test.png",
-    "imgs/data-binding-2.excalidraw.svg"
+    "symbols-ezgif.com-optimize.gif",
+    "assert-ezgif.com-optimize.gif",
+    "frontend/Command palette.md",
+    "frontend/Symbolic programming.md",
+    "Pasted image 20250103191609.png",
+    "frontend/Advanced/Overlay mode.md",
+    "frontend/Advanced/Command palette/Comm.md",
+    "frontend/Reference/Reference.md",
+    "frontend/Reference/_category_.json",
+    "frontend/Reference/Graphics/AbsoluteThickness.md",
+    "Units Converter.wlw",
+    "Screenshot 2024-12-26 at 14.24.54.png",
+    "textGIFF-ezgif.com-video-to-gif-converter.gif",
+    "Screenshot 2024-12-25 at 20.47.41.png",
+    "Screenshot 2024-12-25 at 20.01.28.png",
+    "Screenshot 2024-12-25 at 19.54.09.png",
+    "fields-ezgif.com-video-to-gif-converter.gif",
+    "frontend/Importing/_category_.json",
+    "frontend/Importing",
+    "frontend/Reference/Frontend IO/FrontProxy",
+    "frontend/Advanced/Components library/_category_.json",
+    "frontend/Reference/Image",
+    "frontend/Reference/Neural Networks",
+    "frontend/Advanced/Components library",
+    "aniamtedLatex.mov"
   ]
 }

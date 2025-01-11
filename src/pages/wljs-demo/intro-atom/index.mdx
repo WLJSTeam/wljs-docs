@@ -1,0 +1,29 @@
+# Atom model animation
+*created by Kirill Belov*
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/554911a6-265b-46ae-aff3-0d0c602757f9.txt').default} notebook={require('./attachments/notebook-554.wln').default}/>
+
+
+
+
+Precalculate paths of electrons
+
+<WLJSEditor display={"codemirror"} nid={"554911a6-265b-46ae-aff3-0d0c602757f9"} id={"494e0a39-718b-472d-a9b2-10ce6598a661"} type={"Input"} opts={{}} >{`path1%20%3D%20Table%5B%7B5%20%2A%20Sin%5Bt%5D%2C%205%20%2A%20Cos%5Bt%5D%2C%200%7D%2C%20%7Bt%2C%200.0%2C%208%2APi%2C%20Pi%2F360.0%7D%5D%3B%20%0Alight1%20%3D%20path1%5B%5B1%5D%5D%3B%20%0A%0Apath2%20%3D%20RotationTransform%5B2Pi%2F3%2C%20%7B1%2C%200%2C%200%7D%5D%20%2F%40%20path1%3B%20%0Alight2%20%3D%20path2%5B%5B1%5D%5D%3B%20%0A%0Apath3%20%3D%20RotationTransform%5B4Pi%2F3%2C%20%7B1%2C%200%2C%201%7D%5D%20%2F%40%20path1%3B%20%0Alight3%20%3D%20path3%5B%5B1%5D%5D%3B`}</WLJSEditor>
+
+Subscribe to a frame event
+
+<WLJSEditor display={"codemirror"} nid={"554911a6-265b-46ae-aff3-0d0c602757f9"} id={"769a72ce-b33e-4af9-8577-6d06e8b59d56"} type={"Input"} opts={{}} >{`t%20%3A%3D%20Mod%5BRound%5BAbsoluteTime%5B%5D%20%2A%20100%5D%20%2B%201%2C%20Length%5Bpath1%5D%5D%0A%0AEventHandler%5B%22frame%22%2C%20Function%5BNull%2C%0A%20%20light1%20%3D%20path1%5B%5Bt%5D%5D%3B%20%0A%20%20light2%20%3D%20path2%5B%5Bt%5D%5D%3B%20%0A%20%20light3%20%3D%20path3%5B%5Bt%5D%5D%3B%20%0A%5D%5D%3B%0A`}</WLJSEditor>
+
+Construct 3D graphics
+
+<WLJSEditor display={"codemirror"} nid={"554911a6-265b-46ae-aff3-0d0c602757f9"} id={"3eb7b31d-c4ba-401c-bea8-340039fab8c2"} type={"Input"} opts={{}} >{`Graphics3D%5B%7B%20%20%0A%20%20%7B%20%20%0A%20%20%20%20MeshMaterial%5BMeshPhysicalMaterial%5B%5D%5D%2C%20%20%20%0A%20%20%20%20Roughness%5B0.1%5D%2C%20%20%20%0A%20%20%20%20Sphere%5B%5D%20%20%0A%20%20%7D%2C%20%20%20%0A%20%20%7B%20%20%0A%20%20%20%20PointLight%5BCyan%2C%20Offload%20%40%20light1%5D%2C%20%20%20%0A%20%20%20%20PointLight%5BMagenta%2C%20Offload%20%40%20light2%5D%2C%20%20%20%0A%20%20%20%20PointLight%5BOrange%2C%20Offload%20%40%20light3%5D%20%20%0A%20%20%7D%2C%20%20%20%0A%20%20%7B%20%20%0A%20%20%20%20Emissive%5BCyan%2C%205%5D%2C%20Sphere%5BOffload%20%40%20light1%2C%200.1%5D%2C%20%20%20%0A%20%20%20%20Emissive%5BMagenta%2C%205%5D%2C%20Sphere%5BOffload%20%40%20light2%2C%200.1%5D%2C%20%20%20%0A%20%20%20%20Emissive%5BOrange%2C%205%5D%2C%20Sphere%5BOffload%20%40%20light3%2C%200.1%5D%2C%0A%20%20%20%20AnimationFrameListener%5BOffload%20%40%20light3%2C%20%22Event%22%20-%3E%20%22frame%22%5D%0A%20%20%7D%2C%20%20%20%0A%20%20%7B%20%20%0A%20%20%20%20LightBlue%2C%20Line%5Bpath1%5D%2C%20%20%20%0A%20%20%20%20LightRed%2C%20Line%5Bpath2%5D%2C%20%20%20%0A%20%20%20%20LightGreen%2C%20Line%5Bpath3%5D%20%20%0A%20%20%7D%20%20%0A%7D%2C%20%20%20%20%20%0A%20%20PlotRange%20-%3E%20%7B%7B-10%2C%2010%7D%2C%20%7B-10%2C%2010%7D%2C%20%7B-10%2C%2010%7D%7D%2C%20%20%20%0A%20%20Lighting%20-%3E%20None%2C%0A%20%20ImageSize-%3E600%0A%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"554911a6-265b-46ae-aff3-0d0c602757f9"} id={"71443e80-38b6-4b0f-b8ce-1c70a3f45af4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c3173f42-4592-48b6-863d-513f16f208fa%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxsbmhunmRjpmphaAgmLJDNdCzPjFF1TQ%2BM0Q7M0IwOLtEQAciwU6g%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Cancel animation
+
+<WLJSEditor display={"codemirror"} nid={"554911a6-265b-46ae-aff3-0d0c602757f9"} id={"5bd5ef9c-a65c-4019-8b4d-3029f373c073"} type={"Input"} opts={{}} >{`EventRemove%5B%22frame%22%5D`}</WLJSEditor>

@@ -13,16 +13,10 @@ FrontEndVirtual[{
 }]; 
 ```
 
-Here we marked this instance and `{}` scope with `plot` marker. To find all instances marked with this id use
+Here we marked this instance and `{}` scope with `plot` marker. Then, one can evaluate an arbitrary function on the place of this marker using `FrontSubmit` expression
 
 ```mathematica
-marker = FindMetaMarker["plot"]//First; (* since there is only one *)
-```
-
-Then, one can evaluate an arbitrary function on the place of this marker using `Placed` keyword
-
-```mathematica
-Placed[Point[RandomReal[{- 1,1}, 2]], marker]
+FrontSubmit[Point[RandomReal[{- 1,1}, 2]], MetaMarker["plot"]]
 ```
 
 Then, a point will appear on the corresponding place. Repeating this process over and over we can populate with any graphical object our existing plot even with dynamic binding.
@@ -43,15 +37,14 @@ FrontEndVirtual[{
 
 j = 0; 
 (* now we can directly inject new points into already existing object *)
-marker = FindMetaMarker["plot"]//First;
 last = {0,0};
 
 While[j < 300,         
  With[{try = RandomReal[{- 1,1}, 2]},    
-  Placed[{
+  FrontSubmit[{
     RGBColor[RandomSample[{{1,0,0}, {0,1,1}, {1,0,1}}]//First],    
     Line[{last, try}]
-  }, marker];  
+  }, MetaMarker["plot"]];  
  
   last = try;  
  ];   

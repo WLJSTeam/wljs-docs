@@ -1,0 +1,5 @@
+[
+	"Graphics3D",
+	["List",["Directive",["RGBColor",1,0,0],["Rule","FontSize",20]],["Text","'Hey'",["List",2,0]],["Sphere",["List",0,0,0]]],
+	["Rule","ImageSize",500]
+]

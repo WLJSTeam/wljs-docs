@@ -1,4 +1,0 @@
-# Graphics
-:::caution
-in development
-:::

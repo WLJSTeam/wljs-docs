@@ -1,0 +1,87 @@
+
+# Release notes *2.6.3*
+
+This update brings significant improvements, including autocomplete enhancements that dynamically load suggestions for symbols from external packages by rescanning `$ContextPath`. The UI for Windows and Linux has been simplified with a redesigned main menu to resemble native apps more closely.
+
+Additionally, a new approach for dynamically adding graphics primitives to existing canvas objects is introduced, bypassing immutability through `FrontInstanceReference`. Enhanced Manipulate support now includes implicit selection forms and localized symbols.
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/6b5c5164-d03d-4936-92fe-880aea8682d2.txt').default} notebook={require('./attachments/notebook-6b5.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"aaba8119-8035-4983-9991-a628a9da04c1"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+## Autocomplete improvements
+We extended the support of providing suggestions for symbols loaded from external packages at runtime. If you load something Kernel will rescan added contextes from `$ContextPath` and populate the suggestion panel.
+
+## UI changes on Windows & Linux
+We moved towards the simplity of the native apps and redesigned the main menu
+
+![](attachments/Screenshot%202024-12-05%20at%2017.39.09-004.png)
+
+## New way of adding things on canvas
+Wolfram Language is *mostly* immutable by the design, the same is true for all graphics primitives. To add new primitives on the canvas, you would need to reevalaute an expression again.  
+
+We can violate this rule, by injecting new expressions into existing one dynamically and evaluate them in-place. Since our frontend (browser) actually has OOP structure behind the curtains, we can refer to the particular instance of some object `FrontInstanceReference`
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"7169f3d9-4248-4ab5-b3b9-3241d4ef01cd"} type={"Input"} opts={{}} >{`scene%20%3D%20FrontInstanceReference%5B%5D%3B%0APlot%5Bx%2C%20%7Bx%2C0%2C1%7D%2C%20Epilog-%3E%7Bscene%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"434bed90-2ed0-40ef-9cfc-c5212b8d7788"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d537799a-7ff7-4567-a82f-795b86ad5817%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gam5tbWibqmqelmeuamJqZ6yZaGKXpmluaJlmYJaaYWhiaAwB%2BNhVA%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Then we can evaluate any expression in the context of our `Plot` like if it was there before
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"51afd962-f529-413f-a8a0-d17cb8230855"} type={"Input"} opts={{}} >{`FrontSubmit%5B%7BRandomColor%5B%5D%2C%20Disk%5B%7B.5%2C.5%7D%2C%200.1%5D%7D%2C%20scene%5D%3B`}</WLJSEditor>
+
+To make a removable object, one need to wrap it into a special group, which allows to cancel the sideffects caused by evaluation
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"138452cb-95c8-4303-b057-a5d32c0db5fc"} type={"Input"} opts={{}} >{`group%20%3D%20FrontInstanceGroup%5B%5D%3B%0AFrontSubmit%5B%7BRandomColor%5B%5D%2C%20Disk%5B%7B.7%2C.7%7D%2C%200.1%5D%7D%20%2F%2F%20group%2C%20scene%5D%3B`}</WLJSEditor>
+
+Then you can simply delete it
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"147ca603-df90-4a83-a99e-7849bc11eb67"} type={"Input"} opts={{}} >{`Delete%5Bgroup%5D%3B`}</WLJSEditor>
+
+## Manipulate improvements
+We trying to close a gap between Mathematica's `Manipulate` and WLJS version. We added the support of implicit selection form, i.e.
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"1e0e2ffe-1614-4f43-bc01-f02636253d46"} type={"Input"} opts={{}} >{`Manipulate%5BPlot3D%5Bf%5Bx%5D%20f%5By%5D%2C%20%7Bx%2C-10%2C10%7D%2C%20%7By%2C-10%2C10%7D%5D%2C%20%7Bf%2C%20%7BSin%2C%20Tanh%7D%7D%5D`}</WLJSEditor>
+
+Now this form is also valid (take a previous output), it localizes symbols only if one of them is occupied already
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"28daad3f-2dc8-47a1-a2ae-e28119e0728b"} type={"Input"} opts={{}} >{`%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%202%3B%0AManipulate%5B%25%2C%20%7Bx%2C-1%2C1%7D%5D`}</WLJSEditor>
+
+## Experimental feature `FrontProxy`
+The idea is to efficently store, update and delete things on the screen. For this purpose we invent `FrontProxyObject`, which an emulation of OOP paterns aka `KirillBelov/Objects` package, but much more limited.
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"0108d88f-0c2e-48f5-932e-9c08414f95cf"} type={"Input"} opts={{}} >{`ClearAll%5Bhue%2C%20pos%2C%20vel%2C%20text%5D%3B%0A%0Aproxy%20%3D%20CreateFrontProxy%5B%7Bhue%2C%20pos%2C%20vel%2C%20text%7D%2C%20%7B%0A%20%20RGBColor%5BWith%5B%7Bh%20%3D%20hue%7D%2C%20%7B1-h%2C%200%2C%20h%7D%5D%5D%2C%20Text%5Btext%2C%20pos%2C%20%7B0%2C0%7D%5D%0A%7D%2C%20%7Bhue%2C%20pos%2C%20vel%7D%5D%3B`}</WLJSEditor>
+
+Now you can use it to spawn as many instances as you want. It uses linear buffers for each property under the hood to maximize the performance on updates and minimize footprint in memory.
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"13960aa4-2c0b-45a0-8ec0-b045a3f3f590"} type={"Input"} opts={{}} >{`primitives%20%3D%20Table%5Bproxy%5B0.8%2C%20RandomReal%5B%7B-1%2C1%7D%2C%202%5D%2C%20%7B0.%2C0.%7D%2C%20RandomWord%5B%5D%2F%2FCapitalize%5D%2C%20%7B30%7D%5D%3B%0A%0AGraphics%5BShow%20%40%40%20primitives%2C%20ImageSize-%3E%7B500%2C300%7D%2C%20PlotRange-%3E%7B%7B-1%2C1%7D%2C%20%7B-1%2C1%7D%7D%2C%20TransitionType-%3ENone%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"7fe84ead-dc9a-40f6-af18-1444ac6217d3"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%228daa118f-f213-42e0-a4ab-025ff05f58ff%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6QkJhoaWqTpphkZGuuaGKUa6CaaJCbpGhiZpqUZmKaZWqSlAQCIaRX3%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Now you can update all properties and then dispatch all changes at once
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"9bfab8e4-8511-400e-9940-c5254be04a66"} type={"Input"} opts={{}} >{`EventHandler%5BInputRange%5B0.03%2C0.5%2C0.02%2C%20%22Label%22-%3E%22Spread%22%5D%2C%20recalculate%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"c56500b5-30e2-411f-927d-9968f0af1b80"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22c17297bb-15f7-4e93-9968-9c2c7a32195a%22%2C%20%22Initial%22%20-%3E%200.26%2C%20%22View%22%20-%3E%20%22ad8605b0-a27b-48a7-98d1-23aebb2c9dba%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6ZYmBmYJhnoJhqZJ%2BmaWCSa61papBjqGhknpiYlGSVbpiQlAgCGERYn%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Evaluate this handler to see the effect
+
+<WLJSEditor display={"codemirror"} nid={"6b5c5164-d03d-4936-92fe-880aea8682d2"} id={"5a869080-5502-448e-be73-120533af94d6"} type={"Input"} opts={{}} >{`Module%5B%7B%0A%20%20hue%2C%20pos%2C%20vel%2C%20gradient%0A%7D%2C%20recalculate%5Bsigma_%5D%20%3A%3D%20Do%5B%20Do%5B%0A%20%20%0A%20%20%20%20%7Bhue%2C%20pos%2C%20vel%7D%20%3D%20FrontProxyGet%5Bi%5D%3B%0A%20%20%0A%20%20%20%20gradient%20%3D%20Sum%5BIf%5Bi%3D%3D%3Dj%2C%20%7B0.%2C0.%7D%2C%20With%5B%7Bneib%20%3D%20FrontProxyGet%5Bj%5D%5B%5B2%5D%5D%2C%20%5C%5BSigma%5D%20%3D%20sigma%7D%2C%0A%20%20%0A%20%20%20%20%20%20%28%20%28%2AFB%5B%2A%29%28%28%28%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-%28%2AFB%5B%2A%29%28%28SquaredEuclideanDistance%5Bpos%2C%20neib%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282.%20%28%28%2ASpB%5B%2A%29Power%5B%5C%5BSigma%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%29%29%28%2A%5DFB%2A%29%5D%28%2A%5DSpB%2A%29%29%20%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%28%2ASqB%5B%2A%29Sqrt%5B2.%20%5C%5BPi%5D%5D%28%2A%5DSqB%2A%29%29%20%28%28%2ASpB%5B%2A%29Power%5B%5C%5BSigma%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%293%5D%28%2A%5DSpB%2A%29%29%29%29%28%2A%5DFB%2A%29%20%20-%200.1%29%20%28pos%20-%20neib%29%20%2F%2F%20N%0A%20%20%0A%20%20%20%20%5D%5D%2C%20%7Bj%2C%20primitives%7D%5D%3B%0A%0A%20%20%20%20vel%20%3D%20gradient%3B%0A%20%20%20%20pos%20%3D%20pos%20%2B%200.01%20vel%3B%0A%20%20%20%20hue%20%3D%20Clip%5B20.0%20Norm%5Bgradient%5D%2FLength%5Bprimitives%5D%2C%20%7B0%2C1%7D%5D%3B%0A%0A%20%20%20%20FrontProxySet%5Bi%2C%20%7Bhue%2C%20pos%2C%20vel%7D%5D%3B%0A%20%20%0A%20%20%2C%20%7Bi%2C%20primitives%7D%5D%3B%0A%0A%20%20FrontProxyDispatch%5Bproxy%5D%3B%0A%0A%20%20%2C%20%7B2%7D%5D%0A%5D%3B`}</WLJSEditor>
+
+New documentation will come soon on them.
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

@@ -1,0 +1,117 @@
+## Bubble chart
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/643b7c52-b015-4cfc-8099-9cfc0d134f8e.txt').default} notebook={require('./attachments/notebook-643.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"40035bfe-3401-46f6-a156-55f1decb2e18"} type={"Input"} opts={{}} >{`BubbleChart%5BRandomReal%5B1%2C%20%7B5%2C%207%2C%203%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"ffdada7d-0071-4e00-af57-906e67d73af1"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2244f319c3-084b-4355-bf29-f7afde4f7de0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5ikGRtaJhvrGliYJOmaGJua6ialGVnqppknpqWkmqSZp6QaAAB86xXd%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"91fa1f0c-b98f-40e2-814a-6aa3c0d6df34"} type={"Input"} opts={{}} >{`BubbleChart%5BRandomReal%5B1%2C%20%7B10%2C%203%7D%5D%2C%20%0A%20ChartElementFunction%20-%3E%20%22NoiseBubble%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"7e9c9131-4abe-4300-bdd3-f751cb1fbf81"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f79760d0-3fd5-41d4-8bef-5cd40ce1f85e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5lbmpsZpBjoGqelmOqaGKaY6FokpabpmianmBgkpxqmWZimAgCF8xYP%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Bar Charts
+Generate a bar chart for a list of heights
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"24870691-27c5-4070-93d7-e70a0795bab8"} type={"Input"} opts={{}} >{`BarChart%5B%7B1%2C%202%2C%203%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"536b504d-52b4-4f07-a25c-d8e03ecb1cfc"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bc6440fb-800a-4b9a-885c-967b69a33838%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyWbmZgYpCXpWhgYJOqaJFkm6lpYmCbrWpqZJ5lZJhobWxhbAACE3RVQ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Multiple datasets
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"51b763ec-04b4-4b7a-8c67-7134442f1033"} type={"Input"} opts={{}} >{`BarChart%5B%7B%7B1%2C%202%2C%203%7D%2C%20%7B1%2C%203%2C%202%7D%2C%20%7B5%2C%202%7D%7D%2C%20%0A%20ChartLabels%20-%3E%20%7B%22a%22%2C%20%22b%22%2C%20%22c%22%7D%2C%20LabelingFunction%20-%3E%20Above%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"a48f02b4-6c7b-4954-b915-85e6569bf252"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2237f38a18-eaa6-44bf-aa2f-bcd29fc1b204%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5unGVskGlropiYmmumamCSl6SYmGqXpJiWnGFmmJRsmGRmYAACPYhZV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Categorical legends
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"d7b021bf-b1a0-441a-9f58-54095cd31783"} type={"Input"} opts={{}} >{`BarChart%5B%7B%7B1%2C%202%2C%203%7D%2C%20%7B1%2C%203%2C%202%7D%2C%20%7B5%2C%202%7D%7D%2C%20%0A%20ChartLegends%20-%3E%20%7B%22a%22%2C%20%22b%22%2C%20%22c%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"f8c1aa46-cdeb-4b80-aba5-7330007f68b8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2204343707-6532-46f9-ad2d-ca2228fb2f46%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5gYmxibG5jrmpkaG%2BmamKVZ6iamGKXoJicaGRlZpCUZpZmYAQBuWBUP%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+
+## Sector charts
+A sector chart with the second component representing the radial size
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"30ddbc41-ab01-4211-887b-b2eaf8a8a0c7"} type={"Input"} opts={{}} >{`SectorChart%5B%7B%7B1%2C%201%7D%2C%20%7B1%2C%202%7D%2C%20%7B1%2C%203%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"5bd03681-0810-4ec8-aeac-68ac9eaa8b67"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22199a2580-954b-4151-8652-904912b8ba92%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG1paJhqZWhjoWpqaJOmaGJoa6lqYmRrpWhqYWBoaJVkkJVoaAQBpUxRb%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+An anuual sector chart
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"ae583a5e-38dd-4555-8450-afda87b84589"} type={"Input"} opts={{}} >{`SectorChart%5B%7B%7B1%2C%201%7D%2C%20%7B1%2C%202%7D%2C%20%7B1%2C%203%7D%7D%2C%20SectorOrigin%20-%3E%20%7BAutomatic%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"b0f9c80e-0f7f-4c36-86dc-91024de1e0b9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e3409c35-8582-4b3f-a317-13e8585a18d7%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxqbGFgmG5vqWphaGOmaJBmn6SYaG5rrGhqnAkVMEw0tUswBdjIU7Q%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Pie chart
+Generate a pie chart for a list of values
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"fa3b88b1-1867-4270-b968-b2f3f6a6cfc9"} type={"Input"} opts={{}} >{`PieChart%5B%7B1%2C%202%2C%203%2C%204%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"8a569459-6a97-455b-82bd-868bab5f5dcb"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%222a87b6f8-cea7-4c17-863d-070124d53f1e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyVamCeZpVnoJqcmmuuaJBua61qYGafoGpgbGBqZpJgapxmmAgCFTRV1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Multiple datasets and categorical labels
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"3fa87f12-a71d-47a3-a696-3fc41adc2988"} type={"Input"} opts={{}} >{`PieChart%5B%7B%7B1%2C%202%2C%203%7D%2C%20%7B2%2C%202%2C%201%7D%7D%2C%20ChartLabels%20-%3E%20%7B%22a%22%2C%20%22b%22%2C%20%22c%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"aa0e831d-ee73-4eab-8507-2c003e15f18e"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%227f26095d-4a5a-4740-98ba-53418641c212%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6cZmRlYmqbomiSaJuqamJsY6FpaJCXqmhqbGFqYmRgmGxkaAQB3exSw%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or as legends
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"2aeab603-1845-4d2c-accb-e4015ab1f984"} type={"Input"} opts={{}} >{`PieChart%5B%7B%7B1%2C%202%2C%203%7D%2C%20%7B2%2C%202%2C%201%7D%7D%2C%20ChartLegends%20-%3E%20%7B%22a%22%2C%20%22b%22%2C%20%22c%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"a445d2b3-1cfa-445d-8280-d3a06222bf24"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f397805e-de62-4a70-ae83-3de12aa36421%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxlbmlsYmKbqpqSaGemaJJob6CamWhjrGqekGholJhqbmRgZAgCC3RVt%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Histogram
+Generate a histogram for a list of values
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"de98ca8a-99ae-41c8-92e1-28229d247ac0"} type={"Input"} opts={{}} >{`Histogram%5BRandomVariate%5BNormalDistribution%5B0%2C%201%5D%2C%20200%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"fafba832-6564-4ca3-ba15-28e043dfb660"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22895e4d03-4888-4fa1-89c5-db965f80a20e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1iappqkGBjrmlhYWOiapCUa6lpYJpvqpiRZmpmmWRgkGhmkAgB67BVa%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Multiple datasets
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"e23454f0-84ce-4dca-80ec-be7dbcf84ddb"} type={"Input"} opts={{}} >{`data1%20%3D%20RandomVariate%5BNormalDistribution%5B0%2C%201%5D%2C%20500%5D%3B%0Adata2%20%3D%20RandomVariate%5BNormalDistribution%5B3%2C%201%2F2%5D%2C%20500%5D%3B%0A%0AHistogram%5B%7Bdata1%2C%20data2%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"ebe6b5dc-d6ec-4156-8d7d-825ea6b49f40"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22638c18ec-495a-4a48-93ea-ae6025807404%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxlbJBtapCbrmliaJuqaJJpY6FoapybqJqaaGRiZWhiYmxiYAAB%2FxRUY%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+__Stylize__ the data
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"f0545437-27b7-4a7f-86f9-ff38bf3e32b7"} type={"Input"} opts={{}} >{`Histogram%5B%7Bdata1%2C%20data2%7D%2C%20ChartStyle%20-%3E%20%22Pastel%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"192ce32d-7926-4db1-9069-a53912218e78"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22b2add816-91a1-49fa-abf7-b8f36e7c0d2b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxklpqRYGJrpWhomGuqaWKYl6iYmpZnrJlmkGZulmicbpBglAQCQRBZf%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Use color function
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"0529a8fd-2046-4aaf-9c58-23774ddffd99"} type={"Input"} opts={{}} >{`Histogram%5BRandomVariate%5BNormalDistribution%5B0%2C%201%5D%2C%20500%5D%2C%20%0A%20ColorFunction%20-%3E%20Function%5B%7Bheight%7D%2C%20Opacity%5Bheight%5D%5D%2C%20%0A%20ChartStyle%20-%3E%20Purple%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"726e8e9d-0711-486a-9969-e1eebf6683b8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2201fe870c-d01c-4623-8d3e-aa0bea69f17d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGximpVqYGyTrphgYJuuamBkZ61qkGKfqJiYaJKUmmlmmGZqnAACE9RX3%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Get the wind data directions
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"a6f1b368-41cd-4250-9090-79de01137114"} type={"Input"} opts={{}} >{`data%20%3D%20WeatherData%5B%22KCMI%22%2C%20%0A%20%20%20%22WindDirection%22%2C%20%7B%7B2007%2C%2011%2C%201%7D%2C%20%7B2008%2C%2011%2C%201%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"0ad49c28-9517-4653-8995-4ce4fe4ae314"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29temporalStorage%24434371%28%2A%2C%2A%29%28%2A%221%3AeJwlk8uyqkYARa0kg1S%2BIrmjcyRVvEQkM16CCAgCjXjrDhAbEHnZPLrl63NuMlm1a4%2FX%2BuvWnfNfVqvV8McX9Ptj7BB4QBxov65W4aOBAUQPOHz%2FWAPl%2B%2Frzz4%2F13%2BvPj%2FU39h9oLS64szNXyf6VGrj07IW9zoe9xpFUpuRDD3zG7o%2FwrexGFeyA6hdMigJNM5WDmFTk%2FSyISW08DrWlyXVGA6L8Xmp2JeYUFPhZwoLJpDuXb7LgdVHBW54Ue1fabSoWQZCVV0e7XgoPT4GtlDmTMtGBaMvAlUYdqKSEtN0JlGFs9CVuwqHwn7dDiInnW4TwmM9xd3ROFwdrENfmxaSTbb0BKr48qeWIGKDCaLKTdxF5oUg31En0RGV0LNYO5UxfKLZNTOdAAnglXrZ%2F2L1tKZBQ4dRx%2BSLPDmqHKnpml5zRErpm0z45mkugRQ7Poj72mdFlmc1eQkXxMOptuZyGlGdNhs1uCU6hW%2FqUGKhHMXheMuQIRC%2B7LTVm7kvSSkSa9qQ1uDVT2jk27b3Fo3OY51sv3SsHxSLzQlXuTjEzNz0tlkIiHZkQeNPEkF4QFmusb9KbCbUtY1WQumzi8Nqee3DvzVG5CpfFBxTfF0J7orew3nsozV8YGCKybdqId2JSHETu6sI4efLCtGxoKhu41jFSaT%2FwjKBKJzzInt45%2B15lpEmiylNQU6p2L9UmkUNrcEY6LyLgOF3dsWJRvTbJhnD%2B8x1Ay%2FCIwmNjKLyd77FcPOF74FzPX1bgXn3r6jaz0xZYuTKjE7mNTxSR8ijszJiz9rkC5IyO3HoG%2Bk1VD2xXIpXgvbrlLStV%2BBgsYf7IsiF9Az%2BzkFvW%2BmvfGqhS0Jk4bYggqzzxMrEGH221MnoY80OHYC5eoxVzVRPGcpidqc7rBsMdVPji1EZqrsU0iErBeXQtYU%2BVnGP47WcjP4Cy%2Fvzxf1y%2FfeE81TD4%2FeeA6f3U1u%2F%2F3hBN8F91ziMf%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Define a chart element function that stores bin width and count data using Sow
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"2c1f2356-4707-49de-83ac-d21f8bcb5068"} type={"Input"} opts={{}} >{`sowingBar%5B%7B%7Bx0_%2C%20x1_%7D%2C%20%7By0_%2C%20y1_%7D%7D%2C%20__%5D%20%3A%3D%20%28Sow%5B%7Bx1%20-%20x0%2C%20%0A%20%20%20%20100%2A%28y1%20-%20y0%29%7D%5D%3B%20Rectangle%5B%7Bx0%2C%20y0%7D%2C%20%7Bx1%2C%20y1%7D%5D%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"261cdfb8-6309-4f4f-a5dc-e2cc90f696c0"} type={"Input"} opts={{}} >{`%7Bhistogram%2C%20newdata%7D%20%3D%20%0A%20%20Reap%5BHistogram%5Bdata%2C%20Automatic%2C%20%22Probability%22%2C%20%0A%20%20%20%20ChartElementFunction%20-%3E%20sowingBar%5D%5D%3B%0A%0Ahistogram%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"3a48b809-72ad-4ab9-bac3-854b45ef7f98"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22dc7525c1-be14-45e7-af40-d90ae8897092%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpySbmxqZJhvqJqUamuiamKaa6yammRjoplgaJKZaWFiaG1gaAQCHWxV7%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create a polar histogram of the wind-direction frequencies:
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"73629587-6a81-4a64-a3d2-1bda9067e6f8"} type={"Input"} opts={{}} >{`SectorChart%5Bnewdata%2C%20SectorOrigin%20-%3E%20%7BPi%2F2%2C%20%22Clockwise%22%7D%2C%20%0A%20PolarAxes%20-%3E%20True%2C%20PolarGridLines%20-%3E%20Automatic%2C%20%0A%20PlotRange-%3E%7B2%20Pi%20%7B-1%2C1%7D%2C%202%20Pi%20%7B-1%2C1%7D%7D%2C%0A%20ChartBaseStyle%20-%3E%20Directive%5BOpacity%5B1%5D%2C%20EdgeForm%5BThin%5D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"643b7c52-b015-4cfc-8099-9cfc0d134f8e"} id={"5b3a7db7-79df-4d76-b7db-ccae93b1b833"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2250e54f29-0e9c-4444-8d80-685158f6c2fa%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqkmpqkGVnqGqRaJuuaAIGuRYqFga6ZhamhqUWaWbJRWiIAd3kVJQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Warning: __ticks styling__ in polar plots are not supported for now.

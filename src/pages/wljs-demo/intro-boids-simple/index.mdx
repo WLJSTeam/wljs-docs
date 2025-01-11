@@ -1,0 +1,43 @@
+# Dancing with friends and enemies: boids' swarm intelligence
+Adapted from [Wolfram Community](https://community.wolfram.com/groups/-/m/t/122095). Written by *Simon Woods*
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/f4b0207f-1f77-48f1-84c6-21a9a5b77e31.txt').default} notebook={require('./attachments/notebook-f4b.wln').default}/>
+
+
+
+
+- 1000 dancers assume random positions on the dance-floor.
+- Each randomly chooses one "friend" and one "enemy".
+- At each step every dancer
+  - moves 0.5% closer to the centre of the floor
+  - then takes a large step towards their friend and a small step away from their enemy.
+- At random intervals one dancer re-chooses their friend and enemy
+
+Randomness is deliberately injected. Here is the dance...
+
+<WLJSHTML>{`%3Cspan%20style%3D%22color%3Ared%22%3EEvaluate%20initialization%20cells%20first%3C%2Fspan%3E`}</WLJSHTML> or go one by one
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"37b50cdb-d9db-44d7-b2e7-2936c527b50c"} type={"Input"} opts={{"InitGroup":true}} >{`n%20%3D%201000%3B%0Ar%20%3A%3D%20RandomInteger%5B%7B1%2C%20n%7D%5D%3B%0Af%20%3A%3D%20%28%23%2F%28.01%20%2B%20Sqrt%5B%23.%23%5D%29%29%20%26%20%2F%40%20%28x%5B%5B%23%5D%5D%20-%20x%29%20%26%3B%0As%20%3A%3D%20With%5B%7Br1%20%3D%20r%7D%2C%20p%5B%5Br1%5D%5D%20%3D%20r%3B%20q%5B%5Br1%5D%5D%20%3D%20r%5D%3B%0Ax%20%3D%20RandomReal%5B%7B-1%2C%201%7D%2C%20%7Bn%2C%202%7D%5D%3B%0A%7Bp%2C%20q%7D%20%3D%20RandomInteger%5B%7B1%2C%20n%7D%2C%20%7B2%2C%20n%7D%5D%3B`}</WLJSEditor>
+
+__Main render function__
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"e85542d3-fe05-4c42-9f0e-5a1f81fe6072"} type={"Input"} opts={{"InitGroup":true}} >{`EventHandler%5B%22frame%22%2C%20Function%5BNull%2C%0A%20%20x%20%3D%200.995%20x%20%2B%200.02%20f%5Bp%5D%20-%200.01%20f%5Bq%5D%3B%0A%20%20If%5Br%20%3C%20100%2C%20s%5D%3B%0A%5D%5D%3B`}</WLJSEditor>
+
+__Drawing function__
+Evaluate *this cell very last*
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"df36c805-66ef-4714-a01f-4f5317f3f335"} type={"Input"} opts={{}} >{`Graphics%5B%7B%0A%20%20PointSize%5B0.007%5D%2C%20Point%5Bx%20%2F%2F%20Offload%5D%2C%0A%20%20AnimationFrameListener%5Bx%20%2F%2F%20Offload%2C%20%22Event%22-%3E%22frame%22%5D%0A%7D%2C%20PlotRange%20-%3E%20%7B%7B-2%2C2%7D%2C%20%7B-2%2C2%7D%7D%2C%20TransitionType-%3ENone%5D%20%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"d28856f8-f0b9-4d52-8b20-41850c941a34"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c2a108dd-d7c9-4f48-8ad8-8445b67ed254%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxslGhpYpKToppgnW%2BqapJlY6FokpgAJExPTJDPz1BQjUxMAiq4VtA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+__To stop__
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"732e10d2-5c7c-4833-886a-3b299b876c10"} type={"Input"} opts={{}} >{`EventRemove%5B%22frame%22%5D%3B`}</WLJSEditor>
+
+__To restart__ - evaluate `EventHandler` and then a kick-starter
+
+<WLJSEditor display={"codemirror"} nid={"f4b0207f-1f77-48f1-84c6-21a9a5b77e31"} id={"ab241527-1389-4f5f-9853-b516e3c3a945"} type={"Input"} opts={{}} >{`EventFire%5B%22frame%22%2C%20Null%5D%3B`}</WLJSEditor>

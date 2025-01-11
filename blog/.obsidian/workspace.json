@@ -1,0 +1,517 @@
+{
+  "main": {
+    "id": "56ecb1dcf56d6844",
+    "type": "split",
+    "children": [
+      {
+        "id": "8de808dacd8ee658",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "337da549353c2185",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-04-19-spider/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "75ac0253bfd954c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-04-22-gauge.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-04-22-gauge"
+            }
+          },
+          {
+            "id": "03b4e2e45761d838",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-04-22-gauge.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-04-22-gauge"
+            }
+          },
+          {
+            "id": "b3bb6d94b551607c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-08-22-ellipce.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-08-22-ellipce"
+            }
+          },
+          {
+            "id": "28358cf5391909b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-05-26-atom.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-05-26-atom"
+            }
+          },
+          {
+            "id": "cdb7ae8200c856cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-09-07-raster.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-09-07-raster"
+            }
+          },
+          {
+            "id": "95ee831ad3b0bb05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-09-11-barcharts.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-09-11-barcharts"
+            }
+          },
+          {
+            "id": "77efd2f332685b22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-10-08-statcnt.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-10-08-statcnt"
+            }
+          },
+          {
+            "id": "adfe7e70028e0308",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-10-15-speech2text.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-10-15-speech2text"
+            }
+          },
+          {
+            "id": "7d26615ee398bf82",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-10-25-rtx-logo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-10-25-rtx-logo"
+            }
+          },
+          {
+            "id": "29d01a15d3cd60dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-10-24-worm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-10-24-worm"
+            }
+          },
+          {
+            "id": "36e60cd9872352d9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-11-08-non-indexed.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-11-08-non-indexed"
+            }
+          },
+          {
+            "id": "fd9c6ba1a806c04a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-11-20-rtx-refine.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-11-20-rtx-refine"
+            }
+          },
+          {
+            "id": "3ad67137504c2e70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-11-25-diffraction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-11-25-diffraction"
+            }
+          },
+          {
+            "id": "6b3ea547132e585e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-12-04-proxy.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-12-04-proxy"
+            }
+          },
+          {
+            "id": "883ca4179a3fab69",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-12-16-charges.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-12-16-charges"
+            }
+          },
+          {
+            "id": "ecdb68163ab54380",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2025-01-08-earth/index.mdx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          },
+          {
+            "id": "e9e5ceea4a314ebc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-01-01-autocomplete.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-01-01-autocomplete"
+            }
+          },
+          {
+            "id": "e5e660c937a34c0b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-12-23-2ways.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-12-23-2ways"
+            }
+          },
+          {
+            "id": "0e712798799c9f8d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-08-22-ellipce.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2024-08-22-ellipce"
+            }
+          },
+          {
+            "id": "9ed093e4b2841877",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Screenshot 2024-06-01 at 22.22.27.png"
+              },
+              "icon": "lucide-image",
+              "title": "Screenshot 2024-06-01 at 22.22.27"
+            }
+          },
+          {
+            "id": "8733df44b2ee0c9b",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Screenshot 2024-06-01 at 21.03.19.png"
+              },
+              "icon": "lucide-image",
+              "title": "Screenshot 2024-06-01 at 21.03.19"
+            }
+          },
+          {
+            "id": "978337fd778df577",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Screenshot 2024-06-01 at 20.55.29.png"
+              },
+              "icon": "lucide-image",
+              "title": "Screenshot 2024-06-01 at 20.55.29"
+            }
+          }
+        ],
+        "currentTab": 18
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5cf68b56228c7c79",
+    "type": "split",
+    "children": [
+      {
+        "id": "02e9ce8e18f38c44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "156cece66c48f9f4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5759ed5b994729f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "path:\"2025-01-08-earth/\" ",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "680e9ba4ab9a817d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "891513db97621f79",
+    "type": "split",
+    "children": [
+      {
+        "id": "16ea275940c48167",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a782eaa1f409ec3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for index"
+            }
+          },
+          {
+            "id": "cc5ecc839406af86",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from index"
+            }
+          },
+          {
+            "id": "cc73662379cc4e7c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "299af6206934c3f8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "e5e660c937a34c0b",
+  "lastOpenFiles": [
+    "fields-ezgif.com-video-to-gif-converter-553959e2d416c2aa4cc82261b90aa3f0 (1).gif",
+    "2024-11-25-diffraction.md",
+    "2024-12-16-charges.md",
+    "2024-12-23-2ways.md",
+    "2024-01-01-autocomplete.md",
+    "2025-01-08-earth/index.mdx",
+    "2025-01-08-earth/index0.mdx",
+    "2025-01-08-earth/attachments/kernel.txt",
+    "2025-01-08-earth/attachments/notebook-a3d.wln",
+    "2025-01-08-earth/attachments/a3d056d8-5bf5-48ef-8ab5-9dd6ca7b3d69.txt",
+    "2025-01-08-earth/attachments",
+    "2025-01-07-nier.md",
+    "2024-12-04-proxy.md",
+    "2024-11-20-rtx-refine.md",
+    "2024-11-08-non-indexed.md",
+    "2024-10-25-rtx-logo.md",
+    "2024-09-07-raster.md",
+    "2024-05-26-atom.md",
+    "2024-10-08-statcnt.md",
+    "2024-10-24-worm.md",
+    "2024-10-15-speech2text.md",
+    "2024-09-11-barcharts.md",
+    "EarthROt-ezgif.com-optimize.gif",
+    "2024-05-13-json-llm.md",
+    "2025-01-08-earth/attachments/937d1596-70e7-41fc-a55e-431d443cd22e.txt",
+    "2025-01-08-earth/attachments/notebook-937.wln",
+    "2025-01-08-earth",
+    "GameInWL-ezgif.com-video-to-gif-converter.gif",
+    "5404632935589602523 (1).jpg",
+    "Proxy1-ezgif.com-speed.gif",
+    "diffraction1-ezgif.com-optimize.gif",
+    "5327762079077230103.jpg",
+    "metaballs1-ezgif.com-video-to-gif-converter.gif",
+    "nonindeed2-ezgif.com-video-to-gif-converter.gif",
+    "Dweller1-ezgif.com-optimize.gif",
+    "5249342723645891565.jpg",
+    "dynamicstats-ezgif.com-video-to-gif-converter.gif.mp4",
+    "2024-08-22-ellipce.md",
+    "2024-04-19-spider/index.md",
+    "2024-04-22-gauge.md",
+    "2024-04-24-dynamic-env/index.md",
+    "2023-10-10-esm/index.md",
+    "2024-05-01-badapple/index.md",
+    "2024-05-01-badapple/index.md.md",
+    "2024-04-13-imagetrace/index.md",
+    "2024-04-13-imagetrace/index.md.md"
+  ]
+}

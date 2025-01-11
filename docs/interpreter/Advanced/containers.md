@@ -3,10 +3,10 @@ sidebar_position: 2
 ---
 # Containers
 The __general definition__ will be
-> *an isolated container, where the [defined functions](symbols.md) can be executed*
+> *an environment, where the [defined functions](symbols.md) can be executed*
 
 :::info
-All dynamic variables and graphics expressions like `Graphics`, `Graphics3D` has to be executed inside the container, since it provides an identifier, local memory to the expression, that was called (for each call). 
+All dynamic variables and graphics expressions like `Graphics`, `Graphics3D` has to be executed inside the container (even `Line`, `Point`), since it provides an identifier, local memory to the expression, that was called (for each call). 
 :::
 
 

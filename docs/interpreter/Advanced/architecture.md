@@ -51,7 +51,7 @@ If the called expression was not found in all available contexts, the interprete
 
 By the default, those special missing expressions becomes in the end virtual containers and can call `update` method on other containerized functions.
 
-See [executables](../../frontend/executables.md) and [Sub symbols](#Methods%20Sub%20symbols) for more information about methods and etc.
+See [executables](../../frontend/Outdated/Advanced/Frontend%20interpretation/executables.md) and [Sub symbols](#Methods%20Sub%20symbols) for more information about methods and etc.
 
 ### Metadata
 To share some data between functions, to use local and global memory of the executable objects, specifying methods of evaluation and DOM access the following object is provided

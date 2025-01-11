@@ -1,0 +1,92 @@
+# Dynamics and User's Input
+This is one of the major feature developed in WLJS Notebook
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/3741c885-c738-4115-abf5-14f91ebf0527.txt').default} notebook={require('./attachments/notebook-374.wln').default}/>
+
+
+
+
+## A shortcut
+If you just need to plot a function with a few parameters to vary
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"d1af78af-2220-4aa6-a555-01fe2413a8cf"} type={"Input"} opts={{}} >{`ManipulatePlot%5BSum%5BSin%5Bi%20%CF%89%20t%5D%2C%20%7Bi%2C%2010%7D%5D%2C%20%7Bt%2C0%2C2Pi%7D%2C%20%7B%CF%89%2C%200.%2C%2010.1%2C%200.1%7D%5D`}</WLJSEditor>
+
+Or for multiple function
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"998b5f40-c7c0-4b37-9922-e0242aadfa56"} type={"Input"} opts={{}} >{`ManipulatePlot%5B%7BSin%5B%CF%89%20t%5D%2C%20Sum%5BSin%5Bi%20%CF%89%20t%5D%2C%20%7Bi%2C%2010%7D%5D%7D%2C%20%7Bt%2C0%2C2Pi%7D%2C%20%7B%CF%89%2C%200.%2C%2010.1%2C%200.1%7D%5D`}</WLJSEditor>
+
+Or for animating
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"1a235d3b-0e6e-4692-b112-6d68f3719133"} type={"Input"} opts={{}} >{`AnimatePlot%5B%7BSin%5B%CF%89%20u%5D%2C%20Sum%5BSin%5Bi%20%CF%89%20u%5D%2C%20%7Bi%2C%2010%7D%5D%7D%2C%20%7Bu%2C0%2C2Pi%7D%2C%20%7B%CF%89%2C%200.%2C%205.1%2C%200.1%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"5560bdce-9ceb-4eb4-a6d5-bfb887e51984"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a83bbcae-9605-49c1-ad4f-0d55a9e7e1b0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1oYJyUlJ6bqWpoZmOqaWCYb6iammKTpGqSYmiZappqnGiYZAACRBhYs%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or for general purpose
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"0cdd31da-bae4-406c-815f-c93a7deec571"} type={"Input"} opts={{}} >{`Manipulate%5BPlot3D%5BSin%5Bn%20x%5D%20Cos%5Bn%20y%5D%2C%20%7Bx%2C-Pi%2CPi%7D%2C%20%7By%2C-Pi%2CPi%7D%5D%2C%20%7Bn%2C%201%2C3%2C1%7D%5D`}</WLJSEditor>
+
+## For whom need a deeper look
+
+## Sliders and data
+The simples way to demonstarate it is to generate some data
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"42f96599-120c-405b-971e-274639f8b455"} type={"Input"} opts={{}} >{`generate%5B%CF%89_%2C%20t_%5D%20%3A%3D%20Sum%5BSin%5Bi%20%CF%89%20t%5D%2C%20%7Bi%2C%2010%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"1466d53f-e09c-4098-83bf-051d13fbe8ac"} type={"Input"} opts={{}} >{`Plot%5Bgenerate%5B10.%2C%20t%5D%2C%20%7Bt%2C%200%2C%202Pi%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"5199805f-fcdc-408b-8a0e-0418a19b4258"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e2ac9276-93fa-47c8-8225-9fa8c7f20617%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxolJlsamZvpWhqnJeqamCdb6FoYGZnqWqYlWiSbpxkZmBmaAwCDpRVY%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+This is a static picture, but we can make it dynamic. The major drawback is that we have to use basic primitives such as `Line` and `Graphics` wrapper for this to happen
+
+## Primitives
+Let's try it out with `Graphics` step by step
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"5cb74ab9-0caa-4c37-9b36-2beefe94d7c9"} type={"Input"} opts={{}} >{`dyn%20%3D%20Table%5B%7Bt%2C%20generate%5B10.%2C%20t%5D%7D%2C%20%7Bt%2C%200%2C%202Pi%2C%200.04%7D%5D%3B%0AGraphics%5BLine%5Bdyn%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"c484b1bf-9c5c-43de-883a-357c518204b1"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22cdb634ad-91f7-4a79-8d3e-32f8b7258708%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6ckmRmbJKboWhqmmeuaJJpb6lqkGKfqGhulWSSZG5lamBtYAACMhxWI%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+A bit more clarity
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"76fed5b7-2730-4886-be01-7608f397ec25"} type={"Input"} opts={{}} >{`Graphics%5BLine%5Bdyn%5D%2C%20Axes-%3ETrue%2C%20PlotRange-%3E%7B%7B0%2C6%7D%2C%20%7B-7%2C7%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"8541b944-b7a0-4fb8-a57d-1f25645344cc"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ea1e5a0c-b365-446e-a8dc-bbe08c0f96f6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpyYappomGiTrJhmbmeqamJil6iZapAC5SakGFskGaZZmaWYAktcWYA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+However, __this is still a static picture__, to make it dynamic, we need to use `Offload` keyword
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"9a6b5789-0416-4055-b81a-13758d175cbb"} type={"Input"} opts={{}} >{`Graphics%5BLine%5Bdyn%20%2F%2F%20Offload%5D%2C%20Axes-%3ETrue%2C%20PlotRange-%3E%7B%7B0%2C6%7D%2C%20%7B-7%2C7%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"f0356e83-f2d8-4fde-8e05-67b0f936439a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f2c5929e-c921-4106-917b-1c74a3b074fd%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxklm1oaWabqJlsaGeqaGBqY6VoamifpGiabmyQaJxmYm6SlAAB7XBVD%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*Note: Line, Rectangle, Disk, Circle, Sphere, and other primitives support Offload. You cannot put an arbitary expression into Offload*
+
+Now try to evaluate this cell
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"381f9dde-9b46-45fd-aed9-e76afba63c82"} type={"Input"} opts={{}} >{`dyn%20%3D%20Table%5B%7Bt%2C%20generate%5B3.%2C%20t%5D%7D%2C%20%7Bt%2C%200%2C%202Pi%2C%200.04%7D%5D%3B`}</WLJSEditor>
+
+The graph above should be updated automatically, since the dynamic link between __Line__ and __dyn__ symbols is created.
+
+## Adding sliders
+Of course we need element for a user to interact with
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"8c2444b2-d6a1-4e4d-82fa-bda868daf0d0"} type={"Input"} opts={{}} >{`slider%20%3D%20InputRange%5B0%2C%2010%2C%201%2C%20%22Label%22-%3E%22Frequency%22%5D%3B%0Aslider`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"61a2042d-6380-49c8-998d-54506f7499ca"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22a613de31-6810-4712-a709-c1954e17a01a%22%2C%20%22Initial%22%20-%3E%205%2C%20%22View%22%20-%3E%20%22f35d9e88-9ed4-4119-9f79-14a93457c684%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxmbplimWljoWqammOiaGBpa6lqmmVvqGpokWhqbmJonm1mYAACAnRUO%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+In order to read the input, we need to assign a handler function. Let it be this one
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"8dfc9fdf-c0a3-4837-be76-02dff6a6dac6"} type={"Input"} opts={{}} >{`EventHandler%5Bslider%2C%20Function%5Bfreq%2C%20%0A%20%20dyn%20%3D%20Table%5B%7Bt%2C%20generate%5Bfreq%2C%20t%5D%7D%2C%20%7Bt%2C%200%2C%202Pi%2C%200.04%7D%5D%3B%0A%5D%5D%3B`}</WLJSEditor>
+
+*Note: by dragging a slider above, our dynamic plot should be updated*
+
+## Wrapping up
+It is better not to litter the global scope and use `Module` or `LeakyModule` to scope our variables
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"f3093185-0204-469f-af9a-eaa5f215bd0c"} type={"Input"} opts={{}} >{`generate%5B%CF%89_%2C%20t_%5D%20%3A%3D%20Sum%5BSin%5Bi%20%CF%89%20t%5D%2C%20%7Bi%2C%2010%7D%5D%3B%0A%0ALeakyModule%5B%7Bdata%2C%20slider%7D%2C%0A%20%20slider%20%3D%20InputRange%5B0%2C%2010%2C%201%2C%20%22Label%22-%3E%22Frequency%22%5D%3B%0A%20%20EventHandler%5Bslider%2C%20Function%5Bfreq%2C%0A%20%20%20%20data%20%3D%20Table%5B%7Bt%2C%20generate%5Bfreq%2C%20t%5D%7D%2C%20%7Bt%2C%200%2C%202Pi%2C%200.04%7D%5D%3B%0A%20%20%5D%5D%3B%0A%0A%20%20slider%20%2F%2F%20EventFire%3B%20%28%2A%20just%20to%20initialize%20%2A%29%0A%0A%20%20%7B%0A%20%20%20%20Graphics%5B%7BColorData%5B97%5D%5B2%5D%2C%20Line%5Bdata%20%2F%2F%20Offload%5D%7D%2C%20Axes-%3ETrue%2C%20PlotRange-%3E%7B%7B0%2C6%7D%2C%20%7B-7%2C7%7D%7D%5D%2C%0A%20%20%20%20slider%0A%20%20%7D%20%2F%2F%20Row%20%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3741c885-c738-4115-abf5-14f91ebf0527"} id={"6767c27f-0a4c-4144-9e46-6dbfe4f2ca0a"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bf57a6c2-24ca-45c7-a5be-4fa92bd1d8f6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6WZmieaJRvpGpkkJ%2BqamCab6yaaJqXqmqQlWholpRimWKSZAQCQzxZi%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%221f013588-a60b-4b42-a6fd-fa6a85996415%22%2C%20%22Initial%22%20-%3E%205%2C%20%22View%22%20-%3E%20%22ccb79ad0-7d52-45e8-adc3-6856c779f875%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJycnmVsmphjomqeYGumamKZa6CamJBvrmlmYmiWbm1umWZibAgCPBRXA%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+*try to drag a slider*

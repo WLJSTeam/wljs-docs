@@ -37,3 +37,7 @@
   flex-wrap: wrap;
   width: 94%; 
 }
+
+#canvas {
+  text-align: center;
+}

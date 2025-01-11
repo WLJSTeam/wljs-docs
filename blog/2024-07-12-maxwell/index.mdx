@@ -1,0 +1,41 @@
+---
+authors: jerryi
+tags:
+  - numerics
+enableComments: true
+---
+
+# 1D FDTD Method
+Solving Maxwell's equation for 1D case with two interfaces.
+Based on the work of __John B. Schneider__ *"Understanding the Finite-Difference Time-Domain Method"* 2023 we will try to solve 1D Maxwell's equation for electro-magnetic wave propagating through a non-dispersive plate
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c.txt').default} notebook={require('./attachments/notebook-d7f.wln').default}/>
+
+
+
+
+Define constants
+
+<WLJSEditor display={"codemirror"} nid={"d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c"} id={"49e93c53-112c-44c1-a227-cf443648f664"} type={"Input"} opts={{}} >{`%CE%B6%20%3D%20377.0%3B%20%28%2ABB%5B%2A%29%28%2AOhm%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0Asize%20%3D%20400%3B%0A%0Aez%20%3D%20ConstantArray%5B0.%2C%20%7Bsize%7D%5D%3B%0Ahy%20%3D%20ConstantArray%5B0.%2C%20%7Bsize%7D%5D%3B%0A%0Ac%CE%BC%20%3D%20ConstantArray%5B%CE%B6%2C%20%20%20%7Bsize%7D%5D%3B%0Ac%CF%B5%20%3D%20ConstantArray%5B1.%2C%20%20%7Bsize%7D%5D%3B%0A%0A%28%2ABB%5B%2A%29%28%2ADefine%20a%20second%20medium%20with%20losses%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%0Ac%CF%B5%5B%5B200%3B%3B220%5D%5D%20%3D%20%28%2AFB%5B%2A%29%28%28%281%20-%200.001%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%281%20%2B%200.001%29%29%29%28%2A%5DFB%2A%29%3B%0Ac%CE%BC%5B%5B200%3B%3B220%5D%5D%20%3D%20%28%2AFB%5B%2A%29%28%28%CE%B6%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%289.0%29%29%28%2A%5DFB%2A%29%20%2F%20%281%20%2B%200.001%29%3B%0A%0Agenerator%20%3D%20With%5B%7Bie%20%3D%20size%7D%2C%20Compile%5B%7B%7Bsteps%2C%20_Integer%7D%7D%2C%0A%20%20%20%20Module%5B%0A%20%20%20%20%20%7Bez%20%3D%20ez%2C%20hy%20%3D%20hy%7D%2C%0A%20%20%20%20%20Do%5B%0A%0A%20%20%20%20%20%20%20%20%28%2ABB%5B%2A%29%28%2ACalculate%20magnetic%20field%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%20%20%20%20%20%20Do%5B%0A%20%20%20%20%20%20%20%20%20%20%20hy%5B%5Bj%5D%5D%20%2B%3D%20%28%2AFB%5B%2A%29%28%28%28ez%5B%5Bj%20%2B%201%5D%5D%20-%20ez%5B%5Bj%5D%5D%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%CE%B6%29%29%28%2A%5DFB%2A%29%3B%0A%20%20%20%20%20%20%20%20%2C%20%7Bj%2C%201%2C%20ie-1%7D%5D%3B%0A%0A%20%20%20%20%20%20%20%20%28%2ABB%5B%2A%29%28%2ABoundary%20conditions%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%20%20%20%20%20%20hy%5B%5Bie%5D%5D%20%3D%20hy%5B%5Bie-1%5D%5D%3B%0A%20%20%20%20%20%20%20%20ez%5B%5Bie%5D%5D%20%3D%20ez%5B%5Bie-1%5D%5D%3B%0A%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%28%2ABB%5B%2A%29%28%2APulse%20generator%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%20%20%20%20%20%20hy%5B%5B49%5D%5D%20-%3D%20Exp%5B-%20%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B%28n%20-%2030.%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28100.%29%29%28%2A%5DFB%2A%29%5D%20%2F%20%CE%B6%3B%0A%0A%20%20%20%20%20%20%20%20ez%5B%5B1%5D%5D%20%3D%20ez%5B%5B2%5D%5D%3B%0A%0A%20%20%20%20%20%20%20%20%28%2ABB%5B%2A%29%28%2ACalculate%20electric%20field%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%20%20%20%20%20%20Do%5B%0A%20%20%20%20%20%20%20%20%20%20ez%5B%5Bj%5D%5D%20%3D%20c%CF%B5%5B%5Bj%5D%5D%20ez%5B%5Bj%5D%5D%20%2B%20c%CE%BC%5B%5Bj%5D%5D%20%28hy%5B%5Bj%5D%5D%20-%20hy%5B%5Bj%20-%201%5D%5D%29%0A%20%20%20%20%20%20%20%20%2C%20%7Bj%2C%202%2C%20ie%20-%201%7D%5D%3B%0A%0A%20%20%20%20%20%20%20%20%28%2ABB%5B%2A%29%28%2APulse%20generator%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%20%20%20%20%20%20ez%5B%5B50%5D%5D%20%2B%3D%20Exp%5B-%20%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B%28n%20%2B%200.5%20-%20%28-0.5%29%20-%2030.%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28100.0%29%29%28%2A%5DFB%2A%29%5D%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%2C%20%7Bn%2C%20steps%7D%5D%3B%20ez%5D%2C%0A%20%20%20%20CompilationOptions%20-%3E%20%7B%22InlineExternalDefinitions%22%20-%3E%20True%7D%2C%20%0A%20%20%20%20%22CompilationTarget%22%20-%3E%20%22C%22%2C%20%22RuntimeOptions%22%20-%3E%20%22Speed%22%5D%5D%3B`}</WLJSEditor>
+
+Plot as a function of x-coordinate
+
+<WLJSEditor display={"codemirror"} nid={"d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c"} id={"c774fe84-a1d1-4d31-b37b-34f427646bbc"} type={"Input"} opts={{}} >{`electricField%20%3D%20%7BRange%5B400%5D%2C%20generator%5B3%5D%7D%20%2F%2F%20Transpose%3B%0AGraphics%5B%0A%20%20Line%5BelectricField%20%2F%2F%20Offload%5D%2C%20%0A%20%20PlotRange-%3E%7B%7B0%2C400%7D%2C%20%7B-1%2C1%7D%7D%2C%20%0A%20%20TransitionDuration-%3E5%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c"} id={"99af2ed7-d26e-4f25-b16b-6cbe0645dba5"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c163d4ea-9002-4a25-a9f0-9e37f0a858d1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxuaGaeYpCbqWhoYGOmaJBqZ6iZaphnoWqYam6cZJFqYWqQYAgCBDhVu%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*Try to drag this slider 😉*
+
+Manipulate the time
+
+<WLJSEditor display={"codemirror"} nid={"d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c"} id={"08b2d590-111b-4eb2-81be-2f8bd8f5d291"} type={"Input"} opts={{}} >{`EventHandler%5BInputRange%5B1%2C800%2C20%2C1%5D%2C%20Function%5Bval%2C%20%0A%20%20electricField%20%3D%20%7BRange%5B400%5D%2C%20generator%5Bval%5D%7D%20%2F%2F%20Transpose%3B%0A%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d7fef5b9-b8f4-480b-adb2-e8b9ea3c262c"} id={"3d3a9ff1-7e3b-4210-8d37-2895cee0a3fc"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2297462fa3-8bc0-472a-919b-54cc650eacf1%22%2C%20%22Initial%22%20-%3E%201%2C%20%22View%22%20-%3E%20%22f294fa8d-e0cd-416c-9be1-baffe32749b6%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxlZmqQlWqTophokp%2BiaGJol61ompRrqJiWmpaUaG5mbWCaZAQCVOxZr%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Congratulations! 🥂 Now you know how to solve 1D Maxwell's equation with an arbitary boundary conditions!
