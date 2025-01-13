@@ -11,12 +11,15 @@ The standard packages, which can be installed at any WL system
 - [JerryI/LPM](https://github.com/JerryI/wl-localpackages)
 
 #### How to install new locally?
+
 ##### Via command palette
 Open you notebook and paste Github link to a repo<sup>*</sup> in the command palette located at the top-bar
 
 ![](./../../Screenshot%202024-05-10%20at%2021.35.19.png)
 
-<sup>*</sup>it should contain `PacletInfo.wl` in the root directory
+:::warning
+<sup>*</sup>it must contain `PacletInfo.wl` in the root directory of repository
+:::
 
 ##### Via LPM
 Create a new cell and insert
@@ -30,6 +33,25 @@ PacletRepositories[{
 ```
 
 it will create a local folder `wl_packages`, where installed packages will be stored.
+
+#### Global installation (classic)
+##### Via Paclets
+If the package is hosted on wolfram repository, then you can simply
+
+```mathematica
+PacletInstall["Username/Paclet"]
+
+<<PacletContextName`
+```
+
+or from a local paclet file
+
+```mathematica
+PacletInstall["path_to_it.paclet"]
+
+<<PacletContextName`
+```
+
 
 ### WLJS Packages
 This is new format similar to regular packages, aimed to ship Javascript, CSS together with WL. It is distributed using Github and installed using [WLJSPM](https://github.com/JerryI/wl-wljs-packages)  (used only internally by developers) package manager.

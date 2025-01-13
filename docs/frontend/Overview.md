@@ -82,7 +82,7 @@ Or using a special toolbar (snippet)
 
 Now let us move to some other gems
 
-## What differs from Mathematica
+## What differs from Mathematica 💡
 If you are familiar with Wolfram Language, it will be easier to use WLJS Notebook. Output cells are also editable (unlike in Jupyter-like interfaces), syntax sugar for math-expressions, graphics and other objects is full supported. Here is a full list 
 
 - 2D math input (using shortcuts or command palette)
@@ -101,9 +101,17 @@ We partially support [Mathematica](frontend/Importing/Mathematica.md) notebook f
 - Flat notebook structure
 - Markdown is a main language for text cells (see [Markdown](frontend/Cell%20types/Markdown.md))
 - No extended evaluation history (only last output)
-- Not all graphics primitives are implemented, some plotting functions might not work
+- Not all graphics primitives are implemented, some plotting functions might not work (usually we fix it gradually)
 
 See *Advanced* section for more information.
+
+## Why not Jupyter Ecosystem
+There are strong reasons behind our decision to built our own system:
+
+- there is already a Jupyter Kernel for Wolfram Engine;
+- we want to bring syntax sugar for writing equation, editable output cells, put images, sound or other formats inside cells, which requires a custom cells editor;
+- Jupyter uses an indirect `ZMQ` link for communication, which does not meet the requirements for fast- and efficient dynamics with a heavy payload;
+- bringing 3rd language to the table as well as frequently changing API requires more maintenance in the future.
 
 ## Command palette
 

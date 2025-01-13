@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Cell types/Markdown.md",
+                "file": "frontend/Overview.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Markdown"
+              "title": "Overview"
             }
           },
           {
@@ -66,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "markdown",
+                "query": "Packages",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -87,8 +87,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -108,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Cell types/Markdown.md",
+                "file": "frontend/Overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Markdown"
+              "title": "Backlinks for Overview"
             }
           },
           {
@@ -193,6 +192,11 @@
   },
   "active": "02b6ebea80256742",
   "lastOpenFiles": [
+    "frontend/instruction.md",
+    "frontend/Symbolic programming.md",
+    "frontend/Wolfram Language.md",
+    "frontend/Advanced/Packages.md",
+    "frontend/Cell types/Markdown.md",
     "frontend/Exporting/Markdown.md",
     "frontend/Importing/Markdown.md",
     "frontend/Advanced/Components library/Focus button.md",
@@ -215,15 +219,10 @@
     "frontend/Reference/Sound/Sound.md",
     "frontend/Reference/Misc/Assert.md",
     "frontend/Overview.md",
-    "frontend/instruction.md",
     "symbols-ezgif.com-optimize.gif",
     "assert-ezgif.com-optimize.gif",
     "frontend/Command palette.md",
-    "frontend/Symbolic programming.md",
     "Pasted image 20250103191609.png",
-    "frontend/Advanced/Overlay mode.md",
-    "frontend/Advanced/Command palette/Comm.md",
-    "frontend/Reference/Reference.md",
     "frontend/Reference/_category_.json",
     "Units Converter.wlw",
     "Screenshot 2024-12-26 at 14.24.54.png",
