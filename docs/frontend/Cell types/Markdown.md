@@ -130,6 +130,31 @@ Use `==` wrapper to highlight text, i.e.
 ```
 
 
+### Admonitions
+Use the following syntax
+
+```md
+.md
+
+:::tip
+Use admonitions!
+:::
+```
+
+The following types have special highlighting `tip`, `info`, `warning`, `danger`. Unknown types will be treated as `info`. 
+
+You can always define your custom one
+
+```html
+.html
+
+<style>
+.admonition .custmType {
+	background-color: pink;
+}
+</style>
+```
+
 ## Pure HTML
 One can also use plain HTML tags to stylize markdown or embed media objects
 
