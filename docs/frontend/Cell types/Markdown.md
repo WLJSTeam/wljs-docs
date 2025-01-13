@@ -141,7 +141,7 @@ Use admonitions!
 :::
 ```
 
-The following types have special highlighting `tip`, `info`, `warning`, `danger`. Unknown types will be treated as `info`. 
+The following types have special highlighting `tip`, `info`, `warning`, `danger`, `todo`. Unknown types will be treated as `info`. 
 
 You can always define your custom one
 
@@ -149,11 +149,32 @@ You can always define your custom one
 .html
 
 <style>
-.admonition .custmType {
+.admonition.yourtype {
 	background-color: pink;
 }
 </style>
 ```
+
+#### TODO Lists
+`todo` tag has a special effect, it inserts a live button-counter at the top of a page
+
+![](./../../Screenshot%202025-01-13%20at%2018.22.53.png)
+
+which serves a purpose of a reminder.
+
+
+### Bookmarks
+You can put a bookmark on the page of your notebook
+
+```markdown
+.md
+
+@bookmark
+```
+
+![](./../../Screenshot%202025-01-13%20at%2019.25.35.png)
+
+It will appear as an icon at the top. By clicking on it you can scroll to the content.
 
 ## Pure HTML
 One can also use plain HTML tags to stylize markdown or embed media objects
