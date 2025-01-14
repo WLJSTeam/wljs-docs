@@ -14,33 +14,59 @@
         <updated>2025-01-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[using GeoData, surface plot, and a bunch of other beautiful stuff]]></summary>
         <content type="html"><![CDATA[<p><em>using GeoData, surface plot, and a bunch of other beautiful stuff</em></p>
-<p>Have you ever played <code>Outer Wilds</code> ? Planets there are so beautiful. That was the main motivation to rebuild one using real elevation data and a bunch of WL's magic</p>
+<p>Have you ever played Outer Wilds? The planets there are incredibly beautiful. This actually became the main motivation to create my own simple model of a planet, using real geographical elevation data and a bit of Wolfram Language magic.</p>
 <p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/EarthROt-ezgif.com-optimize-add7dfdd44d4a9efa965b92415031ca1.gif" width="670" height="410" class="img_ev3q"></p>
 <!-- -->
-<a href="https://jerryi.github.io/wljs-docs/ecf608069f734ec2eec7dd386390025b.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<a href="https://jerryi.github.io/wljs-docs/c1d16a64b2ba4fe2ef75a45dc10ad4e9.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="spreading-points-on-a-sphere">Spreading points on a sphere<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#spreading-points-on-a-sphere" class="hash-link" aria-label="Direct link to Spreading points on a sphere" title="Direct link to Spreading points on a sphere">​</a></h2>
-<p>A small task to do</p>
+<p>Obviously, even if we grab Earth's elevation map, there’s the problem of projecting it onto a sphere. This is a complex topic involving triangulation (since we need to create polygons from it afterward) and more, with plenty written on the subject. For example:</p>
+<ul>
+<li><a href="https://www.redblobgames.com/x/1842-delaunay-voronoi-sphere/" target="_blank" rel="noopener noreferrer">Delaunay and Voronoi on a Sphere</a></li>
+<li><a href="https://medium.com/@oscarsc/four-ways-to-create-a-mesh-for-a-sphere-d7956b825db4" target="_blank" rel="noopener noreferrer">Four Ways to Create a Mesh for a Sphere</a></li>
+</ul>
+<p>As one approach, we’ll go the other way around—first generating sample points on the sphere, then querying the elevation data for those points.</p>
+<p>So, we need to evenly distribute <strong>N</strong> points across a sphere. No need to reinvent the wheel when a rich standard library is available.</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Graphics3D[{
   Sphere[],
   Red, PointSize[0.01], SpherePoints[1000]//Point
 }]
 </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["6133ae90-57e8-4be5-8ed4-54d14e466715"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxkaGyemWhrompqnWuiaJKWa6lqkppjompqkGJqkmpiZmRuaAgB9OhUh"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="convert-to-geo-coordinates">Convert to Geo coordinates<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#convert-to-geo-coordinates" class="hash-link" aria-label="Direct link to Convert to Geo coordinates" title="Direct link to Convert to Geo coordinates">​</a></h2>
-<p>Find latitude and langitude</p>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.32.57-a53-07ad894fa74c0b729c25294b68624917.png" width="720" height="522" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="get-elevation-data">Get Elevation Data<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#get-elevation-data" class="hash-link" aria-label="Direct link to Get Elevation Data" title="Direct link to Get Elevation Data">​</a></h2>
+<p>Fortunately (or unfortunately), the standard WL library already includes a rough map of the entire Earth (just in case). If more precision is needed, it can go online and fetch higher-resolution data.</p>
+<p>So, let’s get down to business</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">GeoElevationData[GeoPosition[Here]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(q)(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KWlMIB43kAgsTcwrySypdMqvKGIAgQV1DsFsQNo3tSS1qBgAdxkNsQ=="*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Here, <code>Here</code> returns the current latitude and longitude in degrees. The function can take not just a single value but an entire list. Naturally, we’ll use this list from the points on the sphere.</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">points = SpherePoints[5000];
 latLon = (*FB[*)((180)(*,*)/(*,*)(Pi))(*]FB*) {90Degree - ArcCos[#[[3]]], ArcTan[#[[1]], #[[2]]]} &amp;/@ points;
 elevation = GeoElevationData[GeoPosition[latLon]];
 elevation = (elevation + Min[elevation])/Max[elevation];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
 <p>In the case if <code>Geo</code> did not work. Here is a dump</p>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">{points, latLon, elevation} = (*VB[*)(Get[FileNameJoin[{".iconized", "iconized-337e.wl"}]])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRAeH5DwTM7Py6xKdcvMSXXKr8j0YOVmAADrbgrN"*)(*]VB*);</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">{points, latLon, elevation} = NotebookStore["mouse-850"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Here we convert from Cartesian coordinates to spherical (more precisely, geodetic) coordinates</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.16em" columnalign="center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>l</mi><mi>a</mi><mi>t</mi><mo>=</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup><mo>−</mo><mi>a</mi><mi>r</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>z</mi><mi mathvariant="normal">/</mi><mi>r</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>l</mi><mi>o</mi><mi>n</mi><mo>=</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>a</mi><mi>r</mi><mi>c</mi><mi>t</mi><mi>a</mi><mi>n</mi><mo stretchy="false">(</mo><mi>x</mi><mi mathvariant="normal">/</mi><mi>y</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{matrix}
+
+lat =&amp; 90^\circ - arccos(z/r) \\
+lon =&amp; arctan(x/y)
+\end{matrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em"><span style="top:-3.61em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span></span></span><span style="top:-2.41em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em"></span><span class="arraycolsep" style="width:0.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em"><span style="top:-3.61em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6741em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">rccos</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.02778em">r</span><span class="mclose">)</span></span></span><span style="top:-2.41em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal">a</span><span class="mord mathnormal">rc</span><span class="mord mathnormal">t</span><span class="mord mathnormal">an</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03588em">y</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em"><span></span></span></span></span></span></span></span></span></span></span></span>
+<p>we retrieve the elevations and normalize them.</p>
+<p>The final step is to link them back to the original points on the sphere, using the normalized elevation as the distance along the normal.</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">surface = MapThread[(#1 (0.8 + 0.1 #2))&amp;, {points, elevation}];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Here, we scale them by eye so that the height above sea level only slightly "modulates" the sphere’s surface. This way, we get a visible relief of the Earth</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">rainbow = ColorData["DarkRainbow"];
 
-ListSurfacePlot3D[MapThread[(#1 (0.8 + 0.1 #2))&amp;, {points, elevation}], Mesh-&gt;None, MaxPlotPoints-&gt;100, ColorFunction -&gt; Function[{x,y,z}, rainbow[1.5(2 Norm[{x,y,z}]-1)]], ColorFunctionScaling -&gt; False]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["ef4101c8-35c1-415b-a881-83c0e3a8f8f1"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6aZGBoYJlvoGpsmG+qaGJom6SZaWBjqWhgnG6QaJ1qkWaQZAgB+RxVt"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+ListSurfacePlot3D[surface, 
+  Mesh-&gt;None, MaxPlotPoints-&gt;100, 
+  ColorFunction -&gt; Function[{x,y,z}, 
+      rainbow[1.5(2 Norm[{x,y,z}]-1)]
+  ], ColorFunctionScaling -&gt; False
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.32.15-c5f-a567764a57ea72eb1112d3efedbd4f02.png" width="754" height="480" class="img_ev3q"></p>
 <p>That looks like Earth!</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="generating-clouds">Generating clouds<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#generating-clouds" class="hash-link" aria-label="Direct link to Generating clouds" title="Direct link to Generating clouds">​</a></h2>
-<p>One can simply use Perlin noise and perform marching cubes</p>
+<p>What’s Earth without clouds? And what are clouds without Perlin noise?</p>
+<p>The next piece I honestly stole from one of the forums (no GPT for you!)</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">n = 128;
 k2 = Outer[Plus, #, #] &amp;[RotateRight[N@Range[-n, n - 1, 2]/n, n/2]^2];
 
@@ -52,32 +78,220 @@ im[p_] := Clip[Re[InverseFourier[spectrum Exp[I p]]], {0, ∞}]^0.5
 
 p0 = p = Sqrt[k2];
 
-Image[im[p0 += p]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["f77ace65-5c0e-4968-abdf-b65fdb70367f"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5mbJyanmpnqmiYbpOqaWJpZ6CYmpaTpJpmZpqUkmRsYm5mnAQCRdxZG"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<p>It is hard to wrap on the sphere <code>RegionMesh</code> function from the standard library. Therefore we will go with an external library</p>
+Image[im[p0 += p], Magnification-&gt;2]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.33.35-4dd-19c777c311d6ce2bb23113b7b532f940.png" width="336" height="296" class="img_ev3q"></p>
+<p>Here animated version</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Module[{buffer = im[p0 += p], frame = CreateUUID[]},
+  EventHandler[frame, (buffer = im[p0 += p])&amp;];
+  
+  Image[buffer // Offload, 
+    Magnification-&gt;2, 
+    Epilog-&gt;AnimationFrameListener[buffer // Offload, "Event"-&gt;frame]
+  ]
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>How do we make them three-dimensional? I couldn’t think of anything better than using the Marching Cubes technique to generate low-poly clouds.</p>
+<p>However, to start, we’ll "stretch" the 2D image into 3D with fading at the edges.</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">With[{plain = im[p0+=p]}, Table[plain Exp[-( i)^2/200.], {i, -20,20}]][[;;;;8, ;;;;8, ;;;;8]] // Image3D </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(Image3DDump28)(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6WmGRulJlvomhsYGOuamJmZ6Fomm5voJlqaJRkkJ6WmWqSmAgCAOhXh"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><em>this is not an image, try to drag</em></p>
+<p>To turn this scalar field into polygons, we can use the <code>ImageMesh</code> function. However, it's quite challenging to work with when nonlinear transformations need to be applied to the mesh. And we will need to do these transformations, otherwise, how will we map this square onto the sphere?</p>
+<p>Let’s use an external library, <code>wl-marchingcubes</code>.</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">PacletRepositories[{
-  Github -&gt; "https://github.com/JerryI/wl-marching-cubes" -&gt; "main"
+    Github -&gt; "https://github.com/JerryI/wl-marching-cubes" -&gt; "master"
 }]
 
 &lt;&lt;JerryI`MarchingCubes`</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<p>Now generate vertices and map them to sphere</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">With[{plain = im[p0+=p]}, Table[plain Exp[-( i)^2/200.], {i, -20,20}]];
+
+{vertices, normals} = CMarchingCubes[%, 0.2];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>The result is stored in <code>vertices</code>. By default, the library generates an unindexed set of triangle vertices. This means we can directly interpret them as</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Polygon[{
+  {1, 2, 3}, // Triangle 1
+  {4, 5, 6}, // Triangle 2
+  ...
+}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Where none of the vertices are reused by another triangle. This format is especially simple for the GPU, as only one such list needs to be sent to one of the WebGL buffers. Fortunately, the <code>Polygon</code> primitive supports this format</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">GraphicsComplex[vertices, Polygon[1, Length[vertices]]] // Graphics3D</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.23.39-d9b-9b32c324a31caa087ddb95310ad9391b.png" width="804" height="504" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="inverse-uv-mapping">Inverse UV-mapping<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#inverse-uv-mapping" class="hash-link" aria-label="Direct link to Inverse UV-mapping" title="Direct link to Inverse UV-mapping">​</a></h3>
+<p>It is important to note, that on the next few steps we will map those clouds on the sphere (our Earth surface model). The easiest way is to perform so-called <strong>UV-mapping</strong>, which will naturally distort our original texture. ==Especially on poles==.</p>
+<p>For the educational purpose let's perform a naive inverse UV-mapping (from the the "texture" to a sphere)</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.16em" columnalign="center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>x</mi><mo>→</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>ρ</mi><mtext>&nbsp;</mtext><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>y</mi><mo>→</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>ρ</mi><mtext>&nbsp;</mtext><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>z</mi><mo>→</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>ρ</mi><mtext>&nbsp;</mtext><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{matrix}
+x \rightarrow &amp; \rho ~ cos(\phi) sin(\theta) \\
+y \rightarrow &amp; \rho ~ sin(\phi) sin(\theta) \\
+z \rightarrow &amp; \rho ~ cos(\theta)
+\end{matrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.6em;vertical-align:-1.55em"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em"><span style="top:-4.21em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">→</span></span></span><span style="top:-3.01em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em">y</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">→</span></span></span><span style="top:-1.81em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">→</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em"></span><span class="arraycolsep" style="width:0.5em"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.05em"><span style="top:-4.21em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="mspace nobreak">&nbsp;</span><span class="mord mathnormal">cos</span><span class="mopen">(</span><span class="mord mathnormal">ϕ</span><span class="mclose">)</span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span><span class="mclose">)</span></span></span><span style="top:-3.01em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="mspace nobreak">&nbsp;</span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal">ϕ</span><span class="mclose">)</span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span><span class="mclose">)</span></span></span><span style="top:-1.81em"><span class="pstrut" style="height:3em"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="mspace nobreak">&nbsp;</span><span class="mord mathnormal">cos</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.55em"><span></span></span></span></span></span></span></span></span></span></span></span>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>=</mo><mn>2</mn><mi>π</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">\phi = 2\pi u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em"></span><span class="mord mathnormal">ϕ</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.6444em"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em">π</span><span class="mord mathnormal">u</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>π</mi><mi>v</mi></mrow><annotation encoding="application/x-tex">\theta = \pi v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.4306em"></span><span class="mord mathnormal" style="margin-right:0.03588em">π</span><span class="mord mathnormal" style="margin-right:0.03588em">v</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em"></span><span class="mord mathnormal">ρ</span></span></span></span> is 3rd coordinate (depth). Those 3 coordinates are vertices of generated clouds <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo separator="true">,</mo><mi>ρ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(u, v, \rho)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em"></span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal" style="margin-right:0.03588em">v</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal">ρ</span><span class="mclose">)</span></span></span></span> normalized in the range from 0 to 1 (except <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em"></span><span class="mord mathnormal">ρ</span></span></span></span>)</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">With[{plain = im[p0 += p]}, Table[plain Exp[-( i)^2/200.], {i, -20,20}]];
 
 {vertices, normals} = CMarchingCubes[%, 0.2, "CalculateNormals" -&gt; False];
 
-vertices = Map[Function[v,
-    With[{\[Rho] = 50.0 + 0.25 (v[[3]] - 10), \[Phi] = 2.0 Pi v[[1]]/127.0, \[Theta] =  Pi/2 + Pi v[[2]]/127.0},
-      {\[Rho] Cos[\[Phi]] Cos[\[Theta]], \[Rho] Sin[\[Phi]] Cos[\[Theta]], \[Rho] Sin[\[Theta]]}
+vertices = With[{
+  offset = {Min[vertices[[All,1]]], Min[vertices[[All,2]]], 0},
+  maxX = Max[vertices[[All,1]]] - Min[vertices[[All,1]]],
+  maxY = Max[vertices[[All,2]]] - Min[vertices[[All,2]]]
+}, Map[Function[v, With[{p = v - offset}, {p[[1]]/maxX, p[[2]]/maxY, p[[3]]}]], vertices]];
+
+pvertices = Map[Function[v,
+    With[{\[Rho] = 50.0 + 0.25 (v[[3]] - 10), \[Phi] =  2 Pi Clip[v[[1]], {0,1}], \[Theta] =  Pi Clip[v[[2]], {0,1}]},
+      {\[Rho] Cos[\[Phi]] Sin[\[Theta]], \[Rho] Sin[\[Phi]] Sin[\[Theta]], \[Rho] Cos[\[Theta]]}
     ]
   ]
 , vertices];
 
 {
-  clouds = GraphicsComplex[0.017 vertices, Polygon[1, Length[vertices]]]
-} // Graphics3D;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<p>We shifted <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span></span></span></span> angle for purpose, to avoid visibles artifacts on poles.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="combine">Combine<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#combine" class="hash-link" aria-label="Direct link to Combine" title="Direct link to Combine">​</a></h2>
-<p>Plot together</p>
+  GraphicsComplex[0.017 pvertices, Polygon[1, Length[vertices]]]
+} // Graphics3D</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.25.18-1da-61271158d61b0d1867bd138b34410183.png" width="830" height="504" class="img_ev3q"></p>
+<p>This looks horrible on the poles, when <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span></span></span></span> is approaching <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em"></span><span class="mord mathnormal" style="margin-right:0.03588em">π</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em"></span><span class="mord">0</span></span></span></span> 👎</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>There <strong>are two problems to solve</strong></p><ul>
+<li>distorshions on poles</li>
+<li>incorrect aspect ratio</li>
+</ul></div></div>
+<div><br></div>
+<p>We need to go back and rethink our approach.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="correcting-aspect-ratio">Correcting aspect ratio<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#correcting-aspect-ratio" class="hash-link" aria-label="Direct link to Correcting aspect ratio" title="Direct link to Correcting aspect ratio">​</a></h3>
+<p>This is relatively easy to fix, we need a rectangle with 1/2 ratio, since <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em"></span><span class="mord mathnormal">ϕ</span></span></span></span> goes up to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">2\pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em">π</span></span></span></span> compared to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span></span></span></span></p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">n = 256;
+ratio = 1/2;
+
+k2 = Outer[Plus, #, #] &amp;[RotateRight[N@Range[-n, n - 1, 2]/n, n/2]^2];
+
+k2 = k2[[;; ;; 1/ratio, All]];
+
+spectrum = With[{d := RandomReal[NormalDistribution[], {n ratio, n}]},
+   (1/n) (d)/(0.001 + k2)]; 
+spectrum[[1, 1]] *= 0;
+
+im[p_] := Clip[Re[InverseFourier[spectrum Exp[I p]]], {0, ∞}]^0.5
+
+p0 = p = Sqrt[k2];
+
+cloudTexture = im[p0 += p] // Image;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Double check if it is still repeating from all 4 sides</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Table[cloudTexture, {2}, {2}] // Grid </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.26.19-4fe-0f214615bb6bd6b79119d408b4adce7b.png" width="556" height="294" class="img_ev3q"></p>
+<p>There is a 🚀 science behind the question how to project things on or from the sphere</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mapping-things-to-a-sphere">Mapping things to a sphere<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#mapping-things-to-a-sphere" class="hash-link" aria-label="Direct link to Mapping things to a sphere" title="Direct link to Mapping things to a sphere">​</a></h3>
+<p>I'll mention right away that I’m not an expert in geodesy (@JerryI), but I’ve "heard" about some concepts from computational geometry and 3D graphics ;)</p>
+<p>In any case, we’ll be "mapping" this texture onto the sphere in one form or another (as polygons). This means we’ll transform all its points following one of the cartographic projections.</p>
+<blockquote>
+<p>A method we used UV-mapping is analogous to an equal-area cartographic projection, with the exception of coefficients responsible for angle shifts.</p>
+</blockquote>
+<p>Let’s imagine that if we apply some inverse transformation to our original texture, when projecting it onto the sphere, they should compensate for each other, and we’ll see an undistorted image of the clouds.</p>
+<p>Then, the questions are:</p>
+<ul>
+<li>
+<p>What is our original texture right now, and what do we want to see in the end?</p>
+</li>
+<li>
+<p>What does an undistorted image mean in this context?</p>
+</li>
+<li>
+<p>How can we generally talk about what we want to see on the sphere while looking at a rectangular Perlin noise image in Cartesian coordinates?</p>
+</li>
+</ul>
+<p>These questions could be answered in this article if I were an expert in the subject 🧐 Unfortunately, I cannot meet that criterion, so let's at least try to find a way to eliminate artifacts at the poles. Looking at textures from games, we can notice a pattern</p>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/image-372-b937ac0b0d52905758f835a93cb419d6.png" width="1284" height="318" class="img_ev3q"></p>
+<p><em><a href="https://richardrosenman.com/shop/spherical-mapping-corrector/" target="_blank" rel="noopener noreferrer">https://richardrosenman.com/shop/spherical-mapping-corrector/</a></em></p>
+<div><br></div>
+<p>At the edges of the texture projected from the sphere, the details stretch towards the top and bottom edges of the rectangle. This is exactly the case when <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>→</mo><mn>0</mn><mo separator="true">,</mo><mi>π</mi></mrow><annotation encoding="application/x-tex">\theta \rightarrow 0, \pi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord mathnormal" style="margin-right:0.02778em">θ</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal" style="margin-right:0.03588em">π</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>→</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">v \rightarrow 0, 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em"></span><span class="mord mathnormal" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord">1</span></span></span></span> — our poles.</p>
+<p>Thus, if we artificially distort the original texture in the same way, we should eliminate the artifacts at the poles. Do you know what this transformation resembles?</p>
+<p>It’s akin to transforming <a href="https://mathematica.stackexchange.com/a/79868/53728" target="_blank" rel="noopener noreferrer">the Mollweide projection into an equal-area cartographic projection</a></p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">lat[y_, rad_:1] := ArcSin[(2 theta[y, rad] + Sin[2 theta[y, rad]])/Pi];
+lon[x_, y_, rad_:1, lonzero_: 0] := lonzero + Pi x/(2 rad Sqrt[2] Cos[theta[y, rad]]);
+theta[y_, rad_:1] := ArcSin[y/(rad Sqrt[2])];
+mollweidetoequirect[{x_, y_}] := {lon[x, y, 1], lat[y]};
+
+newCloudTexture = ImageForwardTransformation[
+  cloudTexture,
+  mollweidetoequirect,
+  DataRange -&gt; {{-2 Sqrt[2], 2 Sqrt[2]}, {-Sqrt[2], Sqrt[2]}},
+  PlotRange -&gt; All
+];
+
+Image[%, Magnification-&gt;2]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.28.23-2f6-fb979e9118feecbba73e9079b9fc0a31.png" width="624" height="318" class="img_ev3q"></p>
+<p>Next, we simply need to repeat Marching Cubes on it and transform all the vertices using the equation above. As a bonus, let's transform <code>normals</code> as well!</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">With[{plain = ImageData[newCloudTexture]}, Table[plain Exp[-( i)^2/200.], {i, -20,20}]];
+
+{vertices, normals} = CMarchingCubes[%, 0.2];
+
+vertices = With[{
+  offset = {Min[vertices[[All,1]]], Min[vertices[[All,2]]], 0},
+  maxX = Max[vertices[[All,1]]] - Min[vertices[[All,1]]],
+  maxY = Max[vertices[[All,2]]] - Min[vertices[[All,2]]]
+}, Map[Function[v, With[{p = v - offset}, {p[[1]]/maxX, p[[2]]/maxY, p[[3]]}]], vertices]];
+
+{pvertices, pnormals} = MapThread[Function[{v,n},
+    With[{\[Rho] = 50.0 + 0.25 (v[[3]] - 10), \[Phi] =  2 Pi Clip[v[[1]], {0,1}], \[Theta] =  Pi Clip[v[[2]], {0,1}]},
+      {
+        {\[Rho] Cos[\[Phi]] Sin[\[Theta]], \[Rho] Sin[\[Phi]] Sin[\[Theta]], \[Rho] Cos[\[Theta]]},
+
+        n[[3]] {Cos[\[Phi]] Sin[\[Theta]], Sin[\[Phi]] Sin[\[Theta]], Cos[\[Theta]]} + 
+        n[[2]] {Cos[\[Theta]] Cos[\[Phi]],Cos[\[Theta]] Sin[\[Phi]],-Sin[\[Theta]]} + 
+        n[[1]] {-Sin[\[Theta]] Sin[\[Phi]],Cos[\[Phi]] Sin[\[Theta]],0}
+      }
+    ]
+  ]
+, {vertices, -normals}] // Transpose;
+
+{
+  clouds = GraphicsComplex[0.017 pvertices, Polygon[1, Length[vertices]], VertexNormals-&gt;pnormals]
+} // Graphics3D</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/Screenshot%202025-01-14%20at%2015.27.12-37b-aacd9f282860d18c91ec279eb5b3ccaa.png" width="736" height="502" class="img_ev3q"></p>
+<p>If <code>VertexNormals</code> is explicitly set in <code>GraphicsComplex</code>, then when shading, the surface will be interpolated across all three normals of the triangle, instead of just one (which is automatically calculated by the graphics library if no other data is provided, in which case the polygon looks like a flat plane — a.k.a. the effect seen in 80s demos).</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="putting-it-all-together">Putting it all together<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#putting-it-all-together" class="hash-link" aria-label="Direct link to Putting it all together" title="Direct link to Putting it all together">​</a></h2>
+<p>We can extend the original <code>SurfacePlot</code> with options and add additional graphic primitives through them. Oh, and don’t forget to turn off the default lighting. After all, we’re in space!</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">rainbow = ColorData["DarkRainbow"];
+
+ListSurfacePlot3D[
+  MapThread[(#1 (0.8 + 0.1 #2))&amp;, {points, elevation}], 
+  Mesh-&gt;None, MaxPlotPoints-&gt;100, 
+  ColorFunction -&gt; Function[{x,y,z}, rainbow[1.5(2 Norm[{x,y,z}]-1)]], 
+  ColorFunctionScaling -&gt; False, 
+  Lighting-&gt;None,
+  PlotStyle-&gt;Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+
+  Prolog -&gt; {
+    Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+    clouds,
+    HemisphereLight[LightBlue, Orange // Darker // Darker],
+    SpotLight[Orange, {-2.4909, 4.069, 3.024}]
+  },
+  
+  Background-&gt;Black
+, ImageSize-&gt;800]
+</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/earth-97b-d9c65a0d5c8f2ceeb2bcf745b499983a.png" width="1600" height="988" class="img_ev3q"></p><div><br></div><p></p>
+<p>We can play around with real-time lighting by adding a handler to the <code>transform</code> property of a small sphere at the light source’s position</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">rainbow = ColorData["DarkRainbow"];
+lightPos = {-2.4909, 4.069, 3.024};
+
+
+ListSurfacePlot3D[
+  MapThread[(#1 (0.8 + 0.1 #2))&amp;, {points, elevation}], 
+  Mesh-&gt;None, MaxPlotPoints-&gt;100, 
+  ColorFunction -&gt; Function[{x,y,z}, rainbow[1.5(2 Norm[{x,y,z}]-1)]], 
+  ColorFunctionScaling -&gt; False, 
+  Lighting-&gt;None,
+  PlotStyle-&gt;Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+
+  Prolog -&gt; {
+    Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+    clouds,
+    HemisphereLight[LightBlue, Orange // Darker // Darker],
+    SpotLight[Orange, lightPos // Offload],
+    EventHandler[Sphere[lightPos, 0.001], {"transform" -&gt; Function[t,
+      lightPos = t["position"]
+    ]}]
+  },
+  
+  Background-&gt;Black
+, ImageSize-&gt;800]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="https://jerryi.github.io/wljs-docs/assets/images/play33-96b-dd6d9f6322bf96ddcd38b53b78495cff.gif" width="720" height="444" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="animation">Animation<a href="https://jerryi.github.io/wljs-docs/blog/2025/01/08/earth#animation" class="hash-link" aria-label="Direct link to Animation" title="Direct link to Animation">​</a></h2>
+<p>Let’s add a simple animation for the movement of the light source, as well as the rotation of the cloud sphere to spice up the scene</p>
 <div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">rainbow = ColorData["DarkRainbow"];
 lightPos = {-2.4909, 4.069, 3.024};
 
@@ -85,6 +299,7 @@ rotationMatrix = RotationMatrix[0., {0,0,1}];
 angle = 0.;
 
 animation = CreateUUID[];
+
 EventHandler[animation, Function[Null,
   lightPos = RotationMatrix[1 Degree, {1,1,1}].lightPos;
   rotationMatrix = RotationMatrix[angle, {0,0,1}];
@@ -107,11 +322,47 @@ ListSurfacePlot3D[
   },
 
   Epilog -&gt; AnimationFrameListener[lightPos // Offload, "Event"-&gt;animation],
-  Background-&gt;Black
+  Background-&gt;Black,
+  ImageSize-&gt;800
 ]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["c8e48c06-39cf-41b3-b9e8-9d005bb356f5"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1ukmlgkG5jpGlsmp+maGCYZ6yZZplroWqYYGJgmJRmbmqWZAgCHGhWu"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
 <p>To start animation</p>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EventFire[animation, True];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>]]></content>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EventFire[animation, True];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Alternative version for a blog</strong></p>
+<p>Drag a slider to control clouds and etc</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">rainbow = ColorData["DarkRainbow"];
+lightPos = {-2.4909, 4.069, 3.024};
+
+rotationMatrix = RotationMatrix[0., {0,0,1}];
+
+EventHandler[InputRange[0,1, 0.01], Function[value,
+  lightPos = RotationMatrix[2Pi value, {1,1,1}].{-2.4909, 4.069, 3.024} // N;
+  rotationMatrix = RotationMatrix[2Pi value, {0,0,1}] // N;
+]]
+
+ListSurfacePlot3D[
+  MapThread[(#1 (0.8 + 0.1 #2))&amp;, {points, elevation}], 
+  Mesh-&gt;None, MaxPlotPoints-&gt;100, 
+  ColorFunction -&gt; Function[{x,y,z}, rainbow[1.5(2 Norm[{x,y,z}]-1)]], 
+  ColorFunctionScaling -&gt; False, 
+  Lighting-&gt;"Default",
+  PlotStyle-&gt;Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+
+  Prolog -&gt; {
+    Directive["Shadows"-&gt;True, "CastShadow"-&gt;True],
+    GeometricTransformation[clouds, rotationMatrix // Offload],
+    HemisphereLight[LightBlue, Orange // Darker // Darker],
+    SpotLight[Orange, lightPos // Offload]
+  },
+  
+  Background-&gt;Black,
+  ImageSize-&gt;800
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(EventObject[&lt;|"Id" -&gt; "ff6faf86-9d42-4da8-8fbe-f1845435c70f", "Initial" -&gt; 0.5, "View" -&gt; "4df83bb7-528b-4c4d-9e90-d912f21cbea2"|&gt;])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6SkWRgnJZnrmhpZJOmaJJuk6FqmWhroplgaGqUZGSYnpSYaAQCJ9BYE"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["3d57cc3f-8abb-4477-a47b-08de43858d5a"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6eYmicnG6fpWiQmJemamJib6yaamCfpGlikpJoYW5hapJgmAgCLwxXd"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><em>Try to drag a slider and Earth</em></p>
+<div><br></div>
+<div><br></div>
+<p>See you next time 🦹</p>]]></content>
         <author>
             <name>Kirill Vasin</name>
             <uri>https://github.com/JerryI</uri>

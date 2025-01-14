@@ -34,7 +34,7 @@ Acts similar to `Magnification` and scales an image to match the width of provid
 By the default is `True`, which forces to use bilinear approximation when an image is shown scaled.
 
 ### `Epilog`
-The same as for `Graphics`, can be used to embed [AnimationFrameListener](frontend/Reference/Graphics/AnimationFrameListener.md)
+The same as for `Graphics`, can be used to embed [AnimationFrameListener](frontend/Reference/Graphics/AnimationFrameListener.md). See examples below
 
 ## Examples
 
@@ -76,7 +76,39 @@ x + y // Rasterize
 
 
 ## Dynamics
-It does support dynamic variables. For example
+It does support dynamic variables. 
+
+### Clouds
+Gaussian clouds (Perlin noise)
+
+```mathematica
+n = 128;
+k2 = Outer[Plus, #, #] &[RotateRight[N@Range[-n, n - 1, 2]/n, n/2]^2];
+
+spectrum = With[{d := RandomReal[NormalDistribution[], {n, n}]},
+   (1/n) (d + I d)/(0.002 + k2)]; 
+spectrum[[1, 1]] *= 0;
+
+im[p_] := Clip[Re[InverseFourier[spectrum Exp[I p]]], {0, ∞}]^0.5
+
+p0 = p = Sqrt[k2];
+```
+
+Animation
+
+```mathematica
+Module[{buffer = im[p0 += p], frame = CreateUUID[]},
+  EventHandler[frame, (buffer = im[p0 += p])&];
+  
+  Image[buffer // Offload, 
+    Magnification->2, 
+    Epilog->AnimationFrameListener[buffer // Offload, "Event"->frame]
+  ]
+]
+```
+
+
+### GOL
 
 ```mathematica
 Puffer = {{1, 4}, {2, 5}, {3, 1}, {3, 5}, {4, 2}, {4, 3}, {4, 4}, {4,

@@ -98,7 +98,7 @@ export function WLJSStore({json, notebook, kernel}) {
                 console.warn('external symbol was destoryed');
               }  
             
-              core[oName].data = i[oName]; //get the data
+              core[oName].data = structuredClone(i[oName]); //get the data
             
               core[oName].virtual = true;
               core[oName].instances = {};
@@ -182,7 +182,8 @@ export function WLJSStore({json, notebook, kernel}) {
                     console.warn(f);
                     if (f === '$state') continue;
 
-                    if (fn[f].set.length === 1) {       
+                    if (fn[f].set.length === 1) {    
+                      console.log(fn[f].set[0]);   
                       core[f].data = structuredClone(fn[f].set[0]);
                       for (const inst of Object.values(core[f].instances)) {
                         inst.update();
