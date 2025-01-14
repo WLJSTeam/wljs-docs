@@ -33,6 +33,9 @@ Acts similar to `Magnification` and scales an image to match the width of provid
 ### `Antialiasing`
 By the default is `True`, which forces to use bilinear approximation when an image is shown scaled.
 
+### `Epilog`
+The same as for `Graphics`, can be used to embed [AnimationFrameListener](frontend/Reference/Graphics/AnimationFrameListener.md)
+
 ## Examples
 
 ### Direct

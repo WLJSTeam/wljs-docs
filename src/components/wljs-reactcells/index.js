@@ -179,11 +179,11 @@ export function WLJSStore({json, notebook, kernel}) {
                 kernels[i].state.exec(kernels[i].database, (fn) => {
                   //console.warn(fn);
                   for (const f of Object.keys(fn)) {
-                    //console.warn(f);
+                    console.warn(f);
                     if (f === '$state') continue;
 
                     if (fn[f].set.length === 1) {       
-                      core[f].data = fn[f].set[0];
+                      core[f].data = structuredClone(fn[f].set[0]);
                       for (const inst of Object.values(core[f].instances)) {
                         inst.update();
                       };
@@ -192,7 +192,7 @@ export function WLJSStore({json, notebook, kernel}) {
                       //console.warn(f);
                       fn[f].i += 1;
                       if (fn[f].i >= fn[f].set.length) fn[f].i = 0;
-                      core[f].data = fn[f].set[fn[f].i];
+                      core[f].data = structuredClone(fn[f].set[fn[f].i]);
                       for (const inst of Object.values(core[f].instances)) {
                         inst.update();
                       };
@@ -202,7 +202,7 @@ export function WLJSStore({json, notebook, kernel}) {
                   
                 });
               }
-            }, 2);
+            }, 4);
           } 
           
           eventsPool.forEach((ev) => window.server.kernel.emitt(ev.uid, ev.data, ev.type));

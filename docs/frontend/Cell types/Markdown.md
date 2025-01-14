@@ -158,7 +158,7 @@ You can always define your custom one
 #### TODO Lists
 `todo` tag has a special effect, it inserts a live button-counter at the top of a page
 
-![](./../../Screenshot%202025-01-13%20at%2018.22.53.png)
+![](./../../Screenshot%202025-01-14%20at%2009.29.53.png)
 
 which serves a purpose of a reminder.
 
@@ -171,8 +171,6 @@ You can put a bookmark on the page of your notebook
 
 @bookmark
 ```
-
-![](./../../Screenshot%202025-01-13%20at%2019.25.35.png)
 
 It will appear as an icon at the top. By clicking on it you can scroll to the content.
 

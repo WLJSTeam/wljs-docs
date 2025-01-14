@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Cell types/Markdown.md",
+                "file": "frontend/Reference/Image/Image.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Markdown"
+              "title": "Image"
             }
           },
           {
@@ -66,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Packages",
+                "query": "Image",
                 "matchingCase": true,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -87,7 +87,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -107,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Cell types/Markdown.md",
+                "file": "frontend/Reference/Image/Image.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Markdown"
+              "title": "Backlinks for Image"
             }
           },
           {
@@ -192,9 +193,10 @@
   },
   "active": "02b6ebea80256742",
   "lastOpenFiles": [
+    "frontend/Cell types/Markdown.md",
+    "Screenshot 2025-01-14 at 09.29.53.png",
     "Screenshot 2025-01-13 at 19.25.35.png",
     "frontend/Advanced/Components library/Focus button.md",
-    "frontend/Cell types/Markdown.md",
     "Screenshot 2025-01-13 at 18.22.53.png",
     "frontend/Overview.md",
     "frontend/instruction.md",
@@ -228,8 +230,6 @@
     "Units Converter.wlw",
     "Screenshot 2024-12-26 at 14.24.54.png",
     "textGIFF-ezgif.com-video-to-gif-converter.gif",
-    "Screenshot 2024-12-25 at 20.47.41.png",
-    "Screenshot 2024-12-25 at 20.01.28.png",
     "frontend/Importing/_category_.json",
     "frontend/Importing",
     "frontend/Reference/Frontend IO/FrontProxy",
