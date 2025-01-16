@@ -91,12 +91,11 @@ Let us see how it works in the following example
 ```mathematica
 chain = {{0,0}, {0.5,1}, {1,1}, {1,0.5}};
 
-Graphics[{
-  Line[chain // Offload],
-  EventHandler[Graphics`Canvas[], {"mousemove" -> Function[xy,
+EventHandler[Graphics[{
+  Line[chain // Offload]
+}], {"mousemove" -> Function[xy,
     fabrik[chain, xy, {0,0}]
-  ]}]
-}]
+]}]
 ```
 
 ![](./../tricks-ezgif.com-optimize.gif)
@@ -159,7 +158,7 @@ Module[{t = 4.0 (*BB[*)(*x-position of a spider*)(*,*)(*"1:eJxTTMoPSmNhYGAo5gcSA
 ![](./../Screenshot%202024-05-19%20at%2016.10.26.png)
 
 ## Adding controls
-Slides are boring. Using ``Graphics`Canvas[]`` with `EventHandler` we can capture arrow keys and animate accordingly. However, to animate continuously we can set a timer and remove it once the target position of a spider has been reached
+Slides are boring. Using `EventHandler` we can capture arrow keys and animate accordingly. However, to animate continuously we can set a timer and remove it once the target position of a spider has been reached
 
 ```mathematica @
 Module[{
@@ -203,7 +202,7 @@ Module[{
 
     MetaMarker["marked"],
 
-    EventHandler[Graphics`Canvas[], {
+    EventHandler[Null, {
       "capturekeydown" -> Function[value, 
         Switch[value,
           "ArrowRight",

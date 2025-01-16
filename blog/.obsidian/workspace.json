@@ -265,12 +265,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024-12-23-2ways.md",
+                "file": "2024-04-19-spider/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-12-23-2ways"
+              "title": "index"
             }
           },
           {
@@ -355,7 +355,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "path:\"2025-01-08-earth/\" ",
+                "query": "Graphics`Canvas",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -376,7 +376,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -467,10 +468,10 @@
   },
   "active": "e5e660c937a34c0b",
   "lastOpenFiles": [
+    "2024-12-23-2ways.md",
     "fields-ezgif.com-video-to-gif-converter-553959e2d416c2aa4cc82261b90aa3f0 (1).gif",
     "2024-11-25-diffraction.md",
     "2024-12-16-charges.md",
-    "2024-12-23-2ways.md",
     "2024-01-01-autocomplete.md",
     "2025-01-08-earth/index.mdx",
     "2025-01-08-earth/index0.mdx",
@@ -502,7 +503,6 @@
     "metaballs1-ezgif.com-video-to-gif-converter.gif",
     "nonindeed2-ezgif.com-video-to-gif-converter.gif",
     "Dweller1-ezgif.com-optimize.gif",
-    "5249342723645891565.jpg",
     "dynamicstats-ezgif.com-video-to-gif-converter.gif.mp4",
     "2024-08-22-ellipce.md",
     "2024-04-19-spider/index.md",

@@ -27,10 +27,10 @@ Fully support for a radius and coordinates. Use [Offload](frontend/Reference/Int
 
 ```mathematica
 pt = {0,0};
-Graphics[{
-	EventHandler[Graphics`Canvas[], {
-		"mousemove" -> Function[xy, pt = xy]
-	}], Red,
+EventHandler[Graphics[{
+	Red,
 	Circle[pt // Offload, 0.08]
-}, PlotRange->{{-1,1}, {-1,1}}]
+}, PlotRange->{{-1,1}, {-1,1}}], {
+		"mousemove" -> Function[xy, pt = xy]
+}]
 ```

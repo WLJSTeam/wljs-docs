@@ -26,13 +26,13 @@ Plot[Sinc[x], {x,-10,10}, Epilog->{
   ] // Offload],
 
   (* attach listener *)	
-  EventHandler[Graphics`Canvas[], {
+  EventHandler[Null, {
     "mousemove" -> Function[xy, point = xy]
   }]
 }]
 ```
 
-It attaches an [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`) to a ``Graphics`Canvas[]`` object. Every-time user moves a mouse over it, an event handler is fired and `point` symbol is updated, that causes updates of all lines
+It attaches an [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`) to `Null` expression, which forces it to seek the nearest parent, which emits events, i.e. `Graphics`. Every-time user moves a mouse over it, an event handler is fired and `point` symbol is updated, that causes updates of all lines
 
 :::tip
 You can reduce the lag by tuning [TransitionDuration](frontend/Reference/Graphics/TransitionDuration.md) to a lower value.
@@ -68,7 +68,7 @@ Plot[Sinc[x], {x,-10,10}, Epilog->{
   ] // Offload],
 
 
-  EventHandler[Graphics`Canvas[], {
+  EventHandler[Null, {
     "mousemove" -> Function[xy, 
 	    point = xy;
 	    text = ToString[Round[xy, 0.01]];
@@ -100,7 +100,7 @@ placeCrossbar[ref_, pos_:{0.,0.}] := LeakyModule[{point = pos, text = ""},
       {{-10, p}, {10, p}}
     ] // Offload],
 
-    EventHandler[Graphics`Canvas[], {
+    EventHandler[Null, {
     "mousemove" -> Function[xy, 
 	    point = xy;
 	    text = ToString[Round[xy, 0.01]];

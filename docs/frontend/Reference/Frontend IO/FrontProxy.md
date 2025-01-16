@@ -332,7 +332,7 @@ add = With[{new = disk[#, 0.2]},
 Graphics[{
   Show @@ disks, scene,
   AnimationFrameListener[trigger // Offload, "Event"->animation],
-  EventHandler[Graphics`Canvas[], {"click" -> add}]
+  EventHandler[Null, {"click" -> add}]
 }, PlotRange->{{-1,1}, {-1,1}}, TransitionType->None]
 ```
 
@@ -426,7 +426,7 @@ Graphics[
     {Directive[FontSize -> 20], Text[frameRate // Offload, {-80, -80}]}, 
     AnimationFrameListener[frameCounter // Offload, "Event" -> "frame"], 
     EventHandler[
-      Graphics`Canvas[], 
+      Null, 
       {"mousemove" -> addProxyAtPosition}
     ]
   }, 

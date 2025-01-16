@@ -191,10 +191,10 @@ In such case, there is no need in creating new events and joining them. In the e
 
 
 ## 2D Graphics
-Some of the primitives as well as entire canvas support `EventHandler` method. Let us start with a canvas - ``Graphics`Canvas[]``
+Some of the primitives as well as entire canvas support `EventHandler` method. Let us start with `Graphics` itself
 
-### Canvas
-You can attach event handlers to [``Graphics`Canvas``](frontend/Reference/Graphics/Graphics.md#``Graphics`Canvas``) object, which represents the given SVG container of your 2D graph inside [Graphics](frontend/Reference/Graphics/Graphics.md).
+### Graphics as an event generator
+You can attach event handlers to `Graphics` expression, which represents the given SVG container of your 2D graph
 
 It has some benefits compared to [Primitives](#Primitives), namely `"mousemove"` or `"click"` will be captured even if there are some objects on the front. The following patterns (topics of [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`)) are supported
 
@@ -208,16 +208,35 @@ For example
 
 ```mathematica
 pt = {};
+EventHandler[
+	Graphics[{
+		PointSize[0.05], Blue, Opacity[0.5],
+		Point[pt // Offload]
+	}, PlotRange->{{-1,1}, {-1,1}}]
+,
+	{
+		"mousemove" -> Function[xy, pt = Append[pt, xy]]
+	}
+]
+```
+
+![](./../../../wljstte.svg)
+
+#### Alternative way
+There is an alternative way of assigning a handler
+
+```mathematica
+pt = {};
 Graphics[{
 	PointSize[0.05], Blue, Opacity[0.5],
 	Point[pt // Offload],
-	EventHandler[Graphics`Canvas[], {
+	EventHandler[Null, {
 		"mousemove" -> Function[xy, pt = Append[pt, xy]]
 	}]
 }, PlotRange->{{-1,1}, {-1,1}}]
 ```
 
-![](./../../../wljstte.svg)
+When `EventHandler` has `Null` argument it forces it to connect to the nearest parent. In a the similar fashion one can attach it using `Epilog` or `Prolog`
 
 ### Primitives
 For some of graphics primitives it is possible to attach `EventHandler` as well. The following symbols are supported

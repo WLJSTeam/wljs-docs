@@ -93,11 +93,55 @@ PrimitivesMisc --> Graphics
 
 ```
 
+## Methods
+
+### `EventHandler`
+Attach an event handler to listen canvas events
+
+```mathematica
+EventHandler[Graphics[Disk[]], {"click"->Beep}]
+```
+
+The list of available events is the same as for primitives (see [Mouse and keyboard](frontend/Advanced/Events%20system/Mouse%20and%20keyboard.md))
+- `"click"`
+- `"mousemove"`
+- etc
+
+__it is also applicable for all plotting functions__
+
+```mathematica
+c = {0.,0.};
+
+EventHandler[
+  Plot[x, {x,0,1}, Epilog->Point[c//Offload]], 
+  {"mousemove"->((c=#)&)}
+]
+```
+
+:::note
+This is also a valid form
+
+```mathematica
+c = {0.,0.};
+
+Plot[x, {x,0,1}, Epilog->{
+  Point[c//Offload], 
+  EventHandler[Null, {"mousemove"->((c=#)&)}]
+}]
+```
+
+Here it takes `Null` as a first argument, which forces it to attach handler to the nearest parent symbol, which supports it.
+:::
 
 ## Context symbols
 Here is a list of utility symbols used in `Graphics` context
 
 ### ``Graphics`Canvas``
+
+:::warning
+__Deprecated__. Please apply `EventHandler` directly on `Graphics`, or substitute it inside `Epilog` or `Prolog` with `Null` as a first argument.
+:::
+
 Is used to have an access to SVG container of `Graphics` function
 #### Methods
 ##### `EventHandler`
@@ -117,9 +161,6 @@ Graphics[{
 }, PlotRange->{{-1,1}, {-1,1}}]
 ```
 
-:::tip
-See more in [Mouse and keyboard](frontend/Advanced/Events%20system/Mouse%20and%20keyboard.md)
-:::
 
 
 ### ``Graphics`DPR``
