@@ -16,7 +16,7 @@ ChoiceDialog[expr_, {label1_ -> value1_, label2_ -> value2_ ...}]
 includes buttons with labels `labeli` and returns `valuei` if clicked. Labels and values can be __any WL expressions__.
 
 :::note
-It will use [StandardForm](frontend/Reference/Decorations/StandardForm.md) for displaying expressions
+It will use [StandardForm](frontend/Reference/Formatting/StandardForm.md) for displaying expressions
 :::
 
 ## Options

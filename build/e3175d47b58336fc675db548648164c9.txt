@@ -1,8 +1,0 @@
-{
-"objects":[
-	"Association"
-], 
-"symbols":[
-	"Association"
-]
-}

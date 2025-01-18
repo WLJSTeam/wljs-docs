@@ -19,8 +19,8 @@ Docs are not complete. See original [page](https://reference.wolfram.com/languag
 Use numerical data or `DateObject` or boolean type for an entire column to get better performance.
 
 ## Supported output forms
-- [StandardForm](frontend/Reference/Decorations/StandardForm.md)
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [StandardForm](frontend/Reference/Formatting/StandardForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)
 
 
 ## Examples

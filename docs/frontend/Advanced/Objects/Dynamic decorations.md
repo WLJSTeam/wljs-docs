@@ -180,7 +180,7 @@ To solve this issue, we your own slider, which is generated purely from Javascri
 :::
 
 ## Deferred mode ❤️
-This is a new feature introduced recently for [ViewBox](frontend/Reference/Decorations/ViewBox.md), aimed to solve all hassle required for maintaining the instances of the same object. The idea is to create decorations upon rendering.
+This is a new feature introduced recently for [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md), aimed to solve all hassle required for maintaining the instances of the same object. The idea is to create decorations upon rendering.
 
 Please see on how to implement it in [Decorating symbols](frontend/Advanced/Syntax%20sugar/Decorating%20symbols.md#Deferred)
 

@@ -34,7 +34,7 @@ See __more keybindings__ in [Input cell](frontend/Cell%20types/Input%20cell.md)
 
 
 ## Keep folders organized
-Various functions may produce [Iconize](frontend/Reference/Decorations/Iconize.md) objects, for storing large chunks of data, which are copied to `./.iconized/` folder in the notebook directory. Any dropped images or files will be uploaded to `./attachments/` directory. Therefore it is important to have a clear separation between your projects.
+Various functions may produce [Iconize](frontend/Reference/Formatting/Iconize.md) objects, for storing large chunks of data, which are copied to `./.iconized/` folder in the notebook directory. Any dropped images or files will be uploaded to `./attachments/` directory. Therefore it is important to have a clear separation between your projects.
 
 ## Use `NotebookStore` for portability 
 If you want your notebook to be exported to a single editable `.html` [Static HTML](frontend/Exporting/Static%20HTML.md), use [NotebookStore](frontend/Reference/Cells%20and%20Notebook/NotebookStore.md) as a persistent storage for your raw data. In such case all images, graphs, and stored data will be kept.

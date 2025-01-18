@@ -48,7 +48,7 @@ Please feel free to join [Telegram Group](https://t.me/+PBotB9UJw-hiZDEy).
 It might be an issue with sockets, try `Window` or Top-Menu $\rightarrow$ `Force reload` or `Reload`
 
 ### The output of a cell does not look correct
-This might be connected with `Boxes` or some other decorations did work well, try to evaluate your expression with [InputForm](frontend/Reference/Decorations/InputForm.md)
+This might be connected with `Boxes` or some other decorations did work well, try to evaluate your expression with [InputForm](frontend/Reference/Formatting/InputForm.md)
 
 ```mathematica
 % // InputForm

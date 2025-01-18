@@ -77,7 +77,7 @@ FrontSubmit[Arrow[RandomReal[{0,1}, {2,2}]], scene]
 to append an arrow to an existing graph.
 
 ### Controlling ViewBox
-A typical graphics figure is usually a [ViewBox](frontend/Reference/Decorations/ViewBox.md). Here we can reference it using [FrontInstanceReference](frontend/Reference/Frontend%20IO/FrontInstanceReference.md)
+A typical graphics figure is usually a [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md). Here we can reference it using [FrontInstanceReference](frontend/Reference/Frontend%20IO/FrontInstanceReference.md)
 
 ```mathematica
 plot.= FrontInstanceReference[];

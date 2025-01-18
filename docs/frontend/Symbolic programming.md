@@ -244,7 +244,7 @@ ListPlay[Table[Sin[2 π 50 t], {t, 0, 1, 1./2000}]]
 
 ![](./../Screenshot%202024-04-29%20at%2014.08.42.png)
 
-If you have too much data, then turn it into an icon using [Iconize](frontend/Reference/Decorations/Iconize.md)
+If you have too much data, then turn it into an icon using [Iconize](frontend/Reference/Formatting/Iconize.md)
 
 ```mathematica @
 Table[i, {i, 100}] // Iconize

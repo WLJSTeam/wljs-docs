@@ -8,7 +8,7 @@ package: wljs-sound
 Sound[primitives_]
 ```
 
-represents sound as a concept composed from `primitives`. Draws a player widget once appears in the output form - [StandardForm](frontend/Reference/Decorations/StandardForm.md)
+represents sound as a concept composed from `primitives`. Draws a player widget once appears in the output form - [StandardForm](frontend/Reference/Formatting/StandardForm.md)
 
 `primitives` can be a simple primitive or a `List` of primitives played sequentially 
 

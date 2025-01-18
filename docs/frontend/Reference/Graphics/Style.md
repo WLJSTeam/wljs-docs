@@ -12,5 +12,5 @@ A wrapper that can be used for [`Text`](frontend/Reference/Graphics/Text.md) . T
 See more examples @ [Text](frontend/Reference/Graphics/Text.md)
 
 :::note
-See also [Style](frontend/Reference/Decorations/Style.md) as decoration
+See also [Style](frontend/Reference/Formatting/Style.md) as decoration
 :::

@@ -9,5 +9,5 @@ Text editor checks periodically if there were external changed made to a file an
 :::
 
 :::note
-All syntax sugar is compatible with [InputForm](frontend/Reference/Decorations/InputForm.md), which make it suitable for writting WL Packages using this text-editor. See more about syntax sugar here [Symbolic programming](frontend/Symbolic%20programming.md)
+All syntax sugar is compatible with [InputForm](frontend/Reference/Formatting/InputForm.md), which make it suitable for writting WL Packages using this text-editor. See more about syntax sugar here [Symbolic programming](frontend/Symbolic%20programming.md)
 :::

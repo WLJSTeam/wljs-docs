@@ -292,7 +292,7 @@ core.PlaceholderClock.destroy = async (args, env) => {
 core.PlaceholderClock.virtual = true
 ```
 
-Then we can execute in inside on the frontend using [ViewBox](frontend/Reference/Decorations/ViewBox.md) or  [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md)
+Then we can execute in inside on the frontend using [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md) or  [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md)
 
 ```mathematica
 CreateFrontEndObject[PlaceholderClock[]]
@@ -315,7 +315,7 @@ core.Graphics3D.destroy = async (args, env) => {
 }
 ```
 
-One can improve an example above by defining [StandardForm](frontend/Reference/Decorations/StandardForm.md) for our clocks
+One can improve an example above by defining [StandardForm](frontend/Reference/Formatting/StandardForm.md) for our clocks
 
 ```mathematica
 PlaceholderClock /: MakeBoxes[m_PlaceholderClock, StandardForm] := With[{

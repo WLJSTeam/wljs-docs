@@ -17,7 +17,7 @@ Plot[x, {x,0,1}, AxesLabel->{"cm^{-1}", "\\alpha"}]
 <Wl>{`Plot[x, {x,0,1}, AxesLabel->{"cm^{-1}", "\\alpha"}]`}</Wl>
 
 ## Render WL expressions
-Using [EditorView](frontend/Reference/GUI/EditorView.md) inside [Inset](frontend/Reference/Graphics/Inset.md) you can pretty much place any valid WL expression in [StandardForm](frontend/Reference/Decorations/StandardForm.md) 
+Using [EditorView](frontend/Reference/GUI/EditorView.md) inside [Inset](frontend/Reference/Graphics/Inset.md) you can pretty much place any valid WL expression in [StandardForm](frontend/Reference/Formatting/StandardForm.md) 
 
 ```mathematica
 Plot[x, {x,0,10}, Epilog->{

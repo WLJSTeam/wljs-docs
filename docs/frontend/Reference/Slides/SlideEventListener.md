@@ -82,4 +82,4 @@ Another message <!-- .element: class="fragment" data-fragment-index="1" -->
 
 
 ## Supported output forms
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)

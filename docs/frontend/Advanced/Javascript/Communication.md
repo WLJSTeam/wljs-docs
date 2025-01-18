@@ -31,7 +31,7 @@ FrontSubmit[MyFunction[ReadClipboard[]]]
 ```
 
 ## Execution in a cell
-So-called [FrontEndExecutable](frontend/Reference/Frontend%20Objects/FrontEndExecutable.md) gives a DOM element our function because of their [StandardForm](frontend/Reference/Decorations/StandardForm.md) is defined like that. This is the easiest way
+So-called [FrontEndExecutable](frontend/Reference/Frontend%20Objects/FrontEndExecutable.md) gives a DOM element our function because of their [StandardForm](frontend/Reference/Formatting/StandardForm.md) is defined like that. This is the easiest way
 
 ```js title="cell 1"
 .js
@@ -51,7 +51,7 @@ CreateFrontEndObject[MyFunction2["Hello World!"]]
 it behaves like a symbol.
 
 :::tip
-You don't have to always use [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md). It is possible to force Wolfram Kernel to apply it automatically on output using [MakeBoxes](frontend/Reference/Decorations/MakeBoxes.md) or use [ViewBox](frontend/Reference/Decorations/ViewBox.md) directly i.e.
+You don't have to always use [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md). It is possible to force Wolfram Kernel to apply it automatically on output using [MakeBoxes](frontend/Reference/Formatting/MakeBoxes.md) or use [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md) directly i.e.
 
 ```mathematica
 MyFunction2 /: MakeBoxes[m_MyFunction2, StandardForm] := (

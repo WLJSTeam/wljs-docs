@@ -75,7 +75,7 @@ AnimationWidget := LeakyModule[{
 ]
 ```
 
-here [WLX](frontend/Cell%20types/WLX.md) is used only to have more control over the layout (add shadows to elements, dividers and so on). In principle one could do almost the same by using using [Row](frontend/Reference/Decorations/Row.md) or [TableForm](frontend/Reference/Decorations/TableForm.md). In general HTML is much easier to use when it comes to the design.
+here [WLX](frontend/Cell%20types/WLX.md) is used only to have more control over the layout (add shadows to elements, dividers and so on). In principle one could do almost the same by using using [Row](frontend/Reference/Formatting/Row.md) or [TableForm](frontend/Reference/Formatting/TableForm.md). In general HTML is much easier to use when it comes to the design.
 
 You can test it in a separate cell
 

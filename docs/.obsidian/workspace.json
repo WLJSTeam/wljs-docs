@@ -27,16 +27,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Dynamics/Advanced animation.md",
+                "file": "frontend/Reference/Formatting/Bra.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Advanced animation"
+              "title": "Bra"
+            }
+          },
+          {
+            "id": "aa45ea3e32bdd8e2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Reference/Formatting/Bra.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bra"
+            }
+          },
+          {
+            "id": "d56f995295699f60",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Reference/Image3D/Image3D.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Image3D"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -108,7 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/Advanced/Dynamics/Advanced animation.md",
+                "file": "frontend/Reference/Image3D/Image3D.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +146,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Advanced animation"
+              "title": "Backlinks for Image3D"
             }
           },
           {
@@ -191,16 +219,28 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "06328218290ccda3",
+  "active": "d56f995295699f60",
   "lastOpenFiles": [
+    "frontend/Reference/Formatting/Low-level/ViewBox.md",
+    "frontend/Reference/Image3D/Image3D.md",
+    "frontend/Reference/Image3D",
+    "frontend/Reference/Formatting/Bra.md",
+    "frontend/Reference/Formatting/Low-level",
+    "frontend/Reference/Formatting/Column.md",
+    "frontend/Reference/Formatting/Low-level/BoxBox.md",
+    "frontend/Reference/Formatting/ArrangeSummaryBox.md",
+    "frontend/Reference/Formatting/Annotation.md",
+    "frontend/Reference/Formatting/Indexed.md",
+    "frontend/Reference/Formatting",
+    "frontend/Reference/Frontend IO/ChoiceDialog.md",
+    "frontend/Reference/Graphics/Graphics.md",
+    "frontend/Advanced/Dynamics/Advanced animation.md",
     "frontend/Advanced/Slides/animations.md",
     "interpreter/Advanced/architecture.md",
-    "frontend/Reference/Graphics/Graphics.md",
     "frontend/Advanced/Dynamics/Indicators.md",
     "frontend/Advanced/Javascript/Canvas.md",
     "frontend/Reference/Frontend IO/FrontProxy.md",
     "frontend/Reference/Graphics/Circle.md",
-    "frontend/Advanced/Dynamics/Advanced animation.md",
     "frontend/Advanced/Events system/Mouse and keyboard.md",
     "frontend/Advanced/Command palette/Debugger.md",
     "frontend/Advanced/Events system/event-generators.md",
@@ -213,17 +253,8 @@
     "frontend/Overview.md",
     "frontend/instruction.md",
     "frontend/Symbolic programming.md",
-    "frontend/Wolfram Language.md",
-    "frontend/Advanced/Packages.md",
-    "frontend/Exporting/Markdown.md",
-    "frontend/Importing/Markdown.md",
     "Screenshot 2025-01-11 at 21.48.59.png",
     "Screenshot 2025-01-11 at 20.09.26.png",
-    "frontend/Advanced/Components library/Title and footer.md",
-    "frontend/Reference/Image/Rasterize.md",
-    "frontend/Exporting/Standalone Widgets.md",
-    "frontend/Reference/Image/HighlightImage.md",
-    "frontend/Reference/GUI/InputAutocomplete.md",
     "symbols-ezgif.com-optimize.gif",
     "assert-ezgif.com-optimize.gif",
     "Pasted image 20250103191609.png",
@@ -235,9 +266,6 @@
     "frontend/Importing",
     "frontend/Reference/Frontend IO/FrontProxy",
     "frontend/Advanced/Components library/_category_.json",
-    "frontend/Reference/Image",
-    "frontend/Reference/Neural Networks",
-    "frontend/Advanced/Components library",
-    "aniamtedLatex.mov"
+    "frontend/Reference/Image"
   ]
 }

@@ -172,7 +172,7 @@ The next step will be to assign triggers:
 - left the slide : stop and reset
 - close presentation : stop and reset
 
-and then turning it into widget using [EditorView](frontend/Reference/GUI/EditorView.md) (since output forms of [Row](frontend/Reference/Decorations/Row.md) and [Column](frontend/Reference/Decorations/Column.md) are not defined in slides environment)
+and then turning it into widget using [EditorView](frontend/Reference/GUI/EditorView.md) (since output forms of [Row](frontend/Reference/Formatting/Row.md) and [Column](frontend/Reference/Formatting/Column.md) are not defined in slides environment)
 
 ```mathematica @
 Widget[Rule["Event", id_]] := LeakyModule[{

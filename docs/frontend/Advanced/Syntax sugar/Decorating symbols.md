@@ -5,7 +5,7 @@ Read about syntax sugar also in [Symbolic programming](frontend/Symbolic%20progr
 :::
 
 ## Temporal
-One can replace a symbol with an icon by applying [Interpretation](frontend/Reference/Decorations/Interpretation.md). After first evaluation the representation is lost and the true expression will be revealed
+One can replace a symbol with an icon by applying [Interpretation](frontend/Reference/Formatting/Interpretation.md). After first evaluation the representation is lost and the true expression will be revealed
 
 ```mathematica
 Interpretation[Graphics[Circle[], ImageSize->{20,20}, ImagePadding->None], 1]
@@ -60,7 +60,7 @@ core.SmileyDecorator = async (args, env) => {
 }
 ```
 
-The given function will append a canvas with an image to provided element in the context of its execution. To force Wolfram Kernel to execute this symbol on [the frontend](frontend/Advanced/Frontend%20interpretation/WLJS%20Functions.md) one can use [ViewBox](frontend/Reference/Decorations/ViewBox.md)
+The given function will append a canvas with an image to provided element in the context of its execution. To force Wolfram Kernel to execute this symbol on [the frontend](frontend/Advanced/Frontend%20interpretation/WLJS%20Functions.md) one can use [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md)
 
 ```mathematica title="test"
 SmileyDecorator /: MakeBoxes[s_SmileyDecorator, StandardForm] := With[{},
@@ -134,7 +134,7 @@ createDynamic2DSymbol[] := Module[{symbol = {0,0}}, With[{
 ]]
 ```
 
-Why? See reference on [Interpretation](frontend/Reference/Decorations/Interpretation.md)
+Why? See reference on [Interpretation](frontend/Reference/Formatting/Interpretation.md)
 
 </details>
 
@@ -149,7 +149,7 @@ Red
 ![](./../../../Screenshot%202024-05-04%20at%2013.51.35.png)
 
 ### InterpretationBox
-This is a low-level symbol used in [Interpretation](frontend/Reference/Decorations/Interpretation.md), however from temporal decoration we can make a permanent one by defining [MakeBoxes](frontend/Reference/Decorations/MakeBoxes.md) for [StandardForm](frontend/Reference/Decorations/StandardForm.md) 
+This is a low-level symbol used in [Interpretation](frontend/Reference/Formatting/Interpretation.md), however from temporal decoration we can make a permanent one by defining [MakeBoxes](frontend/Reference/Formatting/MakeBoxes.md) for [StandardForm](frontend/Reference/Formatting/StandardForm.md) 
 
 Advantages ✅
 - high-level, accepts anything as a display expression
@@ -384,11 +384,11 @@ Drawbacks ❌
 - __not compatible with Mathematica__
 
 Neutral 💭
-- mutable (see [Mutability](frontend/Reference/Decorations/ViewBox.md#Mutability))
+- mutable (see [Mutability](frontend/Reference/Formatting/Low-level/ViewBox.md#Mutability))
 - preserves original expression in the cell
 
 
-It gives you full control over a decoration. One can event listen events from there and [mutate](frontend/Reference/Decorations/ViewBox.md#From%20Wolfram%20Kernel) inner and outer content of it remotely
+It gives you full control over a decoration. One can event listen events from there and [mutate](frontend/Reference/Formatting/Low-level/ViewBox.md#From%20Wolfram%20Kernel) inner and outer content of it remotely
 
 #### Simple example
 The easiest way of using it to replace an expression with graphics, image or something similar
@@ -496,7 +496,7 @@ Let us try the simplest demonstration possible
 gauge[level_Real]
 ```
 
-This is going to be our gauge meter. We can decorate it as in the previous example using [MakeBoxes](frontend/Reference/Decorations/MakeBoxes.md)
+This is going to be our gauge meter. We can decorate it as in the previous example using [MakeBoxes](frontend/Reference/Formatting/MakeBoxes.md)
 
 ```mathematica
 gauge /: MakeBoxes[g_gauge, StandardForm] := With[{},
@@ -505,7 +505,7 @@ gauge /: MakeBoxes[g_gauge, StandardForm] := With[{},
 ```
 
 :::note
-If you plan to use it with [Slides](frontend/Reference/Slides/Slides.md) or [WLX](frontend/Cell%20types/WLX.md), define [WLXForm](frontend/Reference/Decorations/WLXForm.md) instead of [StandardForm](frontend/Reference/Decorations/StandardForm.md) in `MakeBoxes` or both.
+If you plan to use it with [Slides](frontend/Reference/Slides/Slides.md) or [WLX](frontend/Cell%20types/WLX.md), define [WLXForm](frontend/Reference/Formatting/WLXForm.md) instead of [StandardForm](frontend/Reference/Formatting/StandardForm.md) in `MakeBoxes` or both.
 :::
 
 Now an actual implementation for our decorator
@@ -650,7 +650,7 @@ gauge[gvalue // Offload]
 
 
 ## Deferred
-The major difference is that we create a decoration only, when the symbol appeared in the editor. For this we will construct a dummy [ViewBox](frontend/Reference/Decorations/ViewBox.md) just to emit this event 
+The major difference is that we create a decoration only, when the symbol appeared in the editor. For this we will construct a dummy [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md) just to emit this event 
 
 ```mathematica
 dummy /: MakeBoxes[dummy[handler_], StandardForm] := With[{
@@ -699,7 +699,7 @@ Use deferred generation of decorations, if you need to differentiate between cop
 :::
 
 ### State preservation
-Where to store the state? The trick can be done using [``ViewBox`InnerExpression``](frontend/Reference/Decorations/ViewBox.md#``ViewBox`InnerExpression``) and keeping the data inside the cell.
+Where to store the state? The trick can be done using [``ViewBox`InnerExpression``](frontend/Reference/Formatting/Low-level/ViewBox.md#``ViewBox`InnerExpression``) and keeping the data inside the cell.
 
 Let us have an example with sliders
 

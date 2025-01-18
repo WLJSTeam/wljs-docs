@@ -23,5 +23,5 @@ Fires every time users changes the content with a content as a payload
 Fires when a user presses a combination `Shift+Enter`
 
 ## Supported output forms
-- [StandardForm](frontend/Reference/Decorations/StandardForm.md)
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [StandardForm](frontend/Reference/Formatting/StandardForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)

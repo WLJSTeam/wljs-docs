@@ -60,7 +60,7 @@ Options[Heading] = {"Title"->"Nope"}
 
 
 ## Decorators
-Decorators with [WLXForm](frontend/Reference/Decorations/WLXForm.md) defined such as [[Row]], [Column](frontend/Reference/Decorations/Column.md) can be used on slides as well natively. [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md) is also a combination of those, which make it possible to output it directly without [EditorView](frontend/Reference/GUI/EditorView.md)
+Decorators with [WLXForm](frontend/Reference/Formatting/WLXForm.md) defined such as [[frontend/Reference/Formatting/Row]], [Column](frontend/Reference/Formatting/Column.md) can be used on slides as well natively. [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md) is also a combination of those, which make it possible to output it directly without [EditorView](frontend/Reference/GUI/EditorView.md)
 
 
 ```mathematica title="cell 1"

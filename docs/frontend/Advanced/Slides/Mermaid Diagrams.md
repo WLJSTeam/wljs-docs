@@ -10,9 +10,9 @@ How to embed [Mermaid](frontend/Cell%20types/Many%20more.md#Mermaid) diagrams to
 There is a special wrapper, that allows to embed cell content into a custom DOM element provided by the execution environment - [CellView](frontend/Reference/GUI/CellView.md). 
 
 :::info
-When you are working with slides, every Wolfram Expression is transformed into [WLXForm](frontend/Reference/Decorations/WLXForm.md).  You __need to define__ this form for your symbol to render it on a slide correctly. Or one can wrappers, which has both [StandardForm](frontend/Reference/Decorations/StandardForm.md) and [WLXForm](frontend/Reference/Decorations/WLXForm.md) by the default such as [FrontEndExecutable](frontend/Reference/Frontend%20Objects/FrontEndExecutable.md) provided by [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md). 
+When you are working with slides, every Wolfram Expression is transformed into [WLXForm](frontend/Reference/Formatting/WLXForm.md).  You __need to define__ this form for your symbol to render it on a slide correctly. Or one can wrappers, which has both [StandardForm](frontend/Reference/Formatting/StandardForm.md) and [WLXForm](frontend/Reference/Formatting/WLXForm.md) by the default such as [FrontEndExecutable](frontend/Reference/Frontend%20Objects/FrontEndExecutable.md) provided by [CreateFrontEndObject](frontend/Reference/Frontend%20Objects/CreateFrontEndObject.md). 
 
-[CellView](frontend/Reference/GUI/CellView.md), [EditorView](frontend/Reference/GUI/EditorView.md), [Graphics](frontend/Reference/Graphics/Graphics.md) and some other symbols __do not require extra actions__, since [WLXForm](frontend/Reference/Decorations/WLXForm.md) is already defined for them.
+[CellView](frontend/Reference/GUI/CellView.md), [EditorView](frontend/Reference/GUI/EditorView.md), [Graphics](frontend/Reference/Graphics/Graphics.md) and some other symbols __do not require extra actions__, since [WLXForm](frontend/Reference/Formatting/WLXForm.md) is already defined for them.
 :::
 
 ```mathematica

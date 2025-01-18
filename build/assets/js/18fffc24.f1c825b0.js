@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwlx_docs=self.webpackChunkwlx_docs||[]).push([[75720],{22024:s=>{s.exports=JSON.parse('{"title":"WLJS Widgets","items":[{"title":"Musical scales and chords maker","permalink":"/wljs-docs/widgets/2025/01/06/MusicScales","unlisted":false},{"title":"Optics units converter","permalink":"/wljs-docs/widgets/2024/12/19/Units","unlisted":false}]}')}}]);

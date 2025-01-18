@@ -160,7 +160,7 @@ For integrals, derivatives and series use [Command palette](frontend/Command%20p
 If an output is too big, it will be truncated or converted into a temporal symbol (if possible) to reduce the load on the editor
 :::
 
-You can also make your own custom representation of your symbol like in Mathematica using `MakeBoxes`. Please see [InterpretationBox](frontend/Reference/Decorations/InterpretationBox.md), [Interpretation](frontend/Reference/Decorations/Interpretation.md) and [MakeBoxes](frontend/Reference/Decorations/MakeBoxes.md) and [ArrangeSummaryBox](frontend/Reference/Decorations/ArrangeSummaryBox.md), [ViewBox](frontend/Reference/Decorations/ViewBox.md), [BoxBox](frontend/Reference/Decorations/BoxBox.md) and an ultimate guide on them in [Decorating symbols](frontend/Advanced/Syntax%20sugar/Decorating%20symbols.md)
+You can also make your own custom representation of your symbol like in Mathematica using `MakeBoxes`. Please see [InterpretationBox](frontend/Reference/Formatting/Low-level/InterpretationBox.md), [Interpretation](frontend/Reference/Formatting/Interpretation.md) and [MakeBoxes](frontend/Reference/Formatting/MakeBoxes.md) and [ArrangeSummaryBox](frontend/Reference/Formatting/ArrangeSummaryBox.md), [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md), [BoxBox](frontend/Reference/Formatting/Low-level/BoxBox.md) and an ultimate guide on them in [Decorating symbols](frontend/Advanced/Syntax%20sugar/Decorating%20symbols.md)
 
 ### Access to documentation
 Click on 🔎 icon in autocomplete window to open docs on that symbol in a new window

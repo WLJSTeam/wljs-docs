@@ -15,8 +15,8 @@ CellView[content_String, opts___]
 where `content` is a string, that represents an expression needed by a view component of a cell. View-components are provided by different extensions such as [Slides](frontend/Exporting/Slides.md), [WLX](frontend/Cell%20types/WLX.md), [Markdown](frontend/Cell%20types/Markdown.md), [Javascript](frontend/Cell%20types/Javascript.md) and [Many more](frontend/Cell%20types/Many%20more.md) and used by the default to render the notebook in a window.
 
 ## Supported output forms
-- [StandardForm](frontend/Reference/Decorations/StandardForm.md)
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [StandardForm](frontend/Reference/Formatting/StandardForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)
 
 ## Options
 ### `"Display"`

@@ -46,11 +46,11 @@ EditorView[series // Offload]
 ```
 
 ## Supported output forms
-- [StandardForm](frontend/Reference/Decorations/StandardForm.md)
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [StandardForm](frontend/Reference/Formatting/StandardForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)
 
 ## Dev notes
-This is used in [InterpretationBox](frontend/Reference/Decorations/InterpretationBox.md) implementation to replace a WL expression using a user-provided WL expression in a code editor.
+This is used in [InterpretationBox](frontend/Reference/Formatting/Low-level/InterpretationBox.md) implementation to replace a WL expression using a user-provided WL expression in a code editor.
 
 
 

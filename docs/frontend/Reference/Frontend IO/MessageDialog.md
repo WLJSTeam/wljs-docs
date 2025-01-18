@@ -10,7 +10,7 @@ MessageDialog[expr_]
 opens a modal window with `expr` displayed in the middle in a *non-blocking way*, where `expr` can be a string, graphics or any other expression
 
 :::note
-It will use [StandardForm](frontend/Reference/Decorations/StandardForm.md) for displaying expressions
+It will use [StandardForm](frontend/Reference/Formatting/StandardForm.md) for displaying expressions
 :::
 
 ## Options

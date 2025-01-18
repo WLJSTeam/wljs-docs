@@ -92,7 +92,7 @@ Graphics[Table[{
 ![](./../../../Screenshot%202024-05-17%20at%2009.54.19.png)
 
 #### Grouping input elements
-If you need to make just visually, then consider to use [Grid](frontend/Reference/Decorations/Grid.md), [[Row]] or [Column](frontend/Reference/Decorations/Column.md), i.e.
+If you need to make just visually, then consider to use [Grid](frontend/Reference/Formatting/Grid.md), [[frontend/Reference/Formatting/Row]] or [Column](frontend/Reference/Formatting/Column.md), i.e.
 
 ```mathematica
 slider = InputRange[0,1,0.1]; 

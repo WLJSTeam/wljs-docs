@@ -6,7 +6,7 @@ sidebar_position: 2
 One of the feature advantage of Wolfram Mathematica and WLJS Notebook is a multimodal cells with a powerful syntax sugar. A visual representation of an instance of an object makes the programming experience more educative for sure.
 
 ## Summary Item
-The easiest way of providing a bit more information, but still keeping the actual expression intact is to use [ArrangeSummaryBox](frontend/Reference/Decorations/ArrangeSummaryBox.md)
+The easiest way of providing a bit more information, but still keeping the actual expression intact is to use [ArrangeSummaryBox](frontend/Reference/Formatting/ArrangeSummaryBox.md)
 
 ```mathematica
 StateMachine /: MakeBoxes[s: StateMachine[symbol_Symbol?AssociationQ], form: (StandardForm | TraditionalForm)] := Module[{},

@@ -112,5 +112,5 @@ See primitives [Sphere](frontend/Reference/Graphics3D/Sphere.md), [Polygon](fron
 ![](../../../imgs/ScreenRecording2024-03-24at20.50.18-ezgif.com-optipng.png)
 
 ## Supported output forms
-- [StandardForm](frontend/Reference/Decorations/StandardForm.md)
-- [WLXForm](frontend/Reference/Decorations/WLXForm.md)
+- [StandardForm](frontend/Reference/Formatting/StandardForm.md)
+- [WLXForm](frontend/Reference/Formatting/WLXForm.md)

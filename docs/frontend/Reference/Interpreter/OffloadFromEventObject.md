@@ -31,4 +31,4 @@ Rectangle[{-1,-1}, {(*here*), 1}]
 ![](./../../../Generated.mov%20to%20GIF%201.gif)
 
 ## Dev notes
-This is a simple combination of [Offload](frontend/Reference/Interpreter/Offload.md), [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`) and [Interpretation](frontend/Reference/Decorations/Interpretation.md) 
+This is a simple combination of [Offload](frontend/Reference/Interpreter/Offload.md), [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`) and [Interpretation](frontend/Reference/Formatting/Interpretation.md) 
