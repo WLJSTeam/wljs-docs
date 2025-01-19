@@ -82,7 +82,7 @@ wrapper[1/2]
 
 __Result__
 
-![](imgs/Screenshot%202023-12-10%20at%2016.59.28.png)
+![](./../../../../imgs/Screenshot%202023-12-10%20at%2016.59.28.png)
 
 The neat thing is __you can edit the inner expression__
 

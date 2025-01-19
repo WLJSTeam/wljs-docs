@@ -73,7 +73,7 @@ As you can see **no JS required**
 Table[boxObject[i], {i,3}]
 ```
 
-![](Screenshot%202024-05-01%20at%2016.02.59.png)
+![](./../../../../Screenshot%202024-05-01%20at%2016.02.59.png)
 
 And you can still work with them as it was symbols
 
@@ -254,7 +254,7 @@ CheckObject[True]
 ```
 *then try to click on it, copy and paste it*
 
-![](imgs/Screenshot%202023-12-10%20at%2015.44.56.png)
+![](./../../../../imgs/Screenshot%202023-12-10%20at%2015.44.56.png)
 
 whatever you do, it will keep its state synced. No communication with WL Kernel happens, everything is running within the code-editor in the browser.
 
@@ -264,7 +264,7 @@ Or even cooler
 Table[CheckObject[True], {i, 3}, {j, 3}] // MatrixForm 
 ```
 
-![](imgs/ezgif.com-video-to-gif-6.gif)
+![](./../../../../imgs/ezgif.com-video-to-gif-6.gif)
 
 
 

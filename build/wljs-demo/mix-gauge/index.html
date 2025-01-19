@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="mdx-wrapper mdx-page plugin-pages plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.3.2">
+<title data-rh="true">Dynamic gauge | WLJS Notebook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://jerryi.github.io/wljs-docs/wljs-demo/mix-gauge/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="msvalidate.01" content="558ACAAD3C892A685EC4981186E3711D"><meta data-rh="true" name="google-site-verification" content="v5kHeI8IZCb5bfzZug5GQ7uRZOeo2VIdj8tcUXpaLTk"><meta data-rh="true" property="og:title" content="Dynamic gauge | WLJS Notebook"><meta data-rh="true" name="description" content="An example of advanced decoration, which supports changing data"><meta data-rh="true" property="og:description" content="An example of advanced decoration, which supports changing data"><link data-rh="true" rel="icon" href="/wljs-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://jerryi.github.io/wljs-docs/wljs-demo/mix-gauge/"><link data-rh="true" rel="alternate" href="https://jerryi.github.io/wljs-docs/wljs-demo/mix-gauge/" hreflang="en"><link data-rh="true" rel="alternate" href="https://jerryi.github.io/wljs-docs/wljs-demo/mix-gauge/" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/wljs-docs/blog/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/wljs-docs/blog/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/wljs-docs/releases/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/wljs-docs/releases/atom.xml" title="WLJS Notebook Atom Feed">
+<link rel="alternate" type="application/rss+xml" href="/wljs-docs/widgets/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/wljs-docs/widgets/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/interpreter.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/core.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@dev/src/module.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/boxes.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/metamarkers.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/objects.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/frontsubmit.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@dev/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@dev/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@dev/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@dev/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@dev/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@dev/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@master/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@dev/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@dev/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@dev/dist/kernel.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet" href="/wljs-docs/assets/css/styles.7965c06e.css">
+<script src="/wljs-docs/assets/js/runtime~main.488cfe28.js" defer="defer"></script>
+<script src="/wljs-docs/assets/js/main.be6d7604.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/wljs-docs/"><div class="navbar__logo"><img src="/wljs-docs/img/logo3.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/wljs-docs/img/logo2.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WLJS</b></a><a class="navbar__item navbar__link" href="/wljs-docs/">Documentation</a><a class="navbar__item navbar__link" href="/wljs-docs/blog">Blog</a><a class="navbar__item navbar__link" href="/wljs-docs/releases">Release notes</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" style="border:0;border-radius:6px" href="/wljs-docs/wljs-demo">Demonstration Project</a><a class="navbar__item navbar__link" href="/wljs-docs/widgets">Widgets</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link" style="border:0;border-radius:6px">Discuss</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/wljs-docs/sponsorship">Support us</a><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><main class="container container--fluid margin-vert--lg"><div class="row mdxPageWrapper_j9I6"><div class="col col--8"><article><h1>Dynamic gauge</h1>
+<p>An example of advanced decoration, which supports changing data</p>
+<!-- -->
+<a href="/wljs-docs/51901e7f28d5f3b1ac3a3dc70e98d6d1.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<p>Define</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">gauge /: MakeBoxes[g_gauge, StandardForm] := ViewBox[g, g]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Now we need to implement the interpretation function on the frontend</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.js
+
+core.gauge = async (args, env) =&gt; {
+  
+  // Create a gauge meter element
+  const gauge = document.createElement(&#x27;div&#x27;);
+  gauge.style.width = &#x27;100px&#x27;; // half the original width
+  gauge.style.height = &#x27;50px&#x27;; // half the original height
+  gauge.style.border = &#x27;1px solid #000&#x27;;
+  gauge.style.borderRadius = &#x27;50px 50px 0 0&#x27;; // adjusted for smaller size
+  gauge.style.position = &#x27;relative&#x27;;
+  gauge.style.background = &#x27;linear-gradient(to right, red 0%, yellow 50%, green 100%)&#x27;;
+
+  // Create a needle for the gauge
+  const needle = document.createElement(&#x27;div&#x27;);
+  needle.style.width = &#x27;2px&#x27;;
+  needle.style.height = &#x27;40px&#x27;; // made the needle longer for better visibility
+  needle.style.background = &#x27;#000&#x27;;
+  needle.style.position = &#x27;absolute&#x27;;
+  needle.style.bottom = &#x27;0&#x27;;
+  needle.style.left = &#x27;50%&#x27;;
+  needle.style.transformOrigin = &#x27;bottom&#x27;;
+
+  // Function to set the needle position based on input value
+  function setNeedlePosition(value) {
+    // Ensure value is between 0 and 1
+    value = Math.max(0, Math.min(1, value));
+    // Convert value to angle
+    const angle = value * 180 - 90; // -90 to 90 degrees
+    needle.style.transform = `rotate(${angle}deg)`;
+  }
+
+  // Set initial needle position
+  const pos = await interpretate(args[0], env);
+  setNeedlePosition(pos); // Middle position
+  
+
+  gauge.appendChild(needle);
+
+  env.element.appendChild(gauge);
+  env.local.update = setNeedlePosition;
+}
+
+core.gauge.update = async (args, env) =&gt; {
+  const val = await interpretate(args[0], env);
+  env.local.update(val);
+}
+
+core.gauge.destroy = () =&gt; {
+  console.log(&#x27;Nothing to do&#x27;);
+}
+
+core.gauge.virtual = true;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
+core.gauge = async (args, env) =&gt; {
+  
+  // Create a gauge meter element
+  const gauge = document.createElement(&#x27;div&#x27;);
+  gauge.style.width = &#x27;100px&#x27;; // half the original width
+  gauge.style.height = &#x27;50px&#x27;; // half the original height
+  gauge.style.border = &#x27;1px solid #000&#x27;;
+  gauge.style.borderRadius = &#x27;50px 50px 0 0&#x27;; // adjusted for smaller size
+  gauge.style.position = &#x27;relative&#x27;;
+  gauge.style.background = &#x27;linear-gradient(to right, red 0%, yellow 50%, green 100%)&#x27;;
+
+  // Create a needle for the gauge
+  const needle = document.createElement(&#x27;div&#x27;);
+  needle.style.width = &#x27;2px&#x27;;
+  needle.style.height = &#x27;40px&#x27;; // made the needle longer for better visibility
+  needle.style.background = &#x27;#000&#x27;;
+  needle.style.position = &#x27;absolute&#x27;;
+  needle.style.bottom = &#x27;0&#x27;;
+  needle.style.left = &#x27;50%&#x27;;
+  needle.style.transformOrigin = &#x27;bottom&#x27;;
+
+  // Function to set the needle position based on input value
+  function setNeedlePosition(value) {
+    // Ensure value is between 0 and 1
+    value = Math.max(0, Math.min(1, value));
+    // Convert value to angle
+    const angle = value * 180 - 90; // -90 to 90 degrees
+    needle.style.transform = `rotate(${angle}deg)`;
+  }
+
+  // Set initial needle position
+  const pos = await interpretate(args[0], env);
+  setNeedlePosition(pos); // Middle position
+  
+
+  gauge.appendChild(needle);
+
+  env.element.appendChild(gauge);
+  env.local.update = setNeedlePosition;
+}
+
+core.gauge.update = async (args, env) =&gt; {
+  const val = await interpretate(args[0], env);
+  env.local.update(val);
+}
+
+core.gauge.destroy = () =&gt; {
+  console.log(&#x27;Nothing to do&#x27;);
+}
+
+core.gauge.virtual = true;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Let us test it!</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">gauge[0.3]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(gauge[0.3])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRAeK5BITyxNTy0yBoPL9gCxdwlI&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dynamics">Dynamics<a href="#dynamics" class="hash-link" aria-label="Direct link to Dynamics" title="Direct link to Dynamics">​</a></h2>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">gvalue = 0.1;
+EventHandler[InputRange[0, 1, 0.1, 0.1], (gvalue = #) &amp;]
+
+gauge[gvalue // Offload]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(EventObject[&lt;|&quot;Id&quot; -&gt; &quot;779cc45c-7931-400c-a30b-10b1478d8fbd&quot;, &quot;Initial&quot; -&gt; 0.1, &quot;View&quot; -&gt; &quot;43a61dc6-e46a-46ab-a0e1-140f93d421a9&quot;|&gt;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxgnmhmmJJvpppqYJeoCcZJuokGqoa6hiUGapXGKiZFhoiUAhbUVjw==&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(gauge[Offload[gvalue]])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRAeK5BITyxNT4Vw2YGEf1paTn5iSjEbSKosMac0FQBuxw0r&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div></article></div><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#dynamics" class="table-of-contents__link toc-highlight">Dynamics</a></li></ul></div></div></div></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://t.me/+PBotB9UJw-hiZDEy" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">WLJS Notebook Project is open-source and licensed under GPL3</div></div></div></footer></div>
+</body>
+</html>

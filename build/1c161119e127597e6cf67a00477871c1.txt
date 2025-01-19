@@ -1,0 +1,11 @@
+{
+"objects":[
+	"Association",
+	["Rule","'8783fd1e-7623-4ba2-9bb8-3f27d772f295'",["Hold",["HTMLView","'<div class=\"relative shrink-0 gap-y-3 pb-2 flex flex-col sm-controls\"><div class=\"flex gap-x-5 sm-controls\"><label for=\"default-range\" class=\"block mb-2 text-sm font-medium text-gray-900\">Radius<\/label><input min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" id=\"n-#instanceId\" type=\"number\" class=\"ml-auto h-2 grow max-w-60 block p-2.5 text-xs text-gray-900 bg-gray-50 rounded-md border-2-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500\"><\/input><\/div><input min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" id=\"r-#instanceId\" type=\"range\" class=\"sm-controls w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer \"><\/input><\/div>\n<script type=\"module\"> const num = document.getElementById('n-#instanceId');\n        const ran = document.getElementById('r-#instanceId');\n\n        let harpticQ = true;\n\n        function isNumber(value) { return typeof value === 'number'}\n\n        num.addEventListener('input', (event)=> {\n            if (isNaN(num.value)) return;\n            ran.value = num.value;\n            server.kernel.emitt('26972dcc-9eb4-435d-8f65-c1009adc90f9', num.value, 'Default');      \n        });\n\n        ran.addEventListener('input', (event)=> {\n            if (isNaN(ran.value)) return;\n            num.value = ran.value;\n            server.kernel.emitt('26972dcc-9eb4-435d-8f65-c1009adc90f9', ran.value, 'Default');   \n            if (harpticQ) {\n                if (!window.electronAPI) {harpticQ = false; return}\n                if (!window.electronAPI.harptic) {harpticQ = false; return}\n                window.electronAPI.harptic();\n            }               \n        });<\/script>'",["Rule","Prolog",["HTMLView`TemplateProcessor",["Association",["Rule","'instanceId'",["CreateUUID"]]]]]]]],
+	["Rule","'3e245324-9210-43e7-b4d4-725026875b8f'",["Hold",["Graphics",["List",["RGBColor",0.87,0.94,1],["Disk",["List",0,0]],["RGBColor",1,0.5,0.5],["Disk",["List",0,0],["Offload","radius"]]]]]]
+], 
+"symbols":[
+	"Association",
+	["Rule","'radius'",0.5]
+]
+}
