@@ -12,7 +12,7 @@ Use `/iframe/` in the the URL to open any resource in this regime
 <iframe id="yourIframe" src="http://127.0.0.1:20560/iframe/<PATH>"></iframe>
 ```
 
-where `<PATH>` must be an absolute path on your machine to a given notebook, markdown file (see [Markdown](frontend/Importing/Markdown.md)) or any other supported input format encoded using `encodeURIComponent()` or equivalent. 
+where `<PATH>` must be an absolute path on your machine to a given notebook, markdown file (see [Markdown](frontend/Importing/Markdown.md) or regular `wl` files) or any other supported input format encoded using `encodeURIComponent()` or equivalent. 
 
 Ports and hosts can be configured at the startup
 
