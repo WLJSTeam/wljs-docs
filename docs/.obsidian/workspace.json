@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Development/API/REST.md",
+                "file": "frontend/Reference/Graphics/ZoomAt.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "REST"
+              "title": "ZoomAt"
             }
           }
         ],
@@ -81,8 +81,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Decorations",
-                "matchingCase": true,
+                "query": "ZoomAt",
+                "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
                 "extraContext": true,
@@ -102,7 +102,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -208,40 +209,42 @@
   },
   "active": "d56f995295699f60",
   "lastOpenFiles": [
-    "Screenshot 2025-01-21 at 10.27.46.png",
+    "frontend/Advanced/Components library/Share downloadable files.md",
+    "frontend/Reference/Formatting/TableForm.md",
+    "frontend/Reference/GUI/TableView.md",
+    "frontend/Reference/Formatting/Pane.md",
+    "frontend/Reference/Formatting/Panel.md",
+    "frontend/Reference/Frontend IO/SystemDialogInput.md",
+    "frontend/Advanced/Graphics/Inset expressions.md",
+    "frontend/Reference/Graphics/Text.md",
+    "frontend/Reference/Graphics3D/Text.md",
+    "frontend/Reference/Graphics/Graphics.md",
+    "frontend/Dynamics.md",
+    "frontend/Reference/Graphics/Directive.md",
+    "frontend/Reference/Plotting Functions/Plot.md",
+    "frontend/Exporting/Mathematica.md",
+    "frontend/Exporting/Figures.md",
+    "frontend/Exporting/Markdown.md",
+    "Screenshot 2025-01-25 at 17.24.11.png",
+    "frontend/Exporting/Slides.md",
+    "frontend/Exporting/Regular files.md",
+    "frontend/Exporting/PDF.md",
+    "frontend/Exporting/Dynamic HTML.md",
+    "frontend/Exporting/Static HTML.md",
+    "frontend/Importing/Mathematica.md",
     "frontend/Development/Contribution.md",
     "frontend/Development/API/REST.md",
-    "frontend/Development/API/Iframe.md",
-    "frontend/Reference/Image/AnimatedImage.md",
-    "frontend/Expressions representation.md",
-    "frontend/Reference/GUI/WLXEmbed.md",
-    "frontend/Reference/Formatting/Framed.md",
-    "frontend/Reference/Formatting/ArrangeSummaryBox.md",
-    "frontend/Reference/Formatting/Annotation.md",
-    "frontend/Reference/Formatting/Low-level/ViewBox.md",
-    "frontend/Reference/Formatting/Low-level/InterpretationBox.md",
-    "frontend/Reference/Formatting/Low-level/BoxBox.md",
-    "frontend/Reference/Formatting/Bra.md",
-    "frontend/Reference/Formatting/Low-level/$SummaryBoxSizeLimit.md",
-    "frontend/Reference/Formatting/Low-level/$FrontEndObjectSizeLimit.md",
-    "frontend/Reference/Formatting/Low-level/$OutputCharactersLimit.md",
-    "frontend/Reference/Formatting/Low-level/Untitled.md",
-    "frontend/Reference/Graphics/Graphics.md",
+    "Untitled.md",
+    "H.md",
+    "Screenshot 2025-01-21 at 10.27.46.png",
     "Screenshot 2025-01-18 at 17.07.10.png",
-    "frontend/instruction.md",
     "frontend/Development/API",
-    "frontend/Reference/Image3D/Image3D.md",
     "frontend/Development/Paclets",
     "frontend/Development/Extensions",
     "frontend/Development",
     "frontend/Reference/Image3D",
     "frontend/Reference/Formatting/Low-level",
-    "frontend/Reference/Formatting/Column.md",
-    "frontend/Reference/Formatting/Indexed.md",
     "frontend/Reference/Formatting",
-    "frontend/Reference/Frontend IO/ChoiceDialog.md",
-    "frontend/Advanced/Dynamics/Advanced animation.md",
-    "frontend/Advanced/Slides/animations.md",
     "Screenshot 2025-01-14 at 09.29.53.png",
     "Screenshot 2025-01-13 at 19.25.35.png",
     "Screenshot 2025-01-13 at 18.22.53.png",
@@ -249,10 +252,8 @@
     "Screenshot 2025-01-11 at 20.09.26.png",
     "symbols-ezgif.com-optimize.gif",
     "assert-ezgif.com-optimize.gif",
-    "Pasted image 20250103191609.png",
     "frontend/Reference/_category_.json",
     "Units Converter.wlw",
-    "Screenshot 2024-12-26 at 14.24.54.png",
     "frontend/Importing/_category_.json"
   ]
 }

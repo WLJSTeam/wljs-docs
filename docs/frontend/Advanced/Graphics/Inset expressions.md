@@ -16,6 +16,12 @@ Plot[x, {x,0,1}, AxesLabel->{"cm^{-1}", "\\alpha"}]
 
 <Wl>{`Plot[x, {x,0,1}, AxesLabel->{"cm^{-1}", "\\alpha"}]`}</Wl>
 
+Some of the special characters of Wolfram Language, which are compatible with unicode symbols table, __can be entered directly__
+
+```mathematica @
+ListLinePlot[yourData, Frame->True, FrameLabel->{"\[Omega] (THz)", "\[Alpha] (absorption coefficient)"}]
+```
+
 ## Render WL expressions
 Using [EditorView](frontend/Reference/GUI/EditorView.md) inside [Inset](frontend/Reference/Graphics/Inset.md) you can pretty much place any valid WL expression in [StandardForm](frontend/Reference/Formatting/StandardForm.md) 
 

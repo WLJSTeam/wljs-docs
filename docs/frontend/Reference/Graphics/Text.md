@@ -102,3 +102,12 @@ In principle, it will anyway ends up in HTML, therefore one can use any special 
 ```
 
 <Wl >{`Graphics[{Text["I will display &#10060;", {0,0}]}, ImageSize->500]`}</Wl>
+
+
+### Wolfram Language special characters
+It does support some of the WL's characters like `\[Alpha]` and others, which are compatible with unicode table
+
+```mathematica @
+Text["\[Omega] (THz)", {0,0}]
+```
+

@@ -32,6 +32,11 @@ Opens a file saving dialog. Filters can be provided as well
 SystemDialogInput["FileSave", {Null, {"Tabular Formats" -> {"*.csv", "*.tsv"}, "Plain Text Document" -> {"*.txt"}}}]
 ```
 
+
+### `"OpenList"`
+Opens a file browser with multiple selections. Filters can be provided as well similar to `FileOpen` type.
+
+
 ### `"Directory"`
 Opens a dialog to select a directory
 

@@ -5,7 +5,7 @@ API is provided by a core extension `wljs-api`. All communication is done via HT
 - fetch [Frontend Objects](frontend/Advanced/Frontend%20interpretation/Frontend%20Objects.md) used for 3D, 2D graphics
 - fetch extensions, assets
 
-In principle public REST API is __enough to write your own small notebook interface with full support of all available cell types, 3D graphics, sound and etc__. However, this is a natural limitation - dynamics or event-based expressions such as [InputRange](frontend/Reference/GUI/InputRange.md) or [Manipulate](frontend/Reference/Interpreter/Manipulate.md) __are not going to work__.
+In principle public REST API is rich __enough to write your own small notebook interface with full support of all available cell types, 3D graphics, sound and etc__. However, this is a natural limitation - dynamics or event-based expressions such as [InputRange](frontend/Reference/GUI/InputRange.md) or [Manipulate](frontend/Reference/Interpreter/Manipulate.md) __are not going to work__.
 
 ![](./../../../Screenshot%202025-01-21%20at%2010.27.46.png)
 
@@ -119,6 +119,10 @@ it will request all Javascript assets in minified CJS format and return them in 
 ]
 ```
 
+:::warning
+Use `type="module"` for each script provided in the response.
+:::
+
 For example, one can request them first using [List](#List) and embed to head of the document
 
 ```js
@@ -205,6 +209,44 @@ const fetchExtensions = async () => {
             console.error('Error fetching extensions:', err);
           }
 };
+```
+
+#### JS Bundle
+```url title="request"
+Route: /api/extensions/bundle/minjs/
+```
+
+requests a single JS module __containing all necessary scripts__ 
+
+:::tip
+Use JS Bundle in a sandboxed environments such as Obsidian, where `window` object is not shared between different modules.
+:::
+
+```json title="response"
+'uriEncodedString'
+```
+
+#### Example
+Fetch the bundle and embed it
+
+```js
+fetch('http://127.0.0.1:20560/api/extensions/bundle/minjs/', {
+  method:'POST'
+}).then((res) => {
+  res.json().then((r) => {
+      const script = document.createElement('script');
+      script.type="module";
+      script.innerHTML = decodeURIComponent(r);
+      document.body.appendChild(script);
+
+      //after it was loaded, you can continue in setting up thing
+  }); 
+})
+```
+
+#### CSS Bundle
+```url title="request"
+Route: /api/extensions/bundle/styles/
 ```
 
 ### Kernels management
@@ -861,7 +903,5 @@ Using a single HTML file and a bunch of Javascript code one can make a working R
 </details>
 
 
-:::info
-If you run on directly from an HTML file, make sure to allow CORS: `Access-Control-Allow-origin`. Otherwise your browser will block all fetch requests.
-:::
+
 

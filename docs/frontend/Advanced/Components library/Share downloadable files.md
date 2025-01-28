@@ -28,7 +28,7 @@ Copy and evaluate both cells
 ```mathematica title="cell 1"
 EmbedFile[name_String, data_] := With[{exported = Export[name, data]},
   If[!FailureQ[exported],
-    With[{base64 = BaseEncode[ReadByteArray[exported]]},
+    With[{base64 = BaseEncode[ReadByteArray[exported]] // URLEncode},
       EmbedFile[name, base64] // Hold // CreateFrontEndObject
     ]
   ,
@@ -80,7 +80,7 @@ core.EmbedFile = async (args, env) => {
   env.element.appendChild(anchor);
 
   env.element.onclick = () => {
-    const blob = b64toBlob(data);
+    const blob = b64toBlob(decodeURIComponent(data));
 
     // Create a download link
     const link = document.createElement('a');
