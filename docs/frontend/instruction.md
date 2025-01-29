@@ -58,31 +58,9 @@ import TabItem from '@theme/TabItem';
 ## Desktop application
 Notebook interface is shipped as an Electron application, which is cross-platform and has most benefits of a native desktop app. __This is the easiest way__
 
-[Releases](https://github.com/JerryI/wolfram-js-frontend/releases)
+[__➡️ Releases__](https://github.com/JerryI/wolfram-js-frontend/releases)
 
-<Tabs  
-defaultValue="Windows"  
-values={[  
-{label: 'Windows', value: 'Windows'},  
-{label: 'Linux', value: 'Linux'},  
-{label: 'Mac', value: 'Mac'},  
-]}>  
-<TabItem value="Windows">
-- [Windows](https://github.com/JerryI/wolfram-js-frontend/releases/download/2.6.4/wljs-notebook-2.6.4-x64.exe)
-</TabItem>  
-<TabItem value="Linux">
-- [Linux (Deb)](https://github.com/JerryI/wolfram-js-frontend/releases/download/2.6.4/wljs-notebook-2.6.4-amd64.deb)
-- [Linux (ZIP)](https://github.com/JerryI/wolfram-js-frontend/releases/download/2.6.4/wljs-notebook-2.6.4-amd64-linux.zip)
-</TabItem> 
-<TabItem value="Mac">
-
-- [M1](https://github.com/JerryI/wolfram-js-frontend/releases/download/2.6.4/wljs-notebook-2.6.4-arm64.dmg)
-- [Intel](https://github.com/JerryI/wolfram-js-frontend/releases/download/2.6.4/wljs-notebook-2.6.4-x64.dmg)
-
-</TabItem>  
-</Tabs>
-
-It comes with a launcher, that takes care about all updates, files extension association and etc. Also see [releases](https://github.com/JerryI/wolfram-js-frontend/releases) page for more binaries.
+It comes with a launcher, that takes care about all updates, files extension association and etc. 
 
 #### Normal vs offline version
 Binaries are given in two formats on releases page. An offline version does contain the fixed versions of all necessary modules, documentation and examples, while a normal one will download the most recent ones from Github during the installation and will keep them to work fully offline.

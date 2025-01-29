@@ -15,9 +15,9 @@ Sometimes after an update browser's cache is still outdated. Please run (dependi
 
 - `Ctrl` + `F5`
 - `Shirt` + `F5`
-- `Force Reload`
-- `Reload window`
-- `Clear cache and reload`
+- `Force Reload` (from the top menu of Desktop Application)
+- `Reload window` (from the top menu of Desktop Application)
+- `Clear cache and reload` (from the top menu of Desktop Application)
 
 ## Cells did not load correctly
 It happens quite rare, when the asynchronous loading failed and scripts were executed in a wrong order.
@@ -43,22 +43,6 @@ If it does not violate your privacy, there is a `DEBUG` mode, which can be enabl
 ## Hot line & general discussion chat
 Please feel free to join [Telegram Group](https://t.me/+PBotB9UJw-hiZDEy).
 
-## Common cases
-### UI was not loaded properly
-It might be an issue with sockets, try `Window` or Top-Menu $\rightarrow$ `Force reload` or `Reload`
-
-### The output of a cell does not look correct
-This might be connected with `Boxes` or some other decorations did work well, try to evaluate your expression with [InputForm](frontend/Reference/Formatting/InputForm.md)
-
-```mathematica
-% // InputForm
-```
-
-or `FullForm` to prevent `DisplayForm` output or also try to apply
-
-```mathematica
-% // Rasterize
-```
 
 :::tip
 Send an issue to [Github](https://github.com/JerryI/wolfram-js-frontend/issues)

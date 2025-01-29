@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Reference/Graphics/ZoomAt.md",
+                "file": "frontend/Troubleshooting/Troubleshooting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ZoomAt"
+              "title": "Troubleshooting"
             }
           }
         ],
@@ -102,8 +102,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -209,6 +208,8 @@
   },
   "active": "d56f995295699f60",
   "lastOpenFiles": [
+    "frontend/instruction.md",
+    "frontend/Reference/Graphics/ZoomAt.md",
     "frontend/Advanced/Components library/Share downloadable files.md",
     "frontend/Reference/Formatting/TableForm.md",
     "frontend/Reference/GUI/TableView.md",
@@ -234,8 +235,6 @@
     "frontend/Importing/Mathematica.md",
     "frontend/Development/Contribution.md",
     "frontend/Development/API/REST.md",
-    "Untitled.md",
-    "H.md",
     "Screenshot 2025-01-21 at 10.27.46.png",
     "Screenshot 2025-01-18 at 17.07.10.png",
     "frontend/Development/API",
