@@ -8,7 +8,7 @@ origin: https://github.com/JerryI/wljs-graphics-d3/
 draft: false
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/kernel.js
 package: wljs-graphics-d3
-context: JerryI`Notebook`Graphics2D`
+
 numericArray: true
 ---
 Plots an arrow with a fixed head-size from point 1 to point 2

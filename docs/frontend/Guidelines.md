@@ -58,7 +58,7 @@ We rely on *a completely different architecture* to handle interactivity and gra
 > In general [Manipulate](frontend/Reference/Interpreter/Manipulate.md) is implemented as well, but it is not recommend to use often due to its impact to the system performance.
 
 ### Dynamic
-[Buttons](frontend/Reference/GUI/InputButton.md), [sliders](frontend/Reference/GUI/InputRange.md) are event-driven, i.e. you need to subscribe to them using [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`). All dynamic updates are handled using [Offload](frontend/Reference/Interpreter/Offload.md) approach. For example
+[Buttons](frontend/Reference/GUI/InputButton.md), [sliders](frontend/Reference/GUI/InputRange.md) are event-driven, i.e. you need to subscribe to them using [`EventHandler`](frontend/Reference/Misc/Events.md#`EventHandler`). All updates are handled using [Offload](frontend/Reference/Interpreter/Offload.md) approach. For example
 
 ```mathematica
 length = 1.0;
@@ -68,7 +68,7 @@ Graphics[Rectangle[{-1,-1}, {length // Offload, 1}]]
 ```
 
 ### Manipulate
-In general there is built-in function for simple 2D plots - [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md), however, for something more complicated - *you need to craft it by yourself* using building [Offset](frontend/Reference/Graphics/Offset.md) and simple graphics primitives such as [Line](frontend/Reference/Graphics3D/Line.md), [Polygon](frontend/Reference/Graphics3D/Polygon.md) and etc as building blocks.
+In general there is built-in function for simple 2D plots - [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md), however, for something more complicated - *you need to craft it by yourself* using building [Offload](frontend/Reference/Interpreter/Offload.md) and simple graphics primitives such as [Line](frontend/Reference/Graphics3D/Line.md), [Polygon](frontend/Reference/Graphics3D/Polygon.md) and etc as building blocks.
 
 
 

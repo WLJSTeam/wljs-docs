@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 source: https://github.com/JerryI/wljs-plotly/blob/dev/src/Kernel.wl
-context: Notebook`Kernel`PlotlyExtension`
+
 package: wljs-plotly
 ---
 ```mathematica

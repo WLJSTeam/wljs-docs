@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Editor`Kernel`FrontSubmitService`
+
 ---
 ```mathematica
 WindowObj[assoc_Association]

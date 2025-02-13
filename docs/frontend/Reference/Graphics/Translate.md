@@ -13,4 +13,4 @@ translates graphics primitive by `pos`
 
 
 ## Dynamics
-`pos` argument does support dynamic updates. Use [Offload](frontend/Reference/Interpreter/Offload.md)
+`pos` argument does support updates. Use [Offload](frontend/Reference/Interpreter/Offload.md)

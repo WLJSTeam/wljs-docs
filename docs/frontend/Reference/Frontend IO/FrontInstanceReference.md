@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 package: wljs-editor
-context: Notebook`Editor`Kernel`FrontSubmitService`
+
 ---
 ```mathematica
 FrontInstanceReference[] _FrontInstanceReference

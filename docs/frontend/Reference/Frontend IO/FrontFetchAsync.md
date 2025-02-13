@@ -3,7 +3,7 @@ env:
   - Wolfram Kernel
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/FrontSubmitKernel.wl
 package: wljs-editor
-context: Notebook`Editor`Kernel`FrontSubmitService`
+
 ---
 asynchronously evaluates (aka [FrontSubmit](frontend/Reference/Frontend%20IO/FrontSubmit.md)) and fetches the resulting expression back to the Wolfram Kernel from the frontend (browser)
 

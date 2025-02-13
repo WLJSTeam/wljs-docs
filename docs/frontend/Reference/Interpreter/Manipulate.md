@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 package: wljs-manipulate
-context: JerryI`Notebook`ManipulateUtils`
+
 source: https://github.com/JerryI/wljs-manipulate/blob/main/Kernel.wl
 ---
 ```mathematica

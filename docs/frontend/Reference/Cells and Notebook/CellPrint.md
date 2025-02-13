@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`CellOperations`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/RemoteCellsKernel.wl
 package: wljs-editor
 ---
@@ -45,6 +45,9 @@ Sets if the evaluation required. By the default is `True` (no evaluation, displa
 
 ### `"Notebook"`
 In a case if the evaluation context (if `After` is not provided and it is called by a button other async event) is not available, you should provide a reference to the notebook (see [EvaluationNotebook](frontend/Reference/Cells%20and%20Notebook/EvaluationNotebook.md))
+
+### `ImageSize`
+A preferred window size for printed cells when `Target` is `_` (new window).
 
 ## Examples
 

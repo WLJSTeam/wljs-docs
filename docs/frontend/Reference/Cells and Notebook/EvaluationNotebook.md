@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`CellOperations`
+
 package: wljs-editor
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/RemoteCellsKernel.wl
 ---

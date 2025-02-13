@@ -65,7 +65,7 @@ Graphics[{Cyan,
 The binding itself happens between `Rectangle` and `length`, but not `Graphics`, therefore only partial reevaluation occurs. To know more about details see [WLJS](../../../interpreter/Advanced/symbols.md).
 
 :::danger
-Not all functions support dynamic binding or updates. Please check __Reference__ section, if the argument or a function supports dynamic updates. 
+Not all functions support dynamic binding or updates. Please check __Reference__ section, if the argument or a function supports updates. 
 :::
 
 ## Event-based approach

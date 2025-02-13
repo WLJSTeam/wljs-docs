@@ -1,7 +1,7 @@
 ---
 env:
   - WLJS
-context: JerryI`Notebook`Graphics2D`
+
 package: wljs-graphics-d3
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/kernel.js
 update: false

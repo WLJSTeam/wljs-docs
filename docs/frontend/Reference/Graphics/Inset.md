@@ -56,4 +56,4 @@ Plot[x, {x,0,10}, Epilog->{Inset[EditorView["(*FB[*)((1)(*,*)/(*,*)(2))(*]FB*)"]
 <Wl>{`Plot[x, {x,0,10}, Epilog->{Inset[EditorView["(*FB[*)((1)(*,*)/(*,*)(2))(*]FB*)"], {3,5}, {10,30}, {1,3}]}, ImageSize->350]`}</Wl>
 
 ## Dynamics
-The second arguments `pos` that specifies the position of an inset does support dynamic updates.
+The second arguments `pos` that specifies the position of an inset does support updates.

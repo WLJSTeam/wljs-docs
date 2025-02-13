@@ -5,7 +5,7 @@ draft: false
 Raster graphics is not well optimized on WLJS Notebook for now. Consider to use it as rarely as possible.
 :::
 
-All raster graphics is rendered using [Image](frontend/Reference/Image/Image.md) expression, which also supports dynamic updates using [Offload](frontend/Reference/Interpreter/Offload.md) expression.
+All raster graphics is rendered using [Image](frontend/Reference/Image/Image.md) expression, which also supports updates using [Offload](frontend/Reference/Interpreter/Offload.md) expression.
 
 Let us start from the practical example - __image distortion__
 

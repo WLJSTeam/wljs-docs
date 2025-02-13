@@ -2,7 +2,7 @@
 env:
   - WLJS
 internal: true
-context: Notebook`Editor`FrontendObject`
+
 package: wljs-editor
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/FrontendObject.wl
 ---

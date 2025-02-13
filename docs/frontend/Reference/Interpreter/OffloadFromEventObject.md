@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Editor`OffloadExtension`
+
 package: wljs-editor
 origin: https://github.com/JerryI/wljs-editor/tree/main
 ---

@@ -18,7 +18,7 @@ defines opacity for primitives (from 0 to 1)
 <Wl >{`Graphics[{Opacity[0.5], Red, Disk[{-0.5,0}, 1], Blue, Disk[{0.5,0}, 1]}]`}</Wl>
 
 ## Dynamics
-It also supports dynamic updates combined with some primitives
+It also supports updates combined with some primitives
 
 ```mathematica
 opacity = 0.5;

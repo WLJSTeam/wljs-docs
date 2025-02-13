@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Storage`
+
 package: wljs-editor
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/StoreKernel.wl
 ---

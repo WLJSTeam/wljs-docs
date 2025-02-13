@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Editor`Kernel`FrontSubmitService`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/FrontSubmitKernel.wl
 package: wljs-editor
 ---

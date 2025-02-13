@@ -2,7 +2,7 @@
 env:
   - WLJS
 update: false
-context: JerryI`Notebook`Graphics2D`
+
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/Kernel.wl
 package: wljs-graphics-d3
 ---

@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Kernel`Inputs`
+
 package: wljs-inputs
 source: https://github.com/JerryI/wljs-inputs/blob/dev/src/Kernel.wl
 ---

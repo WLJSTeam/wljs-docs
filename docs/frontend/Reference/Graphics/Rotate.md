@@ -25,7 +25,7 @@ Graphics[Rotate[Rectangle[{-1,-1}, {1,1}], 30 Degree]]
 
 
 ## Dynamics
-It support dynamic updates for `angle` variable. Graphics primitives `g` can be updated separately. `Rotate` only applies transformation on `g`.
+It support updates for `angle` variable. Graphics primitives `g` can be updated separately. `Rotate` only applies transformation on `g`.
 
 ```mathematica
 EventHandler[InputRange[0, 2.0 Pi, 0.1], Function[a,

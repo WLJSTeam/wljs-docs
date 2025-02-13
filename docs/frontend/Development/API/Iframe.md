@@ -4,7 +4,11 @@ WLJS Notebook (both desktop app and server) does support special embedding of a 
 
 *App running inside Obsidian*
 
-In this regime your hotkeys are redirected to a parent window, top-bar, sidebar as well as control buttons __are not drawn__. 
+In this regime your hotkeys are redirected to a parent window, top-bar, sidebar as well as control buttons __are not drawn__
+
+```url
+/iframe/<PATH>
+```
 
 Use `/iframe/` in the the URL to open any resource in this regime
 
@@ -19,6 +23,19 @@ Ports and hosts can be configured at the startup
 ```shell
 wolframscript -f Scripts/start.wls host 0.0.0.0 http 20560 ws 20561 ws2 20562 docs 20563
 ```
+
+### URL parameters (optional)
+#### `root`
+Provides a "root" folder to lookup files. Any provided path will be added to exposed directories of the web-server
+
+```url
+/iframe/<PATH>/?root=<ROOT>
+```
+
+:::tip
+It comes handy, when the working directory is higher by the hierarchy than the notebook folder.
+:::
+
 
 ## Communication
 
@@ -95,6 +112,16 @@ where `<path>` is __url-encoded absolute path a notebook__ or other object picke
 }
 ```
 
+#### Open request
+WLJS might request to open a new window with a provided url (for example after `newnotebook` has been called)
+
+```json
+{
+	"type": "open",
+	"data": <uriEncodedPath>
+}
+```
+
 ### Outgoing messages
 To send a command to WLJS Notebook or resolve a request use `postMessage` method
 
@@ -158,9 +185,10 @@ where `<name>` is a command name. The following list covers most internal comman
 - `togglecell` hides/reveals focused input cell
 - `deletecell` deletes focused cell
 - `evaluateinit` evaluates initialization cells
-- `settings` opens settings window
-- `newnotebook` creates new notebook
+- `newnotebook` creates new notebook (see [Open request](#Open%20request))
 - `checkupdates` forces to check updates
+
+
 
 :::note
 Different extensions may also register their commands, this has to be checked separately.

@@ -3,7 +3,7 @@ env:
   - WLJS
 source: https://github.com/JerryI/wljs-inputs/blob/dev/src/Kernel.wl
 package: wljs-inputs
-context: Notebook`Kernel`Inputs`
+
 update: false
 ---
 ```mathematica
@@ -28,5 +28,5 @@ It effectively transforms the data into [Dataset](frontend/Reference/Dataset/Dat
 
 ## TODO
 Developers notes
-- [ ] Allows dynamic updates
+- [ ] Allows updates
 

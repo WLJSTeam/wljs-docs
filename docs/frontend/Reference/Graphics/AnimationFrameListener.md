@@ -4,7 +4,7 @@ env:
 package: wljs-graphics-d3
 update: true
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/Kernel.wl
-context: JerryI`Notebook`Graphics2D`
+
 ---
 signals once the beginning of a browser's frame (depends on OS settings, hardware). It can be reloaded again after any changes of dependent dynamic symbols similar to [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
 

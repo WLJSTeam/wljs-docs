@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`CellOperations`
+
 package: wljs-editor
 ---
 ```mathematica

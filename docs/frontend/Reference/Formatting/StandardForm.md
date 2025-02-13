@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 package: wljs-editor
-context: Notebook`Editor`StandardForm`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/StandardForm.wl
 ---
 A standard form for representing math, colors, dates, graphics, which comes with visual decorations

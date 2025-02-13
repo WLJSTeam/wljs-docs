@@ -26,7 +26,7 @@ MyFunction[data]
 
 ![](../../imgs/Simple%20call.excalidraw.svg)
 
-A called function has no persistent memory except from the `env` variable, which can share the data with other functions from the sub-tree - see more in [architecture](architecture.md) (Meta Data). 
+A called function has no persistent memory except from the `env` variable, which can share the data with other functions from the sub-tree - see more in [architecture](interpreter/Advanced/architecture.md) (Meta Data). 
 
 Somewhere in Javascript code there will be
 ```js

@@ -69,17 +69,17 @@ Defines sets of colors used for shading vertices
 ```
 :::
 
-*Supports dynamic updates*
+*Supports updates*
 
 ### `"VertexNormals"`
 Defines sets of normals used for shading
 
-*Supports dynamic updates*
+*Supports updates*
 
 ## Dynamic updates
 
 ### Basic fixed indexes
-It does support dynamic updates for vertices data and colors. Use [Offload](frontend/Reference/Interpreter/Offload.md) wrapper.
+It does support updates for vertices data and colors. Use [Offload](frontend/Reference/Interpreter/Offload.md) wrapper.
 
 
 ```mathematica title="cell 1"

@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: System`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/RemoteCellsKernel.wl
 package: wljs-editor
 ---

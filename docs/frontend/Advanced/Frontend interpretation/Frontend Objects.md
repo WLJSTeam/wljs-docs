@@ -21,6 +21,10 @@ Such objects are also saved to the notebook internally.
 
 Defined [StandardForm](frontend/Reference/Formatting/StandardForm.md) and [WLX](frontend/Cell%20types/WLX.md) on `FrontEndExecutable` uses [ViewBox](frontend/Reference/Formatting/Low-level/ViewBox.md) to replace it with an empty widget. This widget later is populated by the content produced by the original expression, for example [Graphics](frontend/Reference/Graphics/Graphics.md) or [Image](frontend/Reference/Image/Image.md).
 
+:::note
+On especially large objects we apply `zlib` compression.
+:::
+
 ## Properties
 1. It does not alter the original expression.
 2. All active objects are synchronized between the notebook and a Kernel. Once you have __saved__ a notebook they are serialized to a file as well.

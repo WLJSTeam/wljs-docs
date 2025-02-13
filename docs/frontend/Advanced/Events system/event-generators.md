@@ -310,9 +310,9 @@ it acts only when the object is printed to the output cell or displayed on a pag
 A framework of [WLJSTransport](https://jerryi.github.io/wlx-docs/docs/Reference/Misc/WLJSTransport) redirects calls from Javascript code to event system as well. A global `server` object provides a corresponding method
 
 ```js
-server.kernel.emitt('evid', 'message')
+server.kernel.io.fire('evid', 'message')
 //or
-server.kernel.emitt('evid', 'message', 'pattern')
+server.kernel.io.fire('evid', 'message', 'pattern')
 ```
 
 and on server's side one can do as usual

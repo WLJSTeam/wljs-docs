@@ -39,4 +39,4 @@ ListLinePlot[Accumulate[RandomReal[{-1, 1}, {250, 2}]]]
 <Wl >{`ListLinePlot[Accumulate[RandomReal[{-1, 1}, {100, 2}]], ImageSize->500]`}</Wl>
 
 ## Dev notes
-This function does not support dynamic updates, please use raw `Graphics` or alternative way - [ListLinePlotly](frontend/Reference/Plotly/ListLinePlotly.md) to animate your data.
+This function does not support updates, please use raw `Graphics` or alternative way - [ListLinePlotly](frontend/Reference/Plotly/ListLinePlotly.md) to animate your data.

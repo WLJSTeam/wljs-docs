@@ -3,7 +3,7 @@ env:
   - WLJS
 source: https://github.com/JerryI/Mathematica-ThreeJS-graphics-engine/blob/dev/src/kernel.js
 package: wljs-graphics3d-threejs
-context: JerryI`Notebook`Graphics3DUtils`
+
 ---
 ```mathematica
 MeshToonMaterial[]

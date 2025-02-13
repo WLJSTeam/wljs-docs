@@ -25,7 +25,7 @@ In the case of `"PathTracing"` renderer, spot light can only work properly if `"
 :::
 
 ## Dynamics
-`position` and `target` do support dynamic updates
+`position` and `target` do support updates
 
 ```mathematica
 pos = {0,0,2};

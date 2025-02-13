@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 package: wljs-inputs
-context: Notebook`Kernel`Inputs`
+
 source: https://github.com/JerryI/wljs-inputs/
 ---
 ```mathematica

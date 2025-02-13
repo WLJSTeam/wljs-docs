@@ -4,7 +4,7 @@ env:
   - Wolfram Kernel
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/MetaMarkersKernel.wl
 package: wljs-editor
-context: Notebook`Editor`Kernel`FrontSubmitService`MetaMarkers`
+
 ---
 :::warning
 Deprecated. Please, consider to use [FrontInstanceReference](frontend/Reference/Frontend%20IO/FrontInstanceReference.md)

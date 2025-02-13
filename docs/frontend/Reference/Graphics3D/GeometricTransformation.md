@@ -55,7 +55,7 @@ Graphics3D[
 
 
 ## Dynamics
-It fully supports dynamic updates. See example
+It fully supports updates. See example
 
 ```mathematica title="cell 1"
 rot = RotationMatrix[45 Degree, {0, 0, 1}];

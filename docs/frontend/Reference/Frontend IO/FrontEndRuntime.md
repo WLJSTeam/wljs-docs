@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 package: wljs-editor
-context: Notebook`Editor`Kernel`FrontEndRuntime`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/
 ---
 ```mathematica

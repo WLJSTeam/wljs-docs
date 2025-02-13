@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Editor`Kernel`Slides`
+
 source: https://github.com/JerryI/wljs-revealjs/blob/dev/src/Kernel.wl
 package: wljs-revealjs
 ---

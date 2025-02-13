@@ -3,7 +3,7 @@ env:
   - Wolfram Kernel
   - WLJS
 source: https://github.com/JerryI/wljs-interpreter/blob/dev/src/Definitions.wl
-context: JerryI`Misc`WLJS`Transport`
+
 package: wljs-interpreter
 ---
 Holds (or offloads) an expression to be evaluated on frontend (WLJS)
@@ -20,7 +20,7 @@ Please, see the tutorial [Dynamics](frontend/Dynamics.md)
 
 ## Options
 ### `"Volatile"`
-Blocks or allows dynamic updates. Only normal evaluation will be allowed if it is set to `False`. The default values is `True`
+Blocks or allows updates. Only normal evaluation will be allowed if it is set to `False`. The default values is `True`
 
 :::warning
 In such case an expression will not be evaluated during the updates and will return undefined value. Use it only in constructions like `CompoundExpression`

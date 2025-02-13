@@ -2,7 +2,7 @@
 env:
   - Wolfram Kernel
 origin: https://github.com/JerryI/wljs-inputs
-context: Notebook`Kernel`Inputs`
+
 package: wljs-inputs
 update: true
 source: https://github.com/JerryI/wljs-inputs/blob/dev/src/Kernel.wl
@@ -71,7 +71,7 @@ HTMLView["<div>Unique Id #instanceId</div>", Prolog->HTMLView`TemplateProcessor[
 It will generate a new UID for each instance even if you copy and paste one.
 
 ## Dynamic updates
-It fully supports dynamic updates. Use [Offload](frontend/Reference/Interpreter/Offload.md). For example
+It fully supports updates. Use [Offload](frontend/Reference/Interpreter/Offload.md). For example
 
 ```mathematica
 word = "";

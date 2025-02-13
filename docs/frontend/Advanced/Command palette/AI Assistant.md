@@ -87,6 +87,7 @@ By the default AI can use Wolfram Alpha to get real-time data.
 
 ### AI is not responding ⌛️
 Sometimes the operation takes 1-2 minutes to complete. If it is not the case, try to wake it up by sending a dummy message
+
 > So?
 
 in the worst case
@@ -105,7 +106,7 @@ An assistant is aware of being in a notebook environment. The following cell typ
 
 We also include the differences between Wolfram Mathematica and WLJS Notebook to the initial prompt including [Dynamics](frontend/Dynamics.md), [InputButton](frontend/Reference/GUI/InputButton.md), [InputRange](frontend/Reference/GUI/InputRange.md), [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md) and some of the [Events](frontend/Reference/Misc/Events.md) system features.
 
-## Knowledge on demand
+## Library
 We sorted out all additional information by topics for AI and placed it in a sort of database, what we call `AI Library`, you can find it in settings menu
 
 ![](./../../../Screenshot%202024-09-02%20at%2012.03.25.png)

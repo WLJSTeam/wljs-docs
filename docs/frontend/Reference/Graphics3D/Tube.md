@@ -17,4 +17,4 @@ Tube[pts_List, radius_List]
 
 
 ## Dynamics
-Both `radius` and `pts` do support dynamic updates
+Both `radius` and `pts` do support updates

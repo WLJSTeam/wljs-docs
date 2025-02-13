@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: JerryI`Notebook`ManipulateUtils`
+
 package: wljs-manipulate
 source: https://github.com/JerryI/wljs-manipulate/blob/main/Kernel.wl
 ---

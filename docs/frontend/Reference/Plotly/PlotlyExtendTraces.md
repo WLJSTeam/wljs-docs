@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Kernel`PlotlyExtension`
+
 source: https://github.com/JerryI/wljs-plotly/blob/dev/src/Kernel.wl
 package: wljs-plotly
 ---

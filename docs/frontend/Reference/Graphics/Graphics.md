@@ -428,7 +428,7 @@ It can also be applied locally, see [TransitionDuration](frontend/Reference/Grap
 One can put `Graphics` into another `Graphics` canvas using [[frontend/Reference/Graphics/Inset]]
 
 ## Dynamics
-The time-dependent symbols ([Dynamics](frontend/Dynamics.md)) are supported on the level of graphics primitives such as [Line](frontend/Reference/Graphics/Line.md), [Point](frontend/Reference/Graphics/Point.md), [Rectangle](frontend/Reference/Graphics/Rectangle.md), [Text](frontend/Reference/Graphics/Text.md) and etc... Not all primitives do support dynamic updates, please, check individually. 
+The time-dependent symbols ([Dynamics](frontend/Dynamics.md)) are supported on the level of graphics primitives such as [Line](frontend/Reference/Graphics/Line.md), [Point](frontend/Reference/Graphics/Point.md), [Rectangle](frontend/Reference/Graphics/Rectangle.md), [Text](frontend/Reference/Graphics/Text.md) and etc... Not all primitives do support updates, please, check individually. 
 
 The full reevaluation of `Graphics` does not happen, that allows to gain much more performance. However, since the dynamic binding is established between individual primitives and symbols, one can make nested constructions like this one
 

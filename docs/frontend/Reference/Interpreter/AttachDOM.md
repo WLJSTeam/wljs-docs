@@ -3,7 +3,7 @@ env:
   - WLJS
 package: wljs-interpreter
 needsContainer: true
-context: Notebook`Interpreter`
+
 source: https://github.com/JerryI/wljs-interpreter/blob/dev/src/Definitions.wl
 ---
 Explicitly attaches an DOM element to a [container](../../../../interpreter/Advanced/containers.md) by its id

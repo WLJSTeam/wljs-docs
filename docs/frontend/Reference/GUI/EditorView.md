@@ -4,7 +4,7 @@ env:
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/EditorKernel.wl
 update: true
 package: wljs-editor
-context: Notebook`EditorUtils`
+
 ---
 A view component to spawn an code-editor (fully functional) 
 ```mathematica

@@ -4,7 +4,7 @@ env:
 update: 
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/Kernel.wl
 package: wljs-graphics-d3
-context: JerryI`Notebook`Graphics2D`
+
 ---
 Allows to directly set SVG attribute to a 2D graphics object
 ```mathematica

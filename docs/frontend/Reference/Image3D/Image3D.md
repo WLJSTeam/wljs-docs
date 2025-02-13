@@ -2,7 +2,7 @@
 env:
   - WLJS
   - Wolfram Kernel
-context: JerryI`Notebook`Graphics3DUtils`
+
 package: wljs-graphics3d-threejs
 source: https://github.com/JerryI/Mathematica-ThreeJS-graphics-engine/blob/dev/src/Kernel.wl
 ---

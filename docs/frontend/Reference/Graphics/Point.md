@@ -69,7 +69,7 @@ Using it inside [GraphicsComplex](frontend/Reference/Graphics/GraphicsComplex.md
 
 
 ## Dynamics
-Point primitive supports dynamic updates even if the number of points is not constant.
+Point primitive supports updates even if the number of points is not constant.
 
 There is [a famous example](https://community.wolfram.com/groups/-/m/t/122095) of 1000 particles "dancing" with each other
 

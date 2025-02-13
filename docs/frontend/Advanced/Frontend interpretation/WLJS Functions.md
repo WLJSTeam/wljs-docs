@@ -5,7 +5,7 @@ draft: false
 Let us start from the simplest stuff
 
 ## Quick and Dirty
-Create a new cell, then, define a function inside `core` [context](architecture.md)
+Create a new cell, then, define a function inside `core` [context](interpreter/Advanced/architecture.md)
 
 ```js
 .js
@@ -42,7 +42,7 @@ As simple as that
 
 ![](./../../../imgs/Simple%20call.excalidraw.svg)
 
-A called function has no persistent memory (call and forget) except from the `env` variable, which can share the data with other functions from the subtree - see more in [architecture](architecture.md) (Meta Data). 
+A called function has no persistent memory (call and forget) except from the `env` variable, which can share the data with other functions from the subtree - see more in [architecture](interpreter/Advanced/architecture.md) (Meta Data). 
 
 __Any defined functions must return javascript object or nothing__
 While in the arguments `args` it is always Wolfram Expression, therefore use `interpretate` on them to convert anything into javascript data type.
@@ -184,7 +184,7 @@ core.OurParentFunction = (args, env) => {
 }
 ```
 
-It is extremely useful, when it comes to the dynamic updates of some graph, plot. There is no need to redraw everything, but perform some lightweight operations
+It is extremely useful, when it comes to the updates of some graph, plot. There is no need to redraw everything, but perform some lightweight operations
 
 ```js
 core.ListLinePlotly = (args, env) => {

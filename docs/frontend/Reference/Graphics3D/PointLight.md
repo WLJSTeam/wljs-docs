@@ -24,5 +24,5 @@ Graphics3D[{Black,Polygon[ {{-5,5,-1}, {5,5,-1}, {5,-5,-1}, {-5,-5,-1}}], White,
 In the case of `"PathTracing"` renderer, point light can only work if `"MultipleImportanceSampling"` is enabled in the options of [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md)
 :::
 ## Dynamics
-Only `position` field supports dynamic updates. Use gizmo snippet to manipulate the light source position or [Offload](frontend/Reference/Interpreter/Offload.md) keyword.
+Only `position` field supports updates. Use gizmo snippet to manipulate the light source position or [Offload](frontend/Reference/Interpreter/Offload.md) keyword.
 ![](../../../imgs/fdfd.png)

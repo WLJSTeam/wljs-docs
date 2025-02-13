@@ -4,7 +4,7 @@ env:
 origin: https://github.com/JerryI/wljs-inputs
 source: https://github.com/JerryI/wljs-inputs/blob/dev/src/Kernel.wl
 package: wljs-inputs
-context: Notebook`Kernel`Inputs`
+
 update: false
 ---
 ```mathematica

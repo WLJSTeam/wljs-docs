@@ -2,7 +2,7 @@
 env:
   - WLJS
 package: wljs-graphics-d3
-context: JerryI`Notebook`Graphics2D`
+
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/Kernel.wl
 ---
 ```mathematica

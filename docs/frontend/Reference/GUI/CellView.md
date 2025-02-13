@@ -4,7 +4,7 @@ env:
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/EditorKernel.wl
 update: false
 package: wljs-editor
-context: Notebook`EditorUtils`
+
 ---
 A low-level view component to spawn a cell wrapper (fully functional) 
 

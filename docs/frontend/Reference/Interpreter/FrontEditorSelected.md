@@ -3,7 +3,7 @@ env:
   - WLJS
 package: wljs-editor
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/EditorKernel.wl
-context: Notebook`EditorUtils`
+
 ---
 Manipulates the last selected input cell's editor
 

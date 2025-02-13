@@ -3,7 +3,7 @@ env:
   - WLJS
   - Wolfram Kernel
 update: true
-context: Notebook`Editor`Kernel`PCMAudio`
+
 package: wljs-sound
 source: https://github.com/JerryI/wljs-sound/blob/master/src/Kernel.wl
 numericArray: true

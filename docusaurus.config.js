@@ -62,7 +62,7 @@ const scripts = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'WLJS Notebook',
+  title: 'WLJS Notebook | A Next-Generation Dynamic Notebook Interface',
   tagline: 'A lightweight alternative to Mathematica built ontop of Wolfram Engine',
   favicon: 'img/favicon.ico',
 
@@ -83,7 +83,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'JerryI & KirillBelovTest', // Usually your GitHub org/user name.
-  projectName: 'wljs-notebook', // Usually your repo name.
+  projectName: 'wolfram-js-frontend', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',

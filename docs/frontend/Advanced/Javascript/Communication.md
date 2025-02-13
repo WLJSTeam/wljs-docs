@@ -85,8 +85,12 @@ or asynchronously
 Then[FrontFetchAsync[MyFunction3[]], Function[data, Print[data]]]
 ```
 
-## Emitting events
+## Server IO
 We can call any WL function using [Events](frontend/Reference/Misc/Events.md) system
+
+### API
+#### Standard way with payload
+We use this pattern 90% of the time for many UI blocks
 
 ```js title="cell 1"
 .js
@@ -95,7 +99,7 @@ const button = document.createElement('button');
 button.innerText = "Press me";
 
 button.addEventListener('click', () => {
-  server.kernel.emitt('eventUid', 'True');
+  server.kernel.io.fire('eventUid', true);
 });
 
 return button;
@@ -107,7 +111,126 @@ Now we can capture it using
 EventHandler["eventUid", Print]
 ```
 
-### Custom UI component
+Or for a specific pattern
+
+```js title="cell 1"
+.js
+
+const button = document.createElement('button');
+button.innerText = "Press me";
+
+button.addEventListener('click', () => {
+  server.kernel.io.fire('eventUid', true, 'pattern 1');
+});
+
+return button;
+```
+
+```mathematica title="cell 2"
+EventHandler["eventUid", {"pattern 1" -> Print}]
+```
+
+
+#### Fastest way no payload
+If you need just to fire an event without a payload, there is a special way
+
+```js title="cell 1"
+.js
+
+const button = document.createElement('button');
+button.innerText = "Press me";
+
+button.addEventListener('click', () => {
+  server.kernel.io.poke('eventUid');
+});
+
+return button;
+```
+
+```mathematica title="cell 2"
+EventHandler["eventUid", Print]
+```
+
+#### Fetch a symbol
+Firstly define a symbol
+
+```mathematica title="cell 1"
+GetTime := TextString[Now];
+```
+
+now we fetch it and display
+
+```js
+.js
+
+const dom = document.createElement('span');
+
+server.kernel.io.fetch('GetTime').then(async (res) => {
+  dom.innerHTML = await interpretate(res, {});
+})
+
+return dom;
+```
+
+:::info
+Return `Promise` object to defer *io* fetch request, i.e.
+
+```mathematica
+GetTime := With[{p = Promise[]},
+	(* do something or set a scheldule, call external *)
+	p 
+]
+```
+
+:::
+
+#### Fire event and fetch the result
+WLJS event system provides extra features to mimic full-duplex architecture. If one fires and event, it is possible to read the results of all subscribed listeners (if provided) or their handler functions
+
+```mathematica
+EventHandler[ev, Function[dataA,
+	(* do something *)
+	Return[dataB] (* <--- here *)
+]]
+
+EventHandler[ev // EventClone, Function[dataA,
+	(* do something *)
+	Return[dataC] (* <--- here *)
+]]
+
+
+EventFire[ev, ...] (* ---> {dataB, dataC} *)
+```
+
+Here is an example with Javascript
+
+```js title="cell 1"
+.js
+
+const button = document.createElement('button');
+button.innerText = "Press me";
+button.style.background = "pink";
+button.style.padding = "1rem";
+
+button.addEventListener('click', async () => {
+  const data = await server.kernel.io.request('eventUid', true);
+  button.innerHTML = await interpretate(data, {});
+});
+
+return button;
+```
+
+```mathematica title="cell 2"
+EventHandler["eventUid", Function[Null,
+  RandomWord[]
+]]
+```
+
+:::note
+Return `Promise` if you need to do some deferred calculations. 
+:::
+
+## Custom UI component
 Using JS one can craft its own UI components. For example
 
 ```js title="cell 1"
@@ -122,7 +245,7 @@ core.MyCustomComponent = async (args, env) => {
   button.style.backgroundColor = "lightblue";
 
   button.addEventListener('click', () => {
-    server.kernel.emitt(ev, 'True');
+    server.kernel.io.fire(ev, true);
   });
 
   env.element.appendChild(button);
@@ -179,7 +302,7 @@ MyCustomComponent2[OptionsPattern[]] := With[{
     <script type="module">
       document.getElementById('<Uid/>').addEventListener('click', () => {
 
-          server.kernel.emitt('<Event/>', 'True');
+          server.kernel.io.fire('<Event/>', true);
       })
     </script>
   </div>
@@ -243,7 +366,7 @@ CustomInput[sym_, OptionsPattern[]] := Module[{
           
           console.warn(input.value);
           env.local.skip = true;
-          server.kernel.emitt('<Ev/>', input.value, '<Pattern/>');
+          server.kernel.io.fire('<Ev/>', Number(input.value), '<Pattern/>');
         });        
       }
 
@@ -304,7 +427,7 @@ EventHandler[event, {
 ![](./../../../fields-ezgif.com-video-to-gif-converter.gif)
 
 ### Emit event from WLJS
-One can fire an event also using frontend's function `EventFire`, which is effectively acts like `server.kernel.emitt` being called from the WLJS Interpreter (i.e. using [FrontSubmit](frontend/Reference/Frontend%20IO/FrontSubmit.md) or other and wrapped in [Offload](frontend/Reference/Interpreter/Offload.md))
+One can fire an event also using frontend's function `EventFire`, which is effectively acts like `server.kernel.io.fire` being called from the WLJS Interpreter (i.e. using [FrontSubmit](frontend/Reference/Frontend%20IO/FrontSubmit.md) or other and wrapped in [Offload](frontend/Reference/Interpreter/Offload.md))
 
 :::danger
 Not implemented! PR
@@ -316,24 +439,4 @@ FrontSubmit[EventFire["internalEvent", ReadClipboard[]] // Offload]
 ```
 
 It will send an expression to be executed on the frontend, that reads a clipboard and fires back an event with a fetched data.
-
-
-## Request evaluation
-It is also possible from Javascript to request an evaluation of any symbol using [`server`](https://jerryi.github.io/wlx-docs/docs/Reference/Misc/WLJSTransport#server) object
-
-```js
-.js
-
-const doc = document.createElement('span');
-
-const run = async () => {
-  const data = await server.kernel.ask('RandomReal[{-1,1}, 3]');
-  const result = await interpretate(data, {});
-  doc.innerText = result.join(', ');
-}
-
-run();
-
-return doc;
-```
 

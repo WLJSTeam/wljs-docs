@@ -4,7 +4,7 @@ env:
 package: wljs-plotly
 update: false
 source: https://github.com/JerryI/wljs-plotly/blob/dev/src/Kernel.wl
-context: Notebook`Kernel`PlotlyExtension`
+
 ---
 ```mathematica
 Plotly[f, {x, xmin, xmax}]

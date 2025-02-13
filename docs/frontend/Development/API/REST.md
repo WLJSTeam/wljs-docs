@@ -12,12 +12,20 @@ In principle public REST API is rich __enough to write your own small notebook i
 *A basic example of a single HTML file REPL interface made using this API*
 *See at the bottom*
 
+:::warning
+WLJS System due to its architecture requires to have a few objects / interfaces to be exposed to the global `window` scope. *We are not using ESM-like modules and bundling on purpose.*
+:::
+
+:::warning
+WLJS packages includes both Wolfram Language and Javascript code, therefore for the simplicity we inject JS modules to the runtime using IIFE approach or via global scope objects.
+:::
+
 ## Steps to set up REPL
 To make a sort of interactive evaluation environment using REST API and WLJS Notebook runtime you need to
 
 1. Wait for link to be ready
 2. Fetch extensions and their Javascript / CSS assets (probably cache it)
-3. Embed extension assets to your page
+3. Embed extension assets to your page (run them)
 4. Wait for evaluation Kernel to be ready (or create one)
 5. Make transaction for evaluation
 6. Wait for the result
@@ -212,15 +220,17 @@ const fetchExtensions = async () => {
 ```
 
 #### JS Bundle
+
+:::caution
+Temporary broken. Do not use
+:::
+
 ```url title="request"
 Route: /api/extensions/bundle/minjs/
 ```
 
 requests a single JS module __containing all necessary scripts__ 
 
-:::tip
-Use JS Bundle in a sandboxed environments such as Obsidian, where `window` object is not shared between different modules.
-:::
 
 ```json title="response"
 'uriEncodedString'
@@ -547,6 +557,10 @@ If you create a cell using one of `window.SupportedCells` view-components __like
 
 #### Frontend objects interface
 The management of those object is done internally, however,  `get` method has to be defined explicitly
+
+:::warning
+This is a global object exposed by WLJS
+:::
 
 ```js
 window.ObjectStorage.prototype.get = function () {

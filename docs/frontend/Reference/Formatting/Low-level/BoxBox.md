@@ -4,7 +4,7 @@ env:
   - Wolfram Kernel
 package: wljs-editor
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/Boxes.wl
-context: Notebook`EditorUtils`
+
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 env:
   - Wolfram Kernel
-context: Notebook`Editor`FrontendObject`
+
 source: https://github.com/JerryI/wljs-editor/blob/dev/src/FrontendObject.wl
 package: wljs-editor
 ---
