@@ -1,0 +1,127 @@
+<|"Notebook" -> <|"FocusedCell" -> CellObj[JerryI`Notebook`CellObj`$501], 
+   "HaveToSaveAs" -> False, "Objects" -> 
+    <|"a2ef8c56-df24-46b5-ab7d-3e7035e0e810" -> 
+      <|"Public" -> Hold[HTMLView["<div class=\"relative shrink-0 gap-y-3 \
+pb-2 flex flex-col sm-controls\"><div class=\"flex gap-x-5 \
+sm-controls\"><label for=\"default-range\" class=\"block mb-2 text-sm \
+font-medium text-gray-900\"></label><input min=\"0\" max=\"1\" step=\"0.1\" \
+value=\"0.5\" id=\"n-#instanceId\" type=\"number\" class=\"ml-auto h-2 grow \
+max-w-60 block p-2.5 text-xs text-gray-900 bg-gray-50 rounded-md \
+border-2-gray-50 border border-gray-300 focus:ring-blue-500 \
+focus:border-blue-500\"></input></div><input min=\"0\" max=\"1\" step=\"0.1\" \
+value=\"0.5\" id=\"r-#instanceId\" type=\"range\" class=\"sm-controls w-full \
+h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer \
+\"></input></div>\n<script type=\"module\"> const num = \
+document.getElementById('n-#instanceId');\n        const ran = \
+document.getElementById('r-#instanceId');\n\n        let harpticQ = true;\n\n \
+       function isNumber(value) { return typeof value === 'number'}\n\n       \
+ num.addEventListener('input', (event)=> {\n            if (isNaN(num.value)) \
+return;\n            ran.value = num.value;\n            \
+server.kernel.emitt('2611883e-72ed-41bc-a1f3-1d94b0541c6b', num.value, \
+'Default');      \n        });\n\n        ran.addEventListener('input', \
+(event)=> {\n            if (isNaN(ran.value)) return;\n            num.value \
+= ran.value;\n            \
+server.kernel.emitt('2611883e-72ed-41bc-a1f3-1d94b0541c6b', ran.value, \
+'Default');   \n            if (harpticQ) {\n                if \
+(!window.electronAPI) {harpticQ = false; return}\n                if \
+(!window.electronAPI.harptic) {harpticQ = false; return}\n                \
+window.electronAPI.harptic();\n            }               \n        \
+});</script>", Prolog -> HTMLView`TemplateProcessor[Association[
+             "instanceId" -> CreateUUID[]]]]]|>, 
+     "fee4a055-1d30-4b27-b130-7ac5577b24ab" -> 
+      <|"Public" -> Hold[Graphics[Disk[{0, 0}, Offload[
+            OffloadGenerated17]]]]|>, 
+     "ef28af56-fb25-4e96-8086-5055739953c9" -> 
+      <|"Public" -> Hold[Graphics[Disk[{0, 0}, Offload[OffloadGenerated17]^
+            2]]]|>|>, "Path" -> "/Users/kirill/Github/wolfram-js-frontend/Dem\
+os/05 - Interaction/Quick and dirty.wln", "Quick" -> True, 
+   "Symbols" -> <|"OffloadGenerated17" -> 0.5|>, 
+   "TOC" -> {Notebook`Editor`TOC`Private`heading[2, 
+      "How to quickly convert any Input element to a dynamic symbol", 
+      CellObj[JerryI`Notebook`CellObj`$519]]}|>, 
+ "Cells" -> {<|"Data" -> ".md\n## How to quickly convert any Input element to \
+a dynamic symbol\nThere is a built-in convertor function, it generates a \
+symbol and covers it with a slider (by alternating the output form). The \
+slider generates events, which mutate the generated symbol", 
+    "Display" -> "codemirror", "Hash" -> 
+     "020d17b3-1a45-4817-91a9-cfc730cf05c0", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "## How to quickly convert any Input element to a dynamic \
+symbol\nThere is a built-in convertor function, it generates a symbol and \
+covers it with a slider (by alternating the output form). The slider \
+generates events, which mutate the generated symbol", 
+    "Display" -> "markdown", "Hash" -> 
+     "f0b3b41f-4ec9-4b5c-bf11-eafcfe695dd9", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "InputRange[0,1,0.1] // Offload`FromEventObject", 
+    "Display" -> "codemirror", "Hash" -> 
+     "48657b85-2bbe-4915-b39e-e88070346384", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "(*VB[*)(Offload[OffloadGenerated17])(*,*)(*\"1:eJxTTMoPSmNkYG\
+AoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxqlplkkm5rppqQZmeiamCWZ6iYmmaf\
+oGqeaGxibphqkWhgaAACPKBXQ\"*)(*]VB*)", "Display" -> "codemirror", 
+    "Hash" -> "a60a0868-987a-4ef4-8a9c-ebfdc2a10431", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> ".md\nThen just copy and paste it", "Display" -> "codemirror", 
+    "Hash" -> "ad1b3c5b-05ee-4f11-a133-9851e78ff1da", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "Then just copy and paste it", "Display" -> "markdown", 
+    "Hash" -> "fe70e8ae-6a00-488f-b224-f8c3e5e48e16", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "Disk[{0,0}, \
+(*VB[*)(Offload[OffloadGenerated17])(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJ\
+BwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxqlplkkm5rppqQZmeiamCWZ6iYmmafoGqeaGxibphqkWhg\
+aAACPKBXQ\"*)(*]VB*)] // Graphics ", "Display" -> "codemirror", 
+    "Hash" -> "19260fbd-a403-4cd6-b5d4-212083474476", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "(*VB[*)(FrontEndRef[\"fee4a055-1d30-4b27-b130-7ac5577b24ab\"]\
+)(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6Wmm\
+iQamJrqGqYYG+iaJBmZ6yYZAlnmicmmpubmSUYmiUkAhPMVjQ==\"*)(*]VB*)", 
+    "Display" -> "codemirror", "Hash" -> 
+     "95da07ca-2035-4392-af90-7c019542d144", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> ".md\nOne can apply any expressions over it, for example", 
+    "Display" -> "codemirror", "Hash" -> 
+     "d3304655-7f08-4a94-8f32-e3d0585d9f12", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "One can apply any expressions over it, for example", 
+    "Display" -> "markdown", "Hash" -> 
+     "e3d3de52-e6fc-4e75-a2c9-1d37fc666ba4", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "Disk[{0,0}, \
+(*SpB[*)Power[(*VB[*)(Offload[OffloadGenerated17])(*,*)(*\"1:eJxTTMoPSmNkYGAo\
+ZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxqlplkkm5rppqQZmeiamCWZ6iYmmafoG\
+qeaGxibphqkWhgaAACPKBXQ\"*)(*]VB*)(*|*),(*|*)2](*]SpB*)] // Graphics ", 
+    "Display" -> "codemirror", "Hash" -> 
+     "140ea838-0261-4d1a-b21a-dd0d709e8fde", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Input", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>, 
+   <|"Data" -> "(*VB[*)(FrontEndRef[\"ef28af56-fb25-4e96-8086-5055739953c9\"]\
+)(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6YZW\
+SSmmZrppiUZmeqapFqa6VoYWJjpmhqYmpobW1qaGidbAgCErhUG\"*)(*]VB*)", 
+    "Display" -> "codemirror", "Hash" -> 
+     "1499c6ec-56ac-4a26-972c-c0c81292231b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "State" -> "Idle", 
+    "Type" -> "Output", "UID" -> Null, "Notebook" -> 
+     "217b41b6-089a-41d3-b832-2b73af9014c7"|>}, "serializer" -> "jsfn4"|>

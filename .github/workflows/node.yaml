@@ -1,9 +1,5 @@
 name: Deploy Docusaurus to GitHub Pages
 
-on:
-  push:
-    branches: ["base"]
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
