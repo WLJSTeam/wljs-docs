@@ -1,0 +1,92 @@
+
+# Release notes *2.6.8*
+
+
+- **Code Refactor:** Improved organization of extensions and streamlined context handling for better usability.   
+- **Graphics Enhancements:** Extra padding in framed mode, grid lines added (limited to `Automatic` for now).  
+- **3D Plots:** Progress made towards full support for ticks and labels.  
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/d507f2a9-2612-49b7-9450-b3f576854be6.txt').default} notebook={require('./attachments/notebook-d50.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"0f0dba7c-63bc-476e-b3fe-da1a8efd7b58"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+
+## Massive Code-base Refactor
+We reorganized all extensions and the main repository, rewired connections, and reorganized all defined contexts. It should be much more friendly for the developers as well as for the end users. If one needs to see all public symbols from this or that extension, it should be as easy as calling `Names` on it. No more context hell!
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"72474e9b-de18-4b76-ae5a-e01dfbff7bf2"} type={"Input"} opts={{}} >{`Context%5BFrontSubmit%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"4df3c76b-ed18-43cd-a61b-89dcdf1d6d32"} type={"Output"} opts={{}} >{`%22CoffeeLiqueur%60Extensions%60Communication%60%22`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"c5a18757-d0c1-4b6a-b15f-39bba2eca2ed"} type={"Input"} opts={{}} >{`Names%5B%22CoffeeLiqueur%60Extensions%60Communication%60%2A%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"d86f3c8a-360e-4851-a442-731392b70607"} type={"Output"} opts={{}} >{`%7B%22CurrentWindow%22%2C%22FrontEndInstanceGroup%22%2C%22FrontEndInstanceGroupDestroy%22%2C%22FrontFetch%22%2C%22FrontFetchAsync%22%2C%22FrontInstanceGroup%22%2C%22FrontInstanceReference%22%2C%22FrontSubmit%22%2C%22WindowObj%22%7D`}</WLJSEditor>
+
+Here is how to list all contexts from the extensions (if you want to use them later in your external package)
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"2da4fdf7-27c7-4135-98cc-4a484cbb449e"} type={"Input"} opts={{}} >{`Select%5B%24Packages%2C%20StringMatchQ%5B%23%2C%20%22CoffeeLiqueur%60Extensions%60%2A%22%5D%26%5D%20%2F%2F%20TableForm%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"96fe4a5e-af7b-48a9-913b-a9cd438615a4"} type={"Input"} opts={{"Fade":true}} >{`%28%2AGB%5B%2A%29%7B%7B%22CoffeeLiqueur%60Extensions%60MarkdownCells%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60RevealCells%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60WLXCells%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Video%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60PrintRedirect%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60NeuralNet%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Manipulate%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60SlidesTools%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Sound%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60InputsOutputs%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Graphics%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Plotly%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Graphics3D%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60FrontProxy%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60RuntimeTools%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60System%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Rasterize%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Autocomplete%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60MetaMarkers%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Notifications%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60NotebookStorage%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60FrontendObject%60MissingFetcher%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Communication%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60RemoteCells%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60NotebookDirectory%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60OffloadTools%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60Boxes%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60EditorView%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60FrontendObject%60%22%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22CoffeeLiqueur%60Extensions%60WLJSInterpreter%60%22%7D%7D%28%2A%5DGB%2A%29%20`}</WLJSEditor>
+
+## Tutorials on making WLJS Extensions
+We have prepared such section in the documentation!
+
+## Objects Compression
+
+We have probably noticed, that saving a notebook with a lot of 3D objects, or raster images might take ages. However, __this is no longer an issue__! Using basic compression for frontend objects allows to reduce the files size ==by 10 times==. For example
+
+
+
+![](attachments/Screenshot%202025-02-01%20at%2021.58.38-9a2.png)
+
+You don't have to do anything extra. A compression is acting like a wrapper and sends compressed object to Javascript side, where it is decompressed using a tiny subset of `fflate` library. Compression is applied only for the objects larger than 0.5 Megabytes.
+
+It __also works with exported notebook__ (HTML, MDX and etc)!
+
+## Safer and easier Javascript API
+The API used to communicate from JS to Kernel is now finally shaped. *The old way is still be valid, but we don't recommend to use it*
+
+New API allows seamless convertion from JS objects to Wolfram Expression
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"9a10b8f5-5848-4cb8-a553-fbf1133fa433"} type={"Input"} opts={{}} >{`cell%20%3D%20EvaluationCell%5B%5D%3B%0A%0AEventHandler%5B%22test%22%2C%20%0A%20%20CellPrint%5B%0A%20%20%20%20ToString%5B%23%2C%20StandardForm%5D%0A%20%20%2C%20%22After%22%20-%3E%20cell%5D%26%0A%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"8f25a9e0-edd4-49d7-90f5-d547f432c29c"} type={"Output"} opts={{}} >{`%3C%7C%22array%22-%3E%7B1%2C2%2C3%2C4%7D%2C%22value%22-%3E%22Hello%20World%22%7C%3E`}</WLJSEditor>
+
+Now run the script 
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"892a65dd-3df1-470d-a75d-dfcbe2f631f9"} type={"Input"} opts={{}} >{`.js%0A%0Aserver.kernel.io.fire%28%27test%27%2C%20%7B%0A%20%20array%3A%20%5B1%2C2%2C3%2C4%5D%2C%0A%20%20value%3A%20%22Hello%20World%22%0A%7D%29%3B%0A`}</WLJSEditor>
+
+## Markdown and Slides are Interchangeable
+There is full compatibility between slides and markdown cells. If you want to turn your slides into continuous pages in the notebook, simply replace .slide with .md.
+
+
+## Graphics improvements
+We added extra padding in framed mode and grid lines
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"cd5502ee-77af-4d5a-a2d7-21b33f623459"} type={"Input"} opts={{}} >{`Plot%5B%7BSin%5Bx%5D%2C%20Cos%5Bx%5D%7D%2C%20%7Bx%2C0%2C10%7D%2C%20Frame-%3ETrue%2C%20GridLines-%3EAutomatic%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"aeac7166-032a-4c1e-b743-f75734aebe22"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22fe3afc3f-4df7-46e7-ae78-8c3a58f76ba9%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6UaJ6YlG6fpmqSkmeuamKWa6yammlvoWiQbJ5papJmbJSVaAgCa8hZ%2F%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+`GridLines` option is limited to `Automatic` for now.
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+We are somewhat closed to fully support ticks and labels in 3D plots
+
+<WLJSEditor display={"codemirror"} nid={"d507f2a9-2612-49b7-9450-b3f576854be6"} id={"f66f2fa1-3b32-4a35-af1c-a8598071c79d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2220d99c9e-9ddc-4af4-9db3-170b2023cdf0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxmkWFomW6bqWqakJOuaJKaZAFlJxrqG5gZJRgZGxskpaQYAjOQV%2Fw%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

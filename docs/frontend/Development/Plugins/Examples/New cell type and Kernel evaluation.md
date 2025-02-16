@@ -299,7 +299,7 @@ It is also possible to define a custom display function in Javascript for your n
 
 Now restart WLJS Notebook and enjoy pure [InputForm](frontend/Reference/Formatting/InputForm.md) 
 
-![](Screenshot%202025-02-12%20at%2019.25.50.png)
+![](./../../../../Screenshot%202025-02-12%20at%2019.25.50.png)
 
 :::tip
 Full source code can be found in [this repository](https://github.com/JerryI/wljs-plugin-example-3)

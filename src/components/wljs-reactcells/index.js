@@ -123,20 +123,11 @@ export function WLJSStore({json, notebook, kernel}) {
     const loadKernel = async () => {console.warn('Kernel');
     if (kernel) {
       console.warn('KERNEL');
-      if (!interpretate.unzlib64String) {
-        const p = new Deferred();
-        const scriptTag = document.createElement('script');
-        scriptTag.src = "https://cdn.jsdelivr.net/gh/JerryI/wljs-export-html@main/dist/zip.min.js";
-        scriptTag.addEventListener('load', () => p.resolve());
-        document.head.appendChild(scriptTag);
-        await p.promise;
-        console.warn('ZIP loaded!');
-      }
 
       if (!window.KernelState) {
         const p = new Deferred();
         const scriptTag = document.createElement('script');
-        scriptTag.src = "https://cdn.jsdelivr.net/gh/JerryI/wljs-export-html@main/dist/decoder.min.js";
+        scriptTag.src = "https://cdn.jsdelivr.net/gh/JerryI/wljs-export-html@base/dist/decoder.min.js";
         scriptTag.addEventListener('load', () => p.resolve());
         document.head.appendChild(scriptTag);
         await p.promise;
@@ -146,10 +137,14 @@ export function WLJSStore({json, notebook, kernel}) {
       fetch(kernel).then((data) => {
         console.log(data);
         data.json().then(async (result)  =>  {
-          let mesh = result;
-          mesh = mesh.map((m) => interpretate.unzlib64String(m));
+          let mesh = [];
+
+          for (const o of result) {
+            mesh.push(await interpretate.unzlib64String(o));
+          }
           mesh = mesh.map(KernelMesh.unpack);
           console.warn('Mesh loaded!');
+          console.log(mesh);
 
           //await allGood.promise;
 
@@ -270,11 +265,12 @@ export function WLJSStore({json, notebook, kernel}) {
           console.error(what);
           return false;
         }
-
-        if (Array.isArray(promises[what.slice(42,-2)])) {
-          promises[what.slice(42,-2)].push(p);
+        //throw what;
+        const offset = 'CoffeeLiqueur`Extensions`FrontendObject`Internal`GetObject["'.length;
+        if (Array.isArray(promises[what.slice(offset,-2)])) {
+          promises[what.slice(offset,-2)].push(p);
         } else {
-          promises[what.slice(42,-2)] = [p];
+          promises[what.slice(offset,-2)] = [p];
         }
         
         fetchFile();
@@ -371,13 +367,16 @@ export function WLJSStore({json, notebook, kernel}) {
   });
 
 
-  
+  console.log('DONE loading mesh');
 
- 
- 
-  return (<>
-    <a href={notebook} className={(colorMode == 'dark' ? 'p-2 text-xs w-full flex ring-1 ring-inset shadow ring-gray-300 text-gray-300 my-2' : 'p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2')} >Download original notebook <SvgIcon/></a>
-  </>);
+  if (notebook) {
+    return (<>
+      <a href={notebook} className={(colorMode == 'dark' ? 'p-2 text-xs w-full flex ring-1 ring-inset shadow ring-gray-300 text-gray-300 my-2' : 'p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2')} >Download original notebook <SvgIcon/></a>
+    </>);
+  } 
+
+  return <></>
+
 }
 
 export function WLJSHTML({children, data}) {

@@ -30,27 +30,27 @@ const scripts = [
   "/wljs-graphics-d3/dist/kernel.js",
   "/wljs-graphics3d-threejs/dist/kernel.js"*/
   
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/interpreter.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@dev/src/core.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@dev/src/module.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/dist/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/boxes.js",  
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/metamarkers.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/objects.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@dev/src/frontsubmit.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@dev/src/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@dev/src/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/dist/interpreter.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/src/core.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@base/src/module.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/boxes.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/metamarkers.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/objects.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/frontsubmit.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@base/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@base/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@base/dist/kernel.js",
   "https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js",   
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@dev/dist/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@dev/src/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@dev/src/kernel.js",  
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@master/dist/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@master/dist/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@master/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@dev/dist/kernel.js",
-  "https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@dev/dist/kernel.js",  
-  "https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@dev/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@base/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@base/src/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@base/src/kernel.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@base/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@base/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@base/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@base/dist/kernel.js",
+  "https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@base/dist/kernel.js",  
+  "https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@base/dist/kernel.js",
 
 ].map((link) => {
   return {tagName: 'script', attributes: {
@@ -82,7 +82,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'JerryI & KirillBelovTest', // Usually your GitHub org/user name.
+  organizationName: 'CoffeeLiqueur', // Usually your GitHub org/user name.
   projectName: 'wolfram-js-frontend', // Usually your repo name.
 
   onBrokenLinks: 'warn',

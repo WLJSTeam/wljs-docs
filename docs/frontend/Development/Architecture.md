@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 
-![](Pasted%20image%2020250210130401.png)
+![](./../../Pasted%20image%2020250210130401.png)
 
 WLJS Notebook is an application built on top of the Wolfram Engine (a freeware distribution of Wolfram Language) with a web-based GUI. Naturally, we isolate evaluation to a separate process of the Wolfram Engine, similar to Mathematica. Both can directly interact with the content rendered on the page.
 

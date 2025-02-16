@@ -3,165 +3,272 @@ sidebar_position: 1
 enableComments: true
 sidebar_class_name: green
 slug: /
+title: Quick Start
 ---
 
-# Quick start
-WLJS Notebook __requires  `wolframscript` (see Freeware [Wolfram Engine](https://www.wolfram.com/engine/) or Wolfram Kernel)__ installed on your PC/Mac. *If not, WLJS application will redirect you to the official download page*
-
-import img from './../1_oEnvgJSyL-PNDTW8arOehw.webp';
-
-> All algorithms, functions, and other components of the Wolfram Language provided by the Wolfram Engine are the intellectual property of Wolfram Research, Inc.
 
 
+<div style={{textAlign: 'center'}}>
 
-<img src={img} style={{marginLeft:'auto', marginRight:'auto', display:'block'}}/>
+# <span style={{color:'var(--ifm-color-primary)'}}>Open-Source Notebook Interface for Wolfram Language</span>
 
-<div style={{'text-align':'center'}}><b style={{color:"var(--ifm-link-color)"}}>A lightweight alternative to Mathematica built using open-source tools and freeware Wolfram Engine</b></div> 
+<h2 align="center">Your Next-Gen Digital Notebook for Physics, Math, and Data Science</h2>
+
+![WLJS Notebook](./../1_oEnvgJSyL-PNDTW8arOehw.webp)
+
+***<span style={{color:'var(--ifm-color-content-secondary)'}}>is a lightweight alternative to Mathematica built using open-source tools and the freeware Wolfram Engine aimed on the high-performance dynamics and deep integration with web technologies</span>***
+
+</div>
+
+---
+
+<div style={{textAlign: 'center'}}>
+
+## 🚀 <span style={{color:'var(--ifm-color-primary)'}}>What is WLJS Notebook?</span>
+
+</div>
+
+WLJS Notebook is an interactive, web-based environment for running **Wolfram Language (WL)** scripts using the **freeware** Wolfram Engine. No Mathematica installation is required—just **register once** at [wolfram.com](https://www.wolfram.com/engine/) for personal use.
+
+- [x] Write reproducible notebooks with no external dependencies
+- [x] Publish interactive notebooks online or give to a college on a thumb-drive
+- [x] Blazingly fast dynamic, realtime 2D/3D graphics and sound output
+- [x] Hackable rich sandbox with 5+ cell types
+- [x] Open-source frontend written in Vanilla JS and Wolfram Language
+- [x] Develop interactive widgets & small apps for your sci-tools collection  
+
+<div style={{textAlign: 'center', display: 'flex', gap: '2rem', justifyContent: 'center'}}>
+
+[🚀 __Overview__](frontend/Overview.md)
+
+[📺 __Demonstration Project__](https://jerryi.github.io/wljs-docs/wljs-demo)
+
+</div>
+
+---
+
+<div style={{textAlign: 'center'}}>
+
+## <span style={{color:'var(--ifm-color-primary)'}}>🖖 Why Use WLJS Notebook?</span>
 
 
-<h3 style={{'text-align':'center'}}> 
+### Interactive & Powerful
 
-[Overview 🚀](frontend/Overview.md)      [Demo 📺](https://jerryi.github.io/wljs-docs/wljs-demo) 
+</div>
 
-</h3> 
+WLJS Notebook is optimized for **interactive computing and is friendly for mathematicians, physicists** and anyone else, who likes **to write equations**
 
-Use it to __publish your interactive notebooks__ on web
+<WLJSEditor display={"codemirror"} nid={"0fdbd52d-d4fd-417d-9481-f43d158acf84"} id={"2d86cc33-046d-49fa-b303-14b5248c6a35"} type={"Input"} opts={{}} >{`ManipulatePlot%5B%7B%0A%20%20%28%2ATB%5B%2A%29Sum%5B%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%28Sin%5B2%CF%80%282j%20-%201%29%20x%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282j-1%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29j%28%2A%7C%2A%29%2C%28%2A%7C%2A%291.0%28%2A%7C%2A%29%2C%28%2A%7C%2A%29n%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAoZgMSwaW5TvkVmYwgPguQCCkqTQUAeAcHBQ%3D%3D%2A%29%28%2A%5DTB%2A%29%2C%0A%20%20%28%2ATB%5B%2A%29Sum%5B%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%28Cos%5B2%CF%80%282j%20-%201%29%20x%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282j-1%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29j%28%2A%7C%2A%29%2C%28%2A%7C%2A%291.0%28%2A%7C%2A%29%2C%28%2A%7C%2A%29n%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAoZgMSwaW5TvkVmYwgPguQCCkqTQUAeAcHBQ%3D%3D%2A%29%28%2A%5DTB%2A%29%0A%20%20%0A%7D%2C%20%7Bx%2C%20-1%2C1%7D%2C%20%7B%7Bn%2C1%7D%2C%201%2C10%2C%201%7D%5D`}</WLJSEditor>
 
-<h4 style={{'text-align':'center'}}> 
-
-[Live and interactive 🖖](https://jerryi.github.io/wljs-docs/wljs-demo/mid-thz-tds) 
-
-</h4> 
-
-or __as a runtime for your small desktop apps__ made using WL, WLX, HTML, JS ...
-
-<h4 style={{'text-align':'center'}}> 
-
-[Standalone widgets 🪟](widgets) 
-
-</h4> 
-
-:::note
-WLJS Notebook **is a freeware software**, which is based on Wolfram Engine.
- 
-You do not need to have Mathematica installed to run WLJS Notebook. **No subscription model**, only one-time registration at *wolfram.com* is needed for a personal use. Please check the [license agreement](https://www.wolfram.com/legal/terms/wolfram-engine.html).
-:::
-
-If you are __new to Wolfram Language__, please, check the [corresponding page](./Wolfram%20Language.md).
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
 
 
-There are two ways you can choose from
 
-import Tabs from '@theme/Tabs';  
-import TabItem from '@theme/TabItem';
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/0fdbd52d-d4fd-417d-9481-f43d158acf84.txt').default}/>
 
-## Desktop application
-Notebook interface is shipped as an Electron application, which is cross-platform and has most benefits of a native desktop app. __This is the easiest way__
 
-[__➡️ Releases__](https://github.com/JerryI/wolfram-js-frontend/releases)
+<WLJSEditor display={"codemirror"} nid={"0fdbd52d-d4fd-417d-9481-f43d158acf84"} id={"f292f7b8-0f6a-4b82-8d3e-200b81d9d65a"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bf43fd89-46c9-440b-aa55-f87aaa5603d5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6WZGKelWFjqmpglAwkTgyTdxERTU900C%2FNEIMPMwDjFFACLERXY%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%228f1baba4-d37b-4637-b599-897fa6b3c990%22%2C%20%22Initial%22%20-%3E%20%7B1%7D%2C%20%22View%22%20-%3E%20%2291f576d4-d1f6-49fb-97ed-566158c1c7c3%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxqmmZqbpZjophimmemaWKYl6Vqap6bompqZGZpaJBsmmycbAwCCmRWP%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
 
-It comes with a launcher, that takes care about all updates, files extension association and etc. 
+<div style={{textAlign: 'center', display: 'flex', gap: '2rem', justifyContent: 'center'}}>
 
-#### Normal vs offline version
-Binaries are given in two formats on releases page. An offline version does contain the fixed versions of all necessary modules, documentation and examples, while a normal one will download the most recent ones from Github during the installation and will keep them to work fully offline.
+*Try to drag a slider*
 
-#### CLI
-You will be prompted to install cli binary. If you agree, it will make a symlink available from the terminal like VSCode. It will allow you to open a folder in WLJS Notebook by the command
+</div>
 
-```bash
-wljs .
+![](./../flowerPot-ezgif.com-video-to-gif-converter%201.gif)
+
+<div style={{textAlign: 'center', display: 'flex', gap: '2rem', justifyContent: 'center'}}>
+
+
+[🔬 __Explore Examples__](https://jerryi.github.io/wljs-docs/wljs-demo/intro-notebook)
+
+[📺 __Demonstration Project__](https://jerryi.github.io/wljs-docs/wljs-demo)
+
+</div>
+
+<div style={{textAlign: 'center'}}>
+
+### Driven by real-world problem solving
+
+</div>
+
+Developed through the collaboration of physicists and programmers at _University of Augsburg_ 🇩🇪, it is continuously refined in a feedback loop by solving problems ⚗️ in science, math, and education.
+
+<div style={{textAlign: 'center'}}>
+
+### Feels like Mathematica and Jupyter
+
+</div>
+
+WLJS Notebook is compatible with *Wolfram Mathematica* and has a flat and minimal notebook structure like in *Jupyter Lab*
+
+```mathematica @
+Table[If[PrimeQ[i], Framed[i, Background->(*VB[*)(RGBColor[1, 1, 0])(*,*)(*"1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qYgCDD/boDAYGAO7rEHU="*)(*]VB*)], i], {i, 1, 20}]
 ```
 
-#### URL Protocol
-App will automatically register `wljs-message` url protocol, so you can open any published notebooks from web-pages. 
+```mathematica @
+{1,(*BB[*)(2)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),(*BB[*)(3)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),4,(*BB[*)(5)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),6,(*BB[*)(7)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),8,9,10,(*BB[*)(11)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),12,(*BB[*)(13)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),14,15,16,(*BB[*)(17)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),18,(*BB[*)(19)(*,*)(*"1:eJxTTMoPSmNmYGAo5gMSwSWVOakuqcn5RYkl+UVpTCBxFiARVJqTWswFZDglJmenF+WX5qVANHGAJN2dnPNz8osyGYEcCAHEDGi6ecDGF2UW+Od55hWUlhSzAgXcEnOKU1EVBoPFixJzU8FCIUWlqQAABiTb"*)(*]BB*),20}
+```
 
-### Installation on Windows
-Use x64 binaries `.exe` from the releases.
+All power of Wolfram Language standard library is at your hands
 
-### Installation on GNU/Linux
+```mathematica @
+Series[Sinc[(*SqB[*)Sqrt[x](*]SqB*)], {x,0,4}] // Normal 
+```
 
-#### Using `deb` package
-You might need to install `libuv` dependency, then install the executable.
+```mathematica @
+1-(*FB[*)((x)(*,*)/(*,*)(6))(*]FB*)+((*FB[*)((1)(*,*)/(*,*)(120))(*]FB*)) ((*SpB[*)Power[x(*|*),(*|*)2](*]SpB*))-(*FB[*)(((*SpB[*)Power[x(*|*),(*|*)3](*]SpB*))(*,*)/(*,*)(5040))(*]FB*)+(*FB[*)(((*SpB[*)Power[x(*|*),(*|*)4](*]SpB*))(*,*)/(*,*)(362880))(*]FB*)
+```
 
-*A note for Ubuntu users*
-There might be a problem with starting related to a new [AppArmor issue](https://github.com/electron/electron/issues/42510#issuecomment-2171583086) om Ubuntu 24.04. A temporal fix will be to lift the restrictions
+```mathematica @
+Plot[ (*TB[*)Piecewise[{{(*|*)Sin[x](*|*),(*|*)x > 0(*|*)},{(*|*)0(*|*),(*|*)True(*|*)}}](*|*)(*1:eJxTTMoPSmNkYGAo5gESAZmpyanlmcWpTvkVmUxAAQBzVQdd*)(*]TB*) , {x,-10,10}]
+```
 
+<Wl>{`Plot[ (*TB[*)Piecewise[{{(*|*)Sin[x](*|*),(*|*)x > 0(*|*)},{(*|*)0(*|*),(*|*)True(*|*)}}](*|*)(*1:eJxTTMoPSmNkYGAo5gESAZmpyanlmcWpTvkVmUxAAQBzVQdd*)(*]TB*) , {x,-10,10}]`}</Wl>
+
+And most common narrative tools are included
+
+```mathematica @
+.md
+
+# My first report
+
+Here is a regular paragraph, which can __be styled__. 
+
+:::tip
+$\\LaTeX$ is also supported
+:::
+```
+
+#### My first report
+
+Here is a regular paragraph, which can __be styled__.
+
+:::tip
+$\\LaTeX$ is also supported
+:::
+
+
+<div style={{textAlign: 'center'}}>
+
+### Cross-Platform Desktop App
+
+</div>
+
+[⬇️ __Download WLJS Notebook__](https://github.com/JerryI/wolfram-js-frontend/releases)
+
+💻 Available for **Windows, macOS, and Linux**  
+🚀 Comes with an **auto-updater & CLI support**
+
+<div style={{textAlign: 'center'}}>
+
+### Server Mode
+
+</div>
+
+You can use just a normal **browser** to work with your notes. Just start it using `wolframscript`—no extra dependencies needed.
+
+**🛠️ [GitHub Repo](https://github.com/JerryI/wolfram-js-frontend)**  
+[📦 Docker Container Setup](https://github.com/JerryI/wolfram-js-frontend/blob/main/container/README.md)
+
+---
+
+<div style={{textAlign: 'center'}}>
+
+## <span style={{color:'var(--ifm-color-primary)'}}> 📥 Installation Guide</span>
+
+</div>
+
+### Windows
+- Download and install the latest `.exe` from the [Releases](https://github.com/JerryI/wolfram-js-frontend/releases).
+
+### Linux
+#### Using `.deb` Package (Recommended)
+```bash
+sudo apt install ./wljs-notebook.deb
+```
+⚠ *Ubuntu 24.04 users*: If you encounter AppArmor issues, run:
 ```bash
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 ```
 
-and then start an app from the terminal `wljs-notebook`
+#### Using `.zip` Archive
+Extract and run the `wljs-notebook` executable.
 
-#### Using `zip` archive
-Open an extracted folder and run an executable directly.
+### macOS
+#### Using `.dmg` Installer
+- Apple Silicon users: Download the `-arm64.dmg` version.
+- Intel Mac users: Use the regular `.dmg` version.
 
-
-
-### Installation on MacOS
-
-#### Using `dmg`
-If you have Apple Silicon, please, download and run `-arm64.dmg` binary from the releases page, otherwise use just `.dmg` version.
-
-#### Using `homebrew`
-If you have [Homebrew](https://brew.sh/) installed, you can install this app using:
-```shell
+#### Using Homebrew
+```bash
 brew install --cask wljs-notebook
 ```
 
+---
 
-## Standalone Server
-Desktop application is just a wrapper with a built-in Chromium browser, context menu bindings and file associations. WLJS Notebook itself __is a web-based application and can run using just `wolframscript` with no external services or any other programs__.
+<div style={{textAlign: 'center'}}>
 
-### Docker Container
-*contributed by [@yloose](https://github.com/yloose)*
+## <span style={{color:'var(--ifm-color-primary)'}}> ⚙️ Running WLJS Notebook as a Local Server</span>
 
-Please follow [the instructions](https://github.com/JerryI/wolfram-js-frontend/blob/main/container/README.md)
+</div>
 
-### Local run
-Clone this repository and run:
+You can run WLJS Notebook without a desktop app—just using `wolframscript`.
 
-```shell
+```bash
+git clone https://github.com/JerryI/wolfram-js-frontend
+cd wolfram-js-frontend
 wolframscript -f Scripts/start.wls
 ```
 
-or on a specific hostname
+For a specific hostname and port setup:
 
-```shell
+```bash
 wolframscript -f Scripts/start.wls host 0.0.0.0 http 8080 ws 8081 ws2 8082 docs 8085
 ```
 
-that will open __an HTTP server__ on `8080` port with `8081`, `8082` __used for realtime communication__ and __docs pages__ at `8085`
-
-#### Extra arguments
-
-- set the home folder (overrides settings)
-```
-wolframscript -f Scripts/start.wls folder "Demos"
+Additional options:
+```bash
+wolframscript -f Scripts/start.wls folder "Demos"  # Set home folder
+wolframscript -f Scripts/start.wls noautolaunch True  # Disable autolaunch
 ```
 
-- disable autolaunch of the evaluation kernel
-```
-wolframscript -f Scripts/start.wls noautolaunch True
-```
+---
+
+<div style={{textAlign: 'center'}}>
+
+## <span style={{color:'var(--ifm-color-primary)'}}> 📢 Featured Publications</span>
+
+</div>
+
+WLJS Notebook has been featured in various tech communities:
+
+- __Wolfram Research and Development__ ([Video](https://www.youtube.com/watch?v=Hen5qWfm6P0))
+- **[DPG2024 Berlin, March 2024](https://www.dpg-verhandlungen.de/year/2024/conference/berlin/part/agi/session/4/contribution/4)** ([Slides](https://www.dpg-physik.de/vereinigungen/fachuebergreifend/ag/agi/veranstaltungen/tagungen-und-workshops/berlin_2024/agi-4_4-kirill-vasin.pdf))
+- **[Habrahabr (Russian), October 2024](https://habr.com/ru/articles/853496/)** – Dynamic presentations with WLJS
+-  **[Medium, May 2024](https://medium.com/@krikus.ms/reinventing-dynamic-and-portable-notebooks-with-javascript-and-wolfram-language-22701d38d651)**
+
+📖 Read more on our **[Blog](https://jerryi.github.io/wljs-docs/blog)**
+
+---
+
+<div style={{textAlign: 'center'}}>
+
+## <span style={{color:'var(--ifm-color-primary)'}}> 🔗 Useful Links</span>
+
+</div>
+
+- **📘 [Documentation](./Wolfram%20Language.md)**  
+- **📺 [Live Demos](https://jerryi.github.io/wljs-docs/wljs-demo)**  
+- **🛠️ [GitHub Repo](https://github.com/JerryI/wolfram-js-frontend)**  
+- **💬 [Community](https://github.com/JerryI/wolfram-js-frontend/discussions)** 
+- [🐴 __Telegram__](https://t.me/+PBotB9UJw-hiZDEy)
 
 
-## Showcase
-**[Blog posts](https://jerryi.github.io/wljs-docs/blog)**
+<div style={{textAlign: 'center'}}>
 
-[🔗 Link](https://jerryi.github.io/wljs-docs/blog) Pages of real-life problems solved using WLJS Notebook and published as interactive notebooks running in your browser. Try it out
+##  <span style={{color:'var(--ifm-color-primary)'}}>⚖️ Licensing</span>
 
+</div>
 
-**[WLJS Notebook Demonstration Project](https://jerryi.github.io/wljs-demo/)**
-
-[🔗 Link](https://jerryi.github.io/wljs-demo/)
-Notebooks posted as static web pages showcase various examples that demonstrate how to use the Wolfram Language and the dynamic features of our frontend. 
-
-
-## Publications 📢
-- *Habrahabr* October 2024: [Динамическая презентация или как закодить слайд с помощью Markdown и WL](https://habr.com/ru/articles/853496/) (Russian language only)
-- *Habrahabr* Septempber 2024: [Обзор изменений в WLJS Notebook](https://habr.com/ru/articles/839140/) (Russian language only)
-- *Medium* May 2024: [Reinventing dynamic and portable notebooks with Javascript and Wolfram Language](https://medium.com/@krikus.ms/reinventing-dynamic-and-portable-notebooks-with-javascript-and-wolfram-language-22701d38d651)
-- *Yandex Open Source Jam* April 2024: [Dynamic notebook interface + Wolfram Language](https://www.youtube.com/watch?v=tmAY_5Wto-E) (Russian language only)
-- *DPG2024 Berlin March 2024*: [Computational Notebook as a Modern Multitool for Scientists](https://www.dpg-verhandlungen.de/year/2024/conference/berlin/part/agi/session/4/contribution/4), [Slides](https://www.dpg-physik.de/vereinigungen/fachuebergreifend/ag/agi/veranstaltungen/tagungen-und-workshops/berlin_2024/agi-4_4-kirill-vasin.pdf)
-- *Habrahabr* October 2023 [Open-source блокнот Wolfram Language или как воссоздать минимальное ядро Mathematica на Javascript и не только](https://habr.com/ru/articles/767490/) (Russian language only)
-- *Habrahabr* October 2023 [Wolfram Language JavaScript Frontend](https://habr.com/ru/articles/766360/) (Russian language only)
+WLJS Notebooks (including all extensions, frontend and backend) is __licensed under GPLv3__ 👩🏼‍⚖️ The algorithms, functions, and other components of __Wolfram Language__ provided by the Wolfram Engine are the intellectual property of Wolfram Research, Inc. See the <a href="https://www.wolfram.com/legal/terms/wolfram-engine.html">license agreement</a> for details.

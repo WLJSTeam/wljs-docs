@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwlx_docs=self.webpackChunkwlx_docs||[]).push([[96400],{48283:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/wljs-docs/widgets","page":1,"postsPerPage":15,"totalPages":1,"totalCount":2,"blogDescription":"Standalone widgets made using WLJS Notebook","blogTitle":"Standalone Widgets"}}')}}]);

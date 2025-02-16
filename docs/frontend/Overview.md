@@ -110,7 +110,7 @@ There are strong reasons behind our decision to built our own system:
 
 - there is already a Jupyter Kernel for Wolfram Engine;
 - we want to bring syntax sugar for writing equation, editable output cells, put images, sound or other formats inside cells, which requires a custom cells editor;
-- Jupyter uses an indirect `ZMQ` link for communication, which does not meet the requirements for fast- and efficient dynamics with a heavy payload;
+- Jupyter uses an indirect `ZMQ` link for communication, which does not meet the requirements for fast- and low-latency dynamics with a heavy payload;
 - bringing 3rd language to the table as well as frequently changing API requires more maintenance in the future.
 
 ## Command palette
@@ -155,36 +155,16 @@ Try to drag and pan using your mouse!
 
 ![](./../imgs/Screenshot%202024-03-13%20at%2019.07.00.png)
 
-:::note
-Graphics elements are not exported SVG. All primitives are recreated using d3.js and THREE.js from scratch
-:::
-
-![](./../rerer-ezgif.com-video-to-gif-converter.gif)
-
-## Realtime calculations
-
-__Dynamics? We have a lot of it__
+## Powered by SVG and WebGL
 
 
-![](./../roots54534-ezgif.com-video-to-gif-converter.gif)
+![](./../Isingspins-ezgif.com-optipng.png)
+
+![](./../manipulatePlot-ezgif.com-optimize.gif)
 
 ![](./../RotationMatriix3D-ezgif.com-optipng.png)
 
-__Or may be even fluid simulation?__
-
-![](./../fluid-ezgif.com-video-to-webp-converter.webp)
-
-### Short videos
-
-
-<iframe width="315" height="560"
-src="https://youtube.com/embed/ItXbjNtGlew?si=enz0K6jAu2xv5hAK"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
-
-### 3D Graphics using WebGL
+![](./../flowerPot-ezgif.com-video-to-gif-converter.gif)
 
 ![](./../balls-ezgif.com-video-to-gif-converter.gif)
 

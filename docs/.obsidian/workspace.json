@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Reference/Cells and Notebook/CellPrint.md",
+                "file": "frontend/Reference/Plotting Functions/AnimatePlot.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CellPrint"
+              "title": "AnimatePlot"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "interpreter/Advanced/containers.md",
+                "file": "frontend/instruction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "containers"
+              "title": "instruction"
             }
           },
           {
@@ -94,7 +94,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "dynamic updates",
+                "query": "AnimatePlot",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": false,
@@ -221,51 +221,51 @@
   },
   "active": "06328218290ccda3",
   "lastOpenFiles": [
+    "frontend/attachments/notebook-0fd.wln",
+    "frontend/attachments/kernel.txt",
+    "frontend/attachments/image-d3b.png",
+    "frontend/attachments/0fdbd52d-d4fd-417d-9481-f43d158acf84.txt",
+    "frontend/attachments",
+    "frontend/Reference/Plotting Functions/AnimatePlot.md",
+    "frontend/instruction.md",
+    "flowerPot-ezgif.com-video-to-gif-converter 1.gif",
+    "frontend/Cell types/ESM.md",
+    "frontend/Overview.md",
+    "manipulatePlot-ezgif.com-optimize.gif",
+    "frontend/Reference/Cells and Notebook/CellPrint.md",
+    "nice0animation-ezgif.com-video-to-gif-converter-79bc0c7f8a4ee716eba6da5840c45688.gif",
+    "Isingspins-ezgif.com-optipng.png",
+    "Bubbles video to gif-e6769380f627f9aeca39fa8709b4461c.gif",
+    "flowerPot-ezgif.com-video-to-gif-converter.gif",
+    "frontend/Dynamics.md",
+    "frontend/Development/Architecture.md",
+    "frontend/Development/Expressions rendering.md",
+    "frontend/Development/Contexts.md",
+    "frontend/Advanced/Javascript/Shared libraries.md",
+    "frontend/Advanced/Javascript/Canvas.md",
+    "frontend/Advanced/Command palette/AI Assistant.md",
+    "frontend/Advanced/Command palette/Debugger.md",
+    "frontend/Development/Overview.md",
+    "frontend/Development/FAQ.md",
+    "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
+    "interpreter/Advanced/containers.md",
     "frontend/Advanced/Javascript/Communication.md",
     "frontend/Advanced/Events system/Mouse and keyboard.md",
     "frontend/Advanced/Frontend interpretation/Editor manipulation.md",
     "frontend/Advanced/Frontend interpretation/Frontend Objects.md",
     "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
-    "frontend/Development/Architecture.md",
-    "frontend/Development/Contexts.md",
     "frontend/Development/Plugins/Examples/New cell type and Kernel evaluation.md",
-    "frontend/Development/FAQ.md",
-    "frontend/Development/Overview.md",
     "frontend/Development/Plugins/Examples/Javascript library functions.md",
-    "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
-    "frontend/Overview.md",
     "frontend/Symbolic programming.md",
-    "frontend/Development/Plugins/Structure.md",
-    "frontend/Development/Expressions rendering.md",
     "Screenshot 2025-02-12 at 19.25.50.png",
-    "frontend/Advanced/Dynamics/Advanced animation.md",
-    "frontend/Reference/Plotting Functions/AnimatePlot.md",
     "Screenshot 2025-02-09 at 18.04.45.png",
-    "frontend/Reference/Formatting/Low-level/ViewBox.md",
     "radial-ezgif.com-optimize.gif",
-    "Screenshot 2025-02-09 at 23.24.04.png",
-    "Screenshot 2025-02-10 at 23.27.26.png",
-    "frontend/Cell types/Input cell.md",
-    "frontend/Expressions representation.md",
-    "frontend/Wolfram Language.md",
-    "frontend/instruction.md",
-    "Pasted image 20250210130401.png",
-    "imgs/Drawing 2025-02-08 23.24.35.excalidraw.md",
-    "imgs/Drawing 2025-02-08 23.24.35.excalidraw.svg",
     "frontend/Development/Plugins/Examples",
-    "frontend/Development/Extensions/Untitled.md",
     "frontend/Development/Plugins/Reference",
-    "frontend/Development/API/Iframe.md",
-    "Screenshot 2025-01-25 at 17.24.11.png",
-    "Screenshot 2025-01-21 at 10.27.46.png",
-    "Screenshot 2025-01-18 at 17.07.10.png",
     "frontend/Development/API",
     "frontend/Development/Paclets",
     "frontend/Development/Plugins",
     "frontend/Development",
-    "frontend/Reference/Image3D",
-    "frontend/Reference/Formatting/Low-level",
-    "frontend/Reference/Formatting",
-    "frontend/Reference/_category_.json"
+    "frontend/Reference/Image3D"
   ]
 }
