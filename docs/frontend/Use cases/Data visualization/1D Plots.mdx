@@ -1,0 +1,93 @@
+# Data Visualization
+A standard set of function inherited from Wolfram Standard Library. Most examples were adapted from the official pages of [Wolfram Language Documentation Center](https://reference.wolfram.com/language/). The algorithms and implementations of those functions are the intellectual property of Wolfram Research. WLJS Team only reimplemented underlying low-level primitives such as `Line`, `Point`, `Polygon`, and etc.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/f1c37a63-30dd-429d-ba2b-a52d19553384.txt').default} notebook={require('./attachments/notebook-f1c.wln').default}/>
+
+
+
+
+## Plot
+The most basic option for plotting analythical functions
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"74c13bda-159f-4270-bb86-7c0e22459e1d"} type={"Input"} opts={{"Hidden":false}} >{`Plot%5B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28x%29%29%28%2A%5DFB%2A%29%2C%20%7Bx%2C0%2C1%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"3bdb7b56-47a2-48fe-82f9-b4c2e9979380"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ff324093-aadd-4bcc-8004-4cc459036013%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6UZG5kYWBrrJiampOiaJCUn61oYGJjomiQnm5haGhibGRgaAwCJ2RVf%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+
+### Axes and Styling
+This is quite limited, but can work well in most cases
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"141afa5f-e905-4848-96af-0dfd440ce2b6"} type={"Input"} opts={{"Hidden":false}} >{`Plot%5B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28x%29%29%28%2A%5DFB%2A%29%2C%20%7Bx%2C0%2C1%7D%2C%20%0A%20%20PlotStyle-%3ERed%2C%20%0A%20%20Frame-%3ETrue%2C%20%0A%20%20FrameLabel-%3E%7B%22x-axis%22%2C%20%22y-axis%22%7D%2C%20%0A%20%20FrameStyle-%3EDirective%5BFontSize-%3E14%5D%2C%20%0A%20%20FrameTicksStyle-%3EDirective%5BFontSize-%3E14%5D%2C%0A%20%20Epilog-%3E%7BCyan%2C%20Line%5B%7B%7B-10%2C10%7D%2C%20%7B10%2C10%7D%7D%5D%7D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"02d4a653-1e21-4b1a-bbe6-088bef3db83e"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%223b2d8cd0-48d4-4987-97a5-11c47f9e0924%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGycZpVgkpxjomlikmOiaWFqY61qaJ5rqGhomm5inWaYaWBqZAACAEBUm%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Fill between two curves
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"01ca5a3b-0f4f-45c7-80bb-f7f01675fe9b"} type={"Input"} opts={{}} >{`Plot%5B%7BSin%5Bx%5D%20%2B%20x%2F2%2C%20Sin%5Bx%5D%20%2B%20x%7D%2C%20%7Bx%2C%200%2C%2010%7D%2C%20Filling%20-%3E%20%7B1%20-%3E%20%7B2%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"0127d388-a41d-4740-ac61-cbe71c1db261"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%228d891115-58ee-47f7-a4a5-f97e41a9db8a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6RYWBoaGprqmlqkpuqamKeZ6yaaJJrqplmap5oYJlqmJFkkAgB9iBW7%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Plot multiple filled curves
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"234544c3-907c-4c89-9cea-167059f498fe"} type={"Input"} opts={{}} >{`Plot%5BEvaluate%5BTable%5BBesselJ%5Bn%2C%20x%5D%2C%20%7Bn%2C%204%7D%5D%5D%2C%20%7Bx%2C%200%2C%2010%7D%2C%20%0A%20Filling%20-%3E%20Axis%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"1529f0f0-701f-410d-9b66-78d9c6dbdbcc"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c7d8775d-91a5-4dec-86a2-c7aaea90d885%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5unWJibm6boWhommuqapKQm61qYJRrpJpsnJqYmWhqkWFiYAgCLsBYV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Parameteric plots
+Accepts function, which returns pair $\{x,y\}$
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"973a3a6d-df9d-4ada-b6df-a03670fed4de"} type={"Input"} opts={{"Hidden":false}} >{`ParametricPlot%5B%7BSin%5B3t%5D%2C%20Cos%5B3t%5D%7D%20%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-t%5D%28%2A%5DSpB%2A%29%2C%20%7Bt%2C%200%2C%20Pi%7D%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"431c0a25-9898-4107-9429-96b2b3c8b136"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c73f4896-9651-4143-863e-5c5c16b7f55c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5sbp5lYWJrpWpqZGuqaGJoY61qYGafqmiabJhuaJZmnmZomAwBzART7%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Date plots
+Treats the series of points with values yi at a sequence of dates
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"f70d62f3-994a-444d-b8ce-966fb1d2ec45"} type={"Input"} opts={{}} >{`%7BDateObject%5B%7B2022%2C%2012%7D%5D%2C%20DateObject%5B%7B2023%2C%2012%7D%5D%2C%20Now%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"5f3e20d3-57e0-40d0-b664-a14aebaafaff"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29%28DateObject%5B%7B2022%2C12%7D%2C%22Month%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwSSxJ9U%2FKSk0uCUnNLcgB8oK5gMJKLqnJCkYGRkZKAKJzDjo%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28DateObject%5B%7B2023%2C12%7D%2C%22Month%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwSSxJ9U%2FKSk0uCUnNLcgB8oK5gMJKLqnJCkYGRsZKAKJ1Djs%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28DateObject%5B%7B2024%2C9%2C4%2C11%2C24%2C1.504609%606.9299986441629%7D%2C%22Instant%22%2C%22Gregorian%22%2C2.%60%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwSSxJ9U%2FKSk0uCUnNLcgB8oIlgcJK4akpCiYKwakFCkYGRiYKhoZWRiZWBoZKAJrpEbg%3D%22%2A%29%28%2A%5DVB%2A%29%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"2f53036f-ee17-4149-980b-03fc6578a9e8"} type={"Input"} opts={{}} >{`DateListPlot%5BTranspose%5B%7B%25%2C%20%7B1%2C2%2C3%7D%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"8d726af2-5ea6-4b4c-a391-a574bb8b5fe0"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e71c7d28-59fd-4eb8-8e63-2b40985ebd3f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5obJpunGFnomlqmpeiapCZZ6FqkmhnrGiWZGFhamKYmpRinAQCIaxXr%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Example data
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"a31daf5d-bd20-44f5-a2bc-a131aae38263"} type={"Input"} opts={{}} >{`DateListPlot%5BFinancialData%5B%22IBM%22%2C%20%22Jan.%201%2C%202004%22%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"6d636d71-2b98-4c3e-95f4-75d4c22c3f64"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f6aadbd2-fa86-407e-a3ad-d6f364c855c9%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5klJqYkpRjppiVamOmaGJin6iYaJ6boppilGZuZJFuYmiZbAgCbaRZp%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## List plots
+Plot an array of numbers or a time-series
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"4df72fed-5616-46b4-a0ed-ffd5cabea0cd"} type={"Input"} opts={{}} >{`ListLinePlot%5B%7B1%2C%201%2C%202%2C%203%2C%205%2C%208%7D%2C%20Filling%20-%3E%20Axis%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"b6156383-3893-42b8-9199-6378a3418ff9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f3abfcf7-eec7-4c94-97e9-c917ed92357c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxknJqUlp5nrpqYmm%2BuaJFua6Fqap1rqJlsamqemWBoZm5onAwCcshZV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Plot multiple traces
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"1c18616e-37f2-4991-bdb9-bb5da11191d8"} type={"Input"} opts={{}} >{`ListLinePlot%5BTable%5BAccumulate%5BRandomReal%5B%7B-1%2C%201%7D%2C%20250%5D%5D%2C%20%7B3%7D%5D%2C%20%0A%20Filling%20-%3E%20Axis%2C%20PlotLegends%20-%3E%20%7B%22one%22%2C%20%22two%22%2C%20%22three%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"e0681e77-4457-45e7-ae7e-8df568ec09d7"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22fee84c21-600a-4a89-8f85-189ba73e352d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6WmWpgkGxnqmhkYJOqaJFpY6lqkWZjqGlpYJiWaG6camxqlAACFShV%2F%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qKpg26anKlOv2RYbTXk7vMH9gX3S8ZYb3qm3P7AF5kRs6%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28%22one%22%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4vkAjLTC13SU3OL0osyS8KZgeKBCWWh6RWlAQzA9n5eakAnfEOkQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.880722%2C%200.611041%2C%200.142051%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q8jkS%2Ffy%2B3hv7on%2FVH24t7X1sX7R51jr1XXqH7AGSkRxD%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28%22two%22%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4vkAjLTC13SU3OL0osyS8KZgeKBCWWh6RWlAQzA9kl5fkAnhwOqQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.560181%2C%200.691569%2C%200.194885%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qYngWtYXh7UP7otK1e%2F1DFZ%2FZF0lO2Hvv78cT9gBtzBsa%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28%22three%22%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4vkAjLTC13SU3OL0osyS8KZgeKBCWWh6RWlASzAtklGUWpqQC8fA9p%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+Plot points
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"2070ed03-6ec3-4ad9-906b-9a10b6cfb226"} type={"Input"} opts={{}} >{`ListPlot%5B%0A%20RandomVariate%5BBinormalDistribution%5B%7B4%2C%204%7D%2C%20%7B1%2C%201%7D%2C%200.5%5D%2C%20750%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"433eb2be-35c0-496e-8a5b-6ba4ef4ec900"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a3b30409-9a79-44d4-b837-43006fad19c0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxonGRuYGFjqWiaaW%2BqamKSY6CZZGJvrmhgbGJilJaYYWiYbAAB3iBUM%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Plot several data as lists with legend
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"2621bc7d-c836-4b62-90f2-0b9a73aca4ba"} type={"Input"} opts={{}} >{`ListPlot%5B%0A%20Table%5B%7Bk%2C%20%0A%20%20%20PDF%5BBinomialDistribution%5B50%2C%20p%5D%2C%20k%5D%7D%2C%20%7Bp%2C%20%7B0.3%2C%200.5%2C%200.8%7D%7D%2C%20%7Bk%2C%200%2C%20%0A%20%20%2050%7D%5D%2C%20Filling%20-%3E%20Axis%2C%20PlotLegends%20-%3E%20%7B0.3%2C%200.5%2C%200.8%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"e998f072-cd67-4723-9b1a-ab7acc7c1f24"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%225aebfcb6-8f02-4529-a554-8a7209d6876f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyamJqUlJ5npWqQZGOmamBpZ6iaamproWiSaGxlYpphZmJulAQCLkRWE%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qKpg26anKlOv2RYbTXk7vMH9gX3S8ZYb3qm3P7AF5kRs6%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%290.3%60%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.880722%2C%200.611041%2C%200.142051%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q8jkS%2Ffy%2B3hv7on%2FVH24t7X1sX7R51jr1XXqH7AGSkRxD%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%290.5%60%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.560181%2C%200.691569%2C%200.194885%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qYngWtYXh7UP7otK1e%2F1DFZ%2FZF0lO2Hvv78cT9gBtzBsa%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%290.8%60%7D%7D%28%2A%5DGB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+Plot a curve that corresponds to a smooth path through the specified points
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"23ba9c3e-f3b8-453f-9f13-539817d613a7"} type={"Input"} opts={{}} >{`ListCurvePathPlot%5BRandomReal%5B%7B0%2C%2010%7D%2C%20%7B2000%2C%202%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"f1c37a63-30dd-429d-ba2b-a52d19553384"} id={"10dfbfb3-0ffb-45c4-8231-ae310e8432f8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22be82a776-33b7-475d-b01d-0a756fd69b5e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6VaGCWam5vpGhsnmeuamJum6CYZGKboGiSam5qlpZhZJpmmAgCCUhWr%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

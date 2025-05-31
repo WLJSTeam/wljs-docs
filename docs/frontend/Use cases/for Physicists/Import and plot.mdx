@@ -1,0 +1,48 @@
+# Plotting data
+Use `Ctrl/CMD + P` to call command palette and pick __upload ASCII__
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/19fbfaf2-ebfe-42d1-a24b-5f30cabab29c.txt').default} notebook={require('./attachments/notebook-19f.wln').default}/>
+
+
+
+
+![](attachments/UploadACSII-ezgif.com-optipng.png)
+
+Once you finished, an special symbol will appear. You can work with it if it was a array of data compressed to a size of single icon.
+
+**Example data***
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"bbd52eb8-698a-4772-b1f1-f558af16609e"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28Get%5BFileNameJoin%5B%7B%22.iconized%22%2C%20%22iconized-dd15.wl%22%7D%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeH5DwTM7Py6xKdcvMSXXKr8gU0OBhAADq%2BQq5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Now you can copy and paste this symbol
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"698a9c2b-018f-4bf4-939e-843f7ed04439"} type={"Input"} opts={{}} >{`ListLinePlot%5B%28%2AVB%5B%2A%29%28Get%5BFileNameJoin%5B%7B%22.iconized%22%2C%20%22iconized-dd15.wl%22%7D%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeH5DwTM7Py6xKdcvMSXXKr8gU0OBhAADq%2BQq5%22%2A%29%28%2A%5DVB%2A%29%2C%20PlotRange-%3EFull%2C%20ImageSize-%3E500%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"aedefecf-7291-4684-ab0f-3df542f6981c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%221d8f3ab5-8dc2-4914-a7f1-f02da8ed0d59%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6ZYpBknJpnqWqQkG%2BmaWBqa6CaapxnqphkYpSRapKYYpJhaAgCK%2BBYD%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*TIP: try to pan and zoom into the plot using mouse*
+
+Pick a good color
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"a96f164b-9b6a-464f-ac15-8432131db705"} type={"Input"} opts={{}} >{`ColorData%5B24%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"5c4e2c4f-fca9-413f-bf61-b327714da859"} type={"Input"} opts={{}} >{`ColorDataFunction%5B%28%2AVB%5B%2A%29%2024%2C%20%22Indexed%22%2C%20%7B1%2C%2010%2C%201%7D%2C%20%7BRGBColor%5B0.9215686274509803%2C%200.49411764705882355%2C%200.43137254901960786%5D%2C%20RGBColor%5B1.%2C%200.7215686274509804%2C%200.2196078431372549%5D%2C%20RGBColor%5B0.9490196078431372%2C%200.8627450980392157%2C%200.43529411764705883%5D%2C%20RGBColor%5B0.6705882352941176%2C%200.8784313725490196%2C%200.9372549019607843%5D%2C%20RGBColor%5B0.3176470588235294%2C%200.6549019607843137%2C%200.7529411764705882%5D%2C%20RGBColor%5B0.12941176470588237%2C%200.5176470588235295%2C%200.6313725490196078%5D%2C%20RGBColor%5B0.09019607843137255%2C%200.33725490196078434%2C%200.49411764705882355%5D%2C%20RGBColor%5B0.7058823529411765%2C%200.49411764705882355%2C%200.5450980392156862%5D%2C%20RGBColor%5B0.5333333333333333%2C%200.23529411764705882%2C%200.3058823529411765%5D%2C%20RGBColor%5B0.8941176470588236%2C%200.7098039215686275%2C%200.7490196078431373%5D%7D%5B%5BMod%5BFloor%5B%231%5D%2C%2010%2C%201%5D%5D%5D%20%26%20%20%28%2A%2C%2A%29%28%2A%221%3AeJylk0uP2jAUhelLfahSl5W6ahdZIkEgFLqLIUASXol5FFY1sZPJxI7z8gC%2Fbf7cODC0VK1U1Nmc3Hz32uckcb5sueu%2FqFQq%2BScpgO%2F7PGM%2F9CxDcUAwFIyh7CCx%2F6yc%2BSCln%2FG4MGK8DLNCIHpqvJQy5BQfiwmPif%2F8jEdhXvzt7uOF36OPWRC2DMkOvpY9M8Zk%2F%2B3zafidFAOHBc%2FK%2FsmzHJr6PuUIn8BbKQt31CMexwSW69TmL2dXUALflAVBeBrTw5HOM0H%2Bnadc1uWUZ%2FkTA9Vr1we6%2FnWVPjNESVGQJ%2BS7l0xR24qqA6BoQF4VtXMEJVv%2Bxs6HwCX%2BEasY1byWpraq7S3qVJtfW50qajfbVU%2Fza40WxogQT44pWu%2B8qdype%2BEhC7WuNHRi7efzMZ9BNonWA51vAgMO7yLNdrvEsMDObmczuzGcwMaggEZNjBZ0fIiiyTIw7OTgIMsSm0ESJ6vQoSuRImYVm1a4Qax%2Fy61EsIEbbhPkREm6Zvqua7hgPS2DXSbResufj%2Fp%2FYVd0bILmMNIDkXp7C3vpXWCGumZObK9uj8QCwHTOkgNcWXChC1vrZTS5mcdmym51nDu0z4LvigrIpq4B5NCu6fQAvSnsP6OCx6jXHKz8vSxggmL5%2FdiI%2BEX%2BqvyjEc3JA1m2DdY%3D%22%2A%29%28%2A%5DVB%2A%29%5D%5B2%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"0e5f05fd-9893-4f12-9dc8-f03e75702281"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28RGBColor%5B1.%2C%200.7215686274509804%2C%200.2196078431372549%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEH%2ByJxMHhuXyQDBmfsASVLFsA%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+You can also manipulate the data, cut it or crop using Wolfram Language native tools for Lists
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"a944f4a2-eccc-4f50-a1c2-31b400d84c63"} type={"Input"} opts={{}} >{`ListLinePlot%5B%0A%20%20Select%5B%28%2AVB%5B%2A%29%28Get%5BFileNameJoin%5B%7B%22.iconized%22%2C%20%22iconized-dd15.wl%22%7D%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeH5DwTM7Py6xKdcvMSXXKr8gU0OBhAADq%2BQq5%22%2A%29%28%2A%5DVB%2A%29%2C%20%28%23%5B%5B1%5D%5D%20%3E%203000%20%26%26%20%23%5B%5B1%5D%5D%20%3C%204000%29%26%5D%0A%2C%20PlotRange-%3EFull%2C%20ImageSize-%3E500%2C%20PlotStyle-%3E%28%2AVB%5B%2A%29%28RGBColor%5B1.%2C%200.7215686274509804%2C%200.2196078431372549%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEH%2ByJxMHhuXyQDBmfsASVLFsA%3D%22%2A%29%28%2A%5DVB%2A%29%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"222c7a02-b9b8-4d45-90c5-a47cd1bdda4f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2260a06efc-957f-4e48-8c86-a59f4a017151%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxkkGpilpiXrWpqap%2BmapJpY6FokW5jpJppappkkGhiaG5oaAgCEhhVQ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Preview  data as a table
+For whom likes Origin
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"fec31a89-de17-4040-92f8-d2ceba301ff7"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28Get%5BFileNameJoin%5B%7B%22.iconized%22%2C%20%22iconized-dd15.wl%22%7D%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeH5DwTM7Py6xKdcvMSXXKr8gU0OBhAADq%2BQq5%22%2A%29%28%2A%5DVB%2A%29%20%2F%2F%20TableView%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"19fbfaf2-ebfe-42d1-a24b-5f30cabab29c"} id={"9ae38d55-3790-4274-81b4-bbb70415ecf5"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Dataset%5BJoin%40%40Notebook%60Kernel%60Inputs%60Private%60store%242804301%2CTypeSystem%60Vector%5BTypeSystem%60Tuple%5B%7BTypeSystem%60Atom%5BReal%5D%2C%20TypeSystem%60Atom%5BReal%5D%7D%5D%2C%208298%5D%2C%3C%7C%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG1kap6WYGaXompilGuqaGBsZ6loYJpnoWpgaJhuamyYaJSZaAgB4ABUM%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

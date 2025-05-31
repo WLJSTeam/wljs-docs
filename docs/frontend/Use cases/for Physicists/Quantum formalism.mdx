@@ -1,0 +1,108 @@
+# Symbolic programming
+## Quantum spins
+The beauty of Wolfram Language is its flexibillity. One can shape the language making a dialect of it for a specific problem to solve
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/01643120-d3b7-46a4-b07e-d35877056242.txt').default} notebook={require('./attachments/notebook-016.wln').default}/>
+
+
+
+
+### Wavefunctions
+
+Let us use built-in syntax for `Ket` and `Bra` vectors. Apart from the decorations, there is no predefined rules for those expressions
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"1e7933b5-a86b-43f9-8cf2-c31141d8d900"} type={"Input"} opts={{}} >{`%7BKet%5B1%5D%2C%20Bra%5B1%5D%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"bb2325a7-ba08-4ee3-89da-a09abdb7bc25"} type={"Output"} opts={{}} >{`%7B%28%2ABB%5B%2A%29%28Ket%5B1%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCV4gEZaZWu6SmpxflFiSXxTMDBTxTi2B6GMBEkGlOanBIIZHamIKTBoAFg4VsQ%3D%3D%22%2A%29%28%2A%5DBB%2A%29%2C%28%2ABB%5B%2A%29%28Bra%5B1%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCV4gEZaZWu6SmpxflFiSXxTMDBRxKkqE6GMBEkGlOanBIIZHamIKTBoAFBUVkw%3D%3D%22%2A%29%28%2A%5DBB%2A%29%7D`}</WLJSEditor>
+
+Let us define an ortogonallity rule on `Dot` operation aka
+
+$$
+\langle Ms | Ms^\prime \rangle = \delta_{Ms, Ms^\prime} 
+$$
+
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"c80eb31a-813a-4e18-aafb-89f6d2c9c6db"} type={"Input"} opts={{}} >{`Ket%20%2F%3A%20%28%2ABB%5B%2A%29%28Bra%5BMs1_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMaeiRJfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABBAEzo%3D%22%2A%29%28%2A%5DBB%2A%29.%28%2ABB%5B%2A%29%28Ket%5BMs2_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%20%3A%3D%20KroneckerDelta%5BMs1%2C%20Ms2%5D%0AKet%20%2F%3A%20Conjugate%5B%28%2ABB%5B%2A%29%28Ket%5BMs2_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%5D%20%3A%3D%20%20%28%2ABB%5B%2A%29%28Bra%5BMs2%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMaeiRJfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABBAEzo%3D%22%2A%29%28%2A%5DBB%2A%29`}</WLJSEditor>
+
+now test it in the basis of a spin $S=2$
+
+$$
+| S=2, Ms \rangle
+$$
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"6e2a8c19-0f7f-497f-aff9-00dd10af9de9"} type={"Input"} opts={{}} >{`basis%20%3D%20Table%5B%28%2ABB%5B%2A%29%28Ket%5BMs%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%2C%20%7BMs%2C%20-2%2C2%7D%5D%3B%0A%0ATable%5BConjugate%5Bi%5D.j%2C%20%7Bi%2C%20basis%7D%2C%20%7Bj%2C%20basis%7D%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"75319d09-e887-4883-b6d0-076a9460b437"} type={"Output"} opts={{}} >{`%7B%7B1%2C0%2C0%2C0%2C0%7D%2C%7B0%2C1%2C0%2C0%2C0%7D%2C%7B0%2C0%2C1%2C0%2C0%7D%2C%7B0%2C0%2C0%2C1%2C0%7D%2C%7B0%2C0%2C0%2C0%2C1%7D%7D`}</WLJSEditor>
+
+or more appealing view
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"01c37cf6-a601-437a-8dd2-dd524d0728ca"} type={"Input"} opts={{}} >{`%25%20%2F%2F%20MatrixForm%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"ec83dc59-bb7c-4936-802b-f8b642298c96"} type={"Output"} opts={{}} >{`%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%7D%28%2A%5DGB%2A%29%29`}</WLJSEditor>
+
+### Ladder operators
+Let us define a typical lowering and raising operators
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"ca3ab9a5-f8ee-45ad-be02-6633739d0065"} type={"Input"} opts={{}} >{`Ket%20%2F%3A%20Sp.%28%2ABB%5B%2A%29%28Ket%5BMs_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%20%3A%3D%20%28%2ASqB%5B%2A%29Sqrt%5B2%282%2B1%29%20-%20%28Ms%2B1%29Ms%5D%28%2A%5DSqB%2A%29%20%28%2ABB%5B%2A%29%28Ket%5BMs%2B1%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%0AKet%20%2F%3A%20Sm.%28%2ABB%5B%2A%29%28Ket%5BMs_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%20%3A%3D%20%28%2ASqB%5B%2A%29Sqrt%5B2%282%2B1%29%20-%20%28Ms-1%29Ms%5D%28%2A%5DSqB%2A%29%20%28%2ABB%5B%2A%29%28Ket%5BMs-1%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%0AKet%20%2F%3A%20Sz.%28%2ABB%5B%2A%29%28Ket%5BMs_%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%20%3A%3D%20Ms%20%28%2ABB%5B%2A%29%28Ket%5BMs%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29%0A%0ASx%20%3D%20%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%28Sp%20%2B%20Sm%29%3B%0ASy%20%3D%20%20%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282I%20%29%29%28%2A%5DFB%2A%29%28Sp%20-%20Sm%29%3B%20`}</WLJSEditor>
+
+Let's test
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"b19b0635-be0a-4f7c-81d8-d8a95e319b34"} type={"Input"} opts={{}} >{`Sp.%28%2ABB%5B%2A%29%28Ket%5B1%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFxTxAMe%2FUEpfU5PyixJL8IohKFiARVJqTGgxieKQmpgQzQ9QBABLAE1g%3D%22%2A%29%28%2A%5DBB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"f476f603-ac9a-4086-8a29-b93a2a2ea962"} type={"Output"} opts={{}} >{`2%20%28%28%2ABB%5B%2A%29%28Ket%5B2%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCV4gEZaZWu6SmpxflFiSXxTMDBTxTi2B6GMBEkGlOanBIIZHamIKTBoAFg4VsQ%3D%3D%22%2A%29%28%2A%5DBB%2A%29%29`}</WLJSEditor>
+
+## Linear algebra
+In Woflram Language a linear properties of `Dot` operator __are not predefined__, i.e.
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"3522f42a-ba13-49c5-b89a-520add087886"} type={"Input"} opts={{}} >{`a%20.%20%282%20b%29%20%3D%3D%3D%202%20a.b%20%0Aa%20.%20%28b%20%2B%20c%29%20%3D%3D%3D%20a.b%20%2B%20a.c%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"5d030bb7-0d2d-4e74-a35b-6e0065e9dd4b"} type={"Output"} opts={{}} >{`False`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"6ee9748e-846d-475c-86da-8714bdee8f26"} type={"Output"} opts={{}} >{`False`}</WLJSEditor>
+
+But it is relatively easy to define them
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"e68c7a37-f579-4f97-8ce0-b0302ce38c48"} type={"Input"} opts={{}} >{`Unprotect%5BDot%5D%3B%0AUnprotect%5BConjugate%5D%3B%0A%0AConjugate%5Ba_%20b_%5D%20%3A%3D%20Conjugate%5Ba%5D%20Conjugate%5Bb%5D%0AConjugate%5Ba_%20%2B%20b_%5D%20%3A%3D%20Conjugate%5Ba%5D%20%2B%20Conjugate%5Bb%5D%0A%0ADot%5Ba_%2C%20b_%3FNumericQ%5D%20%3A%3D%20b%20a%0ADot%5Bb_%3FNumericQ%2C%20a_%5D%20%3A%3D%20b%20a%0ADot%5Ba_%20%2B%20b_%2C%20c_%5D%20%3A%3D%20a.c%20%2B%20b.c%20%0ADot%5Bc_%2C%20a_%20%2B%20b_%5D%20%3A%3D%20c.a%20%2B%20c.b%20%20%0ADot%5Ba_%2C%20b_%3FNumericQ%20c_%5D%20%3A%3D%20b%20a.c%0ADot%5Bb_%3FNumericQ%20c_%2C%20a_%5D%20%3A%3D%20b%20c.a%0A%0AProtect%5BDot%5D%3B%0AProtect%5BConjugate%5D%3B`}</WLJSEditor>
+
+Now it is better
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"960748a9-0092-4d6d-9cc2-3529a7b61291"} type={"Input"} opts={{}} >{`a%20.%20%282%20b%29%20%3D%3D%3D%202%20a.b%20%0Aa%20.%20%28b%20%2B%20c%29%20%3D%3D%3D%20a.b%20%2B%20a.c%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"979a7f67-d506-457b-ac40-ca05b03d351f"} type={"Output"} opts={{}} >{`True`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"769a8080-234b-4663-bf38-8cfbbe466120"} type={"Output"} opts={{}} >{`True`}</WLJSEditor>
+
+## Spin Hamiltonian
+For example, one can try to solve a well-known spin-hamiltonian for a spin system with an uniaxial anisotropy in magnetic field perpendicular to it
+
+$$
+\hat{H} = \hat{S}_x h - d \hat{S}_z^2
+$$
+
+If `d` is negative, the spin system has easy-plane anisotropy, i.e. it is more preferable for a spin to lie in `xy` plane.
+
+In a code it looks like this
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"13e9e3d7-96b2-4ce0-bf68-c1bed82ad8de"} type={"Input"} opts={{}} >{`H%5Bh_%2C%20d_%5D%20%3A%3D%20Sx%20h%20-%20d%20Sz.Sz`}</WLJSEditor>
+
+Let us find an average projection of a spin to the field direction
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"036b8c43-38a1-4e43-bcaf-5ba70416edfa"} type={"Input"} opts={{}} >{`SxMatrix%20%3D%20Table%5BConjugate%5Bi%5D.Sx.j%2C%20%7Bi%2C%20basis%7D%2C%20%7Bj%2Cbasis%7D%5D%3B`}</WLJSEditor>
+
+Compute for each field the ground state and find an average of Sx
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"51745060-3c79-4c71-af7d-50acc65371c2"} type={"Input"} opts={{}} >{`estimate%5Bd_%5D%20%3A%3D%20Table%5B%0A%20%20With%5B%7B%0A%20%20%20%20matrix%20%3D%20Table%5BConjugate%5Bi%5D.H%5Bh%2C%20d%5D.j%2C%20%7Bi%2C%20basis%7D%2C%20%7Bj%2Cbasis%7D%5D%0A%20%20%7D%2C%0A%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20system%20%3D%20Eigensystem%5Bmatrix%5D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20%20%20gState%20%3D%20%7BSortBy%5Bsystem%20%2F%2F%20Transpose%2C%20First%5D%20%2F%2F%20First%20%2F%2F%20Last%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%7Bh%2C%20Conjugate%5BgState%5D.SxMatrix.Transpose%5BgState%5D%20%2F%2F%20First%20%2F%2F%20First%7D%20%0A%20%20%20%20%20%20%5D%0A%20%20%20%20%5D%0A%20%20%5D%0A%2C%20%7Bh%2C%200%2C%205%2C%200.1%7D%5D%3B%0A%0A%0AListLinePlot%5B%7Bestimate%5B-1%5D%2C%20estimate%5B1%5D%7D%2C%20PlotLegends-%3E%7B%22easy-plane%22%2C%20%22easy-axis%22%7D%2C%20AxesLabel-%3E%7B%22h%22%2C%20%22S_%7BX%7D%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"3be62770-7031-4163-90d0-f51e849588a9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%226295e4b2-f7d7-4184-b83c-691d6b88cdc2%22%5D%2C%20InputForm%5D%2C%20Placed%5BLineLegend%5B%7BDirective%5BPointSize%5B1%2F72%5D%2C%20RGBColor%5B0.24%2C%200.6%2C%200.8%5D%2C%20AbsoluteThickness%5B2%5D%5D%2C%20Directive%5BPointSize%5B1%2F72%5D%2C%20RGBColor%5B0.95%2C%200.627%2C%200.1425%5D%2C%20AbsoluteThickness%5B2%5D%5D%7D%2C%20%7B%22easy-plane%22%2C%20%22easy-axis%22%7D%2C%20LegendMarkers%20-%3E%20%7B%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%7D%2C%20Joined%20-%3E%20%7BTrue%2C%20True%7D%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%5D%2C%20After%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJytUstKAzEUrW8tCuoHCILbWfRhrYsyVFtfVKwdcZ9J7mgwTUqS0Y57P0K37vyCrv0AF278AN2IIPgHJhmtVAQRzOKQ3NzHuefexVC0opFMJqNmDBxSOKsBFhJpIYMJY2nAEXCSj4atS9ZAnVDzZx2jIWubN7AhBdd1TupdwLFGIYNgyZhL%2BdVlKIZ5L1ohK14xVy56YbmAvdJqjpTCchkT%2FJF41EArNmGT9gKI7HGWOOuBjCHlN26gyRAGEo1%2FkmlQDinDrzwNqnQaMWWgRiVgTU8hZWtNTUG5Dug5pDGuJNJUcMSodaJbBtIM7m9zbV0wIWVv4eJlv3fny4I7j768urTn2U9zzxmohkqwWMPBMcUnHJSiw%2F1k%2F0wncufVlzdv97vh7JMvK9mH607l9nc6A1oFVkhAKvE6DHEIpj6fqEvV4HjcjqR67yJ5AlJ9k33gpcbsaiCmwPVZjbVom8bwX71cZTvyHaMUfJt0f0m%2BtmUw0K0JCoEFOmEQZX7m61yn%2B901UCJiHdiiRuy4zR3LaqRNy3YI2wS4pjp5BzruzsA%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+One can modify it and estimate the projection for different anisotropy term `d` magnitudes
+
+Taking it from `0` up to `~h`
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"f6e37eff-3e8e-45b5-b67e-1c713379ef99"} type={"Input"} opts={{}} >{`Table%5B%0A%20%20With%5B%7B%0A%20%20%20%20matrix%20%3D%20Table%5BConjugate%5Bi%5D.H%5Bh%2C%20d%5D.j%2C%20%7Bi%2C%20basis%7D%2C%20%7Bj%2Cbasis%7D%5D%0A%20%20%7D%2C%0A%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20system%20%3D%20Eigensystem%5Bmatrix%5D%0A%20%20%20%20%7D%2C%0A%20%20%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20%20%20gState%20%3D%20%7BSortBy%5Bsystem%20%2F%2F%20Transpose%2C%20First%5D%20%2F%2F%20First%20%2F%2F%20Last%7D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%7Bh%2C%20Conjugate%5BgState%5D.SxMatrix.Transpose%5BgState%5D%20%2F%2F%20First%20%2F%2F%20First%7D%20%0A%20%20%20%20%20%20%5D%0A%20%20%20%20%5D%0A%20%20%5D%0A%2C%20%7Bd%2C%200%2C%2010%2C%201%7D%2C%20%7Bh%2C%200%2C%2010%2C%200.2%7D%5D%3B%0A%0AListLinePlot%5B%25%2C%20ImageSize-%3E400%2C%20Frame-%3ETrue%2C%20PlotStyle-%3E%22DarkRainbow%22%2C%20PlotLegends-%3ETable%5B%22H%3D%22%3C%3EToString%5BSetPrecision%5Bh%2C%201%5D%5D%2C%20%7Bh%2C%200%2C%2010%2C%200.2%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"01643120-d3b7-46a4-b07e-d35877056242"} id={"f607a133-5b7d-419a-94c3-e06bbaad7aff"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%2297462b5c-bc3b-4580-a58a-dcbbbc3dce0e%22%5D%2C%20InputForm%5D%2C%20Placed%5BLineLegend%5B%7BDirective%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.237736%2C%200.340215%2C%200.575113%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.253651%2C%200.344893%2C%200.558151%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.264425%2C%200.423024%2C%200.3849%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.291469%2C%200.47717%2C%200.271411%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.416394%2C%200.555345%2C%200.24182%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.624866%2C%200.673302%2C%200.264296%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.813033%2C%200.766292%2C%200.303458%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.877875%2C%200.731045%2C%200.326896%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.812807%2C%200.518694%2C%200.303459%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.72987%2C%200.239399%2C%200.230961%5D%5D%2C%20Directive%5BPointSize%5B1%2F120%5D%2C%20AbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.72987%2C%200.239399%2C%200.230961%5D%5D%7D%2C%20%7B%22H%3D0%22%2C%20%22H%3D0.2%22%2C%20%22H%3D0.4%22%2C%20%22H%3D0.6%22%2C%20%22H%3D0.8%22%2C%20%22H%3D1.%22%2C%20%22H%3D1.%22%2C%20%22H%3D1.%22%2C%20%22H%3D2.%22%2C%20%22H%3D2.%22%2C%20%22H%3D2.%22%7D%2C%20LegendMarkers%20-%3E%20%7B%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%2C%20%7BFalse%2C%20Automatic%7D%7D%2C%20Joined%20-%3E%20%7BTrue%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%2C%20True%7D%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%5D%2C%20After%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcHsQBGf1PTUvBSjNCaQEi4g4ZqSCZQDKUxjBIkJAQm3ovy8Ete8FNeK1OTSksSknNRgFaCwpbmJmVGSabJuUrJxkq6JqYWBbqKpRaJuSnJSElAoJTnVIBViMAuQCCoFauMAMVITU%2FzzcirBoiFFpakQ97EBiYCcxOTUlDQ2mGN8MvNSIS5M44aZ45NZXALRwQkkXDKLUpNLMstSIa4FCQXkZ%2BaVBGdWQe0GW5lYkpmfl5iTCVKUWQEkIMoFgYRjUnF%2BTmlJakhGZnJ2XmpxcSZIG8QGsF53J%2Bf8nPyiIqeqLhmlvHP2RV8%2FL1MSPXbVvqhA5UJCcPoj%2BwFxznKHtPSL1hfsi4QWPxfbJXTNvmh1ZHpN%2FJ2HA%2BOcc6vOXw17A3SOski042Wh2%2FZFD%2FbxzTFedGNgnNPDv3l67vJL9kXvyjW4vnTesy%2F6PtnQ7kzcxYFxjiWXAKvxslv2RRkv5j9IOvrQvig79ZD%2B18%2FnBsY5kjY%2Bv5%2F9e2xfdHjWqUUbup%2FaFz1aLXvU8tWFgXFOpLHRiViWV%2FZFDt%2BfnilrfWFfNCEzV%2Bp29uWBcU6K9X3%2FXvE39kUGH%2B5U70h5bl%2B0PNbH%2BO7rKwPjHNftcZebmYChs8DkiobKzAf2RXsDtX3uD1ToXJjdFSIRDQwU7Z83YhcsAZaHL5MueylOODvonINSZQSDtHrYGgSzQmg9IzjLBM4yg7MsglnALEM9nAwjLAzU6g5c50LqL99EYI4vKk7jQnYTQjWIVwyy2y0xpzgVHGCOpSX5ucAQSh5VRVtV4JgCNTm8gEk0Fa2lAW%2Bk0I6B5hJwuycxKTUnuKQyJzWNAXuCASvlgScvn8TK%2FNKSYJAvgNmiNDcP7G3HtBJgmgNlF8%2BU1LySzJJKAOIInDE%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

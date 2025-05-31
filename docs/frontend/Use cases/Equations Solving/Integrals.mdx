@@ -1,0 +1,149 @@
+# Integration
+*Adapted from Wolfram.com documentation*
+
+The Wolfram Language knows how to do almost any integral that can be done in terms of standard mathematical functions. But you should realize that even though an integrand may contain only fairly simple functions, its integral may involve much more complicated functions—or may not be expressible at all in terms of standard mathematical functions.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-6572211632922602710.txt').default} json={require('./attachments/fbbcb65f-0538-4b86-be56-2f5b6d0b15a2.txt').default} notebook={require('./attachments/notebook-fbb.wln').default}/>
+
+
+
+
+## Take an integral
+Use command palette **Special Characters** toolbox to enter integral or type it directly
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"ca6499a8-1e8d-4799-a6ab-2332877893d8"} type={"Input"} opts={{}} >{`Integrate%5Bu%5Bx%5D%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"39565f6c-5521-4fb2-9244-e66238f98b20"} type={"Output"} opts={{}} >{`%28%2ATB%5B%2A%29Integrate%5B%28%2A%7C%2A%29u%5Bx%5D%28%2A%7C%2A%29%2C%20%28%2A%7C%2A%29x%28%2A%7C%2A%29%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcGcQBHPvJLUdCA3NZMRpIgVSLgl5hSnAgCQTg44%2A%29%28%2A%5DTB%2A%29`}</WLJSEditor>
+
+You can take derivative of it as normal
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"f3fa2daf-b6dd-4bfe-a0d7-e58083a5385f"} type={"Input"} opts={{}} >{`D%5B%28%2ATB%5B%2A%29Integrate%5B%28%2A%7C%2A%29u%5Bx%5D%28%2A%7C%2A%29%2C%20%28%2A%7C%2A%29x%28%2A%7C%2A%29%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcGcQBHPvJLUdCA3NZMRpIgVSLgl5hSnAgCQTg44%2A%29%28%2A%5DTB%2A%29%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"13328a20-184a-436c-852e-ef81dd63feaf"} type={"Output"} opts={{}} >{`u%5Bx%5D`}</WLJSEditor>
+
+Take an integral of a defined function
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"63a20227-a0cf-4f32-8437-86bde396f128"} type={"Input"} opts={{}} >{`%28%2ATB%5B%2A%29Integrate%5B%28%2A%7C%2A%29Log%5Bx%5D%28%2A%7C%2A%29%2C%20%28%2A%7C%2A%29x%28%2A%7C%2A%29%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcGcQBHPvJLUdCA3NZMRpIgVSLgl5hSnAgCQTg44%2A%29%28%2A%5DTB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"28d9e60b-8f29-49a7-8dbb-20aa1d6ca6fa"} type={"Output"} opts={{}} >{`-x%2Bx%20Log%5Bx%5D`}</WLJSEditor>
+
+Define the boundaries
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"b68a8ccc-c4f4-4794-8750-320b727873a8"} type={"Input"} opts={{}} >{`Integrate%5BSin%5Bx%5D%2C%20%7Bx%2C%20A%2C%20B%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"df8a8f1f-26fa-4eb9-afdc-92840914b04e"} type={"Output"} opts={{}} >{`Cos%5BA%5D-Cos%5BB%5D`}</WLJSEditor>
+
+More complicated example
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"15a668b1-a309-47f1-b59e-5291364a072a"} type={"Input"} opts={{}} >{`Integrate%5B%28%2ASpB%5B%2A%29Power%5B%281%20-%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29g%5D%28%2A%5DSpB%2A%29%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"df552430-85d5-4274-bf25-7bc8757eae6b"} type={"Output"} opts={{}} >{`x%20Hypergeometric2F1%5B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C-g%2C%28%2AFB%5B%2A%29%28%283%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D`}</WLJSEditor>
+
+__Hybrid approach__
+Integrals like this can systematically be done using `Piecewise`
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"0c16c431-5ed1-41e3-bc89-80c90ac3237c"} type={"Input"} opts={{}} >{`Integrate%5B%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%29Max%5Bx%2C%201%20-%20x%5D%5D%28%2A%5DSpB%2A%29%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"542cc1d1-be1a-4b5c-9976-8125082d534a"} type={"Output"} opts={{}} >{`%28%2ATB%5B%2A%29Piecewise%5B%7B%7B%28%2A%7C%2A%29-%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%291-x%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28Log%5B2%5D%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29x%3C%3D%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%29-%28%2AFB%5B%2A%29%28%282%20%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28Log%5B2%5D%29%29%28%2A%5DFB%2A%29%2B%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%29x%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28Log%5B2%5D%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29True%28%2A%7C%2A%29%7D%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcGcQJGAzNTk1PLM4tRMkCIAD2QL0A%3D%3D%2A%29%28%2A%5DTB%2A%29`}</WLJSEditor>
+
+You can give explicit assumptions inside `Integrate`
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"307e462a-94af-4b64-877c-2c561aeaa11c"} type={"Input"} opts={{}} >{`Integrate%5BSin%5Bx%5D%20BesselJ%5B0%2C%20a%20x%5D%2Fx%2C%20%7Bx%2C%200%2C%20Infinity%7D%2C%20%0A%20Assumptions%20-%3E%20Im%5Ba%5D%20%3D%3D%200%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"7b255aa4-31e2-48a4-873f-9bf6961e7cd4"} type={"Output"} opts={{}} >{`%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%29%20%28%28%2ASqB%5B%2A%29Sqrt%5B%5C%5BPi%5D%5D%28%2A%5DSqB%2A%29%29%20%28%28%2ATB%5B%2A%29Piecewise%5B%7B%7B%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%282%20a%20ArcSin%5B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28a%29%29%28%2A%5DFB%2A%29%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%28%2ASqB%5B%2A%29Sqrt%5B%5C%5BPi%5D%5D%28%2A%5DSqB%2A%29%29%20Abs%5Ba%5D%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%29%28%2A%5DFB%2A%29%3C1%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%29%28%2ASqB%5B%2A%29Sqrt%5B%5C%5BPi%5D%5D%28%2A%5DSqB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%29%28%2A%5DFB%2A%29%3E1%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%29True%28%2A%7C%2A%29%7D%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcGcQJGAzNTk1PLM4tRMZiAPAA9oC9E%3D%2A%29%28%2A%5DTB%2A%29%29`}</WLJSEditor>
+
+Here is a plot of the resulting function of :
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"11967580-4bec-4ed0-84e7-86423ab9f9e8"} type={"Input"} opts={{}} >{`Plot%5BEvaluate%5B%25%5D%2C%20%7Ba%2C%20-5%2C%205%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"c8941bb9-9fb2-4340-823e-2a33bb8e2465"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2234ad5b97-1592-4235-be75-6d942905d424%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5skppgmWZrrGppaGumaGBmb6ialmpvqmqVYmhhZGpimmBiZAAB3SxS9%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Geometry of Integrals
+The integral of a piecewise-constant function is the sum of the signed areas of the rectangles defined by its plot:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"25b848e5-b592-4e40-bac0-8c652211803a"} type={"Input"} opts={{}} >{`ClearAll%5Bf%2Cx%5D%0A%0Af%5Bx_%5D%20%3A%3D%20Piecewise%5B%7B%0A%20%20%7B0%2C%20x%20%3C%200%7D%2C%0A%20%20%7B1%2C%200%20%3C%3D%20x%20%3C%201%7D%2C%0A%20%20%7B-2%2C%201%20%3C%3D%20x%20%3C%203%7D%2C%0A%20%20%7B5%2C%203%20%3C%3D%20x%7D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"e71a7b0e-0b96-43b2-9cf2-6d19f24ba53d"} type={"Input"} opts={{}} >{`%28%2ATB%5B%2A%29Integrate%5B%28%2A%7C%2A%29f%5Bx%5D%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29x%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gESnnklqelFiSWpTvkVmYwgURYgEVJUmgoAvmMJeQ%3D%3D%2A%29%28%2A%5DTB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"a87a6f2b-d8b7-425e-b199-3675e6e69653"} type={"Output"} opts={{}} >{`2`}</WLJSEditor>
+
+Visualize
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"01f1985b-762a-4e16-ae23-8db4844df94e"} type={"Input"} opts={{}} >{`Plot%5Bf%5Bx%5D%2C%20%7Bx%2C0%2C4%7D%2C%20Filling-%3EAxis%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"639a507a-b5f3-4473-a497-fb24d0cf0e21"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%224904b16f-e9b5-4364-81a9-23ff17401969%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1gamCQZmqXpplommeqaGJuZ6FoYJlrqGhmnpRmamxgYWppZAgB3lxTC%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Find the surface area of the plot 
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"a8cafd7c-1cbb-4acb-9a41-9a58ae57ee65"} type={"Input"} opts={{}} >{`f%5Bx_%2C%20y_%5D%20%3A%3D%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%0APlot3D%5Bf%5Bx%2Cy%5D%2C%20%7Bx%2C0%2C1%7D%2C%20%7By%2C0%2C1%7D%2C%20BoxRatios-%3E%7B1%2C1%2C1%7D%2C%20Axes-%3ETrue%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"163bdb57-928f-4612-bdda-dcf77fcabe79"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22dc8f2638-94e3-4d7d-b407-f00216a036b6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpyRbpBmZGVvoWpqkGuuapJin6CaZGJjrphkYGBmaJRoYmyWZAQCC%2BRVB%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Apply the formula for infinitesimal surface area of a plot:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"b8bfa14d-c413-4093-9ab4-9d1a82552a9a"} type={"Input"} opts={{}} >{`dA%20%3D%20Sqrt%5B1%20%2B%20%28%2ASpB%5B%2A%29Power%5BD%5Bf%5Bx%2C%20y%5D%2C%20x%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20%28%2ASpB%5B%2A%29Power%5BD%5Bf%5Bx%2C%20y%5D%2C%20y%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%5D%20%2F%2F%20Simplify`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"0ef32a4d-7a72-4925-811f-d9010bc3b584"} type={"Output"} opts={{}} >{`%28%2ASqB%5B%2A%29Sqrt%5B1%2B4%20%28%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%2B4%20%28%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%5D%28%2A%5DSqB%2A%29`}</WLJSEditor>
+
+Integrate to find the arc length:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"6331ea35-997a-4f68-b1bc-505a5a083068"} type={"Input"} opts={{}} >{`Integrate%5BdA%2C%20%7Bx%2C%200%2C%201%7D%2C%20%7By%2C%200%2C%201%7D%5D%0A%25%20%2F%2F%20N%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"6a8a7729-8a75-4245-bd29-a38a90b8cbc8"} type={"Output"} opts={{}} >{`%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%2824%29%29%28%2A%5DFB%2A%29%29%20%2824-6%20ArcCot%5B2%5D%2BArcTan%5B%28%2AFB%5B%2A%29%28%284%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%5D%2B14%20Log%5B5%5D%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"adaab9fb-6911-4e66-9333-19178053c8b2"} type={"Output"} opts={{}} >{`1.8615641807530907%60`}</WLJSEditor>
+
+Compare with the answer returned by Area:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"8d37da4c-12b5-4d1a-855c-38314fbe9c29"} type={"Input"} opts={{}} >{`Area%5Bf%5Bx%2C%20y%5D%2C%20%7Bx%2C%200%2C%201%7D%2C%20%7By%2C%200%2C%201%7D%5D%0A%25%20%2F%2F%20N%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"103ef1d0-3383-48e4-a59f-5fb5298dc500"} type={"Output"} opts={{}} >{`%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%2824%29%29%28%2A%5DFB%2A%29%29%20%2824-6%20ArcCot%5B2%5D%2BArcTan%5B%28%2AFB%5B%2A%29%28%284%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%5D%2B14%20Log%5B5%5D%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"4ce72316-c3b1-487a-ac9e-df885a49d666"} type={"Output"} opts={{}} >{`1.8615641807530907%60`}</WLJSEditor>
+
+### Interactive Example
+Consider Gabriel's horn, the interior 
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"e10dbe37-4a3d-4c0a-bac3-24f8ce56c480"} type={"Input"} opts={{}} >{`ClearAll%5Bf%2C%20v%2C%20s%2C%20a%5D%0Af%5Bx_%5D%20%3A%3D%201%2Fx`}</WLJSEditor>
+
+Compute the volume for arbitrary endpoint :
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"11b9229d-c02b-4a56-b9c5-e285d6b11cb2"} type={"Input"} opts={{}} >{`v%5Ba_%5D%20%3D%20Integrate%5B%5C%5BPi%5D%20%28%2ASpB%5B%2A%29Power%5Bf%5Bx%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%2C%20%7Bx%2C%201%2C%20a%7D%2C%20Assumptions%20-%3E%20a%20%3E%201%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"90d73242-d80d-4ef9-b8eb-a30004cff63d"} type={"Output"} opts={{}} >{`%28%2AFB%5B%2A%29%28%28%28-1%2Ba%29%20%5C%5BPi%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28a%29%29%28%2A%5DFB%2A%29`}</WLJSEditor>
+
+Compute the surface area for arbitrary endpoint :
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"267cee82-e742-40fd-85be-100698d0403e"} type={"Input"} opts={{}} >{`s%5Ba_%5D%20%3D%20Integrate%5B2%20%5C%5BPi%5D%20f%5Bx%5D%20Sqrt%5B1%20%2B%20%28%2ASpB%5B%2A%29Power%5BD%5Bf%5Bx%5D%2C%20x%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%2C%20%7Bx%2C%201%2C%20a%7D%2C%20%0A%20%20Assumptions%20-%3E%20a%20%3E%201%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"c0fd7613-7278-4e61-a57c-3cabefb42b6e"} type={"Output"} opts={{}} >{`%5C%5BPi%5D%20%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29-%28%2ASqB%5B%2A%29Sqrt%5B1%2B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%29%29%28%2A%5DFB%2A%29%5D%28%2A%5DSqB%2A%29-ArcSinh%5B1%5D%2BArcSinh%5B%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%29`}</WLJSEditor>
+
+Visualize the horn along with its volume and surface area as functions
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"c740a858-1366-4d88-8289-4511233cc07f"} type={"Input"} opts={{}} >{`Manipulate%5B%0A%20Row%5B%7B%0A%20%20%20RevolutionPlot3D%5B1%2Fs%2C%20%7Bs%2C%201%2C%20b%7D%2C%20%0A%20%20%20%20%20%20RevolutionAxis%20-%3E%20%7B1%2C%200%2C%200%7D%2C%20%0A%20%20%20%20%20%20PlotRange%20-%3E%20%7B%7B1%2C%2015%7D%2C%20%7B-1%2C%201%7D%2C%20%7B-1%2C%201%7D%7D%2C%20Mesh%20-%3E%20None%2C%20%0A%20%20%20%20%20%20ImageSize%20-%3E%20300%2C%20Boxed%20-%3E%20False%0A%20%20%20%5D%2C%20%0A%20%20%20Plot%5B%7Bs%5Bx%5D%2C%20v%5Bx%5D%7D%2F%2FEvaluate%2C%20%7Bx%2C%201%2C%2016%7D%2C%20%0A%20%20%20%20%20%20%20ImageSize%20-%3E%20300%2C%20%0A%20%20%20%20%20%20%20PlotLegends%20-%3E%20%7B%22Surface%20Area%20%3D%20%22%3C%3EToString%5BSetPrecision%5Bs%5Bb%5D%2C%202%5D%5D%2C%20%0A%20%20%20%20%20%20%20%22Volume%20%3D%20%22%3C%3EToString%5BSetPrecision%5Bv%5Bb%5D%2C2%5D%5D%7D%2C%0A%20%20%20%20%20%20%20Epilog-%3E%7BOrange%2C%20PointSize%5BLarge%5D%2C%20%0A%20%20%20%20%20%20%20Point%5B%7Bb%2C%20v%5Bb%5D%20%2F%2F%20N%7D%5D%2C%20Blue%2C%20Point%5B%7Bb%2C%20s%5Bb%5D%20%2F%2F%20N%7D%5D%7D%0A%20%20%20%5D%0A%20%20%7D%5D%20%2F%2F%20Quiet%2C%20%7B%7Bb%2C%205.%2C%20%22a%22%7D%2C%205.%2C%2015%2C%205.0%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"1055e61c-fc7a-4fbb-99ad-a92e5ddbb210"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22a342322a-f554-4cae-8a77-9d26f467e624%22%2C%20%22Initial%22%20-%3E%20%7B5.%7D%2C%20%22View%22%20-%3E%20%2271667ce6-3f82-4b2d-b9d3-fae88c121b2a%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxuamZknp5rpGqdZGOmaJBml6CZZphjrpiWmWlgkGxoZJhklAgCCohXV%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22572a4c41-618f-4472-968a-a86a58367c6d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5obJZokmxjqmhlapOmamJgb6VqaWSTqJlqYJZpaGJuZJ5ulAABz2xT2%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+## Laplace Transforms
+Here is a simple Laplace transform:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"f5e011dd-7911-4609-8f62-4b5fca1feca5"} type={"Input"} opts={{}} >{`ClearAll%5Bt%2Cs%5D%3B%0A%0ALaplaceTransform%5B%28%2ASpB%5B%2A%29Power%5Bt%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%20Sin%5Bt%5D%2C%20t%2C%20s%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"03a06f6c-14b1-4ace-8d5a-3f34c06e1bb8"} type={"Output"} opts={{}} >{`%28%2AFB%5B%2A%29%28%2824%20%281-10%20%28%28%2ASpB%5B%2A%29Power%5Bs%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%2B5%20%28%28%2ASpB%5B%2A%29Power%5Bs%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%29%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5B%281%2B%28%2ASpB%5B%2A%29Power%5Bs%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%295%5D%28%2A%5DSpB%2A%29%29%29%28%2A%5DFB%2A%29`}</WLJSEditor>
+
+Here is the inverse:
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"de0aca2e-3685-405f-90d1-5da3883a53e5"} type={"Input"} opts={{}} >{`InverseLaplaceTransform%5B%25%2C%20s%2C%20t%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"01103b2d-5c7a-45dd-92af-32e70ef4589c"} type={"Output"} opts={{}} >{`%28%28%2ASpB%5B%2A%29Power%5Bt%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%29%20Sin%5Bt%5D`}</WLJSEditor>
+
+## Fourier Transforms
+Integral transforms can produce results that involve "generalized functions"
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"8144438c-2399-4a64-9b87-398cd2846480"} type={"Input"} opts={{}} >{`FourierTransform%5B%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%281%20%2B%20%28%2ASpB%5B%2A%29Power%5Bt%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%29%29%29%28%2A%5DFB%2A%29%2C%20t%2C%20%5C%5BOmega%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"fbbcb65f-0538-4b86-be56-2f5b6d0b15a2"} id={"8d025db1-8ca0-4f06-ab9a-97d326f7b388"} type={"Output"} opts={{}} >{`%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%2B%28%2AFB%5B%2A%29%28%28I%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%29%20%28%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-%28%2AFB%5B%2A%29%28%28%281%2BI%29%20%5C%5BOmega%5D%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29%29%29%28%2A%5DFB%2A%29%5D%28%2A%5DSpB%2A%29%29%20%28%28%2ASqB%5B%2A%29Sqrt%5B%5C%5BPi%5D%5D%28%2A%5DSqB%2A%29%29%20%28%28%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29%29%20%5C%5BOmega%5D%5D%28%2A%5DSpB%2A%29%29%20%28-I%2B%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29I%20%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29%29%20%5C%5BOmega%5D%5D%28%2A%5DSpB%2A%29%29%20HeavisideTheta%5B-%5C%5BOmega%5D%5D%2B%281-I%20%28%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29I%20%28%28%2ASqB%5B%2A%29Sqrt%5B2%5D%28%2A%5DSqB%2A%29%29%20%5C%5BOmega%5D%5D%28%2A%5DSpB%2A%29%29%29%20HeavisideTheta%5B%5C%5BOmega%5D%5D%29`}</WLJSEditor>

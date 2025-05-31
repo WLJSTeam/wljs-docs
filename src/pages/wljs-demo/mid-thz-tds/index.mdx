@@ -1,0 +1,41 @@
+# THz Time-domain modelling
+Using a single Lorentz-Oscillator model we model the responce of a materials with a variable thickneses
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/d8f267d7-727d-4af7-8785-289ff6b731cf.txt').default} notebook={require('./attachments/notebook-d8f.wln').default}/>
+
+
+
+
+Evaluate __initialization cells first__
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"f0c1e9f5-8221-4cc4-bf4f-8a473e0acb45"} type={"Input"} opts={{"InitGroup":true}} >{`f%5B%CF%89_%2C%20eps_%2C%20%CF%890_%2C%20%CF%89p_%2C%20%CE%B3_%5D%20%3A%3D%20eps%20%2B%20%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B%CF%89p%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5B%CF%890%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%20%28%2ASpB%5B%2A%29Power%5B%CF%89%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20I%20%CE%B3%20%CF%89%29%29%28%2A%5DFB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"0efe0fd5-e721-4020-9079-25927075323f"} type={"Input"} opts={{"InitGroup":true}} >{`n%5B%CF%89_%2C%20params__%5D%20%3A%3D%20%28%2ASqB%5B%2A%29Sqrt%5Bf%5B%CF%89%2C%20params%5D%5D%28%2A%5DSqB%2A%29%0A%0Ae%5B%CF%89_%2C%20L_%2C%20params__%5D%20%3A%3D%20Exp%5B-%20%28%2AFB%5B%2A%29%28%28I%202%CF%80%20%28%2ASpB%5B%2A%29Power%5B10%28%2A%7C%2A%29%2C%28%2A%7C%2A%2912%5D%28%2A%5DSpB%2A%29%20%CF%89%20n%5B%CF%89%2C%20params%5D%20L%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28c%20cm2THz%29%29%28%2A%5DFB%2A%29%20%5D%20%2F.%7Bc%20-%3E%203.0%20%28%2ASpB%5B%2A%29Power%5B10%28%2A%7C%2A%29%2C%28%2A%7C%2A%2910%5D%28%2A%5DSpB%2A%29%2C%20cm2THz%20-%3E%2033.4%7D`}</WLJSEditor>
+
+Material parameters ($n$ and $\kappa$)
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"f21088d6-9755-4e4c-a8ed-c570c27f432f"} type={"Input"} opts={{}} >{`Plot%5Bn%5Bx%2C%209.8%2C%2028.66%2C%2015%2C%201.5%5D%20%2F%2F%20ReIm%20%2F%2F%20Evaluate%2C%20%7Bx%2C28.66%20-%2020%2C%2028.66%20%2B%2020%7D%2C%20%0A%20%20FrameLabel-%3E%7B%22wavenumber%20%28cm%5E%7B-1%7D%29%22%7D%2C%20Frame-%3ETrue%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"93049110-d910-4e04-930f-a76696075178"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22061e0ba5-ee09-492d-88fe-801fe1ab75b8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5gZphokJZrqpqYaWOqaWBql6FpYpKXqWhgYpqUaJiaZmyZZAACFChXW%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+A responce of a material to a short pulse ($\delta$ - function)
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"d2f10ed9-dec4-4a0d-b2a4-6e8c00fc62b8"} type={"Input"} opts={{"InitGroup":true}} >{`tds%5Bparams__%5D%20%3A%3D%20%28Join%5B%23%2C%20Reverse%5B%23%5D%5D%20%26%40%20Table%5Be%5B%CF%89%2C%20params%5D%2C%20%7B%CF%89%2C%200%2C100%2C0.1%7D%5D%29%20%2F%2F%20Fourier`}</WLJSEditor>
+
+Make it interactive
+
+*evaluate this after initialization cells*
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"f1ea7763-de57-4346-9d92-16861e22aea2"} type={"Input"} opts={{"InitGroup":false}} >{`udata%20%3D%20%7B%7B0%2C0%7D%2C%20%7B500%2C0%7D%7D%3B%0Athick%20%3D%20ToString%5B0.3%5D%3C%3E%22%20mm%22%3B%0A%0AGraphics%5B%7B%0A%20%20ColorData%5B97%5D%5B1%5D%2C%0A%20%20Line%5Budata%20%2F%2F%20Offload%5D%2C%20Black%2C%0A%20%20Text%5Bthick%20%2F%2F%20Offload%2C%20%7B300%2C%202.5%7D%5D%0A%20%20%7D%2C%0A%20%20%0A%20%20PlotRange-%3E%7B%7B0%2C400%7D%2C%20%7B-3%2C3%7D%7D%2C%20%0A%20%20%0A%20%20TransitionDuration-%3E30%2C%20%0A%20%20TransitionType-%3E%22Linear%22%2C%20%0A%20%20Axes-%3ETrue%2C%20Frame-%3ETrue%2C%20FrameLabel-%3E%7B%22time%2C%20ps%22%2C%20%22Electric%20field%2C%20nA%22%7D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"df2d3c7f-f3f0-4b2c-a69e-63516a06448a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d459ba2d-6287-4bcd-9a4e-56d06f5e22bc%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5iYWiYlGqXomhlZmOuaJCWn6FommqTqmpqlGJilmaYaGSUlAwCJgRYH%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Try __to drag this slider__
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"1ed871dc-ef91-4eb7-a4d8-3ccb8c88fbb7"} type={"Input"} opts={{"InitGroup":true,"Hidden":false}} >{`EventHandler%5BInputRange%5B0.001%2C%200.1%2C%200.002%2C%20%22Label%22-%3E%22Thickness%22%5D%2C%20Function%5Bthickness%2C%20%0A%20%20udata%20%3D%20%7BRange%5BLength%5B%23%5D%5D%2C%20%23%7D%20%26%40%20%28Drop%5B%23%2C%20-Length%5B%23%5D%2F2%2F%2FCeiling%5D%20%26%40%20tds%5Bthickness%2C%209.8%2C%2028.%2C%2015.%2C%200.05%5D%20%2F%2F%20Re%29%20%2F%2F%20Transpose%3B%0A%20%20thick%20%3D%20ToString%5Bthickness%5D%3C%3E%22%20mm%22%3B%0A%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"d8f267d7-727d-4af7-8785-289ff6b731cf"} id={"3ca1a58e-1327-441e-abdf-b21b82a2cd42"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22fea4ffb9-fc11-4ed3-95b8-a35fad6e246e%22%2C%20%22Initial%22%20-%3E%200.05%2C%20%22View%22%20-%3E%20%22865fc7e3-b3dc-407b-ada6-cac6dae7a3a4%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5iZpiWbpxrrJhmnJOuaGJgn6SamJJrpJicmm6UkpponGieaAACTgBa6%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

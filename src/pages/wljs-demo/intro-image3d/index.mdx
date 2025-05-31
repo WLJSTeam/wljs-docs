@@ -1,0 +1,31 @@
+# Volumetric Data
+*Visualize, transform and store 3D clouds of pixels using `Image3D`*
+
+It provides unified symbolic representation for a variety of digital 3D image formats. In particular, an Image3D object contains a three-dimensional array of values (or lists of values) that represent a 3D raster image
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/66080a28-b372-47b3-bd26-6ca4d3d8636d.txt').default} notebook={require('./attachments/notebook-660.wln').default}/>
+
+
+
+
+Generate from `CellularAutomaton`
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"2d3438d9-b3d9-4827-813d-84845a787123"} type={"Input"} opts={{}} >{`Image3D%5B%23%2C%20ImageSize%20-%3E%20150%5D%20%26%20%2F%40%0A%20%20CellularAutomaton%5B%7B14%2C%20%7B2%2C%201%7D%2C%20%7B1%2C%201%2C%201%7D%7D%2C%20%7B%7B%7B%7B1%7D%7D%7D%2C%200%7D%2C%208%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"dc788b09-b9c1-40fe-8eae-4ce7a9f46905"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%223bec9fc7-7bd7-48d2-916b-39d7d1532e2f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyelJlumJZvrmielmOuaWKQY6VoamiXpGlummKcYmhobpRqlAQCPfxXk%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d23af0e6-b727-4283-becf-e82a88ad2ee4%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxgZJ6YZpJrpJpkbmeuaGFkY6yalJqfpploYJVpYJKYYpaaaAACLORY2%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bbb22019-2c02-425f-b705-7c961fac570a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyUlGRkZGFrqGiUbGOmaGJmm6SaZG5jqmidbmhmmJSabmhskAgB97RVe%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e76875c2-abe2-40df-8e60-26c1d407571e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5qbWZibJhvpJialGumaGKSk6VqkmhnoGpklG6aYGJibmhumAgCE8BV2%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%2224e210b3-0f85-4326-bc07-cac69b2f71f3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5mkGhkaJBnrGqRZmOqaGBuZ6SYlG5jrJicmm1kmGaWZG6YZAwB5cRVl%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%226f3e4e69-50b0-4389-a884-2566855dab97%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6UZp5qkmlnqmhokGeiaGFtY6iZaWJjoGpmamVmYmqYkJlmaAwB5uhT%2F%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%229255db83-ac72-4700-8d66-99328e6f3cb6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxqZmqYkWRjrJiabG%2BmamBsY6FqkmJnpWloaG1mkmqUZJyeZAQB4ZhUn%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f48de7a9-d5ae-4c5d-97ca-078e7b4116d3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5lYpKSaJ1rqppgmpuqaJJum6FqaJyfqGphbpJonmRgamqUYAwCUOBYS%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bcceede6-3316-4991-9b29-1069dcb6bd9f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyUnp6ampJrpGhsbmumaWFoa6lomGVnqGhqYWaYkJ5klpVimAQCPpRYS%22%2A%29%28%2A%5DVB%2A%29%7D`}</WLJSEditor>
+
+Create from elevation map
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"781f9d97-1d94-46ff-84e3-07236d02578b"} type={"Input"} opts={{}} >{`everest%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%220b08cf72-aa1c-4025-84ac-9459739641a3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyQZWCSnmRvpJiYaJuuaGBiZ6lqYJCbrWpqYWpobW5qZGCYaAwCAihUN%22%2A%29%28%2A%5DVB%2A%29%3B%0A%0Adata%20%3D%20ImageData%5BImageReflect%5Beverest%2C%20Top-%3EBottom%5D%5D%3B%0Adata3D%20%3D%20Map%5B%23%20Table%5BUnitStep%5B50%23%20-%20k%5D%2C%20%7Bk%2C%2050%7D%5D%26%2C%20data%2C%20%7B-1%7D%5D%3B%0A%0AImage3D%5BReverse%40Transpose%5Bdata3D%2C%20%7B3%2C%202%2C%201%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"b1133bb0-3383-4080-8f7a-f53bd0a19717"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225c34a79d-161a-4a74-8c52-e002962788c0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyYbmySaW6boGpoZJuoCmSa6FsmmRrqpBgZGlmZG5hYWyQYAezcU5A%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+MRT images
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"04320fdf-ea66-491b-b54e-b7ab601d0fdc"} type={"Input"} opts={{}} >{`Image3D%5BExampleData%5B%7B%22TestImage3D%22%2C%20%22CThead%22%7D%5D%2C%20ColorFunction-%3E%22Greys%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"66080a28-b372-47b3-bd26-6ca4d3d8636d"} id={"161c64e1-f1a2-410b-bcc1-e570f51bd827"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22480046ed-95c5-4658-b6ad-ff3d255d2700%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1gYGJiYpaboWpomm%2BqamJla6CaZJabopqUZpxiZmqYYmRsYAAB7iRVI%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

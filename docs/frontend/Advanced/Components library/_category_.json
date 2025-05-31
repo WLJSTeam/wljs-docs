@@ -1,0 +1,8 @@
+{
+  "label": "Components library",
+  "position": 99,
+  "link": {
+    "type": "generated-index",
+    "description": "See a collection the components for use in your notebooks for making slides or other content. No dependencies required, just copy and paste."
+  }
+}

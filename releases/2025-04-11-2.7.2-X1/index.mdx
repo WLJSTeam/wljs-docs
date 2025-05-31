@@ -1,0 +1,57 @@
+# Release notes *2.7.2* X1
+*Expansion subsequent minor update*
+
+What’s new 🔥
+
+- Animation features 👁️
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/0f19a743-a702-401d-9baf-b8a575ab96b4.txt').default} notebook={require('./attachments/notebook-0f1.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"326f8d2b-9374-4096-bc5c-cf82aea3d6a1"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+
+:::note
+This update does not affect the core of WLJS Notebook and will be installed automatically for certain modules.
+:::
+
+## Animate
+The missing function from Mathematica is back! 
+
+:::tip
+We still do recommend to prefer `AnimatePlot` or manual dynamics when it comes to plotting, however for arbitary expressions `Animate` is the way to go
+:::
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"0830aad8-5d61-4709-bfbe-18ff36d86609"} type={"Input"} opts={{}} >{`restart%20%3D%20InputButton%5B%22Replay%22%5D%0A%0AAnimate%5B%0A%20%20Row%5B%7BSin%5Bx%5D%2C%20%22%3D%3D%22%2C%20Series%5BSin%5Bx%5D%2C%20%7Bx%2C0%2Cn%7D%5D%2C%20Invisible%5B1%2F2%5D%7D%5D%2C%20%7Bn%2C%201%2C%2010%2C%201%7D%2C%20%0A%20%20AnimationRate-%3E3%2C%20%0A%20%20%22TriggerEvent%22-%3Erestart%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"0f759fc6-acf5-40be-8b2c-68df56c80eed"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22a76dc175-bdad-4d68-8d65-4515676cbd97%22%2C%20%22Initial%22%20-%3E%20False%2C%20%22View%22%20-%3E%20%2286d9172c-c44d-4a6f-b814-9311f8aca8f3%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5ilWBqaGyXrJpuYpOiaJJql6SZZGJroWhobGqZZJCYnWqQZAwCBIBWs%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"3d937cd3-eb82-424c-b00f-83ff433e154a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d41fbaa8-12f3-4382-8f6d-c065a7ba14b5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gYpiUlJlroGhqlGeuaGFsY6VqkmaXoJhuYmSaaJyUamiSZAgCJaRXI%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## More control over ManipulatePlot
+We provide a possibillity to alter update method for `Animate`, `Manipulate` and `ManipulatePlot`. This is the great way to perform side effects
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"07515549-f098-425d-a42c-804d1a72b36f"} type={"Input"} opts={{}} >{`Module%5B%7Blabel%2C%20pos%7D%2C%0A%20%20ManipulatePlot%5Bx%20w%2C%20%7Bx%2C0%2C1%7D%2C%20%7Bw%2C0%2C2%7D%2C%0A%20%20%20%20Epilog-%3EText%5BStyle%5Blabel%20%2F%2F%20Offload%2C%20FontSize-%3E14%5D%2C%20pos%20%2F%2F%20Offload%5D%2C%0A%20%20%20%20%22UpdateFunction%22%20-%3E%20Function%5Binput%2C%0A%20%20%20%20%20%20label%20%3D%20StringTemplate%5B%22w%20%3D%20%60%60%22%5D%5BSetPrecision%5Binput%2C2%5D%5D%3B%0A%20%20%20%20%20%20pos%20%3D%20%7B0.5%2C%20input%200.5%20%2B%200.2%7D%3B%0A%20%20%20%20%20%20True%0A%20%20%20%20%5D%0A%20%20%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"dc4fc869-49b3-44e0-b8c8-cfa6e20373ca"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28Graphics%5B%7BAbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%2C%20Line%5BOffload%5BCoffeeLiqueur%60Extensions%60Manipulate%60Internal%60pts%244252473%5D%5D%7D%2C%20ImageSize%20-%3E%20%7B400%2C%20300%7D%2C%20PlotRange%20-%3E%20Automatic%2C%20Axes%20-%3E%20True%2C%20TransitionType%20-%3E%20%22Linear%22%2C%20TransitionDuration%20-%3E%2050%2C%20Epilog%20-%3E%20Text%5BStyle%5BOffload%5Blabel%244252470%5D%2C%20FontSize%20-%3E%2014%5D%2C%20Offload%5Bpos%244252470%5D%5D%2C%20Prolog%20-%3E%20%7B%7D%2C%20AxesLabel%20-%3E%20%7B%7D%2C%20%22TrackedExpression%22%20-%3E%20Null%2C%20PlotRange%20-%3E%20%7B%7B-0.050000000000000044%2C%201.05%7D%2C%20%7B-0.050000000000000044%2C%201.05%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyFUrtOQkEQveI7RhP8AxNKC0UMdgQRkYhKgA9ggbm4Ydm97iO5WFtYGmNQO1v9AFtLG61tbTSx8xPc8UIID3GL2Zmds7Nnz8xKRRTcCcdx1JQ1e4LV3AWM5qzJSOId06pyJ7v5HFU6QIetSVaUYEZDyYIaHJSiIXsaoPF%2BIbOdEkxI6bUvPyJXbwm53v66Po%2B%2FJ%2BTz2c3%2Bw%2BNnovd0jnIIollrjlyXCVJTW9ZPCdcFyNETA0aW074GrqjgqnxAOPUMIxrKWa5BcsLKnlaRWHQzGotvuKFu7YJhoOatk22SOhTpKfRy%2BCV6YR%2Bmq9aMuJNnQhcIrwdR0mjRJJpWB5DoJH2rATolaWAgv%2FR7TCxzbbmXWh4UZzq%2FJnIAu9yH3TGS4E6jzhA%2FLJH2KBP1XqIEvg6iaWuKusVG6LpofUYqwDpirQ0UxvbtCq5RK4rch0vgmHhC%2FVEAmeWlQGZO3%2FQMC4yy5ZDLOGQxHIhSbUAt7XsSp83OAKYPDWPj%2Btbf6%2F5I3t3iun%2BSry%2B4vhP%2F5X8AQ73U9Q%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2279d02d24-5891-42d3-9af0-5d9dca4f84e2%22%2C%20%22Initial%22%20-%3E%20%7B1.%7D%2C%20%22View%22%20-%3E%20%229434471c-bfa0-4432-82e7-f398af67bef6%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5oYm5iYGybrJqUlGuiamBgb6VoYpZrrphlbWiSmmZknpaaZAQB5TxWD%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+If `UpdateFunction` returns `False` it prevents the default update action. For example
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"51bfc1f3-9fd2-4bef-bd4f-c254980b9da7"} type={"Input"} opts={{}} >{`Module%5B%7Br%7D%2C%0A%20%20Manipulate%5BGraphics%5BDisk%5B%7B0%2C0%7D%2C%20r%2F%2FOffload%5D%2C%20ImageSize-%3E200%5D%2C%0A%20%20%20%20%7B%7Bradius%2C%201%2C%20%22Radius%22%7D%2C%200%2C1%2C%200.3%7D%2C%0A%20%20%20%20%22UpdateFunction%22%20-%3E%20Function%5Bvalue%2C%0A%20%20%20%20%20%20r%20%3D%20value%3B%0A%20%20%20%20%20%20False%0A%20%20%20%20%5D%0A%20%20%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0f19a743-a702-401d-9baf-b8a575ab96b4"} id={"09b46825-1818-466a-9c62-cdbd8e3f5725"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22e142634e-b787-4e69-ae16-493bef78739d%22%2C%20%22Initial%22%20-%3E%20%7B0.8999999999999999%7D%2C%20%22View%22%20-%3E%20%22484b219f-36a2-444c-840f-0ea656aea910%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1iYJBkZWqbpGpslGumamJgk61qYGKTpGqQmmpmaJaYmWhoaAAB4iRU8%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e742dafc-6712-4b9f-b13a-11afb4762dc3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5qbGKUkpiXrmpkbGumaJFmm6SYZGifqGhompiWZmJsZpSQbAwCL1xX3%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

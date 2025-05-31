@@ -1,0 +1,43 @@
+# Dancing with friends and enemies: boids' swarm intelligence
+Adapted from [Wolfram Community](https://community.wolfram.com/groups/-/m/t/122095). Written by *Simon Woods*
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/e892676c-8293-4f39-9580-c1300c64a6ce.txt').default} notebook={require('./attachments/notebook-e89.wln').default}/>
+
+
+
+
+- 1000 dancers assume random positions on the dance-floor.
+- Each randomly chooses one "friend" and one "enemy".
+- At each step every dancer
+  - moves 0.5% closer to the centre of the floor
+  - then takes a large step towards their friend and a small step away from their enemy.
+- At random intervals one dancer re-chooses their friend and enemy
+
+Randomness is deliberately injected. Here is the dance...
+
+<WLJSHTML>{`%3Cspan%20style%3D%22color%3Ared%22%3EEvaluate%20initialization%20cells%20first%3C%2Fspan%3E`}</WLJSHTML> or go one by one
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"2f0a1479-f09e-4b80-a6d2-86bbf59d7e86"} type={"Input"} opts={{"InitGroup":true}} >{`n%20%3D%201000%3B%0Ar%20%3A%3D%20RandomInteger%5B%7B1%2C%20n%7D%5D%3B%0Af%20%3A%3D%20%28%23%2F%28.01%20%2B%20Sqrt%5B%23.%23%5D%29%29%20%26%20%2F%40%20%28x%5B%5B%23%5D%5D%20-%20x%29%20%26%3B%0As%20%3A%3D%20With%5B%7Br1%20%3D%20r%7D%2C%20p%5B%5Br1%5D%5D%20%3D%20r%3B%20q%5B%5Br1%5D%5D%20%3D%20r%5D%3B%0Ax%20%3D%20RandomReal%5B%7B-1%2C%201%7D%2C%20%7Bn%2C%202%7D%5D%3B%0A%7Bp%2C%20q%7D%20%3D%20RandomInteger%5B%7B1%2C%20n%7D%2C%20%7B2%2C%20n%7D%5D%3B`}</WLJSEditor>
+
+__Main render function__
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"28edcb6c-fb4b-4cb3-8185-0dafead4caa0"} type={"Input"} opts={{"InitGroup":true}} >{`fps%20%3D%200%3B%0AfpsLabel%20%3D%20%220%22%3B%0Atime%20%3D%20AbsoluteTime%5B%5D%3B%0A%0AEventHandler%5B%22frame%22%2C%20Function%5BNull%2C%0A%20%20x%20%3D%200.995%20x%20%2B%200.02%20f%5Bp%5D%20-%200.01%20f%5Bq%5D%3B%0A%20%20If%5Br%20%3C%20100%2C%20s%5D%3B%0A%0A%20%20%28%2A%20FPS%20counter%20%2A%29%0A%20%20fps%20%2B%3D%201%3B%0A%20%20With%5B%7Bdiff%20%3D%20AbsoluteTime%5B%5D%20-%20time%7D%2C%0A%20%20%20%20If%5Bdiff%20%3E%3D%201.0%2C%0A%20%20%20%20%20%20fpsLabel%20%3D%20ToString%5Bfps%20%2F%20%28diff%29%5D%3B%0A%20%20%20%20%20%20fps%20%3D%200%3B%0A%20%20%20%20%20%20time%20%3D%20AbsoluteTime%5B%5D%3B%0A%20%20%20%20%5D%3B%0A%20%20%5D%3B%0A%5D%5D%3B`}</WLJSEditor>
+
+__Drawing function__
+Evaluate *this cell very last*
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"62c72092-dc13-4e5e-ac73-ec4e0a109019"} type={"Input"} opts={{}} >{`Graphics%5B%7B%0A%20%20PointSize%5B0.007%5D%2C%20Point%5Bx%20%2F%2F%20Offload%5D%2C%0A%20%20AnimationFrameListener%5Bx%20%2F%2F%20Offload%2C%20%22Event%22-%3E%22frame%22%5D%2C%0A%20%20Text%5BfpsLabel%20%2F%2F%20Offload%2C%20%7B-1.8%2C1.8%7D%5D%0A%7D%2C%20PlotRange%20-%3E%20%7B%7B-2%2C2%7D%2C%20%7B-2%2C2%7D%7D%2C%20TransitionType-%3ENone%5D%20%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"4ed0600a-b2ca-4c7a-8adf-98c8e3e8673c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BPointSize%5B0.007%5D%2C%20Point%5BOffload%5Bx%5D%5D%2C%20AnimationFrameListener%5BOffload%5Bx%5D%2C%20%22Event%22%20-%3E%20%22frame%22%5D%2C%20Text%5BOffload%5BfpsLabel%5D%2C%20%7B-1.8%2C%201.8%7D%5D%7D%2C%20PlotRange%20-%3E%20%7B%7B-2%2C%202%7D%2C%20%7B-2%2C%202%7D%7D%2C%20TransitionType%20-%3E%20None%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4HkHAvSizIyEwuTmOByftkFpdAVHMCiYD8zLyS4Myq1KLKl2qGHGtq7CFyrDA5CJcdSPinpeXkJ6YUgwQq0phAwmJAwjEvMzexJDM%2Fz60oMTcVZHpqXmoRXm0gZwSV5qQGg2xxLUsFugDESgMZgFARklqBxXaQp9IKin0Sk1JzEGpB1hadPQMCf%2FbDGPaotkH8m5NfEpSYl56KqheVl%2Fnv%2F%2F%2F%2FmSAhwuJgk%2FlAzi1KzCvOBAVESGVBKljOLz8vFQApK2tS%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+__To stop__
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"66287c63-e254-4b20-9594-30a6ad7219fd"} type={"Input"} opts={{}} >{`EventRemove%5B%22frame%22%5D%3B`}</WLJSEditor>
+
+__To restart__ - evaluate `EventHandler` and then a kick-starter
+
+<WLJSEditor display={"codemirror"} nid={"e892676c-8293-4f39-9580-c1300c64a6ce"} id={"b36db9b6-f083-4935-8bad-4958d1189bf2"} type={"Input"} opts={{}} >{`EventFire%5B%22frame%22%2C%20Null%5D%3B`}</WLJSEditor>

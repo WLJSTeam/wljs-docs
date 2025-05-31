@@ -1,0 +1,40 @@
+## Plotly Library
+We provide direct bindings to API of Plotly.js. Try out some the of basic charts
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9.txt').default} notebook={require('./attachments/notebook-9ee.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"90ce4c31-55dc-4a7d-b390-20e6c8a30a23"} type={"Input"} opts={{}} >{`data%20%3D%20Table%5B%7Bx%2C%20Sinc%5B6x%5D%7D%2C%20%7Bx%2C0%2C%202Pi%2C%200.1%7D%5D%3B%0A%0Aplot%20%3D%20Plotly%5B%3C%7C%0A%20%20%22x%22-%3Edata%5B%5BAll%2C1%5D%5D%2C%0A%20%20%22y%22-%3Edata%5B%5BAll%2C2%5D%5D%2C%0A%20%20%22mode%22-%3E%22lines%22%0A%7C%3E%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"fc9af156-43b3-40d7-89ea-a8ec4f510951"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225cab97be-7f56-411c-8c51-a034f8e5778f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyYnJlmaJ6XqmqeZmumaGBom61okmxrqJhoYm6RZpJqam1ukAQCKiBWz%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Now `plot` acts like an instance of the visible plot. To add more traces simply evaluate:
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"32885f7b-adba-4785-bd15-8cd21ebddac6"} type={"Input"} opts={{}} >{`PlotlyAddTraces%5Bplot%2C%20%7B%0A%20%20%3C%7C%22x%22-%3Edata%5B%5BAll%2C1%5D%5D%2C%20%22y%22-%3EReverse%5Bdata%5B%5BAll%2C2%5D%5D%5D%7C%3E%0A%7D%5D`}</WLJSEditor>
+
+Plotly automatically rescales and adds legends. This can be done with almost any plot type.
+
+### Other charts
+Pie, bars, bubble chart. Plotly has almost everything!
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"8a5d0989-cbff-4431-bccf-605f409511c1"} type={"Input"} opts={{}} >{`trace%20%3D%20%3C%7C%20%0A%09%22values%22%20-%3E%20%7B19%2C%2026%2C%2055%7D%2C%20%0A%09%22labels%22%20-%3E%20%7B%22Residential%22%2C%20%22Non-Residential%22%2C%20%22Utility%22%7D%2C%20%0A%09%22type%22%20-%3E%20%22pie%22%20%0A%7C%3E%3B%0A%0APlotly%5Btrace%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"b237e29e-a58f-48f0-bcee-923a3c48824d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22998b6f51-7417-4614-a53e-9abf4aec1b1f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1paJJmlmRrqmpsYmuuamBma6CaaGqfqWiYmpZkkpiYbJhmmAQB40RWq%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"b9c90fba-b2ba-4c88-bb07-336a36f810dc"} type={"Input"} opts={{}} >{`trace%20%3D%20%3C%7C%20%0A%09%22x%22%20-%3E%20%7B%22giraffes%22%2C%20%22orangutans%22%2C%20%22monkeys%22%7D%2C%20%0A%09%22y%22%20-%3E%20%7B20%2C%2014%2C%2023%7D%2C%20%22type%22%20-%3E%20%22bar%22%20%0A%7C%3E%3B%0A%0APlotly%5Btrace%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"99acd856-7533-4926-ba70-aa067b195f84"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a5204aec-183f-42a7-819a-2796b31cd9fa%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5oaGZgkpibrGloYp%2BmaGCWa61oYWibqGplbmiUZGyanWKYlAgCAhBWg%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"b03af925-6539-442e-a3f1-4c4251cd92f0"} type={"Input"} opts={{}} >{`trace%20%3D%20%3C%7C%0A%09%22x%22%20-%3E%20%7B1%2C%202%2C%203%2C%204%7D%2C%20%0A%09%22y%22%20-%3E%20%7B10%2C%2011%2C%2012%2C%2013%7D%2C%20%0A%09%22mode%22%20-%3E%20%22markers%22%2C%20%0A%09%22marker%22%20-%3E%20%3C%7C%20%22size%22%20-%3E%20%7B40%2C%2060%2C%2080%2C%20100%7D%20%7C%3E%20%0A%7C%3E%3B%0A%0APlotly%5Btrace%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"1a756161-9191-414f-a170-2243fc11819b"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2289322229-2393-4060-99a1-f0e3d4695046%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1gaGwGBpa6RsaWxromBmYGupWWioW6aQapxiomZpamBiRkAZGUUKw%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"bb754ec4-0642-429a-afcc-c418eb19fed3"} type={"Input"} opts={{}} >{`heatmap%20%3D%20%3C%7C%0A%09%22z%22%20-%3E%20Table%5Bx%20y%2C%20%7Bx%2C-10%2C10%7D%2C%20%7By%2C-10%2C10%7D%5D%2C%0A%09%22type%22%20-%3E%20%22heatmap%22%0A%7C%3E%3B%0A%0APlotly%5Bheatmap%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9ee80bcc-41b8-4ce7-8e11-c3e7f6b997d9"} id={"87e7e325-1126-49f5-803f-f6343d2a42fb"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22cf3f833e-a0af-46f0-ab3b-8d1f765d5be1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6cZp1kYG6fqJhokpumamKUZ6CYmGSfpWqQYppmbmaaYJqUaAgCUTxZe%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

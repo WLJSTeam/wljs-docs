@@ -1,0 +1,21 @@
+## Clouds using Gaussian noise
+This is a 2D Gaussian random field with a $1/k^2$ spectrum and linear dispersion $\omega \propto k$. I clip the field to positive values and square root it to give an edge to the "clouds".
+
+*Adapted from https://mathematica.stackexchange.com/questions/80486/generating-animations-of-clouds-with-mathematica*
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-6305477302295555758.txt').default} json={require('./attachments/a47d807b-3104-4afb-9060-6807c6180a3d.txt').default} notebook={require('./attachments/notebook-a47.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"a47d807b-3104-4afb-9060-6807c6180a3d"} id={"c803fa94-918d-4c27-9777-ffc4623390ea"} type={"Input"} opts={{}} >{`n%20%3D%20256%3B%0Ak2%20%3D%20Outer%5BPlus%2C%20%23%2C%20%23%5D%20%26%5BRotateRight%5BN%40Range%5B-n%2C%20n%20-%201%2C%202%5D%2Fn%2C%20n%2F2%5D%5E2%5D%3B%0A%0Aspectrum%20%3D%20With%5B%7Bd%20%3A%3D%20RandomReal%5BNormalDistribution%5B%5D%2C%20%7Bn%2C%20n%7D%5D%7D%2C%0A%20%20%20%281%2Fn%29%20%28d%20%2B%20I%20d%29%2F%280.000001%20%2B%20k2%29%5D%3B%20%0Aspectrum%5B%5B1%2C%201%5D%5D%20%2A%3D%200%3B%0A%0Aim%5Bp_%5D%20%3A%3D%20Clip%5BRe%5BInverseFourier%5Bspectrum%20Exp%5BI%20p%5D%5D%5D%2C%20%7B0%2C%20%E2%88%9E%7D%5D%5E0.5%0A%0Ap0%20%3D%20p%20%3D%20Sqrt%5Bk2%5D%3B`}</WLJSEditor>
+
+Animate
+
+<WLJSEditor display={"codemirror"} nid={"a47d807b-3104-4afb-9060-6807c6180a3d"} id={"223cd013-2ef5-47dd-9fdc-d27c6962e4f3"} type={"Input"} opts={{}} >{`EventHandler%5B%22frame%22%2C%0A%20%20Function%5BNull%2C%20buffer%20%3D%20NumericArray%5B255.0%20im%5Bp0%20%2B%3D%20p%5D%2C%20%22UnsignedInteger8%22%2C%20%22ClipAndRound%22%5D%5D%0A%5D%3B%0A%0AEventFire%5B%22frame%22%2C%20True%5D%3B%0A%0AImage%5B%0A%20%20buffer%20%2F%2F%20Offload%2C%20%22Byte%22%2C%0A%20%20Epilog%20-%3E%20%7B%0A%20%20%20%20AnimationFrameListener%5Bbuffer%20%2F%2F%20Offload%2C%20%22Event%22%20-%3E%20%22frame%22%5D%0A%20%20%7D%2C%20Magnification%20-%3E%202%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a47d807b-3104-4afb-9060-6807c6180a3d"} id={"a2ec93d7-81fa-4705-b89e-210306e526b5"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2230bafec7-00b4-423e-a80b-b78471f18e0e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxskJaalJpvrGhgkmeiaGBmn6iZaGCTpJplbmJgbphlapBqkAgCJfhXD%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

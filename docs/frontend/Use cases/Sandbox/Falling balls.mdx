@@ -1,0 +1,27 @@
+# Simple fast animation
+Falling balls
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-714215149096084936.txt').default} json={require('./attachments/7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43.txt').default} notebook={require('./attachments/notebook-7ac.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43"} id={"d33fe8b1-2543-4f18-8ce2-9e07f832099e"} type={"Input"} opts={{}} >{`balls%20%3D%20RandomReal%5B%7B-1%2C1%7D%2C%20%7B300%2C3%7D%5D%3B%0Avels%20%20%3D%20RandomReal%5B%7B-1%2C1%7D%2C%20%7B300%2C3%7D%5D%3B%0A%0AGraphics3D%5B%7B%0A%20%20Table%5BWith%5B%7Bi%20%3D%20i%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20RGBColor%5BRandomReal%5B%7B0%2C1%7D%2C%203%5D%5D%2C%0A%20%20%20%20%20%20Sphere%5Bballs%5B%5Bi%5D%5D%20%2F%2F%20Offload%2C%200.03%5D%0A%20%20%20%20%7D%0A%20%20%5D%2C%20%7Bi%2C%20Length%5Bballs%5D%7D%5D%2C%20%0A%20%20AnimationFrameListener%5Bballs%20%2F%2F%20Offload%2C%20%22Event%22-%3E%22frame%22%5D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43"} id={"d7658776-780d-44ad-abb2-e7fe4153da13"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2242990252-18e0-4f4d-a0c1-e4189abcfd10%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxhZWhoYmRrpGlqkGuiapJmk6CYaJBvqppoYWlgmJiWnpRgaAABz%2BxVl%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Update function
+
+<WLJSEditor display={"codemirror"} nid={"7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43"} id={"36a93df7-76fb-4b03-9402-4a5ffeaee899"} type={"Input"} opts={{"InitGroup":true}} >{`EventHandler%5B%22frame%22%2C%20Function%5BNull%2C%0A%0A%20%20vels%20%3D%20Table%5B%0A%20%20%20%20If%5BNorm%5Bballs%5B%5Bi%5D%5D%5D%20%3C%200.01%2C%20-1%2C%201%5D%20vels%5B%5Bi%5D%5D%20-%200.08%20balls%5B%5Bi%5D%5D%0A%20%20%2C%20%7Bi%2C%20Length%5Bballs%5D%7D%5D%3B%0A%20%20%0A%20%20balls%20%3D%20Table%5Bballs%5B%5Bi%5D%5D%20%2B%200.08%20vels%5B%5Bi%5D%5D%2C%20%7Bi%2C%20Length%5Bballs%5D%7D%5D%3B%0A%5D%5D%3B`}</WLJSEditor>
+
+To start animation
+
+<WLJSEditor display={"codemirror"} nid={"7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43"} id={"c9ee2539-6303-4295-b7f2-8bd192a7535a"} type={"Input"} opts={{}} >{`EventFire%5B%22frame%22%2C%20Null%5D`}</WLJSEditor>
+
+To stop
+
+<WLJSEditor display={"codemirror"} nid={"7ac47ffd-7e72-457c-8c9a-5dc25ce5ed43"} id={"7cf517aa-299b-43c2-8d72-bdd5cfbfc136"} type={"Input"} opts={{}} >{`EventRemove%5B%22frame%22%5D`}</WLJSEditor>

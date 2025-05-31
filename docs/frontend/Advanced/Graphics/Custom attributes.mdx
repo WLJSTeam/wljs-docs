@@ -1,0 +1,69 @@
+Since most primitives of [Graphics](frontend/Reference/Graphics/Graphics.md) are Javascript functions, one can extend the set of their properties / attributes modifiers (aka [RGBColor](frontend/Reference/Graphics/RGBColor.md), [Opacity](frontend/Reference/Graphics3D/Opacity.md) and etc) by writing a [WLJS Functions](frontend/Advanced/Frontend%20interpretation/WLJS%20Functions.md).
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/74cff67f-6a0f-4b77-a9f0-1d6c27c28425.txt').default} />
+
+
+## Group modifier
+The easiest example will be making something similar to [Translate](frontend/Reference/Graphics/Translate.md), which creates an SVG group and evaluates all children within a new group. By accessing `env` object we can interact with a canvas and properties of the children.
+
+### Animated Rainbow stroke
+Let's define our function using [Javascript](frontend/Cell%20types/Javascript.md) cells
+
+```js
+.js
+
+core.RainboxStroke = async (args, env) => {
+    const group = env.svg.append("g");
+    env.local.group = group;
+
+    let hue = 0;
+    let frame = 0;
+
+    function animateColor() {
+      if (frame % 2 === 0) {
+        hue = (hue + 4) % 360;
+        group.style('color', `hsl(${hue}, 100%, 50%)`);
+      }
+      frame++;
+      env.local.uid = requestAnimationFrame(animateColor);
+    }
+
+    animateColor();
+
+	//apply special SVG attribute value
+	//that all nested elements can inherit color of the group
+    await interpretate(args[0], {...env, svg: group, color:'currentColor', stroke:'currentColor'});
+  
+    return group;  
+}
+
+core.RainboxStroke.destroy = (args, env) => {
+  cancelAnimationFrame(env.local.uid);
+  env.local.group.remove();
+}
+
+core.RainboxStroke.virtual = true
+```
+
+<WLJSEditor display={"js"} nid={"74cff67f-6a0f-4b77-a9f0-1d6c27c28425"} id={"ee7571ca-1903-4dea-952a-a959cabca5f5"} type={"Output"} opts={{}} >{`%0Acore.RainboxStroke%20%3D%20async%20%28args%2C%20env%29%20%3D%3E%20%7B%0A%20%20%20%20const%20group%20%3D%20env.svg.append%28%22g%22%29%3B%0A%20%20%20%20env.local.group%20%3D%20group%3B%0A%0A%20%20%20%20let%20hue%20%3D%200%3B%0A%20%20%20%20let%20frame%20%3D%200%3B%0A%0A%20%20%20%20function%20animateColor%28%29%20%7B%0A%20%20%20%20%20%20if%20%28frame%20%25%202%20%3D%3D%3D%200%29%20%7B%0A%20%20%20%20%20%20%20%20hue%20%3D%20%28hue%20%2B%204%29%20%25%20360%3B%0A%20%20%20%20%20%20%20%20group.style%28%27color%27%2C%20%60hsl%28%24%7Bhue%7D%2C%20100%25%2C%2050%25%29%60%29%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20frame%2B%2B%3B%0A%20%20%20%20%20%20env.local.uid%20%3D%20requestAnimationFrame%28animateColor%29%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20animateColor%28%29%3B%0A%0A%09%2F%2Fapply%20special%20SVG%20attribute%20value%0A%09%2F%2Fthat%20all%20nested%20elements%20can%20inherit%20color%20of%20the%20group%0A%20%20%20%20await%20interpretate%28args%5B0%5D%2C%20%7B...env%2C%20svg%3A%20group%2C%20color%3A%27currentColor%27%2C%20stroke%3A%27currentColor%27%7D%29%3B%0A%20%20%0A%20%20%20%20return%20group%3B%20%20%0A%7D%0A%0Acore.RainboxStroke.destroy%20%3D%20%28args%2C%20env%29%20%3D%3E%20%7B%0A%20%20cancelAnimationFrame%28env.local.uid%29%3B%0A%20%20env.local.group.remove%28%29%3B%0A%7D%0A%0Acore.RainboxStroke.virtual%20%3D%20true`}</WLJSEditor>
+
+
+Here we can apply it directly to [Line](frontend/Reference/Graphics/Line.md), [Text](frontend/Reference/Graphics/Text.md), [Disk](frontend/Reference/Graphics/Disk.md) or any other primitives or group of primitives which use stroke or fill color
+
+```mathematica
+Graphics[{
+  RegularPolygon[4],
+  RainboxStroke[{
+    RegularPolygon[3],
+    Translate[Rotate[Text[Style["Hello World", FontSize->20], {0,0}], 45Degree],{0.4,0.4}]
+  }]
+}]
+```
+
+The result:
+
+<WLJSEditor display={"codemirror"} nid={"74cff67f-6a0f-4b77-a9f0-1d6c27c28425"} id={"fa432157-75e6-4720-ac43-5ce131ac8b5b"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BRegularPolygon%5B4%5D%2C%20RainboxStroke%5B%7BRegularPolygon%5B3%5D%2C%20Translate%5BRotate%5BText%5BStyle%5B%22Hello%20World%22%2C%20FontSize%20-%3E%2020%5D%2C%20%7B0%2C%200%7D%5D%2C%2045%2ADegree%5D%2C%20%7B0.4%2C%200.4%7D%5D%7D%5D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyNT0sOwiAUrN9ojK48gB7AM7gx6sKFKU1cU32tLyLPAE1ab6I38zZCsZi4ksXAZOYNb%2BYpxVkriiLdtbAlcfJsYGGj%2BO2MR521G32H2nh9YiGGvBBc7UlUOUl0Bi%2BOnchRplQyo%2BgCfyZ0XEJtHVpIFJdacPOZ7js%2FmcBdWgKl8axngZlKABu5HiAEzQ6kbJ1gjgsBda81ScPwDjgN%2FzWrob2jGr6xCV5B46LZYQW5gp9G6vlw57UMjzfTIU%2B7%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

@@ -1,0 +1,15 @@
+{
+"objects":[
+	"Association",
+	["Rule","'3a58b02a-2a2f-4c9b-b4f7-cdd6c9514b6d'",["Hold",["Sound",["SoundNote",["List",1,5,8]]]]],
+	["Rule","'62808806-afcf-4535-9cf4-69481befa3af'",["Hold",["Sound",["SoundNote",["List",3,6,10]]]]],
+	["Rule","'7cc5c8a2-0b6e-4c23-bc59-96ee307d8e44'",["Hold",["Sound",["SoundNote",["List",5,8,12]]]]],
+	["Rule","'3647b66f-3d04-4e2f-bfa9-9966ec945eae'",["Hold",["Sound",["SoundNote",["List",6,10,13]]]]],
+	["Rule","'00ad4dc7-81a5-49d1-b88a-8a2d6740ef57'",["Hold",["Sound",["SoundNote",["List",8,12,15]]]]],
+	["Rule","'fb047ec8-3eda-42bc-af69-cefe770deee9'",["Hold",["Sound",["SoundNote",["List",10,13,17]]]]],
+	["Rule","'45000ba1-642c-45a8-a974-3ee5c87b70b4'",["Hold",["Sound",["SoundNote",["List",12,15,18]]]]]
+], 
+"symbols":[
+	"Association"
+]
+}

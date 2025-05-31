@@ -1,0 +1,39 @@
+# Blow up pictures with OpenCL and Graphics3D!
+This is small demonstration of N-body problem solved on GPU and then simulated in real-time using RGB flakes. To make it more entertaining __we suggest__ to use command palette snippet `Take a Picture` and __paste your face__ to the cell below instead of a cat
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/a6ed404d-8754-4bc8-809b-66820a9cfeff.txt').default} notebook={require('./attachments/notebook-a6e.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"f3abd170-d96b-4301-919d-6f4f7cd168be"} type={"Input"} opts={{"InitGroup":true}} >{`face%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%22aecb2e7c-dd49-4466-9812-cff8fd83d7aa%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6YmJxmlmifrpqSYWOqamJiZ6VpaGBrpJqelWaSlWBinmCcmAgCVkhZ1%22%2A%29%28%2A%5DVB%2A%29%3B`}</WLJSEditor>
+
+Evaluate the cell below to see the result!
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"7593e0e0-d7b8-468f-9040-e7cffb5a5f35"} type={"Input"} opts={{}} >{`Graphics3D%5B%7B%0A%20%20%20%20PointSize%5B0.015%5D%2C%20%0A%20%20%20%20GraphicsComplex%5Bnpos%20%2F%2F%20Offload%2C%20Point%5BRange%5BnumParticles%5D%5D%2C%20%22VertexColors%22-%3EOffload%5Bcolors%5D%5D%2C%20%0A%20%20%20%20AnimationFrameListener%5Bnpos%20%2F%2F%20Offload%2C%20%22Event%22-%3E%22frame%22%5D%0A%20%20%7D%2C%20ImageSize-%3E500%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"ba5b4c9a-9999-4d08-9441-5b3780776581"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22bce47a7d-19ff-43c8-814c-4f31e70538ec%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyWnmpgnmqfoGlqmpemaGCdb6FoYmiTrmqQZG6aaG5gaW6QmAwCOwBXe%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+__Program__
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"625e95d5-ad61-4628-9b68-d52ebf01d3bc"} type={"Input"} opts={{"InitGroup":true}} >{`Needs%5B%22OpenCLLink%60%22%5D%0Asrcf%20%3D%20FileNameJoin%5B%7B%24OpenCLLinkPath%2C%20%22SupportFiles%22%2C%20%22NBody.cl%22%7D%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"ef48c49b-699e-4a5e-8bb4-45c64b4bc1bd"} type={"Input"} opts={{"InitGroup":true}} >{`NBody%20%3D%20OpenCLFunctionLoad%5BFile%5Bsrcf%5D%2C%20%0A%20%20%22nbody_sim%22%2C%20%7B%7B%22Float%5B4%5D%22%2C%20_%2C%20%22Input%22%7D%2C%20%7B%22Float%5B4%5D%22%2C%20_%2C%20%0A%20%20%20%20%22Input%22%7D%2C%20_Integer%2C%20%22Float%22%2C%20%0A%20%20%20%22Float%22%2C%20%7B%22Local%22%2C%20%22Float%22%7D%2C%20%7B%22Float%5B4%5D%22%2C%20_%2C%20%0A%20%20%20%20%22Output%22%7D%2C%20%7B%22Float%5B4%5D%22%2C%20_%2C%20%22Output%22%7D%7D%2C%20256%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"78d346ca-a3bd-4770-a706-51363e98617c"} type={"Input"} opts={{"InitGroup":true}} >{`numParticles%20%3D%204096%3B%0AdeltaT%20%3D%200.15%3B%0AepsSqrt%20%3D%2050.0%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"85c6dfd0-8efa-482d-9374-9f820dd47b32"} type={"Input"} opts={{"InitGroup":true}} >{`pos%20%3D%20OpenCLMemoryLoad%5BFlatten%5BTable%5B2.0%20%7Bx%2Cy%2C%28%2AFB%5B%2A%29%28%28x%2By%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282.0%29%29%28%2A%5DFB%2A%29%2C1.0%7D%2C%20%7Bx%2C64%7D%2C%20%7By%2C64%7D%5D%2C1%5D%2C%20%22Float%5B4%5D%22%5D%3B%0Acolors%20%3D%20With%5B%7Bimg%20%3D%20ImageResize%5Bface%2C%20%7B64%2C64%7D%5D%20%2F%2FImageData%7D%2C%0A%20%20Flatten%5BTable%5Bimg%5B%5Bx%2Cy%2C%201%3B%3B3%5D%5D%2C%20%7Bx%2C64%7D%2C%20%7By%2C64%7D%5D%2C1%5D%20%2F%2F%20NumericArray%0A%5D%3B%0A%0Avel%20%3D%20OpenCLMemoryLoad%5BTable%5B%7B0.%2C0.%2C0.%2C0.%7D%2C%20%7Bi%2C%20numParticles%7D%5D%2C%20%22Float%5B4%5D%22%5D%3B%0AnewPos%20%3D%20OpenCLMemoryAllocate%5B%22Float%5B4%5D%22%2C%20%7BnumParticles%7D%5D%3B%0AnewVel%20%3D%20OpenCLMemoryAllocate%5B%22Float%5B4%5D%22%2C%20%7BnumParticles%7D%5D%3B`}</WLJSEditor>
+
+Test flight
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"d473b920-d360-406e-a18e-8fed74c82d7e"} type={"Input"} opts={{"InitGroup":true}} >{`NBody%5Bpos%2C%20vel%2C%20numParticles%2C%20deltaT%2C%20epsSqrt%2C%20256%2A4%2C%20newPos%2C%20newVel%2C%20%0A%20%20numParticles%5D%3B%0ANBody%5BnewPos%2C%20newVel%2C%20numParticles%2C%20deltaT%2C%20epsSqrt%2C%20256%2A4%2C%20pos%2C%20vel%2C%20%0A%20%20numParticles%5D%3B`}</WLJSEditor>
+
+Animation loop
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"686518ca-b955-45e2-ac0b-3d50acd498f2"} type={"Input"} opts={{"InitGroup":true}} >{`npos%20%3D%20Take%5B%23%2C%203%5D%20%26%20%2F%40%20OpenCLMemoryGet%5Bpos%5D%20%2F%2F%20NumericArray%3B%0A%0AEventHandler%5B%22frame%22%2C%20Function%5BNull%2C%0ANBody%5Bpos%2C%20vel%2C%20numParticles%2C%20deltaT%2C%20epsSqrt%2C%20256%2A4%2C%20newPos%2C%20%0A%20%20%20%20%20newVel%2C%20numParticles%5D%3B%0A%20%20%20%20NBody%5BnewPos%2C%20newVel%2C%20numParticles%2C%20deltaT%2C%20epsSqrt%2C%20256%2A4%2C%20pos%2C%20%0A%20%20%20%20%20vel%2C%20numParticles%5D%3B%0A%20%20%20%20%20%0A%20%20%20%20npos%20%3D%20Take%5B%23%2C%203%5D%20%26%20%2F%40%20OpenCLMemoryGet%5Bpos%5D%20%2F%2F%20NumericArray%0A%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"a6ed404d-8754-4bc8-809b-66820a9cfeff"} id={"292bd467-13f9-4bdc-8321-0de1ab03f329"} type={"Output"} opts={{}} >{`%22frame%22`}</WLJSEditor>

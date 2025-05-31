@@ -1,0 +1,47 @@
+# Filtering a periodic noise
+Note the dithering in the image below
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/e1132ccd-5f68-46f7-ac2d-ddcf17845bca.txt').default} notebook={require('./attachments/notebook-e11.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"81c050fc-7cb8-4a3a-928b-a583c69649ce"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2242d99f3c-deb2-402c-ac07-1b664f611765%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxilWFqmGSfrpqQmGemaGBgl6yYmG5jrGiaZmZmkmRkampuZAgCIexVv%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+We can use 2D Fourier transformation and filtern it out in the frequency space. Firstly, lets convert an image to normal array.
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"6e3e7cc0-8e29-420b-976e-639d29071fe5"} type={"Input"} opts={{"Hidden":false}} >{`donald%20%3D%20ImageData%5B%0A%20%20ColorSeparate%5B%28%2AVB%5B%2A%29%28FrontEndRef%5B%2242d99f3c-deb2-402c-ac07-1b664f611765%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxilWFqmGSfrpqQmGemaGBgl6yYmG5jrGiaZmZmkmRkampuZAgCIexVv%22%2A%29%28%2A%5DVB%2A%29%2C%20%22L%22%5D%0A%2C%20%22Real32%22%5D%3B`}</WLJSEditor>
+
+## Helper functions 
+It implements a symmetric 2D fourier transformation and its inverse version
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"b7835e5c-2920-42ec-9c5d-b61f2933343b"} type={"Input"} opts={{"Fade":true}} >{`fourier2d%5Bdata_%5D%20%3A%3D%20Module%5B%7Bd%2C%20fw%2C%20nRow%2C%20nCol%7D%2C%0A%20%20%7BnRow%2C%20nCol%7D%20%3D%20Dimensions%5Bdata%5D%3B%0A%20%20d%20%3D%20data%3B%0A%20%20d%20%3D%20d%20%28%2ASpB%5B%2A%29Power%5B%28-1%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29Table%5Bi%20%2B%20j%2C%20%7Bi%2C%20nRow%7D%2C%20%7Bj%2C%20nCol%7D%5D%5D%28%2A%5DSpB%2A%29%3B%0A%20%20fw%20%3D%20Fourier%5Bd%2C%20FourierParameters%20-%3E%20%7B1%2C%201%7D%5D%3B%0A%20%20%0A%20%20%7BLog%5B1%20%2B%20Abs%40fw%5D%2C%20Arg%5Bfw%5D%7D%0A%5D%0A%0Aifourier2d%5Bamp_%2C%20phase_%5D%20%3A%3D%20Module%5B%7Bd%2C%20nRow%2C%20nCol%7D%2C%0A%20%20%7BnRow%2C%20nCol%7D%20%3D%20Dimensions%5Bamp%5D%3B%0A%20%20%0A%20%20d%20%3D%20%28Exp%5Bamp%5D%20-%201.0%29%20Exp%5BI%20phase%5D%3B%0A%20%20%0A%20%20InverseFourier%5Bd%2C%20FourierParameters%20-%3E%20%7B1%2C%201%7D%5D%20%2F%2F%20Abs%0A%5D%0A%0Apreview%5Bdata_%2C%20opts___%5D%20%3A%3D%20With%5B%7Ba%20%3D%20data%7D%2C%0A%20%20Image%5Ba%20%2F%20Max%5Ba%5D%2C%20%22Real32%22%2C%20opts%5D%0A%5D`}</WLJSEditor>
+
+## Filtering in frequency domain
+Decompose an image to an amplitude and phase using 2D fourier transformation
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"fefc635c-c593-4959-bccd-eadaf13937ed"} type={"Input"} opts={{}} >{`%7Bamp%2C%20phase%7D%20%3D%20fourier2d%5Bdonald%5D%3B%0A%0ARow%5Bpreview%20%2F%40%20%7Bamp%2C%20phase%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"a482ce1d-5912-4096-b2cd-ab753cd95b91"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ae7ff7bc-fbe0-48f9-b002-34692c9a02f1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6aap6WZJyXrpiWlGuiaWKRZ6iYZGBjpGpuYWRolWyYaGKUZAgCYoxYC%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%2252b0789a-ced5-400f-a2fb-3f83841a7aef%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxolGZhbWCbqJqemmOqaGBik6SYapSXpGqdZGFuYGCaaJ6amAQCFtBYA%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+Filter an amplidute spectrum
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"37356416-1d18-4c5b-b2da-8016c1ad8c4b"} type={"Input"} opts={{}} >{`EventHandler%5BInputRaster%5Bpreview%5Bamp%5D%5D%2C%20%28masked%20%3D%20%23%29%26%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"979e5318-35ad-4070-ab04-f36cc4dea574"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2210b52017-f695-4ab4-9978-91d2d0544679%22%2C%20%22View%22%20-%3E%20%22a25c2ee4-9038-4b3f-8b3b-27e4fd68ff56%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxqZJhulpproWhoYW%2BiaJBmn6VokGSfpGpmnmqSlmFmkpZmaAQCGtBXh%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Here is an example how it can be masked
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"e888f0a7-43f4-4b93-9970-5c61988e7e3d"} type={"Input"} opts={{}} >{`masked%20%2F%2F%20preview%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"00123a13-dd83-47ac-b51f-15cdb7862040"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f46a0e1d-ec19-4d28-954f-4155aaecbb8a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5mYJRqkGqbopiYbWuqapBhZ6FqamqTpmhiamiYmpiYnJVkkAgCKWhYw%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Take masked amplitude and recombine it with phase to get back a normal image
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"5cd6ed5a-5306-4000-8e92-b4363e848eea"} type={"Input"} opts={{}} >{`ifourier2d%20%40%40%20%7BWith%5B%7Bmax%20%3D%20Max%5Bamp%5D%7D%2C%0A%20%20ImageData%5Bmasked%2C%20%22Real32%22%5D%5B%5BAll%2CAll%2C1%5D%5D%20max%20%0A%5D%2C%20phase%7D%3B%0A%0AGrid%5B%7B%0A%20%20%7Bpreview%5Bdonald%2C%20Magnification-%3E2%5D%2C%20preview%5B%25%2C%20Magnification-%3E2%5D%7D%2C%0A%20%20%7B%22Original%22%2C%20%22Filtered%22%7D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e1132ccd-5f68-46f7-ac2d-ddcf17845bca"} id={"a2c04514-c2e0-400d-96c1-e6bd2651a58d"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22913b0b2f-1c22-4509-80c8-b61a22b3ea86%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxoaJxkkGaXpGiYbGemamBpY6loYJFvoJpkZJhoZJRmnJlqYAQB5EhUw%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%22cee750d0-43e2-4c88-9f00-17884b94bfd1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6emmpsapBjomhinGumaJFtY6FqmGRjoGppbWJgkWZokpaUYAgCDmxV8%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%22Original%22%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%22Filtered%22%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>

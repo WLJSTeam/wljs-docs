@@ -1,0 +1,90 @@
+# Example on Images
+Drag and drop your favourite image to a cell
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/e545476d-aa88-4e24-930f-32276ad555f6.txt').default} notebook={require('./attachments/notebook-e54.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"5a36148f-88e9-44dd-a4c5-aa694df4104e"} type={"Input"} opts={{}} >{`Import%5BFileNameJoin%5B%7B%22attachments%22%2C%20%22tstballs-d08.png%22%7D%5D%5D%3B%0Aimg%20%3D%20ImageResize%5B%25%2C%20450%5D`}</WLJSEditor>
+
+You can work with it if it was a symbol
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"344df6fe-ce7b-4c63-ae7f-6a1ce35d1577"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251f71dbd-f8ec-40ac-ac27-db2a77d4a3cb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqmmRumJKXoplmkJuuaGCQm6yYmG5nrpiQZJZqbp5gkGicnAQCWHBa0%22%2A%29%28%2A%5DVB%2A%29%20%2F%2F%20ColorNegate`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"7466f386-a034-494d-94ac-72e8698a4707"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2216820aa0-da8a-48bd-88c6-167a817a567a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5pZGBkkJhropiRaJOqaWCSl6FpYJJvpGpqZJ1oYmieaAmkAgSwVcg%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+And perform mathematical operations
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"a8562c41-d1b6-4235-acde-c442d8ea85a8"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251f71dbd-f8ec-40ac-ac27-db2a77d4a3cb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqmmRumJKXoplmkJuuaGCQm6yYmG5nrpiQZJZqbp5gkGicnAQCWHBa0%22%2A%29%28%2A%5DVB%2A%29%20-%20EdgeDetect%5B%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251f71dbd-f8ec-40ac-ac27-db2a77d4a3cb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqmmRumJKXoplmkJuuaGCQm6yYmG5nrpiQZJZqbp5gkGicnAQCWHBa0%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"5b593f5a-460e-4308-8e11-605f0d28c7c0"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22732db0a2-ab71-4211-af93-0f08308602a5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxsbpSQZJBrpJiaZG%2BqaGBka6iamWRrrGqQZWBgbWJgZGCWaAgB9LxT1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Features detection
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"34de8ad8-7152-45fd-967c-f171b11d3696"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a0a6c82b-49b1-4774-b270-7b3a3f7ae148%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxokmiVbGCXpmlgmGeqamJub6CYZmRvomicZJxqnmSemGppYAACBbRVr%22%2A%29%28%2A%5DVB%2A%29%3B%0A%0AImage%5B%25%2C%20%22ImageResolution%22-%3EAutomatic%5D%3B%0AHighlightImage%5B%25%2C%20%7BYellow%2C%20ImageCorners%5B%25%2C%201%2C%20.001%2C%205%5D%7D%2C%20ImageSize-%3E300%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"49f3d30e-b60e-4ceb-a315-471ab85985f6"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2284598ea9-3b93-417b-b49f-d9e223d7778a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5iYWlqkJlrqGidZGuuaGJon6SaZWKbpplimGhkZp5ibm1skAgB9DBVj%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Machine learning
+
+Using local neural networks one can perform classification
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"31426555-f2b7-4ea9-be32-92e1a6829df9"} type={"Input"} opts={{}} >{`img%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251f71dbd-f8ec-40ac-ac27-db2a77d4a3cb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqmmRumJKXoplmkJuuaGCQm6yYmG5nrpiQZJZqbp5gkGicnAQCWHBa0%22%2A%29%28%2A%5DVB%2A%29%3B%0A%0AImageCases%5B%25%2C%20AcceptanceThreshold-%3E0.1%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"21deebb3-f8fd-421e-8469-e35b201eedc3"} type={"Output"} opts={{}} >{`%3C%7C%28%2AVB%5B%2A%29%28Entity%5B%22Concept%22%2C%20%22Ball%3A%3Aqs4s5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75ecmpBSXBIG1JiTk5AGA4Eb8%3D%22%2A%29%28%2A%5DVB%2A%29-%3E%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%221d93d899-ef96-4ed0-8a58-338e176dd390%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6ZYGqdYWFrqpqZZmumapKYY6FokmlroGhtbpBqam6WkGFsaAACC4hVk%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%22575205a0-52e6-4a50-a96b-1fb695f69fbb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5qbGhmYJhromhqlmumaJJoa6CZamiXpGqYlmVmapplZpiUlAQB06xV2%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28FrontEndRef%5B%2251a256ec-f944-46c0-8401-762ae8184490%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxomGpmapSbrplmamOiamCUb6FqYGBjqmpsZJaZaGFqYmFgaAAB4xRS3%22%2A%29%28%2A%5DVB%2A%29%7D%2C%28%2AVB%5B%2A%29%28Entity%5B%22Concept%22%2C%20%22DiningTable%3A%3A6ypqf%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75ecmpBSXBPEB2SmZeZl66QkliUk4qAPxFFM0%3D%22%2A%29%28%2A%5DVB%2A%29-%3E%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%2213c3bbce-7786-4b71-b172-0e38578bd8b2%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxonGyclJafqmptbmOmaJJkb6iYZmhvpGqQaW5iaWySlWCQZAQCDbBV1%22%2A%29%28%2A%5DVB%2A%29%7D%7C%3E`}</WLJSEditor>
+
+And then highlight it on image
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"025bc61a-b4d2-464a-9ebd-00da956c1225"} type={"Input"} opts={{}} >{`HighlightImage%5Bimg%2C%20%7BAbsolutePointSize%5B20%5D%2C%20%0A%20%20ImagePosition%5B%23%2C%20%28%2AVB%5B%2A%29%28Entity%5B%22Concept%22%2C%20%22Ball%3A%3Aqs4s5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4nkHDNK8ksqXTKrwhmB%2FKc8%2FOSUwtKgkHqkhJzcgBmZw1M%22%2A%29%28%2A%5DVB%2A%29%2C%20AcceptanceThreshold-%3E0.1%5D%20%26%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"94288326-3bac-416a-8d28-b6cc3f2af823"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22061a6a9d-754b-4e95-9ccd-3a603339bdd1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5gZJpolWqbompuaJOmapFqa6lomJ6foGieaGRgbG1smpaQYAgCBexWi%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Generating images
+`Image` can be used as a costructor as well
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"44004082-1463-4122-b2aa-c73f1b01861e"} type={"Input"} opts={{}} >{`Image%5B%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290.5%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0.5%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%7D%28%2A%5DGB%2A%29%29%2C%20Magnification-%3E50%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"93bd3731-59e9-4681-87ba-b26d403785a8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22b318d91d-1bb7-4bd1-9ea4-863da4f761f3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxkbWqRYGqboGiYlmeuaJKUY6lqmJproWpgZpySapJmbGaYZAwCI1xXU%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"710da260-e757-4d64-b41f-5d1157c5b302"} type={"Input"} opts={{}} >{`Image%5BRandomReal%5B1%2C%20%7B4%2C%205%2C%203%7D%5D%2C%20Magnification-%3E50%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"b6a44372-5762-47bd-aaeb-d4a577308459"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2253a916ca-e328-47f7-b451-80c307bdc11c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxonWhqaJSfqphobWeiamKeZ6yaZmBrqWhgkGxuYJ6UkGxomAwB9nRVp%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Using cellular automaton
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"64fb8815-c51e-486c-ba76-f3d00f514fb5"} type={"Input"} opts={{}} >{`Image%5BCellularAutomaton%5B30%2C%20%7B%7B1%7D%2C%200%7D%2C%2040%5D%2C%20%22Bit%22%2C%20Magnification%20-%3E%205%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"11bc5de2-9137-4b3c-8e44-f6381857a6c1"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2235f3b531-d842-4ee0-b319-a0ce28aebee4%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5umGSeZGhvqpliYGOmapKYa6CYZG1rqJhokpxpZJKYmpaaaAACAXxX3%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create image from a reigon
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"16f951f7-76cf-490d-a159-1ab0436abb5a"} type={"Input"} opts={{}} >{`RegionImage%5BAnnulus%5B%5D%2C%20RasterSize-%3E150%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"377f90ab-2821-4ab9-a12a-a47ec423aefa"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2288d91f1b-947d-445f-93cc-cd14dbacab88%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1ikWBqmGSbpWpqYp%2BiamJim6VoaJyfrJqcYmqQkJSYnJllYAACG1hZA%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create linear gradient and combine it with a previous image
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"c98a9095-01c0-4ad5-a292-d9b7ffea23a4"} type={"Input"} opts={{}} >{`%28%2AFB%5B%2A%29%28%28LinearGradientImage%5B%7B%7BLeft%2C%20Bottom%7D%2C%20%7BRight%2C%20Top%7D%7D%20-%3E%20%22Rainbow%22%2C%20%7B150%2C%20150%7D%5D%20%2B%20%25%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"988809f1-a7f5-44b3-954d-71338c7d4715"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2232f5e032-d159-461b-bfc1-37adeaec099f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxulmaYaGBvpphiaWuqamBkm6SalJRvqGpsnpqQmpiYbWFqmAQCA%2BRX%2B%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Rasterization of WL expressions (__experimental__)
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"9a6ffe20-0c2c-49f2-8704-ca2a86a37f63"} type={"Input"} opts={{}} >{`Rasterize%5BPlot%5Bx%2C%20%7Bx%2C0%2C1%7D%2C%20ImageSize-%3E250%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"7ef0a47b-a604-4f74-a7c3-4e4d01f97fcf"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22afeeeae5-3716-4ac6-9c96-9e9690483767%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6alpqYmpprqGpsbmumaJCab6VomWwKJVEszSwMTC2NzM3MAlMUVlw%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or expression
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"4768364e-6bb5-4a1c-bbea-de7b84ed000f"} type={"Input"} opts={{}} >{`Rasterize%5Bx%2By%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"64cc5d6e-2131-4960-92fb-a0992ae7d7a5"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%226574d28a-d383-4d8e-bd79-a8d29c89d46e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5mam6QYWSTqphhbGOuapFik6ialmFvqJlqkGFkmW1immJilAgCBwxXE%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Generate an animation
+
+<WLJSEditor display={"codemirror"} nid={"e545476d-aa88-4e24-930f-32276ad555f6"} id={"2eae9f81-d3aa-485a-ad9c-57231d003e10"} type={"Input"} opts={{}} >{`AnimatedImage%5BRasterize%5BStyle%5B%23%2C%2040%5D%5D%20%26%20%2F%40%20Range%5B0%2C%209%5D%2C%20%0A%20FrameRate%20-%3E%206%5D`}</WLJSEditor>

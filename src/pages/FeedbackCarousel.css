@@ -1,0 +1,88 @@
+.carousel-multi-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 2rem 0;
+  height: 200px;
+}
+
+.feedback-card {
+  position: absolute;
+  width: 300px;
+  max-width: 90%;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background: var(--ifm-card-background-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.feedback-card.center {
+  z-index: 3;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.feedback-card.left {
+  transform: translateX(-120%) scale(0.85);
+  opacity: 0.4;
+  z-index: 2;
+}
+
+.feedback-card.right {
+  transform: translateX(120%) scale(0.85);
+  opacity: 0.4;
+  z-index: 2;
+}
+
+.feedback-card.hidden {
+  opacity: 0;
+  z-index: 0;
+}
+
+.feedback-text {
+  font-size: smaller;
+  color: var(--ifm-color-primary-text);
+  margin-bottom: 1rem;
+}
+
+.feedback-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--ifm-color-primary-text);
+}
+
+.platform-label {
+  color: #888;
+  font-weight: normal;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.icon.reddit {
+  color: #ff4500;
+}
+
+.icon.twitter {
+  color: #1da1f2;
+}
+
+.icon.discord {
+  color: #5865f2;
+}
+
+.icon.yc {
+  color: #f26522;
+}

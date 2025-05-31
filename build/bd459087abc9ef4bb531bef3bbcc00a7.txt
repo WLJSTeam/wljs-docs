@@ -1,0 +1,4 @@
+[
+	"List",
+	["Association",["Rule","'Compressed'",["BaseEncode",["ByteArray","$Failed"]]],["Rule","'Class'","'AnimationMachine'"],["Rule","'Symbol'","'buffer'"],["Rule","'Event'",["List","'frame'","'Default'"]],["Rule","'HashState'",null]]
+]

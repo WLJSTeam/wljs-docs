@@ -1,0 +1,92 @@
+# Basics of GeoData
+*In this short demo we cover the most basic symbols to work with geographical data*
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+## GeoGraphics
+The central piece for visualizing the geo data
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/3098aa25-d037-4d73-970f-1679f6fa160e.txt').default} notebook={require('./attachments/notebook-309.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"c1df018a-22f3-4606-a2de-d3950435de89"} type={"Input"} opts={{}} >{`GeoGraphics%5BGeoMarker%5BHere%5D%2C%20GeoRange%20-%3E%20Quantity%5B0.5%2C%20%22Miles%22%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"339d7cd3-8b8c-4b93-965b-3251a2ae0cd9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%220cdb94a7-2d59-48c5-badb-ad01903248e7%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGySnJFmaJJrrGqWYWuqaWCSb6iYlpiTpJqYYGFoaGBuZWKSaAwCMihXO%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+where our locations is returned by `Here`
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"c8cb6f2c-6d24-4342-aab5-03f15aa5b11e"} type={"Input"} opts={{}} >{`Here`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"29958853-10ce-4b2f-893b-a226a0dec08f"} type={"Output"} opts={{}} >{`GeoPosition%5B%7B48.36%60%2C10.99%60%7D%5D`}</WLJSEditor>
+
+Draw a polygon showing Italy
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"534c7ae2-13f7-4ba3-8db7-9d574362e3e0"} type={"Input"} opts={{}} >{`Entity%5B%22Country%22%2C%20%22Italy%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"a347336a-df02-4874-a0ca-5989c7a08a20"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Italy%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRZXBrEC2Z0liTiUAdDwSUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"00ce4193-d630-4430-9e0c-339cfecea3f6"} type={"Input"} opts={{}} >{`GeoGraphics%5B%7BEdgeForm%5BBlack%5D%2C%20Red%2C%20Polygon%5B%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Italy%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRZXBrEC2Z0liTiUAdDwSUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"c5bb3181-b5d1-4720-9885-2c257cfd26e8"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2261a5e9f4-51d8-46df-a254-aa9936f90f11%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxkmmqZappnomhqmWOiamKWk6SYamZroJiZaWhqbpVkapBkaAgCDeBV%2B%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Distances and paths
+To find the distance
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"1c0150d7-a9ea-457e-9eac-66689f55107e"} type={"Input"} opts={{}} >{`GeoDistance%5B%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Italy%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRZXBrEC2Z0liTiUAdDwSUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%20Here%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"a23f6d33-d848-4644-a954-f86752222f6f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Quantity%5B154.08931808171772%2C%20%22Kilometers%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllQWZf6dvvG2U7JDMBdQ1DszJz83tSS1qBgAAyAW5w%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Find the nearest entity
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"1a7072c1-4f53-4d63-8ef8-bc78755f930a"} type={"Input"} opts={{}} >{`GeoNearest%5B%22Country%22%2C%20Here%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"5f5c2f3e-0abd-47b6-ada8-23e6128bb35e"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Germany%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRRC2e2pRbmJeJQCZ8BMi%22%2A%29%28%2A%5DVB%2A%29%7D`}</WLJSEditor>
+
+Shortest path between two locations on a map
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"9bd1a38c-18b8-42a0-847d-876a641be4d4"} type={"Input"} opts={{}} >{`GeoGraphics%5BGeoPath%5B%7B%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Italy%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRZXBrEC2Z0liTiUAdDwSUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%20%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Germany%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRRC2e2pRbmJeJQCZ8BMi%22%2A%29%28%2A%5DVB%2A%29%7D%5D%2C%20%0A%20Frame%20-%3E%20True%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"447f23c0-38ac-49a7-ac09-81fa0fc5bcc6"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c00d8f90-cd5c-4561-94bb-7a80b980a1d6%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxsYpFikWRroJqeYJuuamJoZ6lqaJCXpmidaGCRZWhgkGqaYAQCGVBWg%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Using exact coordinates
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"00f78851-81eb-46b9-86b3-87ac4073246d"} type={"Input"} opts={{}} >{`GeoGraphics%5B%7BRed%2C%20GeoPath%5B%7B%7B-35%2C%20-55%7D%2C%20%7B70%2C%20100%7D%7D%5D%7D%2C%20GeoRange%20-%3E%20%22World%22%2C%20%0A%20Frame%20-%3E%20True%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"a035e54b-eda8-45b0-8d21-7f3024808fe7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22767a1c73-7ddd-4e0c-a84f-201e63857b23%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5uZJxommxvrmqekpOiapBok6yZamKTpGhkYppoZW5iaJxkZAwCFWRV0%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Highlight a few nearest cities
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"8607904b-b89e-4e4a-a5c3-02bd507364c8"} type={"Input"} opts={{}} >{`GeoListPlot%5BGeoNearest%5B%22City%22%2C%20Here%2C%2010%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"b2000d90-38ca-47a5-9c1d-4b7490205057"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%229ed905ba-1af3-4ec0-8225-9d6dd947687c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6amWBqYJiXqGiamGeuapCYb6FoYGZnqWqaYpaRYmpibWZgnAwCKYxW1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Elevation maps
+
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"1c97b846-2cbb-4119-96ee-fa357cdb9847"} type={"Input"} opts={{}} >{`GeoPosition%5B%28%2AVB%5B%2A%29%28Entity%5B%22Mountain%22%2C%20%22MountEverest%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBnMAmb75pXkliZl5wbwwjoJrWWpRanEJACqbFb4%3D%22%2A%29%28%2A%5DVB%2A%29%5D%3B%0AGeoElevationData%5B%25%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"ca9e6bfc-8a47-45b6-8f57-618ab1d6c3c2"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Quantity%5B8726.%2C%20%22Meters%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllQWMYAA90GHYDYg7ZtaklpUDABwRBHS%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Get a height map
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"cd0e3e21-2c6a-4ebd-97e6-7c7daa3eded4"} type={"Input"} opts={{}} >{`data%20%3D%20GeoElevationData%5B%28%2AVB%5B%2A%29%28Entity%5B%22Mountain%22%2C%20%22MountEverest%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBnMAmb75pXkliZl5wbwwjoJrWWpRanEJACqbFb4%3D%22%2A%29%28%2A%5DVB%2A%29%2C%20%0A%20%20GeoRange%20-%3E%20%28%2AVB%5B%2A%29%28Quantity%5B4%2C%20%22Kilometers%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllRmghQHcwEJ78yc%2FNzUktSiYgBx2RJ0%22%2A%29%28%2A%5DVB%2A%29%2C%20GeoProjection%20-%3E%20Automatic%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"382b387a-34fe-4dc0-b311-4022fe8eb9db"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29BoxForm%60temporalStorage%24239469%28%2A%2C%2A%29%28%2A%221%3AeJxdkcmOm0AARJ1NivIVyZxsHInVQ4g0B2PwRnsw4GYbzaGBNmDANjSY5Yfym7FzzKVUVapTvR%2FBxTx%2BGo1G5Ntd1CitL5Wd4tb682E0Mhp0rtO6n1cV6t%2FGlC2%2FUZPvY%2BonNRlTT%2BxvvO3zDLKgU%2BZGUh9vSnuQ06m8bU0BcKIJHG7aiJ4mwOJsEy4bMrgIrC0oxUriSQJt0F7xOg1ug6LcDrtZaR8ByzhJpiRL3qkYTS47gcDtth2iUIiNzvYan6n5wzXy4T7Wq2n5fMKXrHf5HWsKqW%2FXoMgaCND6Cp47VIazQ9WoorKAkpTVYH7iEpV2jNA8C1ZXK%2BrcoFe9Y7ZkU3gLTl%2Bz9IonJn2qUpY5tQCX8X7no42C%2FOE1lfTE66bmjlvZUeYoxGTV1i0qTW7UfWgqejiNodGWtWi4B6bwcGNpySZzfVbCfTJzuTWU4TLYRFVuiTzc34ZbGBV6RvZ0O7sGzAJky4V0jX%2FJ0ckntSSvmFdaS7DrdcghccDIAA3CjNdCn07jl5enB4N3W6Ym78ePD36f72I2Oba%2BPgxGkX7O%2B3%2Ft%2FQT83%2BYB28I5DmsU5Jh8ucclygn%2BC%2Bhro2I%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Compute the minimum and maximum values in that region:
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"16977b6f-ea5f-4205-8445-f8963ce0679a"} type={"Input"} opts={{}} >{`MinMax%5Bdata%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"39f88a14-de1c-4746-b8e7-3e1cbf3a298a"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29%28Quantity%5B5501.720703125%2C%20%22Meters%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllQWAdkNO2q3OgSzAVm%2BqSWpRcUAiKwTcA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28Quantity%5B8744.5732421875%2C%20%22Meters%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllQWAdkJniIHHYLZgCzf1JLUomIAewkShA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D`}</WLJSEditor>
+
+Plot it in 3D
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"0acc6671-b64a-4b84-9470-ce18d7b2c68e"} type={"Input"} opts={{}} >{`ListPlot3D%5BReverse%5Bdata%5D%5B%5B%3B%3B%3B%3B2%5D%5D%2C%20MeshFunctions%20-%3E%20%7B%233%20%26%7D%2C%20Mesh%20-%3E%2030%2C%20%0A%20ImageSize%20-%3E%20Medium%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"3098aa25-d037-4d73-970f-1679f6fa160e"} id={"5e97d1da-ac55-4890-aabd-e73bc5495f0a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%223ca2087e-0cc5-42d3-be16-230b0a6847b5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGycnGhlYmKfqGiQnm%2BqaGKUY6yalGprpGhkbJBkkmlmYmCeZAgCCvRVe%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

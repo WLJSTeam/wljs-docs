@@ -1,0 +1,58 @@
+# Manipulate
+Expression dynamics: from a very trivial
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-3474901812694131905.txt').default} json={require('./attachments/607fbabe-6c85-4176-9c97-7f3ec6d4a35d.txt').default} notebook={require('./attachments/notebook-607.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"ab15af8b-8a92-48cd-82a6-25ceb0884335"} type={"Input"} opts={{}} >{`Manipulate%5BColumn%5B%7B%0A%20%20Style%5BStringTemplate%5B%22%60%60%20m%2Fs%22%5D%5Bv%5D%2C%20Blue%5D%2C%0A%20%20Table%5B%22%F0%9F%9A%97%22%2C%20%7Bi%2C%20Floor%5Bv%2F25%5D%7D%5D%2F%2FRow%20%0A%7D%5D%2C%20%7Bv%2C10%2C100%7D%2C%20ContinuousAction-%3ETrue%5D%20%2F%2F%20Quiet`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"a0b538b6-1aa5-416d-adb7-01d4eb0478f5"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22dfa5c35b-702d-4579-ae6e-ade364cdbaa8%22%2C%20%22Initial%22%20-%3E%20%7B55.%7D%2C%20%22View%22%20-%3E%20%22ff37ef23-8d09-45ff-a79d-7b906f781988%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6UZm6emGRnrWqQYWOqamKal6SaaW6bomidZGpilmVsYWlpYAACMOhWf%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22773937cb-e8de-47fa-9f2f-e5b37e457cf8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5sbWxqbJyfpplqkpOqamKcl6lqmGaXpppomGZunmpiaJ6dZAACKlBYn%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+To a quite complex symbolic computer algebra
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"c3886194-ea8c-4ecd-93b8-bd9167144e0b"} type={"Input"} opts={{}} >{`Manipulate%5BSeries%5BSin%5Bx%5D%2C%20%7Bx%2C0%2Cn%7D%5D%2C%20%7Bn%2C%201%2C%2010%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"b5b6b87e-2b60-4fb9-bd0e-7e9154c0c220"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2254b932ee-d103-416f-a3d3-8d9c1dd3e5bb%22%2C%20%22Initial%22%20-%3E%20%7B6%7D%2C%20%22View%22%20-%3E%20%22d7649d96-7f87-41da-89a5-93021e5c9521%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5ibmVimWJrpmqdZmOuaGKYk6lpYJprqWhobGBmmmiZbmhoZAgB8XhT%2B%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c0f97a41-ac4f-4628-8a86-97dc576f64a4%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxukWZonmhjqJiabpOmamBlZ6FokWpjpWpqnJJuam6WZmSSaAACFeRWJ%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+## Manipulate plots
+An optimized version for drawing 2D data efficiently
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"82261054-0945-4401-a572-ae1d0281da25"} type={"Input"} opts={{}} >{`ManipulatePlot%5B%7B%0A%20%20%28%2ATB%5B%2A%29Sum%5B%28%2A%7C%2A%29Sinc%5Bw%20z%20n%20%2B%20p%5D%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29n%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%2910%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAoZgMSwaW5TvkVmYwgPguQCCkqTQUAeAcHBQ%3D%3D%2A%29%28%2A%5DTB%2A%29%2C%0A%20%20%28%2ATB%5B%2A%29Sum%5B%28%2A%7C%2A%29Sin%5Bw%20z%20n%20%2B%20p%5D%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29n%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%28%2A%7C%2A%29%2C%28%2A%7C%2A%2910%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAoZgMSwaW5TvkVmYwgPguQCCkqTQUAeAcHBQ%3D%3D%2A%29%28%2A%5DTB%2A%29%0A%7D%2C%20%7Bz%2C-Pi%2CPi%7D%2C%20%7Bw%2C%200%2C%205%2C%201%7D%2C%20%7B%7Bp%2C0%7D%2C%20-Pi%2C%20Pi%2C%200.2%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"1ed57fec-48a5-49f5-a06b-b0e1fe253513"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c7ea441b-bbef-458f-929d-17040561827b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5unJpqYGCbpJiWlpumamFqk6VoaWaboGpobmBiYmhlaGJknAQCNrRV3%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22c26e4d5b-5614-4710-ae09-59a2bbdd9a5f%22%2C%20%22Initial%22%20-%3E%20%7B2%2C%200.%7D%2C%20%22View%22%20-%3E%20%224e0ba7f4-4c88-4f18-b4cb-743baefc082f%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6QaJCWap5nomiRbWOiapBla6CaZJCfpmpsYJyWmpiUbWBilAQCL%2FRY0%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+### Other examples
+Manipulate 3D plot
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"3a79382f-0ebe-4bf1-9e86-a2bf9cb37b82"} type={"Input"} opts={{}} >{`Manipulate%5B%0A%20%20Plot3D%5BSin%5Bn%20x%5D%20Cos%5Bn%20y%5D%2C%20%7Bx%2C-1%2C1%7D%2C%20%7By%2C-1%2C1%7D%5D%0A%2C%20%7Bn%2C%201%2C%205%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"e588e964-cbf6-4da2-944f-75f19fb7df78"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22fde7002f-b762-46d2-93fd-7fb361e2825a%22%2C%20%22Initial%22%20-%3E%20%7B3%7D%2C%20%22View%22%20-%3E%20%2284f35cc5-896c-464e-b7e8-0591a85426a2%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5ikGZsmJ5vqWliaJeuamJmk6iaZp1roGphaGiZamJoYmSUaAQB%2FSxUn%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%220037056b-e3fe-4db1-acf8-f9331f0fcf8a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxgYmxuYmiXpphqnpeqapCQZ6iYmp1noplkaGxumGaQB2YkAhJoWLg%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+### Animation Widget
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"b4e41149-1a72-4186-abcd-1876c7ebbe61"} type={"Input"} opts={{}} >{`Animate%5BFactor%5B%28%2ASpB%5B%2A%29Power%5B%E2%AD%90%EF%B8%8F%28%2A%7C%2A%29%2C%28%2A%7C%2A%29n%5D%28%2A%5DSpB%2A%29-1%5D%2C%20%7Bn%2C1%2C10%2C%201%7D%2C%20AnimationRate-%3E5%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"58d5013d-f0f9-4d3d-9291-89b0fb77323d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%227bda1d8b-9340-4b04-868d-b1ccd51bf9b3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyelJBqmWCTpWhqbGOiaJBmY6FqYWaToJhkmJ6eYGialWSYZAwCJIRX9%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Advanced Technique
+Using low-level building blocks, you can create complex widgets that react to mouse, keyboard, sliders, and more.
+
+### Gaussian Curve
+Try to drag a red point
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"b7a25af8-3a7c-46e8-bd09-45c738e1f5de"} type={"Input"} opts={{"Fade":true}} >{`ClearAll%5Bgenerate%5D%3B%0Agenerate%5B%7Bx_%2C%20y_%7D%2C%20k_%5D%20%3A%3D%20Table%5B%7Bt%2C%20y%20Exp%5B-%20%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B%28x%20-%20t%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%20k%29%29%28%2A%5DFB%2A%29%5D%7D%2C%20%7Bt%2C-1%2C1%2C%200.03%7D%5D%3B%0A%0Audata%20%3D%20%7B%7B-1%2C0%7D%2C%20%7B1%2C0%7D%7D%3B%0A%0AGraphics%5B%7B%0A%20%20Cyan%2C%20Line%5Budata%20%2F%2F%20Offload%5D%2C%20Red%2C%20PointSize%5B0.05%5D%2C%0A%20%20EventHandler%5BPoint%5B%7B0%2C0.5%7D%5D%2C%20%7B%0A%20%20%20%20%22drag%22%20-%3E%20%28%28udata%20%3D%20generate%5B%23%2C%200.1%5D%29%26%29%0A%20%20%7D%5D%0A%7D%2C%20PlotRange-%3E%7B%7B-1%2C1%7D%2C%20%7B0%2C1%7D%7D%2C%20ImagePadding-%3ENone%2C%20Axes-%3E%7BTrue%2C%20False%7D%2C%20ImageSize-%3ESmall%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"8bd0751e-05d5-4e0b-9c10-a7b198e42032"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BRGBColor%5B0%2C%201%2C%201%5D%2C%20Line%5BOffload%5Budata%5D%5D%2C%20RGBColor%5B1%2C%200%2C%200%5D%2C%20PointSize%5B0.05%5D%2C%20EventListener%5BPoint%5B%7B0%2C%200.5%7D%5D%2C%20%7B%22drag%22%20-%3E%20%222944ffbf-71bb-4a11-87be-12060f20c83e%22%7D%5D%7D%2C%20PlotRange%20-%3E%20%7B%7B-1%2C%201%7D%2C%20%7B0%2C%201%7D%7D%2C%20ImagePadding%20-%3E%20None%2C%20Axes%20-%3E%20%7BTrue%2C%20False%7D%2C%20ImageSize%20-%3E%20Small%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxtkF9KxDAQxrPqooIeQvC10Nbirk%2BLiq7CokvrBSabSQ1kE0laEW%2BiN%2FBW3kTzh%2BK27jx8fMnMfPyYE6pLPiKE2D0nd1oyPvavAydzAy%2FPYmXjj%2B8vhG34btcv51fXWmojnCdi1Mlf3EIojK99J4%2BcSw3M%2BrSWQQNbkkII6STuHjpZaqGaSryj%2Bfzw9TXjO7537OTmFVXjyVChiSvjbiVOdegh1JBQ37NNTrsxWbYSK2%2BYgbo6dSa%2FKArOKU8mGaVJAVmWTCcUkyxPz1Oep6vpGfb3I7TUTQmqxj7FgOnHVbzbf9bBf0g%2BcuZ%2BDTUugTGh6tB50GpI4M3lG9p%2BbDBPpsVwo1uQdht5yPfnDlPVGqT8Bc1vdgg%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### Mouse Follower
+A basic widget that tracks and animates an array of lines to follow the mouse cursor:
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"0dd34ba0-b4ed-40af-ba79-5e7c5c11e83a"} type={"Input"} opts={{"Fade":true}} >{`getLines%5Bxy_%5D%20%3A%3D%20With%5B%7Bdir%20%3D%200.05%20Normalize%5Bxy%5D%7D%2C%0A%20%20%28Table%5BW%5B%7B%7Bi%2Cj%7D%2C%20%7Bi%2Cj%7D%20%2B%20dir%20%2F%20%28%28%2ASpB%5B%2A%29Power%5BNorm%5B%7Bi%2Cj%7D-xy%5D%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%200.1%29%7D%5D%2C%20%7Bi%2C%20-1%2C1%2C0.2%7D%2C%20%7Bj%2C%20-1%2C1%2C0.2%7D%5D%20%2F%2F%20Flatten%29%20%2F.%20%7BW%20-%3E%20Identity%7D%0A%5D%3B%0A%0AModule%5B%7Blines%20%3D%20getLines%5B%7B0.01%2C0.01%7D%5D%7D%2C%20%0A%20%20Graphics%5B%7B%0A%09White%2C%0A%09EventHandler%5B%0A%09%09Rectangle%5B%7B-2%2C-2%7D%2C%20%7B2%2C2%7D%5D%2C%0A%09%09%7B%22mousemove%22-%3EFunction%5Bxy%2C%20lines%20%3D%20getLines%5Bxy%5D%5D%7D%0A%09%5D%2C%0A%09Black%2C%0A%20%20%20Line%5Blines%20%2F%2F%20Offload%5D%0A%20%20%7D%2C%20%22TransitionDuration%22-%3E270%2C%20%22TransitionType%22-%3E%22Linear%22%2C%20PlotRange-%3E%7B%7B-1%2C1%7D%2C%20%7B-1%2C1%7D%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"607fbabe-6c85-4176-9c97-7f3ec6d4a35d"} id={"c176ee78-99bb-411d-b79d-6296dbe88637"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BGrayLevel%5B1%5D%2C%20EventListener%5BRectangle%5B%7B-2%2C%20-2%7D%2C%20%7B2%2C%202%7D%5D%2C%20%7B%22mousemove%22%20-%3E%20%22b90e611b-424f-4ae4-8ddc-27b1c194a9ea%22%7D%5D%2C%20GrayLevel%5B0%5D%2C%20Line%5BOffload%5Blines%24498810%5D%5D%7D%2C%20%22TransitionDuration%22%20-%3E%20270%2C%20%22TransitionType%22%20-%3E%20%22Linear%22%2C%20PlotRange%20-%3E%20%7B%7B-1%2C%201%7D%2C%20%7B-1%2C%201%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxtUV1rwjAUrUPcBPVh%2F2Dga8FI2Nr3je1B2Gj9A2l7swViIkla8M%2Bvy22mYvTl5N5zD%2Ffj5KnSBR8lSWLHHj60bDgG9sHDu2H7H1HbwCBshHVBPQ31wwY6kAIpfof83MNbB8qhFBSYQKO8gNox9S0hUMd%2B4rfv%2BwEiHrMBzvsN80%2BqopVQYuedbi3sdAfl0mdVvoJnQqqUrilPKQOaZk1Tp%2BuXitQkpywHduuIJBqlIGT3Hj45l5o1duZj6St2SfMsI6tomUcfbA1TVjih1WtrGL5iMTrac1IuLpTbwx7Kyf9UZi61w5pfUrvCuxeZF1nWo5Xnz7jm%2FwC1bHhD%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

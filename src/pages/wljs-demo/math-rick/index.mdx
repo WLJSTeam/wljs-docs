@@ -1,0 +1,47 @@
+---
+authors: jerryi
+tags:
+  - numerics
+enableComments: true
+---
+
+# Mesh region with Rick Astley
+A example of creating and using boundary mesh for solving equations on them.
+
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/98460e8c-38ee-4b26-aa89-ab41cb1930fb.txt').default} notebook={require('./attachments/notebook-984.wln').default}/>
+
+
+
+
+Smile!
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"65c549da-2029-4aa9-8b6a-24ff9d382f98"} type={"Input"} opts={{}} >{`img%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%22438babff-4e1b-415b-ba6b-edeb3d6f288f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxhbJCUmpaXpmqQaJumaGJom6SYlmiXppqakJhmnmKUZWVikAQCXhRbB%22%2A%29%28%2A%5DVB%2A%29%3B`}</WLJSEditor>
+
+Apply a filter
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"99e0cd41-7a4b-4f4e-a8a9-e6c8de22d0a6"} type={"Input"} opts={{}} >{`MeanShiftFilter%5Bimg%2C%205%2C%201%5D%20%2F%2F%20Binarize%20%2F%2F%20ColorNegate`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"fee61e9b-ff0b-4e74-b084-ef36c3adfdd6"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2215a0967d-a941-4e65-a420-fb082f4c1fcb%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5omGliamafoJlqaGOqapJqZ6iaaGBnopiUZWBilmSQbpiUnAQB6nhWZ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create a mesh region
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"324fa874-1cf3-4a78-bea4-079e59d10626"} type={"Input"} opts={{}} >{`%CE%BE%20%3D%20ImageMesh%5B%25%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"c8ba7a2d-bd5c-426a-add1-55c40c1745df"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28temporal%24303081%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6aam6dZGiXrmhunWuqamFsm61pYGKfqGqUkpRklG1okJxonAgCDyBXq%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Compute eigenfunctiions of the wave equation
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"3e8908be-55a4-4d53-96a3-54b813064069"} type={"Input"} opts={{}} >{`%7Bvals%2C%20funs%7D%20%3D%20NDEigensystem%5B%0A%20%20%20%7B-Laplacian%5Bu%5Bx%2C%20y%5D%2C%20%7Bx%2C%20y%7D%5D%2C%20%0A%20%20%20%20DirichletCondition%5Bu%5Bx%2C%20y%5D%20%3D%3D%200%2C%20True%5D%7D%2C%20%0A%20%20%20u%5Bx%2C%20y%5D%2C%20Element%5B%7Bx%2C%20y%7D%2C%20%CE%BE%5D%2C%206%5D%3B`}</WLJSEditor>
+
+Plot different time slots
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"b7371e1e-931c-4dc6-9bbf-a36993519b68"} type={"Input"} opts={{}} >{`Grid%40%0A%20Partition%5B%0A%20%20Table%5BContourPlot%5Bfuns%5B%5Bi%5D%5D%2C%20Element%5B%7Bx%2C%20y%7D%2C%20%CE%BE%5D%2C%20%0A%20%20%20%20PlotRange%20-%3E%20All%2C%20ImageSize-%3E300%2C%20PerformanceGoal-%3E%22Speed%22%2C%20PlotLabel%20-%3E%20vals%5B%5Bi%5D%5D%2C%20%0A%20%20%20%20PlotTheme%20-%3E%20%22Minimal%22%5D%2C%20%7Bi%2C%20Length%5Bvals%5D%7D%5D%2C%203%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"98460e8c-38ee-4b26-aa89-ab41cb1930fb"} id={"f1e80932-479d-4dde-b762-738e9beac5f3"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d8c846b4-e03d-4933-af0d-5c0c607865b9%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1gkW5iYJZnophoYp%2BiaWBob6yamGaTomiYbJJsZmFuYmSZZAgCE%2FxV6%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%22522b14a5-a144-4f98-93d4-ef618e74613d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxoZJRmaJJrqJhqamOiapFla6Foap5jopqaZGVqkmpuYGRqnAAB4SBUa%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ad1adb3d-e6aa-408e-9045-805e8be7e425%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6YYJqYkGafoppolJuqaGFik6loamJjqWhiYplokpZqnmhiZAgCVWBX%2F%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%221f6981c5-081b-49a0-b3ab-6412a3e17980%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6aZWVoYJpvqGlgYJumaWCYa6CYZJybpmpkYGiUapxqaW1oYAAB6pxUK%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%2298ffe6b3-a454-41e8-a875-98af8e9c6475%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1qkpaWaJRnrJpqYmuiaGKZa6CZamJvqWlokplmkWiabmZibAgCH8xWc%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%22af9fc913-cfc6-4f29-a194-c65a20e7b129%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6ZZpiVbGhrrJqclm%2BmapBlZ6iYaWproJpuZJhoZpJonGRpZAgCRcRXa%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>

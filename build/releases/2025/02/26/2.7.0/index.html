@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-releases" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.3.2">
+<title data-rh="true">Release notes *2.7.0* | WLJS Notebook</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://wljs.io/releases/2025/02/26/2.7.0"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="msvalidate.01" content="558ACAAD3C892A685EC4981186E3711D"><meta data-rh="true" name="google-site-verification" content="EfqZCis7_qdi7v5e_xZFG-q1I2nGROZLaqCDsVDlt0Y"><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><meta data-rh="true" property="og:title" content="Release notes *2.7.0* | WLJS Notebook"><meta data-rh="true" name="description" content="- Insert a cell by moving with arrow keys and typing any letter."><meta data-rh="true" property="og:description" content="- Insert a cell by moving with arrow keys and typing any letter."><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2025-02-26T00:00:00.000Z"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wljs.io/releases/2025/02/26/2.7.0"><link data-rh="true" rel="alternate" href="https://wljs.io/releases/2025/02/26/2.7.0" hreflang="en"><link data-rh="true" rel="alternate" href="https://wljs.io/releases/2025/02/26/2.7.0" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://wljs.io/releases/2025/02/26/2.7.0","mainEntityOfPage":"https://wljs.io/releases/2025/02/26/2.7.0","url":"https://wljs.io/releases/2025/02/26/2.7.0","headline":"Release notes *2.7.0*","name":"Release notes *2.7.0*","description":"- Insert a cell by moving with arrow keys and typing any letter.","datePublished":"2025-02-26T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://wljs.io/releases","name":"WLJS Notebook Releases"}}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/releases/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/releases/atom.xml" title="WLJS Notebook Atom Feed">
+<link rel="alternate" type="application/rss+xml" href="/widgets/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/widgets/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/dist/interpreter.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/src/core.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@base/src/module.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/boxes.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/metamarkers.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/objects.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/frontsubmit.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-mk@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@base/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-revealjs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@base/dist/kernel.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.bd0a459f.css">
+<script src="/assets/js/runtime~main.3eb30a5a.js" defer="defer"></script>
+<script src="/assets/js/main.716d9ae2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo3.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo2.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WLJS</b></a><a class="navbar__item navbar__link" href="/setup">Documentation</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/releases">Release notes</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/wljs-demo">Demonstration Project</a><a class="navbar__item navbar__link" href="/widgets">Mini apps</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link" style="border:0;border-radius:6px">Discuss</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/sponsorship">Support us</a><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_re4s thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_pO2u margin-bottom--md">All our releases</div><ul class="sidebarItemList_Yudw clean-list"><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/27/2.7.6">Release notes *2.7.6*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/21/2.7.5">Release notes *2.7.5*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/10/2.7.4">Release notes *2.7.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/24/2.7.3">Release notes *2.7.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/11/2.7.2-X1">Release notes *2.7.2* X1</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/06/2.7.2">Release notes *2.7.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/03/28/2.7.1">Release notes *2.7.1*</a></li><li class="sidebarItem__DBe"><a aria-current="page" class="sidebarItemLink_mo7H sidebarItemLinkActive_I1ZP" href="/releases/2025/02/26/2.7.0">Release notes *2.7.0*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/02/15/2.6.8">Release notes *2.6.8*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/01/28/2.6.7">Release notes *2.6.7*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/01/06/2.6.5">Release notes *2.6.5*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/12/15/2.6.4">Release notes *2.6.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/12/03/2.6.3">Release notes *2.6.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/11/28/2.6.2">Release notes *2.6.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/11/05/2.6.1">Release notes *2.6.1*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/10/01/2.5.9">Release notes *2.5.9*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/09/10/2.5.7">Release notes *2.5.7*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/07/27/2.5.6">Release notes *2.5.6*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/06/13/2.5.4">Release notes *2.5.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/05/01/2.5.3">Release notes *2.5.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/03/10/2.5.2">Release notes *2.5.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/02/05/2.5.0">Release notes *2.5.0*</a></li></ul></nav></aside><main class="col col--7"><article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting"><header><h2 class="title_xvU1" itemprop="headline">Release notes *2.7.0*</h2><div class="container_iJTo margin-vert--md"><time datetime="2025-02-26T00:00:00.000Z" itemprop="datePublished"></time> · <!-- -->3 min read</div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><ul>
+<li>Insert a cell by moving with arrow keys and typing any letter.</li>
+<li>Copy cell groups as a single string and paste into a new input cell.</li>
+<li>Improved <code>Short</code> function for better formatting in outputs.</li>
+<li>New controls for navigating presentation slides using RevealJS API.</li>
+<li><code>InputRange</code> sliders can be updated programmatically while maintaining state.</li>
+<li><code>Manipulate</code> supports programmatic control with persistent state.</li>
+</ul>
+<div>
+<style>
+  .balloon {
+  height: 125px;
+  width: 105px;
+  border-radius: 75% 75% 70% 70%;
+  position: relative;
+}
+
+.balloon:before {
+  content: "";
+  height: 75px;
+  width: 1px;
+  padding: 1px;
+  background-color: #FDFD96;
+  display: block;
+  position: absolute;
+  top: 125px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.balloon:after {
+    content: "▲";
+    text-align: center;
+    display: block;
+    position: absolute;
+    color: inherit;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);
+  opacity: 1;}
+  to {transform: translateY(-300vh);
+  opacity: 0;}
+}
+#balloon-container {
+  height: 100vh;
+  top: 0;
+  position:fixed;
+  bottom: 0;
+  z-index: -99;  
+  padding: 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: opacity 500ms;
+}
+</style>
+
+<div id="balloon-container">
+</div></div>
+<!-- -->
+<a href="/6f3c0dc5f2e70552a673568c6ff4adb4.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
+const balloonContainer = document.getElementById(&quot;balloon-container&quot;);
+
+function random(num) {
+  return Math.floor(Math.random() * num);
+}
+
+function getRandomStyles() {
+  var r = random(255);
+  var g = random(255);
+  var b = random(255);
+  var mt = random(200);
+  var ml = random(50);
+  var dur = random(5) + 5;
+  return `
+  background-color: rgba(${r},${g},${b},0.7);
+  color: rgba(${r},${g},${b},0.7); 
+  box-shadow: inset -7px -3px 10px rgba(${r - 10},${g - 10},${b - 10},0.7);
+  margin: ${mt}px 0 0 ${ml}px;
+  animation: float ${dur}s ease-in infinite
+  `;
+}
+
+function createBalloons(num) {
+  for (var i = num; i &gt; 0; i--) {
+    var balloon = document.createElement(&quot;div&quot;);
+    balloon.className = &quot;balloon&quot;;
+    balloon.style.cssText = getRandomStyles();
+    balloonContainer.append(balloon);
+  }
+}
+
+function removeBalloons() {
+  balloonContainer.style.opacity = 0;
+  setTimeout(() =&gt; {
+    balloonContainer.remove()
+  }, 500)
+}
+
+createBalloons(10);
+setTimeout(removeBalloons, 15000);
+
+return &#x27;&#x27;;
+</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ui-improvements">UI Improvements<a href="#ui-improvements" class="hash-link" aria-label="Direct link to UI Improvements" title="Direct link to UI Improvements">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-add-a-cell-between-others">How to Add a Cell Between Others<a href="#how-to-add-a-cell-between-others" class="hash-link" aria-label="Direct link to How to Add a Cell Between Others" title="Direct link to How to Add a Cell Between Others">​</a></h3>
+<p>We have changed the method for creating a cell between other cells. <em>Simply move with the arrows down and type any letter.</em></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="copy-cell-group">Copy Cell Group<a href="#copy-cell-group" class="hash-link" aria-label="Direct link to Copy Cell Group" title="Direct link to Copy Cell Group">​</a></h3>
+<p>There is a new feature in the cell properties.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/Screenshot 2025-02-24 at 22.33.02-af0-8757c0ca04523b32e63d1689b7cfeffe.png" width="836" height="359" class="img_ev3q"></p><div><br></div><p></p>
+<p>It compresses input and all output cells into a single string.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Paste the copied content into a new empty input cell.</p></div></div>
+<p>You can also copy non-Wolfram Language outputs in the same way.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="boxes-or-decorations">Boxes or Decorations<a href="#boxes-or-decorations" class="hash-link" aria-label="Direct link to Boxes or Decorations" title="Direct link to Boxes or Decorations">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reimplementation-of-short">Reimplementation of <code>Short</code><a href="#reimplementation-of-short" class="hash-link" aria-label="Direct link to reimplementation-of-short" title="Direct link to reimplementation-of-short">​</a></h3>
+<p>This expression is designed to shorten the output and is used in many outputs of Wolfram Language expressions, such as <code>NonLinearModelFit</code>, series outputs, and others. The native version often broke our internal formatting, but now we have replaced it with our implementation. It can be used directly.</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Table[RandomColor[], {100}] // Short 
+Table[RandomColor[], {100}, {3}, {30}] // Short </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">{(*VB[*)(RGBColor[0.4285740492163317, 0.7913909357229074, 0.7217959017443194])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qWiAZfPNg7m37oi2/M0SFg1/aF2nI8ez4LPHcHgBoWBk5&quot;*)(*]VB*),(*VB[*)(RGBColor[0.3890298402552268, 0.018771935566063824, 0.5120042572841128])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q6pF1ybr79IZ9EcP/KNfPFpPti3zC+g6EJT2wBwBoExmp&quot;*)(*]VB*),(*VB[*)(RGBColor[0.16936020587613765, 0.9017860121159591, 0.6366193309657833])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qerBmb8KMtUfti+49PxCWd/uNfVHG7/MN+vFP7AGa6hy7&quot;*)(*]VB*),&lt;&lt;96&gt;&gt;}</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">{{{(*VB[*)(RGBColor[0.7325831065134378, 0.5979894508466139, 0.1719085829570397])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qsqtsUggqfG5fNGX59aO7lB7bFwU8vLlNkvGYPQBpXxoN&quot;*)(*]VB*),(*VB[*)(RGBColor[0.44795698759189584, 0.044087058186223826, 0.8720488878983641])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qUjB+dyJ49R37ooREHaMpk5bZFxnoHBS8/Py1PQBfqRl1&quot;*)(*]VB*),(*VB[*)(RGBColor[0.6606665033903807, 0.9586376332282864, 0.9336369327142091])(*,*)(*&quot;1:eJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q2vfLWERP5al9kdfR3Csaa9/ZF3XxdPdHPXhrDwBlZRn0&quot;*)(*]VB*),&lt;&lt;26&gt;&gt;},&lt;&lt;1&gt;&gt;},&lt;&lt;98&gt;&gt;}</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="programmatic-controls-of-presentation">Programmatic Controls of Presentation<a href="#programmatic-controls-of-presentation" class="hash-link" aria-label="Direct link to Programmatic Controls of Presentation" title="Direct link to Programmatic Controls of Presentation">​</a></h2>
+<p>Similar to <code>FrontEditorSelected</code>, we have added a method to interact with a selected set of slides in the notebook. For example:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.slide
+
+# First
+
+---
+
+# Second</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Now try to run this</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">FrontSlidesSelected[&quot;navigateNext&quot;, 1] // FrontSubmit;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>We directly forward your commands to RevealJS API. Please see it for more available commands.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="programmatic-controls-of-sliders">Programmatic Controls of Sliders<a href="#programmatic-controls-of-sliders" class="hash-link" aria-label="Direct link to Programmatic Controls of Sliders" title="Direct link to Programmatic Controls of Sliders">​</a></h2>
+<p>We added an extra option to control <code>InputRange</code> programmatically</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">sliderPos = 0.4;
+InputRange[0,1,0.1, &quot;TrackedExpression&quot;-&gt;Offload[sliderPos]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(EventObject[&lt;|&quot;Id&quot; -&gt; &quot;f903686f-d40c-4727-a3c7-dd83755ecf57&quot;, &quot;Initial&quot; -&gt; 0.5, &quot;View&quot; -&gt; &quot;776c46e6-7c4a-480c-b713-dac670eac7f0&quot;|&gt;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5ubJZuYpZrpmiebJOqaWBgk6yaZGxrrpiQmm5kbpCYmm6cZAACBvBXV&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>If you set <code>sliderPos</code> symbol to a new value, it will move the slider above</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">sliderPos = RandomReal[];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>It will still trigger an event and revert to the set value even if you refresh the page. In this sense, you give your slider a persistent state.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="programmatic-controls-of-manipulate">Programmatic Controls of Manipulate*<a href="#programmatic-controls-of-manipulate" class="hash-link" aria-label="Direct link to Programmatic Controls of Manipulate*" title="Direct link to Programmatic Controls of Manipulate*">​</a></h2>
+<p>One can do the same for <code>Manipulate</code> or <code>ManipulatePlot</code>. Keep in mind to use lists for them</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">manList = {0.3, 0.8};
+ManipulatePlot[Sinc[w x + b (*SpB[*)Power[x(*|*),(*|*)2](*]SpB*)], {x,-10,10}, {w,0,1}, {b,0,1}, &quot;TrackedExpression&quot;-&gt;Offload[manList]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*GB[*){{(*VB[*)(Graphics[{AbsoluteThickness[2], RGBColor[0.368417, 0.506779, 0.709798], Line[Offload[pts$273899]]}, ImageSize -&gt; {400, 300}, PlotRange -&gt; Automatic, Axes -&gt; True, TransitionType -&gt; &quot;Linear&quot;, TransitionDuration -&gt; 50, Epilog -&gt; {}, Prolog -&gt; {}, AxesLabel -&gt; {}, &quot;TrackedExpression&quot; -&gt; Offload[manList], PlotRange -&gt; {{-11., 11.}, {-0.27646932615223113, 1.0607842536262968}}])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KWncIB4HkHAvSizIyEwuTmOGyftkFpdAVAsCCcek4vyc0pLUEKCi7LzU4uJMJqAoRDVIf5C7k3N+Tn5RUcG0SU9Vply3LzKc9nJ6h/kD+6LjLTO8V217Zo+w2iczLxXCYwcS/mlpOfmJKcVcQHZBSbGKkbmxhaVlGhNMdVBpTmoxJ5DhmZuYnhqcWZWKkAM5MnMC0KhMHSCBRU9ATn5JUGJeOoTnWFqSn5tYkpmMphLEcKwA+grECCkqTUWT5wMLJ+YVZ5Zk5ueFVBakBrNB/ZFYhKZWCEWtS2lRIojONGLAcB/ICNeCzJz89DQGlFDHVBZQlE9IGSfUDz6JSak5+FQGC0JcmJydmuJaUVAEisz8PMz4ALFzE/NwWAUPWNTIQOUVMYCB2gEYwwFNvvFjV9qajRf3F534c+3Fjx8f7AHOOqZd&quot;*)(*]VB*)(*|*),(*|*)(*VB[*)(EventObject[&lt;|&quot;Id&quot; -&gt; &quot;b8afcf15-6d9d-4e5f-812b-1963cf0cbcbc&quot;, &quot;Initial&quot; -&gt; {0.5, 0.5}, &quot;View&quot; -&gt; &quot;52c74b0c-1029-4b9c-8c74-a7b1b6ed6cf1&quot;|&gt;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxolm5skGSTrGhoYWeqaJFkm61oARXQTzZMMk8xSU8yS0wwBf0UVzQ==&quot;*)(*]VB*)}}(*]GB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">manList = RandomReal[{0,1}, 2];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="minor-bug-fixes">Minor bug fixes<a href="#minor-bug-fixes" class="hash-link" aria-label="Direct link to Minor bug fixes" title="Direct link to Minor bug fixes">​</a></h2>
+<ul>
+<li>Contexts aliases</li>
+<li>HID devices plists for MacOS</li>
+<li>Better control over <code>ViewBox</code></li>
+<li>CD/CI for CSockets library</li>
+</ul>
+<p><em>Ballon animation by Jemima (codepen)</em></p>
+<div>
+<style>
+  [transparency="false"] .bg-g-trans {
+    background: transparent !important;
+  }
+
+  [transparency="true"] .bg-g-trans {
+    background: transparent !important;
+  }
+</style></div></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/releases/2025/03/28/2.7.1"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">Release notes *2.7.1*</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/releases/2025/02/15/2.6.8"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">Release notes *2.6.8*</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ui-improvements" class="table-of-contents__link toc-highlight">UI Improvements</a><ul><li><a href="#how-to-add-a-cell-between-others" class="table-of-contents__link toc-highlight">How to Add a Cell Between Others</a></li><li><a href="#copy-cell-group" class="table-of-contents__link toc-highlight">Copy Cell Group</a></li></ul></li><li><a href="#boxes-or-decorations" class="table-of-contents__link toc-highlight">Boxes or Decorations</a><ul><li><a href="#reimplementation-of-short" class="table-of-contents__link toc-highlight">Reimplementation of <code>Short</code></a></li></ul></li><li><a href="#programmatic-controls-of-presentation" class="table-of-contents__link toc-highlight">Programmatic Controls of Presentation</a></li><li><a href="#programmatic-controls-of-sliders" class="table-of-contents__link toc-highlight">Programmatic Controls of Sliders</a></li><li><a href="#programmatic-controls-of-manipulate" class="table-of-contents__link toc-highlight">Programmatic Controls of Manipulate*</a></li><li><a href="#minor-bug-fixes" class="table-of-contents__link toc-highlight">Minor bug fixes</a></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discussions<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://t.me/wljs_support" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">WLJS Notebook Project is open-source and licensed under GPL3</div></div></div></footer></div>
+</body>
+</html>

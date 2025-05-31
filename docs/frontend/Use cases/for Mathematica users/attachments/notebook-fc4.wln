@@ -1,0 +1,127 @@
+<|"Notebook" -> <|"Controller" -> "3542cb6b-5bf2-4898-b2c8-cd150607571e", 
+   "FocusedCell" -> CoffeeLiqueur`Notebook`Cells`CellObj[
+     CoffeeLiqueur`Notebook`Cells`CellObj`$884], 
+   "MessangerChannel" -> Messanger, "ModalsChannel" -> 
+    "e5045319-3779-4c13-bdac-0a1861c46af1", "Objects" -> <||>, 
+   "Path" -> "/users/kirill/Github/wljs-demos-archive/Demos/Data \
+visualisation/A - Manipulate.wln", "PublicFields" -> {"Properties"}, 
+   "ReadOnly" -> True, "Symbols" -> <||>, 
+   "TOC" -> {CoffeeLiqueur`Extensions`TOC`Private`heading[2, 
+      "ManipulatePlot", CoffeeLiqueur`Notebook`Cells`CellObj[
+       CoffeeLiqueur`Notebook`Cells`CellObj`$845]], 
+     CoffeeLiqueur`Extensions`TOC`Private`heading[2, 
+      "General Manipulate function", CoffeeLiqueur`Notebook`Cells`CellObj[
+       CoffeeLiqueur`Notebook`Cells`CellObj`$849]]}|>, 
+ "Cells" -> {<|"Data" -> ".md\n## ManipulatePlot\nAn example of built-in \
+function for interactive plotting", "Display" -> "codemirror", 
+    "Hash" -> "5d6c8c65-4042-4a05-bec2-3888b8f624b5", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "## ManipulatePlot\nAn example of built-in function for \
+interactive plotting", "Display" -> "markdown", 
+    "Hash" -> "452cd2a3-b1d9-466f-92a7-2b9ee459e91b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> 
+     "ManipulatePlot[Sin[w z + p], {z,0,10}, {w, 0, 15.1, 1}, {p, 0, Pi, \
+0.1}]", "Display" -> "codemirror", "Hash" -> 
+     "64ad941b-79f8-475f-9165-d4849d08e78b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> ".md\nExample with two curves", "Display" -> "codemirror", 
+    "Hash" -> "aabf28a1-7347-43f3-8492-09fb476d77c1", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Example with two curves", "Display" -> "markdown", 
+    "Hash" -> "e424a3c6-f008-4f9b-b7c2-478d83e9d453", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "ManipulatePlot[{\n  (*TB[*)Sum[(*|*)(*FB[*)((Sin[2\[Pi](2j - \
+1) x])(*,*)/(*,*)(2j-1))(*]FB*)(*|*), \
+{(*|*)j(*|*),(*|*)1.0(*|*),(*|*)n(*|*)}](*|*)(*1:eJxTTMoPSmNiYGAoZgMSwaW5TvkV\
+mYwgPguQCCkqTQUAeAcHBQ==*)(*]TB*),\n  (*TB[*)Sum[(*|*)(*FB[*)((Cos[2\[Pi](2j \
+- 1) x])(*,*)/(*,*)(2j-1))(*]FB*)(*|*), \
+{(*|*)j(*|*),(*|*)1.0(*|*),(*|*)n(*|*)}](*|*)(*1:eJxTTMoPSmNiYGAoZgMSwaW5TvkV\
+mYwgPguQCCkqTQUAeAcHBQ==*)(*]TB*)\n  \n}, {x, -1,1}, {{n,4}, 1,7, 1}]", 
+    "Display" -> "codemirror", "Hash" -> 
+     "e85ab68a-e1a5-4343-9171-f28e9a3f9fcb", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> " ", "Display" -> "codemirror", 
+    "Hash" -> "bf85778f-da79-4eb7-8c70-4de44888924b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> ".md\n## General Manipulate function\nIt is not recommened to \
+use for plotting, but still available for a user", "Display" -> "codemirror", 
+    "Hash" -> "5fc9e36e-07df-4f9e-9091-4609d2080909", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "## General Manipulate function\nIt is not recommened to use \
+for plotting, but still available for a user", "Display" -> "markdown", 
+    "Hash" -> "18459c7d-dfef-4aa3-9320-778db52cf1ed", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Manipulate[Series[Sin[x], {x,0,n}], {n,1,10,1}]", 
+    "Display" -> "codemirror", "Hash" -> 
+     "cd02c5e9-caea-4c45-b7e9-33914efb0970", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> ".md\nHere is an example with Plot3D", 
+    "Display" -> "codemirror", "Hash" -> 
+     "8221a1e8-0c32-4ab0-95c4-1097f34c7e89", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Here is an example with Plot3D", "Display" -> "markdown", 
+    "Hash" -> "9b22cc3c-7025-4c98-a799-934c981026d3", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Manipulate[\n  Plot3D[Sin[n x] Cos[n y], {x,-1,1}, \
+{y,-1,1}]\n, {n, 1, 5, 1}]", "Display" -> "codemirror", 
+    "Hash" -> "4f7c5f38-7ee3-4778-9a8c-43a6594cb0b0", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> ".md\nHere is a more complex example", 
+    "Display" -> "codemirror", "Hash" -> 
+     "8659f76f-de79-4bea-a2e2-46453a90edd4", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Here is a more complex example", "Display" -> "markdown", 
+    "Hash" -> "b51bb6fe-3c8a-4d91-8b67-227401b6fb2b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>, 
+   <|"Data" -> "Manipulate[\n  Row[{\n    \"m\", \"==\", MatrixForm[m], \n    \
+StreamPlot[Evaluate[m . {x, y}], {x, -1, 1}, {y, -1, 1}, \n      StreamScale \
+-> Large, ImageSize -> Small\n    ]\n  }], {{m, \
+((*GB[*){{1(*|*),(*|*)0}(*||*),(*||*){0(*|*),(*|*)2}}(*]GB*))}, { \
+((*GB[*){{1(*|*),(*|*)0}(*||*),(*||*){0(*|*),(*|*)2}}(*]GB*)) -> \"Nodal \
+source\",  ((*GB[*){{1(*|*),(*|*)1}(*||*),(*||*){0(*|*),(*|*)1}}(*]GB*))  -> \
+\"Degenerate source\",  \
+((*GB[*){{0(*|*),(*|*)1}(*||*),(*||*){-1(*|*),(*|*)1}}(*]GB*)) -> \"Spiral \
+source\",  ((*GB[*){{-1(*|*),(*|*)0}(*||*),(*||*){0(*|*),(*|*)-2}}(*]GB*))  \
+-> \"Nodal sink\",  \
+((*GB[*){{-1(*|*),(*|*)1}(*||*),(*||*){0(*|*),(*|*)-1}}(*]GB*)) -> \
+\"Degenerate sink\",  \
+((*GB[*){{0(*|*),(*|*)1}(*||*),(*||*){-1(*|*),(*|*)-1}}(*]GB*)) -> \"Spiral \
+sink\",  ((*GB[*){{0(*|*),(*|*)1}(*||*),(*||*){-1(*|*),(*|*)0}}(*]GB*)) -> \
+\"Center\",  ((*GB[*){{1(*|*),(*|*)0}(*||*),(*||*){0(*|*),(*|*)-2}}(*]GB*))  \
+-> \"Saddle\"}}]", "Display" -> "codemirror", 
+    "Hash" -> "b5c5b199-e862-494a-9d09-0f066e8659f0", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "628acf72-e1fe-4847-80e4-3f2918a808d6"|>}, 
+ "serializer" -> "jsfn4"|>

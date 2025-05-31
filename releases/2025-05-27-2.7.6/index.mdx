@@ -1,0 +1,119 @@
+# Release notes *2.7.6*
+
+__✨ Highlights__
+
+- 🔧 More Control Over `Manipulate`
+- 📊 Expanded Plotly API
+Full access to **Plotly**'s update methods:
+    - Allows precise control over visual elements (e.g. opacity, color).
+    - Enables dynamic updates using event handlers like sliders.
+- 🎞️ Improved GUI for `Animate`
+- 🌐 Improved Dynamic HTML Export (Live Demo)
+Full demo available here: [LiveHTML Demo](https://jerryi.github.io/wljs-demo/LiveHTML.html). Exporting widgets with `Manipulate`/`Animate` to HTML is now much more practical and feature-rich.
+- We disabled automatic updates
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+<WLJSStore kernel={require('./attachments/kernel-8747404194074667779.txt').default} json={require('./attachments/9548bfd4-917a-4f65-90c8-45739f721aeb.txt').default} notebook={require('./attachments/notebook-954.wln').default}/>
+
+
+
+## More control over `Manipulate`
+You can specify when to update the expression after or during user's action
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"1f47535a-dc25-4332-9077-7851e85e0a7e"} type={"Input"} opts={{}} >{`Manipulate%5BColumn%5B%7B%0A%20%20Style%5BStringTemplate%5B%22%60%60%20m%2Fs%22%5D%5Bx%5D%2C%20Blue%5D%2C%0A%20%20Table%5B%22%F0%9F%9A%97%22%2C%20%7Bi%2C%20Floor%5Bx%2F25%5D%7D%5D%2F%2FRow%20%0A%7D%5D%2C%20%7Bx%2C10%2C100%7D%2C%20%28%2ABB%5B%2A%29%28ContinuousAction-%3ETrue%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeB5AILqnMSXXKr0hjgskHleakFnMBGU6JydnpRfmleSlpzDDlQe5Ozvk5%2BUVFDGDwwR6dwcAAAAHdFiw%3D%22%2A%29%28%2A%5DBB%2A%29%5D%20%2F%2F%20Quiet`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"56cf7e88-532e-45b7-bf97-9541158fd2e6"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22859d0076-5a64-4177-9850-24cc06474b21%22%2C%20%22Initial%22%20-%3E%20%7B55.%7D%2C%20%22View%22%20-%3E%20%22576e67c2-30db-4f71-a964-61c65ce843a9%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5qbpZqZJxvpGhukJOmapJkb6iZampnomhkmm5kmp1qYGCdaAgB9HhVR%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%2290083ee4-1dd3-445d-bbcd-b93516befe83%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxoYWBinpproGqakGOuamJim6CYlJQMJS2NTQ7Ok1LRUC2MAhNYWBA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+## Expanded API for Plotly
+We fully exposed the available methods to update your `Plotly` graphs
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"fe4ec1d6-ba07-41be-aa77-d72f73d3ec7a"} type={"Input"} opts={{}} >{`p%20%3D%20Plotly%5B%3C%7C%22type%22-%3E%22line%22%2C%20%22y%22-%3E%7B1%2C2%2C3%2C4%2C5%2C6%7D%7C%3E%5D%0A%0AEventHandler%5BInputRange%5B0%2C1%2C0.1%2C1.0%5D%2C%20%28PlotlyRestyle%5Bp%2C%20%3C%7C%22opacity%22-%3E%23%2C%20%22marker.color%22-%3E%22red%22%7C%3E%5D%29%26%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"510cd319-a3f7-4b6a-9668-7834747ffee3"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%222ccca95f-4a5f-4859-84b0-abdef4e9f593%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyUnJydamqbpmiSCCAtTS10LkyQD3cSklNQ0k1TLNFNLYwCR8xZG%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"03cb15ca-1ead-402c-8322-fdb5a616ac39"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2229af7c92-67e5-4dfc-8167-1fd9a95adc3c%22%2C%20%22Initial%22%20-%3E%201.%2C%20%22View%22%20-%3E%20%229fbf4db9-7a1f-40af-bc5f-c8d9f7ad0234%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6YlpZmkJFnqmicapumaGCSm6SYlm6bpJlukWKaZJ6YYGBmbAACcGBaa%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## GUI for Animate
+We upgraded `Animate`
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"9bca8b28-9698-42d6-8da6-c393d22ddae4"} type={"Input"} opts={{}} >{`Animate%5BSeries%5BCos%5Bx%5D%2C%20%7Bx%2C0%2Cn%7D%5D%2C%20%7Bn%2C2%2C%2010%2C%201%7D%2C%20AnimationRate-%3E3%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"80bc8f7d-263f-448e-9c9f-e0fc6117f8c4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d8266190-9a0e-4e5b-aa21-0aecf09081e2%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1gYmZkZWhroWiYapOqapJom6SYmGhnqGiSmJqcZWBpYGKYaAQCAJRWT%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Dynamic HTML Export
+
+### Check it out!
+Here is a __full demo__
+
+- [https://jerryi.github.io/wljs-demo/LiveHTML.html](https://jerryi.github.io/wljs-demo/LiveHTML.html)
+
+### IDW interpolation with categorical partitioning
+
+__Motivation__
+
+When you are trying to export a widget with continuously changing input data (it can be a canvas with a pointer or an input range with fine steps), it becomes cumbersome and inefficient to manually sample all possible positions of them.
+
+Imagine a Gaussian distribution controlled by a mouse. How can this be exported to HTML? For each mouse position, you have to recalculate the Gaussian. This is done by the WL kernel and not the JavaScript frontend.
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"ba6d4169-7ea2-40ee-91b3-09549ab3282f"} type={"Input"} opts={{}} >{`udata%20%3D%20%7B%7B-1%2C0%7D%2C%20%7B1%2C0%7D%7D%3B%0A%0AGraphics%5B%7B%0A%20%20Cyan%2C%20Line%5Budata%20%2F%2F%20Offload%5D%2C%20Red%2C%20PointSize%5B0.05%5D%2C%0A%20%20EventHandler%5BPoint%5B%7B0%2C0.5%7D%5D%2C%20%7B%0A%20%20%20%20%22drag%22%20-%3E%20%28%28udata%20%3D%20generate%5B%23%2C%200.1%5D%29%26%29%0A%20%20%7D%5D%0A%7D%2C%20PlotRange-%3E%7B%7B-1%2C1%7D%2C%20%7B0%2C1%7D%7D%2C%20ImagePadding-%3ENone%2C%20Axes-%3E%7BTrue%2C%20False%7D%2C%20ImageSize-%3ESmall%5D%0A%0AClearAll%5Bgenerate%5D%3B%0Agenerate%5B%7Bx_%2C%20y_%7D%2C%20k_%5D%20%3A%3D%20Table%5B%7Bt%2C%20y%20Exp%5B-%20%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5B%28x%20-%20t%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%20k%29%29%28%2A%5DFB%2A%29%5D%7D%2C%20%7Bt%2C-1%2C1%2C%200.03%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"337974e8-8170-44ae-8e7c-e99fd7f785f7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BRGBColor%5B0%2C%201%2C%201%5D%2C%20Line%5BOffload%5Budata%5D%5D%2C%20RGBColor%5B1%2C%200%2C%200%5D%2C%20PointSize%5B0.05%5D%2C%20EventListener%5BPoint%5B%7B0%2C%200.5%7D%5D%2C%20%7B%22drag%22%20-%3E%20%2287be2e86-95dd-4e22-9134-cb9a41ec6daa%22%7D%5D%7D%2C%20PlotRange%20-%3E%20%7B%7B-1%2C%201%7D%2C%20%7B0%2C%201%7D%7D%2C%20ImagePadding%20-%3E%20None%2C%20Axes%20-%3E%20%7BTrue%2C%20False%7D%2C%20ImageSize%20-%3E%20Small%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxtUFtOwzAQdIEKKsEhkPjNR0MozVcFCApSBVXCBTbxOlhybWQnCHETuAG34ibghyyawH6MZh8zGu1xpQo2IoSYPQu3SlA2dt2BhaWG5ydemzBx%2BxU3LduN%2B2J5eaWE0txywkcRfu1WXGLo9i08MCYUUOPcOgot%2FOPkTUiEoJ1YWCsu25K%2Fof54d%2FW5YDtud2Th%2BgVl65KhRB0k4ygJVzG6N9XE19diO6fZuiw6gaUjVENTnlgyP68wxfksyc8oTTJM0ySfnmZJXeWQTbGeUYC%2BPoQWqi1ANthPMcj0bSv87W%2FWwdw7H1pyt4EG10Apl43f3CuJgztHLl7R9G09edQd%2Bh%2FdgDBD3ST6u3f7q3IDQvwAMSp2ew%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*Try to drag a red dot if you are reading it from the `wljs` blog page*
+
+__Solution__
+
+Quite often, we do not need all possible points to be sampled, but only the randomly scattered probe points, which are practical to obtain. The rest can be interpolated using a general Inverse Distance Weighting (IDW) in continuous feature space. Non-numerical data such as checkboxes and select boxes can be treated as categorical types.
+
+What about the output? It can be:
+
+- Number
+- Array (List)
+- Tensor
+- String
+- Other expressions
+
+The first three can easily be interpolated, while for strings and other expressions, we can pick the closest one from an N-dimensional space.
+
+#### More about a string type
+However, we went deeper. Look at this example.
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"59832a7b-8551-47a3-9690-694ac6dc4285"} type={"Input"} opts={{}} >{`Manipulate%5BStyle%5BStringTemplate%5B%22%60%60%20m%2Fs%22%5D%5Bx%5D%2C%20Blue%5D%2C%20%7Bx%2C10%2C100%7D%2C%20ContinuousAction-%3ETrue%5D%20%2F%2F%20Quiet`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"662b78ad-50b3-40a0-8dfd-e6a5b93e7305"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%221a55b5d2-6aef-4761-9d22-12bb46ecea26%22%2C%20%22Initial%22%20-%3E%20%7B55.%7D%2C%20%22View%22%20-%3E%20%22cb8b1804-0e26-4255-9310-b9fce1b0860e%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJydZJBlaGJjoGqQamemaGJma6loaGxroJlmmJacaJhlYmBmkAgB7YRU4%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c2acc47b-2c38-4311-aa65-0833de072324%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxslJiebmCfpGiUbW%2BiaGBsa6iYmmpnqGlgYG6ekGpgbGRuZAACGCRUr%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+The output result is a string, but quite predictable. We analyze all strings used in outputs and decompose them into numbers and string templates if possible. Then the numerical content is interpoalted as usual and the final string is composed back. 
+
+
+## Better handling external windows
+You can assign handlers to the events generated by projected cells
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"645d2925-c6d3-4a34-9af7-f1984b44cc49"} type={"Input"} opts={{}} >{`state%20%3D%20%22%22%3B%0ATextView%5Bstate%20%2F%2F%20Offload%2C%20%22Label%22-%3E%22State%22%5D%0A%0Acell%20%3D%20CellPrint%5BPlot%5Bx%2C%7Bx%2C0%2C1%7D%5D%2C%20%22Target%22-%3E_%5D%3B%0AEventHandler%5Bcell%2C%20%7B%0A%09%22Mounted%22%20-%3E%20Function%5BNull%2C%20state%20%3D%20%22Mounted%22%5D%2C%0A%09%22Closed%22%20-%3E%20Function%5BNull%2C%20state%20%3D%20%22Closed%22%5D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"8430bfd5-dc53-4fc9-9c70-fa7dd25bd315"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ed11ea2a-b91d-4a22-9a7e-eb547d1a1073%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6YYGqYmGiXqJlkapuiaJBoZ6VommqfqpiaZmpinGCYaGpgbAwCRzxXu%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+And manually close it if needed
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"1087211c-83e3-4be4-a060-379acf60c442"} type={"Input"} opts={{}} >{`Delete%5Bcell%5D`}</WLJSEditor>
+
+Note that `Mounted` event contains `WindowObj`, which can be used together with `FrontSubmit` and `FrontFetch` to trigger actions there.
+
+## Let expression
+We adopted Leonid Shifrin's library [LetWL](https://github.com/lshifr/LetWL)
+
+> __Leonid Shifrin__ is a software developer (Wolfram Research), an enthusiast, and the author of the excellent work [Mathematica Programming: An Advanced Introduction by Leonid Shifrin](https://archive.org/details/ost-computer-science-mathprogrammingintro). Please read it here if you haven't!
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"01fd4991-5c91-441c-a5c7-c097255a897a"} type={"Input"} opts={{}} >{`Let%5B%7Ba%20%3D%201%2C%20b%20%3D%20a%20%2A%202%7D%2C%0A%20%20b%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"9548bfd4-917a-4f65-90c8-45739f721aeb"} id={"8e984581-60cd-478e-9870-edda274abd91"} type={"Output"} opts={{}} >{`2`}</WLJSEditor>
+
+## Code Freeze
+
+
+We decided to disable automatic granular updates by default (except for the entire WLJS Notebook app), unless you explicitly request it from the launcher window.
+
+We do not expect a demand for frequent updates, as our project is becoming more and more stable. We do this for your own safety, ensuring that you won't face a situation where there is a version mismatch between different subsystems. Additionally, it reduces loading time because it does not check versions by default.
+

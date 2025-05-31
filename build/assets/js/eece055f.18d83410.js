@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwlx_docs=self.webpackChunkwlx_docs||[]).push([[80461],{32012:e=>{e.exports=JSON.parse('{"blogBasePath":"/releases","blogTitle":"WLJS Notebook Releases"}')}}]);

@@ -1,0 +1,15 @@
+# Making widgets using WLX
+Here is a small example of interactive plot
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/5b82a32e-bd3c-47b8-bf28-9be39f1739d6.txt').default} notebook={require('./attachments/notebook-5b8.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"5b82a32e-bd3c-47b8-bf28-9be39f1739d6"} id={"35d51a91-7285-4024-826d-338538c23c5a"} type={"Input"} opts={{}} >{`.wlx%0A%0AModule%5B%7BSlider%20%3D%20InputRange%5B0.1%2C1%2C0.1%2C0.5%5D%2C%20Figure%2C%20lines%7D%2C%0A%20%20EventHandler%5BSlider%2C%20Function%5Bs%2C%20lines%20%3D%20%7B%23%2C%20Sinc%5B%23%2Fs%5D%7D%26%20%2F%40%20Range%5B-5%2C5%2C0.1%5D%5D%5D%3B%0A%20%20Slider%20%2F%2F%20EventFire%3B%0A%0A%20%20Figure%20%3D%20Graphics%5BLine%5Blines%20%2F%2F%20Offload%5D%2C%20ImageSize-%3E350%2C%20Axes-%3E%7BTrue%2C%20False%7D%5D%3B%0A%0A%20%20%3Cdiv%20style%3D%22display%3A%20flex%22%3E%0A%20%20%20%20%3Cdiv%3E%3CSlider%2F%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%3E%3CFigure%2F%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"wlx"} nid={"5b82a32e-bd3c-47b8-bf28-9be39f1739d6"} id={"6e6932eb-133b-4651-9571-60e0d43fa4aa"} type={"Output"} opts={{}} >{`%3Cdiv%20style%3D%22display%3A%20flex%22%3E%3Cdiv%20%3EFrontEndExecutable%5Be46061d2-5f59-4f8b-8024-58de97171d0e%5D%3C%2Fdiv%3E%3Cdiv%20%3EFrontEndExecutable%5Bb044de05-f00c-4060-b3aa-c23288f65cc8%5D%3C%2Fdiv%3E%3C%2Fdiv%3E`}</WLJSEditor>

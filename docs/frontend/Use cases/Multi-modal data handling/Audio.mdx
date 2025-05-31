@@ -1,0 +1,22 @@
+# Audio Processing Demo
+
+This notebook demonstrates handling and manipulating audio data using the Wolfram Language. It includes examples on loading, amplifying, and applying reverb effects to audio data.
+
+Explore the cells below to see these features in action.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/4da93729-aa2a-4bd1-a51f-89a67644c794.txt').default} notebook={require('./attachments/notebook-4da.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"4da93729-aa2a-4bd1-a51f-89a67644c794"} id={"f43373eb-effd-41ce-b2c6-3569c4309cbb"} type={"Input"} opts={{}} >{`ExampleData%5B%7B%22Audio%22%2C%22Cat%22%7D%5D`}</WLJSEditor>
+
+Add some reverb to it
+
+<WLJSEditor display={"codemirror"} nid={"4da93729-aa2a-4bd1-a51f-89a67644c794"} id={"7c846d64-9db8-4e48-8de4-f584a68c20c2"} type={"Input"} opts={{}} >{`AudioAmplify%5B%28%2AVB%5B%2A%29%28Audio%5B%22%2FUsers%2Fkirill%2FLibrary%2FWolframEngine%2FPaclets%2FRepository%2FExampleData_Audio_Cat-11.2.0.0%2FData%2FCat.wav%22%2C%20%22Real32%22%2C%20Appearance%20-%3E%20Automatic%2C%20AudioOutputDevice%20-%3E%20Automatic%2C%20SampleRate%20-%3E%2044100%2C%20SoundVolume%20-%3E%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gnGyebmxropqWZmOmamCSZ6VqaWZrrpiQZmZtbmlkYWCamAQCC0hVl%22%2A%29%28%2A%5DVB%2A%29%2C%202%5D%20%2F%2F%20AudioReverb`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"4da93729-aa2a-4bd1-a51f-89a67644c794"} id={"0d4c6db9-b01e-4d68-a5cd-4f0fb738757c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Audio%5B%22%2FUsers%2Fkirill%2FLibrary%2FCaches%2FWolfram%2FAudioCache%2F30756891103326103287%2FWolframAudio-0a9edcf6-dc26-40e4-87e2-cf69d88f9566.wav%22%2C%20%22Real32%22%2C%20Appearance%20-%3E%20Automatic%2C%20AudioOutputDevice%20-%3E%20Automatic%2C%20SampleRate%20-%3E%2044100%2C%20SoundVolume%20-%3E%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxmkJZmZJFnopqUmG%2BuaGBua6FpaGKbpmliaGCUbmJsYWqalAgCILxWA%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

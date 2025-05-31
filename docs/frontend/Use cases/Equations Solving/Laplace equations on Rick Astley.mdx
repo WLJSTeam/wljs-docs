@@ -1,0 +1,37 @@
+# ImageMesh
+A example of creating and using boundary mesh
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/15555253-40cf-405f-a3be-58c479ee602f.txt').default} notebook={require('./attachments/notebook-155.wln').default}/>
+
+
+
+
+Smile!
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"4c373725-08e7-42b4-b24a-a78a26bff9c7"} type={"Input"} opts={{}} >{`img%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%223f9da47c-1b07-40b8-91e3-b5f1b8313276%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6dZpiSamCfrGiYZmOuaGCRZ6FoaphrrJpmmGSZZGBsaG5mbAQCEaxVA%22%2A%29%28%2A%5DVB%2A%29%3B`}</WLJSEditor>
+
+Apply a filter
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"265bbb2d-b3bf-40b1-a031-c5dab616d705"} type={"Input"} opts={{}} >{`MeanShiftFilter%5Bimg%2C%205%2C%201%5D%20%2F%2F%20Binarize%20%2F%2F%20ColorNegate`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"64176d65-3bc9-4ba1-8009-a66559de73da"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22abea480b-c478-4f3f-ab82-c2e6af26c0e0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJyalJppYGCTpJpuYW%2BiapBmn6SYmWRjpJhulmiWmGZklG6QaAACUuBZX%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create a mesh region
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"44fcae77-e02e-40c5-918f-e2e4c1d05e03"} type={"Input"} opts={{}} >{`%CE%BE%20%3D%20ImageMesh%5B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f3ac6321-8ee3-4646-a58d-2a0c3cf2193c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxknJpsZGxnqWqSmGuuamJmY6SaaWqToGiUaJBsnpxkZWhonAwCEARWb%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"84000f10-f950-430d-84d9-e8fc0efa24be"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28CoffeeLiqueur%60Extensions%60Boxes%60Workarounds%60temporal%24644329%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxoZmxumpRnrGqaYp%2BiaGCRb6lokGpnrJicaG6QZJSeaJ5qlAQCFdBX5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Compute eigenfunctiions of the wave equation
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"8db5592b-dd28-43df-87fb-38f4db3f3d14"} type={"Input"} opts={{}} >{`%7Bvals%2C%20funs%7D%20%3D%20NDEigensystem%5B%0A%20%20%20%7B-Laplacian%5Bu%5Bx%2C%20y%5D%2C%20%7Bx%2C%20y%7D%5D%2C%20%0A%20%20%20%20DirichletCondition%5Bu%5Bx%2C%20y%5D%20%3D%3D%200%2C%20True%5D%7D%2C%20%0A%20%20%20u%5Bx%2C%20y%5D%2C%20Element%5B%7Bx%2C%20y%7D%2C%20%CE%BE%5D%2C%206%5D%3B`}</WLJSEditor>
+
+Plot different time slots
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"e9bd948b-b608-4c37-85b7-41250a5e4927"} type={"Input"} opts={{}} >{`Grid%40%0A%20Partition%5B%0A%20%20Table%5BContourPlot%5Bfuns%5B%5Bi%5D%5D%2C%20Element%5B%7Bx%2C%20y%7D%2C%20%CE%BE%5D%2C%20%0A%20%20%20%20PlotRange%20-%3E%20All%2C%20ImageSize-%3E300%2C%20%20PlotLabel%20-%3E%20vals%5B%5Bi%5D%5D%5D%2C%20%7Bi%2C%20Length%5Bvals%5D%7D%5D%2C%202%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"15555253-40cf-405f-a3be-58c479ee602f"} id={"a26d1609-d4e7-4530-85c6-ad448e71e60f"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22784af6a2-f032-4460-9b9b-494f02cb4c5b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1uYJKaZJRrpphkYG%2BmamJgZ6FomWSbpmliapBkYJSeZJJsmAQB8mBVx%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%225243adc3-a051-4161-b10e-27ad620383a3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxqZGCemJBvrJhqYGuqaGJoZ6iYZGqTqGpknppgZGRhbGCcaAwB4zBTv%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%2282967958-4efd-4fca-95fe-4e71721d1655%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxhZmplbmlromqSmpeiapCUn6lqapqUCueaG5kaGKYZmpqYAgIwVYw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%2298e7ad7c-6b56-40de-a4d4-bc96f11d4156%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW1qkmiemmCfrmiWZmumaGKSk6iaapJjoJiVbmqUZGqaYGJqaAQCNWhXc%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f5feca55-1d3e-465f-a182-6b580c91f196%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5mmpSYnmprqGqYYp%2BqamJmm6SYaWhjpmiWZWhgkWxqmGVqaAQCPLBWt%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ca854dfe-a6a0-4658-a189-499483b2406c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJydamJqkpKXqJpolGuiamJla6CYaWljqmlhamlgYJxmZGJglAwCIdRVP%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>

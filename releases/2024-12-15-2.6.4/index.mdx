@@ -1,0 +1,140 @@
+
+# Release notes *2.6.4*
+
+This update introduces enhanced support for `SummaryBox`, including proper representation of `ResourceFunction` and related elements. `GraphicsComplex` has been improved to support additional primitives like `Tube`, `Sphere`, and `Line`, with optimized performance for Tube geometry and dynamic updates for both coordinates and radius.
+
+New features include the ability to export entire notebook folders as compressed files for easy sharing, import functionality for reusing symbols and templates across notebooks, and the introduction of TabView for intuitive tab-based visualizations. Additionally, dialog tools such as `ChoiceDialog` and `MessageDialog` have been added for interactive user prompts.
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/7bd3d32f-7329-40eb-a593-d2fd91770b28.txt').default} notebook={require('./attachments/notebook-7bd.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"10160622-2b87-4fcf-b81b-57b9609dc834"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+## Improved support for SummaryBox and special symbols
+Now `ResourceFunction` has its representation, and many other from the function repository can render correctly
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"641ab046-5282-4d2d-b816-ec2bd48e4b7b"} type={"Input"} opts={{}} >{`metric%20%3D%20ResourceFunction%5B%22MetricTensor%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"948ca6f0-e96b-4158-a509-6d0a80ad7484"} type={"Input"} opts={{}} >{`metric%20%3D%20ResourceFunction%5B%28%2AVB%5B%2A%29%20ResourceObject%5B%3C%7C%22Name%22%20-%3E%20%22MetricTensor%22%2C%20%22ShortName%22%20-%3E%20%22MetricTensor%22%2C%20%22UUID%22%20-%3E%20%22c6c98873-a3bc-43e4-a1a4-ed6e5dbbaa32%22%2C%20%22ResourceType%22%20-%3E%20%22Function%22%2C%20%22Version%22%20-%3E%20%221.0.0%22%2C%20%22Description%22%20-%3E%20%22Represent%20a%20metric%20tensor%20%28field%29%20for%20a%20Riemannian%20or%20pseudo-Riemannian%20manifold%22%2C%20%22RepositoryLocation%22%20-%3E%20URL%5B%22https%3A%2F%2Fwww.wolframcloud.com%2Fobj%2Fresourcesystem%2Fapi%2F1.0%22%5D%2C%20%22SymbolName%22%20-%3E%20%22FunctionRepository%60%24e8bf75f345d9428d8514b42f99452556%60MetricTensor%22%2C%20%22FunctionLocation%22%20-%3E%20CloudObject%5B%22https%3A%2F%2Fwww.wolframcloud.com%2Fobj%2F841aede1-5fed-4606-91bd-ebe5f6619e11%22%5D%7C%3E%2C%20ResourceSystemBase%20-%3E%20Automatic%5D%20%28%2A%2C%2A%29%28%2A%221%3AeJxNj09rwzAMxbN2659dBr0MeloP%2FQI59taxlBWyFpIs57qxPAy2BbLD1m8%2FOS60lx96T9KztTpjpcZZlvkl4x3%2Fdkj2tCUS7gdk3Vsr6MK2eogzL4wdoQuFk62m0AuTGo%2BMTzRyKA7o4GaX2gc1iur17oVr8j6AbTX81pO4Jyxs3tLsM6OQOiDFdkqbMo5KGRQyGXPGd1V%2BQIcS6gWrdZ5%2FQSDdNeA8EssUFz9S9QbqWSxAyKMzl8FtqAf%2FFO8SxsM%2FDdFEIQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D%5B%7B%22Schwarzschild%22%2C%201%7D%2C%20%7Bt%2C%20r%2C%20a1%2C%20a2%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"b095f62c-dacb-47a0-baa7-462418289e83"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29temporalStorage%24126228%28%2A%2C%2A%29%28%2A%221%3AeJxdUsuumlAANLZNmn7F7V35aCIoL5t0AYgKHAUOCMLNXfA4IIq8kcfXV7vsZjIzmcUkMz%2B9DIZfRqNR9eMJQhDXWWnGqNXH49HogOoy9g2UVln5MZmZ3Mds%2BjaZ%2FZpNJ7N3%2FDeS%2BvpUJUo7sBoIq8aIYknArgRLsyJnkbVW7GLhqJ2G6xXPAbhJnhxoKbUBjKPIcQygbPYIFou7EczTxxYWj9KxCxUeQKXsS809tBk2xLiB3SFQ032UyThSsAKQpGdBkWKl7KRBCSnDxWEGT97sGCtfng%2Fcrs9IVhLS%2FBSZ6kBzThetKKxmzjbjzNd1Hs4LpIfzhgv3AsGbTuAl3N1XE9tc0hTi5UPRYMbaR%2FhlECzfNjPD6gjEdyuijgo%2Bui1STCRw%2FhhbjmBdgkXTROe9JOH7lr9UCCadRmLseU0zNKCKs0Ig6uGnuurrtbjk66zR1CiWTXHA%2BX61tY9QACV77zfMLrJg3mdHN3NxVtm33OK4DZKAWEHYnbHWRW5%2F0pBWmwpwuMGg5TIIwF3kc3UbeiIFESqxEHcJ0gxFmANbqxZDt%2FL8Qq9y68jzjUW08bAciEx8lnLowDjl9u1WedgWENxcDih2TdXMn%2FfXvp8mN5t%2BhuPXNb4%2BATYJ0r%2B%2FCHIDJU36f65RNui%2FzOtHOkqQX7tegqpvT7l1kwr9BQzswCU%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Improved support for primitives Graphics3D
+
+### Tubes, Spheres inside `GraphicsComplex`
+
+`GraphicsComplex` expression is an efficient way of rendering many objects with shared coordinates, vertices, normals and colors. For a long time it was only possible for `Polygon` to work with such structures. Now we added the support for `Tube`, `Sphere`, `Line`
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"7fde992f-a616-4b81-8451-fbb1a62b2590"} type={"Input"} opts={{}} >{`decomposition%20%3D%20ResourceFunction%5B%22DiscreteHypersurfaceDecomposition%22%5D%5B%0A%20%20metric%2C%20%7Bt%2C%200%2C%201%7D%2C%20%7Br%2C%200%2C%204%7D%2C%20%7Ba1%2C%20-Pi%2C%20Pi%7D%2C%20200%2C%201.5%5D%3B%0Adecomposition%5B%22CoordinatizedPolarGraphColored%22%5D%20%2F%2F%20GraphPlot3D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"1e3822f6-21f3-43cc-b5f5-6771911d2e37"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d935435c-c070-49da-b160-7822545d2d50%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1gam5oYmybrJhuYG%2BiaWKYk6iYZmhnomlsYGZmamKYYpZgaAAB4dhTc%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Tube supports variable radius and dynamics!
+
+The original implementation of Tube geometry from the standard library of THREE.js was quite limited. We reimplemented `Tube` from scratch in Javascript manually generating each vertex, normal and then passing it to a dynamic buffer of GPU.
+
+Now it works much faster and does support dynamic updates of both: coordinates and radius. We don't waste the resources of GPU and heavily reuse the created buffers
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"bdb20d2e-a185-431b-9f29-c4e54b76db59"} type={"Input"} opts={{}} >{`Tube%5B%7B%7B0%2C1%2C0%7D%2C%20%7B0%2C0%2C0%7D%2C%20%7B0%2C-1%2C0%7D%7D%2C%20%7B0.2%2C0.3%2C0.1%7D%5D%20%2F%2F%20Graphics3D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"f20f5f4a-9a0f-4aa5-89d6-7f9e85d34a00"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics3D%5BTube%5B%7B%7B0%2C%201%2C%200%7D%2C%20%7B0%2C%200%2C%200%7D%2C%20%7B0%2C%20-1%2C%200%7D%7D%2C%20%7B0.2%2C%200.3%2C%200.1%7D%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeF5BwL0osyMhMLjZ2SWOCqQgpTUpNY4bxfDKLS1B5mUCaIRNkBJiFTZIBn%2BR%2FIMAiWTRrJgictC8yBoPL9lCRnfYA05Irhw%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Here is a beautiful example of using tubes to draw scalar fields (taken from [stackoverflow](https://mathematica.stackexchange.com/questions/687/id-like-to-display-field-lines-for-a-point-charge-in-3-dimensions))
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"e231278f-2e4f-4626-8e7d-785ee922a829"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22730749d0-16d4-41b0-874c-cf9fa7d38b91%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxsbmJtYphjoGpqlmOiaGCYZ6FqYmyTrJqdZpiWapxhbJFkaAgB1ZBVM%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+There are still some issues with calculating normals at the ends, but we will fix it later.
+
+## New export feature
+
+__Keep the filesystem within the notebook__
+
+It allows you to compress the whole notebook folder and embed it to a notebook. It uses simple `gzip` and stores the binary data as Base64 string
+
+
+![](attachments/Screenshot%202024-12-13%20at%2016.07.40-cce.png)<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+Then you only need to share your `.wln` file and on the first start it will self extract the files maintaining the original folder structure.
+
+## Experimental: Import WLN notebook
+It might come handy, if you don't want to create a library, but still like to reuse some functions or templates from the other notebook.
+
+We have registered the converter for that reason. What it does?<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML><WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+1. Evaluate all initialization cells in the isolated context (__can be any kind of cell__)
+2. Evalaute the last input cell in the notebook and return the result (__must be wolfram language cell__)
+
+Since it involves breaking the order of  evaluation, `Import` will return `Promise`, that you would need to resolve. For example I have WLX templates defined in other notebook, that I would like to reuse here
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"c13e47b4-4f1a-4938-b9d8-bfa875f00a30"} type={"Input"} opts={{}} >{`p%20%3D%20Import%5B%0A%20%20FileNameJoin%5B%7BNotebookDirectory%5B%5D%2C%20%22attachments%22%2C%20%22detect.wln%22%7D%5D%2C%0A%20%20%22WLN%22%0A%5D%3B%0A%0AThen%5Bp%2C%20%28MyBigHeader%20%3D%20%23%29%26%5D%3B`}</WLJSEditor>
+
+Now we can safely use it
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"056646f1-fd1c-4fb9-819d-d3f301f1caf1"} type={"Input"} opts={{}} >{`.slide%0A%0A%3CMyBigHeader%3ETitle%3C%2FMyBigHeader%3E`}</WLJSEditor>
+
+<WLJSEditor display={"slide"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"b5c83cd0-9e19-4c81-ac5f-eaefe8dfc85d"} type={"Output"} opts={{}} >{`%3Cdummy%20%3E%3Ch2%20style%3D%22%0A%20%20%20%20white-space%3A%20nowrap%3B%0A%20%20%20%20display%3A%20inline-block%3B%0A%20%20%20%20font-size%3A%20400px%3B%22%3ETitle%3C%2Fh2%3E%3C%2Fdummy%3E`}</WLJSEditor>
+
+You can see the unique context of the given symbol
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"e34bb9bc-9d92-4e12-a32e-ad00aebae828"} type={"Input"} opts={{}} >{`MyBigHeader`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"5316875b-2ab2-4d37-9a73-bbc410369923"} type={"Output"} opts={{}} >{`bellman311%60Header`}</WLJSEditor>
+
+Or something even cooller! Let it be a __piano view__
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"2651e8e3-c657-48af-98b1-664ef17742ae"} type={"Input"} opts={{}} >{`p%20%3D%20Import%5B%0A%20%20FileNameJoin%5B%7BNotebookDirectory%5B%5D%2C%20%22attachments%22%2C%20%22Piano.wln%22%7D%5D%2C%0A%20%20%22WLN%22%0A%5D%3B%0A%0AThen%5Bp%2C%20%28pianoView%20%3D%20%23%29%26%5D%3B`}</WLJSEditor>
+
+Try to play
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"9e4b66d0-7d2a-4409-83bd-7ad34c374a36"} type={"Input"} opts={{}} >{`pianoView%5B%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"61041051-e5da-4ca3-8cb8-60ec89fc3922"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%226f07b81b-dac8-4872-af9f-6233ab175067%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6UZmCdZGCbppiQmW%2BiaWJgb6SamWabpmhkZGycmGZqbGpiZAwCIGRV5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## TabView implemented!
+We have added the support for `TabView`
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"2ce0a8db-945d-4987-8498-def3a613f314"} type={"Input"} opts={{}} >{`TabView%5B%7B%0A%20%20Sin-%3EPlot3D%5BSin%5Bx%5D%20Sin%5By%5D%2C%20%7Bx%2C-2Pi%2C2Pi%7D%2C%20%7By%2C-2Pi%2C2Pi%7D%5D%2C%20%0A%20%20Sinh-%3EPlot3D%5BSinh%5Bx%5D%20Sinh%5By%5D%2C%20%7Bx%2C-2Pi%2C2Pi%7D%2C%20%7By%2C-2Pi%2C2Pi%7D%5D%0A%7D%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"2d1ea0d3-d09e-4ee5-bdb7-5e23b73711d1"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Null%29%28%2A%2C%2A%29%28%2A%221%3AeJytUstuglAQta2Lpn9RVkpKwuOC0B0YxIBaC4oB4%2BICF0W4XMQX%2Fl8%2FrFLTdNM2bdPNyZzJOTOTk7kPiB1fNRqNbfMMfZJF8U3N7s4wgYGboKNGqvj6XTFItrsLqxV6lOxIWYuc2uUk%2BYfS3mfIua0LBKOnPDu9dSflHn3qb178q58P%2BPaclzNt0a42p9utXknynZ5HNornlMLFkgAEnmEFKWIAhzgmkGXAiBGAMSvKbCeIqEW7RT%2BcnTTFPSKzmkyGZOzgUeoZKvGXutM%2FpKJld5FuakdLLseW0B85grFzdHY%2FmGbDU5qO3KVuzaoNxjYODO1QGKskKFACDcuDUuL7M3NN8AZ6puX5uEc83EWZqmonvpraVL174Wp0%2B895fhlAiMJIllmekTpByABeURhFElkmBDwAEMRhEAv%2FFoAphbjgVp6hrQtcpLmJ9tDoZVDKNhDbJTGLrYf9ZYo3z5kpTX312O0Rbbb9XQBJ%2FcCvkzS%2F6g%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+And it will work offline, since the widget prerenders all states and just swap between them using HTML and JS.
+
+It has `WLXForm` implemented, therefore it can work on slides too
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"91b00278-513d-46e4-9c4b-5929318eab3b"} type={"Input"} opts={{}} >{`TabWidget%20%3D%20TabView%5B%7B%0A%20%20Sin-%3EPlot3D%5BSin%5Bx%5D%20Sin%5By%5D%2C%20%7Bx%2C-2Pi%2C2Pi%7D%2C%20%7By%2C-2Pi%2C2Pi%7D%5D%2C%20%0A%20%20Sinh-%3EPlot3D%5BSinh%5Bx%5D%20Sinh%5By%5D%2C%20%7Bx%2C-2Pi%2C2Pi%7D%2C%20%7By%2C-2Pi%2C2Pi%7D%5D%0A%7D%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"a7db3a43-b64b-4966-acb6-62b445d25a9e"} type={"Input"} opts={{}} >{`.slide%0A%0A%23%23%20My%20Tab%20Widget%0A%0A%3CTabWidget%2F%3E`}</WLJSEditor>
+
+<WLJSEditor display={"slide"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"8f83d7f1-fb77-4061-a15a-f6c1a82670ff"} type={"Output"} opts={{}} >{`%3Cdummy%20%3E%0A%23%23%20My%20Tab%20Widget%0A%0AFrontEndExecutable%5Be065d062-f0a0-4f67-8c4c-0abbce0ad31c%5D%3C%2Fdummy%3E`}</WLJSEditor>
+
+## ChoiceDialog and MessageDialog
+We added the support for dialog-tools. For example to show the message
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"8a004b2a-8fbb-4125-8540-782ba217168a"} type={"Input"} opts={{}} >{`MessageDialog%5BPlot%5Bx%2C%20%7Bx%2C0%2C1%7D%5D%5D`}</WLJSEditor>
+
+If you want to prompt user to click yes or no, use 
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"29ef4049-3ea3-4f3e-adc4-bad6773ee580"} type={"Input"} opts={{}} >{`ChoiceDialog%5BPlot%5Bx%2C%20%7Bx%2C0%2C1%7D%5D%5D`}</WLJSEditor>
+
+Or choose from the options
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"96d47baa-a39d-4e5b-bfd0-5294f8dd38a7"} type={"Input"} opts={{}} >{`ChoiceDialog%5B%22Click%20on%20a%20plot%22%2C%20%7B%0A%20%20Plot%5Bx%5E2%2C%20%7Bx%2C0%2C1%7D%5D%20-%3E%201%2C%20%0A%20%20Plot%5Bx%5E3%2C%20%7Bx%2C0%2C1%7D%5D%20-%3E%202%0A%7D%5D`}</WLJSEditor>
+
+There is also async version, which returns a `Promise`
+
+<WLJSEditor display={"codemirror"} nid={"7bd3d32f-7329-40eb-a593-d2fd91770b28"} id={"30b76ecb-4268-4a21-a26c-370b660ca7b6"} type={"Input"} opts={{}} >{`Then%5BChoiceDialogAsync%5B%22Click%20on%20a%20plot%22%2C%20%7B%0A%20%20Plot%5Bx%5E2%2C%20%7Bx%2C0%2C1%7D%5D%20-%3E%201%2C%20%0A%20%20Plot%5Bx%5E3%2C%20%7Bx%2C0%2C1%7D%5D%20-%3E%202%0A%7D%5D%2C%20Function%5Bresult%2C%0A%20%20Do%5BBeep%5B%5D%3B%20Pause%5B0.2%5D%2C%20%7Bresult%7D%5D%0A%5D%5D%3B`}</WLJSEditor>
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

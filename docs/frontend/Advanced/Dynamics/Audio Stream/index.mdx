@@ -1,0 +1,73 @@
+# Audio Stream
+In this tutorial we set up and play a continuous audio waveform using a buffer and event-driven playback mechanism. 
+
+
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/6e31cec9-4df0-4e8d-8650-9a3e85047829.txt').default} notebook={require('./attachments/notebook-6e3.wln').default}/>
+
+
+
+There is only one built-in option to stream raw audio data - [PCMPlayer](frontend/Reference/Sound/PCMPlayer.md), which accepts a audio buffers in a form of `NumericArray` of singed integers (as most audio sources):
+
+```mathematica
+abuffer = NumericArray[0.2 RandomInteger[{-32760,32760}, 40 1024], "Integer16", "ClipAndRound"];
+PCMPlayer[abuffer, "SignedInteger16"]
+```
+
+:::warning
+This will generate a second of a white noise
+:::
+
+For further example we generate audio on-fly using  `samplingFunction`, which defines a pleasant waveform to be played:
+
+```mathematica
+samplingFunction = Function[t, Sin[200.0 t]]
+```
+
+In this case, it’s a sine wave of frequency 200 Hz.
+
+For continuous generation we need to track global time and supply new chunks of data to [PCMPlayer](frontend/Reference/Sound/PCMPlayer.md). The latter is event-driven and it will fire an event before the previous chunk of data is almost depleted:
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"9f9ce09e-81e1-4842-832d-ef5289407a67"} type={"Input"} opts={{"Fade":false,"InitGroup":true}} >{`buffer%20%3D%20NumericArray%5BTable%5B0%2C%20%7B256%7D%5D%2C%20%22Integer16%22%2C%20%22ClipAndRound%22%5D%3B%0AsamplingFunction%20%3D%20Function%5Bt%2C%20Sin%5B200.0%20t%5D%5D%3B%0A%0Atime%20%3D%200%3B%0A%0AEventHandler%5B%22bufferEnds%22%2C%20%7B%22More%22%20-%3E%20Function%5BNull%2C%0A%20%20With%5B%7Bc%20%3D%20%281.0%2F44100.0%29%20%282Pi%29%7D%2C%0A%20%20%20%20With%5B%7Bsampled%20%3D%2032760%20Table%5BsamplingFunction%5Bc%20%28i%20%2B%20time%29%5D%2C%20%7Bi%2C%200%2C%204%201024%20-%201%7D%5D%7D%2C%0A%20%20%20%20%20%20buffer%20%3D%20NumericArray%5Bsampled%2C%20%22Integer16%22%2C%20%22ClipAndRound%22%5D%3B%0A%20%20%20%20%5D%3B%0A%20%20%20%20%0A%20%20%20%20time%20%2B%3D%204%201024%3B%0A%20%20%5D%3B%0A%5D%7D%5D%3B%0A%0APCMPlayer%5Bbuffer%20%2F%2F%20Offload%2C%20%22SignedInteger16%22%2C%20%22Event%22-%3E%22bufferEnds%22%5D`}</WLJSEditor>
+
+We can change the generator function on-fly
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"40c5a6e4-8f78-4bab-8476-adf3bd6796b7"} type={"Input"} opts={{}} >{`samplingFunction%20%3D%20Function%5Bt%2C%20Sin%5B300.0%20t%20%5D%5D%3B`}</WLJSEditor>
+
+__Two oscillators with a decay__
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"8842b025-b50b-4f3e-8307-2e808319ef25"} type={"Input"} opts={{}} >{`samplingFunction%20%3D%20Function%5Bt%2C%20With%5B%7Bmod%20%3D%20Mod%5Bt%2C%20Pi%5D%7D%2C%0A%20%20Sin%5B300.0%20t%20%5D%20Sin%5B45.0%20t%20%5D%20Exp%5B-t%20mod%20%2F%20200.0%20%5D%0A%5D%5D%3B`}</WLJSEditor>
+
+## Waveform screen
+Let's modify our handler function to store waveform in `ilines` symbol
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"92cb8e94-0747-45d6-ba69-d4bfc087089b"} type={"Input"} opts={{"InitGroup":true,"Fade":false}} >{`EventHandler%5B%22bufferEnds%22%2C%20%7B%22More%22%20-%3E%20Function%5BNull%2C%0A%20%20With%5B%7Bc%20%3D%20%281.0%2F44100.0%29%20%282Pi%29%7D%2C%0A%20%20%20%20With%5B%7Bsampled%20%3D%2032760%20Table%5BsamplingFunction%5Bc%20%28i%20%2B%20time%29%5D%2C%20%7Bi%2C%200%2C%204%201024%20-%201%7D%5D%7D%2C%0A%20%20%20%20%20%20buffer%20%3D%20NumericArray%5Bsampled%2C%20%22Integer16%22%2C%20%22ClipAndRound%22%5D%3B%0A%20%20%20%20%20%20ilines%20%3D%20NumericArray%5B%0A%20%20%20%20%20%20%20%20Transpose%5B%7BRange%5B4%201024%5D%2C%20sampled%7D%5D%0A%20%20%20%20%20%20%2C%20%22Integer16%22%2C%20%22ClipAndRound%22%5D%3B%0A%20%20%20%20%5D%3B%0A%20%20%20%20%0A%20%20%20%20time%20%2B%3D%204%201024%3B%0A%20%20%5D%3B%0A%5D%7D%5D%3B`}</WLJSEditor>
+
+
+:::tip
+Project the cell below to a window
+:::
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"4e8602ee-ba57-4ad3-ba5b-66f8dee416aa"} type={"Input"} opts={{"InitGroup":true}} >{`Graphics%5B%7BLine%5Bilines%20%2F%2F%20Offload%5D%7D%2C%20%22TransitionType%22-%3ENone%2C%20AspectRatio-%3E0.5%2C%20%22Controls%22-%3EFalse%2C%20PlotRange-%3E%7B%7B0%2C%204%201024%7D%2C%20%7B-32760%2C%2032760%7D%7D%5D`}</WLJSEditor>
+
+## GUI controls
+Here we set up a bunch of sliders to control the oscillator parameters
+
+<WLJSEditor display={"codemirror"} nid={"6e31cec9-4df0-4e8d-8650-9a3e85047829"} id={"eb4f1bf7-3264-46b0-9a2a-37d1e90746b8"} type={"Input"} opts={{"Fade":false,"InitGroup":true}} >{`EventHandler%5BInputGroup%5B%3C%7C%0A%20%20%22w1%22%20-%3E%20InputRange%5B10%2C%20800%2C%201%2C%20455%2C%20%22Label%22-%3E%22Osc%201%22%5D%2C%0A%20%20%22w2%22%20-%3E%20InputRange%5B10%2C%20800%2C%201%2C%20455%2C%20%22Label%22-%3E%22Osc%202%22%5D%2C%0A%20%20%22d%22%20%20-%3E%20InputRange%5B50%2C%201000%2C%2010%2C%20300%2C%20%22Label%22-%3E%22Decay%22%5D%2C%0A%20%20%22r%22%20%20-%3E%20InputRange%5B0.5%2C%204.5%2C%200.1%2C%203.1%2C%20%22Label%22-%3E%22Period%22%5D%0A%7C%3E%2C%20%22Layout%22-%3E%22Horisontal%22%5D%2C%20With%5B%7B%7D%2C%0A%20%20samplingFunction%20%3D%20Function%5Bt%2C%20With%5B%7Bmod%20%3D%20Mod%5Bt%2C%20%23r%5D%7D%2C%0A%20%20%20%20Sin%5B%23w1%20t%20%5D%20Sin%5B%23w2%20t%20%5D%20Exp%5B-t%20mod%20%2F%20%23d%20%5D%20%0A%20%20%5D%5D%3B%0A%5D%26%5D`}</WLJSEditor>
+
+See it in action ✨
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/bn7pXHLbqhc?si=Sfr-58wThNFVfnVf"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerPolicy="strict-origin-when-cross-origin"
+  allowFullScreen
+/>

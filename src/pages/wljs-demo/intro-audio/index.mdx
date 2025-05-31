@@ -1,0 +1,102 @@
+# Sound
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/22d00b04-93c0-40fa-9cd1-59e92f7d7df7.txt').default} notebook={require('./attachments/notebook-22d.wln').default}/>
+
+
+
+
+## Audio generation
+Similar to `Plot` we can generate audio singal using symbolics
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"113f8fbd-5445-4f25-a71e-64577905beb1"} type={"Input"} opts={{}} >{`Play%5BSin%5B440%202%20Pi%20t%5D%2C%20%7Bt%2C%200%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"357d7df5-d683-4699-a72d-153d0d2f16ef"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225aab6d2c-d5c6-4bd8-8a51-79438704e1ea%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyYmJpmlGCXrppgmm%2BmaJKVY6FokmhrqmluaGFuYG5ikGqYmAgCPGxXU%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"42f30934-6e94-481d-a0fb-3ffb0e3a67d0"} type={"Input"} opts={{}} >{`Play%5BSin%5B2000%20%281%20%2B%20Round%5B2%20t%2C%200.1%5D%29%20t%5D%2C%20%7Bt%2C%200%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"12e2ac11-3783-4d4f-bf47-ad9b55f7f978"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e3a4097d-925c-41e8-916e-a3963f8e7365%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxonmhhYmqfoWhqZJuuaGKZa6FoamqXqJhpbmhmnWaSaG5uZAgB%2BWBUs%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Module the frequency
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"6514b7ea-8aff-4470-bd03-cbe16fde73b6"} type={"Input"} opts={{}} >{`Play%5BSin%5B300%20t%20Sin%5B20%20t%5D%5D%2C%20%7Bt%2C%200%2C%201%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"522e2feb-68e9-4e3d-ad00-e2faddd93c1b"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2247077514-ee25-4f02-9377-fbdde9ce657b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5gbmJubGpropqYameqapBkY6Voam5vrpiWlpKRaJqeamZonAQB12xWH%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Use random path of a `TelegraphProcess`
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"3225c860-1853-4e1f-a12c-f84e3f01a2c2"} type={"Input"} opts={{}} >{`td%20%3D%20RandomFunction%5BTelegraphProcess%5B.3%5D%2C%20%7B100%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"62256b40-1345-46a4-b110-6bb570866831"} type={"Output"} opts={{}} >{`TemporalData%5B%28%2AVB%5B%2A%29%20Automatic%2C%20%7B%7B%7B1%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%201%2C%20-1%2C%20-1%7D%7D%2C%20%7B%7B%7B0.%2C%201.1651485228488356%2C%202.9739899687314386%2C%205.38062977149858%2C%206.122247925216762%2C%209.452938154126333%2C%2010.652701913066242%2C%2016.984098514315793%2C%2018.632899443726192%2C%2027.555337968215056%2C%2030.16833467816562%2C%2031.86546457616877%2C%2032.45671145734288%2C%2040.34605725480213%2C%2042.16588844634026%2C%2046.53932577856541%2C%2047.02198120114023%2C%2047.93544851523486%2C%2053.14845431116903%2C%2055.4837218150051%2C%2056.12351202618528%2C%2056.80045476225541%2C%2057.63912313629793%2C%2059.0550104053243%2C%2060.59380504582536%2C%2062.951616834911526%2C%2063.98187507309869%2C%2066.95006923476015%2C%2076.1353439769718%2C%2077.36891925907572%2C%2080.4273803526621%2C%2082.39550047003819%2C%2085.51075236808524%2C%2089.4437355619842%2C%2089.52695965846773%2C%2095.6615344244589%2C%20100.%7D%7D%7D%2C%201%2C%20%7B%22Discrete%22%2C%201%7D%2C%20%7B%22Continuous%22%2C%201%7D%2C%201%2C%20%7BValueDimensions%20-%3E%201%7D%7D%2C%20False%2C%2014.2%20%28%2A%2C%2A%29%28%2A%221%3AeJytkdtLwzAUxuf9giL4IvhUQR8r6S5t9U1Zi0JBaeeeTZpUA00y0pRt%2F70nqw9lCBvFl4%2Bc852e%2FPrlhqi02Ov1etU1yLNaxEqLzyetsfxiNKuFwHoJ7WLHzlyAxFpJE0k65drUuGyMy5YRLVheG0xKlt1CG%2FveYIRI7tIhKdzhQx%2B5IQp8l9AwJwEZkX6Iil27ZB8k4ZVZq1YXWMRUzf8avGqB%2FwK%2FGiamnM2zQ%2FAmXLBHp5k9BYkoN0pbu1ltt72okjbVCchHmoxZrijLDqBC93d%2BizCt4ceO7YFh%2BibL5ao70TXbjGMnHaM6whxB5aGtcaozOGQzLOFhRMKK9Vw30p6DN8YGOzPFpam6Zmg%2FGgT%2FE6CN4B2b784wtuVtlZ59%2BhiXFfsBLI6%2B4A%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+Plot and and play
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"836b4b4d-a94c-4315-b020-29b3571aacd7"} type={"Input"} opts={{}} >{`ListStepPlot%5Btd%2C%20Filling%20-%3E%20Axis%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"8a912789-c9ce-4cb4-9407-fb589969d5b7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22c6e9daeb-776d-4145-932d-a3bd86904e58%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5ulWqYkpibpmpubpeiaGJqY6loaG6XoJhonpViYWRqYpJpaAACOBhW1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"17b67186-18e7-4d87-9ccd-7c6ab8f2fdcd"} type={"Input"} opts={{}} >{`ListPlay%5Btd%2C%20SampleRate%20-%3E%208000%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"71fe9f49-0fb7-4b1e-b42b-56012bb14fa4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e5360a84-c452-416e-a1ac-f796eeaa1d4d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5oamxkkWpjoJpuYGumaGJql6iYaJibrpplbmqWmJiYappikAACAiRX8%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Audio Processing Demo
+
+This notebook demonstrates handling and manipulating audio data using the Wolfram Language. It includes examples on loading, amplifying, and applying reverb effects to audio data.
+
+Explore the cells below to see these features in action.
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"5c9cfd5e-dbc3-492a-9a2b-1dbd6b79a523"} type={"Input"} opts={{}} >{`ExampleData%5B%7B%22Audio%22%2C%22Cat%22%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"943de76e-aa18-44ac-9e8a-610ac2c58b8f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22230269f3-0857-457b-a782-69965453620d%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1qam1gmJqboJqWZJeqaGJmY6CYmmxnpmiQlWxgkGqUYmycaAgCHuhXI%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Add some reverb to it
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"ed5241c2-7122-440c-be65-c4b4325365d8"} type={"Input"} opts={{}} >{`AudioAmplify%5B%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22230269f3-0857-457b-a782-69965453620d%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1qam1gmJqboJqWZJeqaGJmY6CYmmxnpmiQlWxgkGqUYmycaAgCHuhXI%22%2A%29%28%2A%5DVB%2A%29%2C%202%5D%20%2F%2F%20AudioReverb`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"f877a42b-e226-409e-9486-c62543d5c824"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22579c6e15-252c-4a57-a273-efab1e6242eb%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5obmRumpSbrGhslG%2BiamBml6iZZmBnrppkbmKUZJpoZJRomAwCDcBWX%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Plot the audio before and after
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"99bee07a-a425-4a00-b91e-fabc94652085"} type={"Input"} opts={{}} >{`AudioPlot%5B%23%2C%20ImagePadding-%3ENone%2C%20Axes-%3EFalse%2C%20Frame-%3EFalse%2C%20PlotRange-%3E%7BFull%2C%20%7B-0.1%2C0.1%7D%7D%5D%20%26%2F%40%20%7B%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22230269f3-0857-457b-a782-69965453620d%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1qam1gmJqboJqWZJeqaGJmY6CYmmxnpmiQlWxgkGqUYmycaAgCHuhXI%22%2A%29%28%2A%5DVB%2A%29%2C%20%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22579c6e15-252c-4a57-a273-efab1e6242eb%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5obmRumpSbrGhslG%2BiamBml6iZZmBnrppkbmKUZJpoZJRomAwCDcBWX%22%2A%29%28%2A%5DVB%2A%29%7D%20%2F%2F%20Column%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"5f8bb5e8-f86a-4877-941c-3d8ccdf5c5f4"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%222a62cb0d-b2e9-42c0-895f-432b5ce63b1a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyWaGSUnGaToJhmlWuqaGCUb6FpYmqbpmhgbJZkmp5oZJxkmAgCGwBXD%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f8ac83ae-638e-450a-82df-c4ad321502df%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1kkJlsYJ6bqmhlbpOqamBok6loYpaTpJpskphgbGZoaADkAjgAV%2FQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+Make a spectrogram
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"dd32945e-d434-4276-afa8-d83ed2585eb3"} type={"Input"} opts={{}} >{`Spectrogram%5B%23%2C%20Frame-%3ETrue%5D%20%26%2F%40%20%7B%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22230269f3-0857-457b-a782-69965453620d%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm1qam1gmJqboJqWZJeqaGJmY6CYmmxnpmiQlWxgkGqUYmycaAgCHuhXI%22%2A%29%28%2A%5DVB%2A%29%2C%20%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%22579c6e15-252c-4a57-a273-efab1e6242eb%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5obmRumpSbrGhslG%2BiamBml6iZZmBnrppkbmKUZJpoZJRomAwCDcBWX%22%2A%29%28%2A%5DVB%2A%29%7D%20%2F%2F%20Column%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"fe730571-f209-48f7-a0ca-cb4f749565bb"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22109f0f71-b23b-4e96-ae7d-48e432b0b414%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxpYphmkmRvqJhkZJ%2BmapFqa6SammqfomlikmhgbJRkkmRiaAACA%2BRVq%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%228dac5884-2947-49de-abc1-88bbc2b297f1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6QkJptaWJjoGlmamOuaWKak6iYmJRvqWlgkJSUbJRlZmqcZAgCHFRXj%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+### Morse Code
+Transform SOS signal to audio
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"ce972c5e-27d9-4bab-bc1b-9210238600b1"} type={"Input"} opts={{"Fade":true}} >{`silence%20%3D%20Table%5B0%2C%20%7Bt%2C0%2C40Pi%2C0.1%7D%5D%3B%0Adot%20%3D%20Table%5BSin%5B5%20t%5D%2C%20%7Bt%2C0%2C40Pi%2C0.1%7D%5D%3B%0Adash%20%3D%20Join%5Bdot%2C%20dot%5D%3B%0A%0AmorseTable%20%3D%20Uncompress%5B%28%2AVB%5B%2A%29%28Uncompress%5B%221%3AeJwFwUlWgzAAAFCu4roLRCxS33PBHCgRSkio7oAwlHkm5eiu%2FP8l6QP0x3Gc8Jk5TKhrIyoqBQbX7XGlB1Y%2Bgoyp%2BFKgkpgGnjUwSPHZn4dhliUgHwcKKWnE4ft1HDBEz0R2i4Z37lUrLuYGqnczZtEI1fGyS6T1liAPbcFQpbQggxEflN%2F3RyewhW0ETmWZRfa0JVrR%2F5oUWYUPUg%2F2hvszszQRqda%2B5YGmr%2F35uK1muPZ31C0xivOMVLof6reANRpYdGf0JtvfXbKq1HNOtnM0PAZSnadAIrmlQL83rbjLT51MKf76B9wNWMw%3D%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcEcQBHP5Py8zKrUlEwFRgaGNCaQQhYgEVSakxrMCmT4JCal5gRzAVm%2B%2BUXFqSGJSTmpAFR6FIA%3D%22%2A%29%28%2A%5DVB%2A%29%5D%3B%0A%0Amorse%5Bstr_String%5D%20%3A%3D%20morse%5BStringReplace%5BToLowerCase%5Bstr%5D%2C%20morseTable%5D%5D%20%2F%3B%20StringMatchQ%5Bstr%2C%20%28WordCharacter%7CWhitespaceCharacter%29..%5D%3B%0A%0Amorse%20%2F%3A%20Play%5Bmorse%5Bcode_String%5D%5D%20%3A%3D%20Join%20%40%40%20%28Switch%5B%23%2C%20%0A%20%20%20%20%22.%22%2C%0A%20%20%20%20%20%20Join%5Bdot%2C%20silence%5D%2C%0A%20%20%20%20%22-%22%2C%0A%20%20%20%20%20%20Join%5Bdash%2C%20silence%5D%2C%0A%20%20%20%20_%2C%0A%20%20%20%20%20%20Join%5Bsilence%2C%20silence%5D%0A%20%20%5D%20%26%2F%40%20StringSplit%5Bcode%2C%20%22%22%5D%29%20%2F%2F%20ListPlay`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"53545460-0edd-4eb0-83de-4693200d9682"} type={"Input"} opts={{}} >{`morse%5B%22SOS%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"8f42ff6c-febe-4b62-95db-df97f3cd8a3c"} type={"Input"} opts={{}} >{`morse%5B%22...%20---%20...%20%22%5D%20%2F%2F%20Play%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"e435b4ad-f412-418a-849a-c0d796aa9728"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2260922581-0310-46e5-9527-3ba23cb6239e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxlYGhmZWhjqGhgbGuiamKWa6lqaGpnrGiclGhknJ5kZGVumAgBk7hR8%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Musical notes
+There is a separate object for representing musical notes
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"9e7f1009-2547-464a-abb9-87fc01010d57"} type={"Input"} opts={{}} >{`Sound%5BSoundNote%5B0%20%2B%2012%2C%20%228n%22%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"8e55ed4d-8851-4cfc-a47a-fe45bd1667c9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Sound%5BSoundNote%5B12%2C%20%228n%22%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5pbJpkmJRnqWiSap%2BmaGFgY61qYpxromhinGppapiQnmRuYAQCFEhV6%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+
+Play a sequence
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"2f5cde47-fa56-444b-b42d-5f91cd7c97df"} type={"Input"} opts={{}} >{`Sound%5B%7BSoundNote%5B%22C%22%5D%2C%20SoundNote%5B%22G%22%5D%2C%20SoundNote%5B%22C5%22%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"cce74239-c98f-42fd-b28a-6a2e0e077e38"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Sound%5B%7BSoundNote%5B%22C%22%5D%2C%20SoundNote%5B%22G%22%5D%2C%20SoundNote%5B%22C5%22%5D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxolGxumWZrqGhpYmuuapCWZ6lpaphrpJqUYmpokmiWmGlmkAgCAUxWo%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Play a chord
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"a795ebb9-b7b7-4e97-b2a5-8fc326a1cac6"} type={"Input"} opts={{}} >{`Sound%5BSoundNote%5B%7B%22C%22%2C%20%22G%22%2C%20%22E%22%7D%2C%201%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"22d00b04-93c0-40fa-9cd1-59e92f7d7df7"} id={"107e2519-3872-49ab-bf0c-283aa35eecc9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Sound%5BSoundNote%5B%7B%22C%22%2C%20%22G%22%2C%20%22E%22%7D%2C%201%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5pYmpobJafqWpqnGOqapCaa6iZZJpnqJqdappoZpBiZGVmaAwCCRhWP%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

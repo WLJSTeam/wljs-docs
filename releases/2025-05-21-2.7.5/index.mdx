@@ -1,0 +1,144 @@
+
+
+
+# Release notes *2.7.5*
+
+**🔧 Features & Enhancements**
+
+- **2D Input**
+  - **Helper Boxes**: Show borders around expressions for easier editing.
+  - **MatrixForm**: Updated display style for matrix outputs.
+
+- **Datasets**
+  - Fixed rendering issues with complex datasets (e.g., CO₂ emissions data).
+
+- **Speech & Audio**
+  - `Speak` supports conversion to `Audio` via `SpeechSynthesize`.
+
+- **Video**
+  - Now supports audio playback and native browser streaming.
+
+- **Graphics & Inset**
+  - Improved `Inset` handling for combining 2D/3D elements, overlays, and interactive views.
+
+**🧪 Internals**
+
+- **Welcome Screen**: Intro tutorial on first WLJS Notebook launch.
+- **Watchdog**: Micro self-tests for kernel reliability and hot-reload support.
+- **UI Fixes**: Windows scrollbar layout bugs resolved.
+
+**🔓 On-Demand Licensing**
+
+Run WLJS Notebook without device-locked licenses using [entitlements](https://reference.wolfram.com/language/ref/CreateLicenseEntitlement.html). Useful for server use — but expect slower evaluation speed.
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+
+<WLJSStore json={require('./attachments/c5a18aee-5d96-46f4-88dd-5cd14fb258f9.txt').default} notebook={require('./attachments/notebook-c5a.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"b6a88391-915f-49ee-8220-e1d116a2c98f"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+## 2D Input Improvements
+
+### Helper boxes
+We introduced helper boxes that appear when you move your cursor through equations or other decorations, which helps to see the borders of each decoration
+
+![](attachments/Screenshot%202025-05-17%20at%2011.12.23-5d5.png)
+
+*Try to focus on different elements*
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"11f5f126-9024-45c8-af26-77f6ff65d743"} type={"Input"} opts={{}} >{`%28%2AFB%5B%2A%29%28%28A%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5Bw%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20I%20g%20x%29%29%28%2A%5DFB%2A%29%20%2B%20%28%2ATB%5B%2A%29Sum%5B%28%2A%7C%2A%29x%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29x%28%2A%7C%2A%29%2C%28%2A%7C%2A%29xmin%28%2A%7C%2A%29%2C%28%2A%7C%2A%29xmax%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAoZgMSwaW5TvkVmYwgPguQCCkqTQUAeAcHBQ%3D%3D%2A%29%28%2A%5DTB%2A%29%20%2B%20%28%2ATB%5B%2A%29Integrate%5B%28%2A%7C%2A%29x%28%2A%7C%2A%29%2C%20%7B%28%2A%7C%2A%29x%28%2A%7C%2A%29%2C%28%2A%7C%2A%29xmin%28%2A%7C%2A%29%2C%28%2A%7C%2A%29xmax%28%2A%7C%2A%29%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gESnnklqelFiSWpTvkVmYwgURYgEVJUmgoAvmMJeQ%3D%3D%2A%29%28%2A%5DTB%2A%29%20`}</WLJSEditor>
+
+### MatrixForm
+`MatrixForm` has a new output form!
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"0c8da3a4-81ee-4ec0-9c4a-39cfca271cf7"} type={"Input"} opts={{}} >{`Table%5B%7Bi%2Cj%2Fi%7D%2C%20%7Bi%2C5%7D%2C%20%7Bj%2C5%7D%5D%20%2F%2F%20MatrixForm`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"22392b7c-26c2-4dfa-bfdf-f9b3db82e927"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%7B1%2C1%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B1%2C2%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B1%2C3%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B1%2C4%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B1%2C5%7D%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%7B2%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B2%2C1%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B2%2C%28%2AFB%5B%2A%29%28%283%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B2%2C2%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B2%2C%28%2AFB%5B%2A%29%28%285%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%7B3%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B3%2C%28%2AFB%5B%2A%29%28%282%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B3%2C1%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B3%2C%28%2AFB%5B%2A%29%28%284%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B3%2C%28%2AFB%5B%2A%29%28%285%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%283%29%29%28%2A%5DFB%2A%29%7D%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%7B4%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B4%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B4%2C%28%2AFB%5B%2A%29%28%283%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B4%2C1%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B4%2C%28%2AFB%5B%2A%29%28%285%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%7D%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%7B5%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%285%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B5%2C%28%2AFB%5B%2A%29%28%282%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%285%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B5%2C%28%2AFB%5B%2A%29%28%283%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%285%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B5%2C%28%2AFB%5B%2A%29%28%284%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%285%29%29%28%2A%5DFB%2A%29%7D%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%7B5%2C1%7D%7D%7D%28%2A%7C%7C%2A%29%28%2A1%3AeJxTTMoPSmNkYGAo5gUSYZmp5S6pyflFiSX5RcFsQBHfxJKizAoAs04KOA%3D%3D%2A%29%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+## Dataset Improvements
+We fixed many bugs related to poor `Dataset` implementation. This one in particular was not rendered correctly
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"5d9da45e-57b3-45d2-b560-e2cd33c61588"} type={"Input"} opts={{}} >{`ResourceData%5B%22Global%20and%20National%20Annual%20CO2%20Emissions%20from%20Fossil%20Fuel%20Burning%201751-2014%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"c0314f3d-dd06-487a-8e28-67f317e423ed"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Dataset%5BJoin%40%40CoffeeLiqueur%60Extensions%60InputsOutputs%60Private%60store%24167774%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5okJqVZphrqGhkYJuuamCYn6yamWRjqJiWZWhonW5gYJ1qaAQCKxxXQ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Speak
+One of the oldest function from Wolfram Standard Library
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"f30389e4-8fb9-49ee-a35d-a5111d70ab40"} type={"Input"} opts={{}} >{`Speak%5B%28%2AVB%5B%2A%29%28RGBColor%5B1%2C%200%2C%200%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qYgCDD%2FZQBgMDnAEA4iUPRg%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+It can also be converted to `Audio` object
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"24bc5253-654b-41f9-8c0e-02bf0552593a"} type={"Input"} opts={{}} >{`SpeechSynthesize%5BSpokenString%5B%28%2AVB%5B%2A%29%28RGBColor%5B1%2C%200%2C%200%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qYgCDD%2FZQBgMDnAEA4iUPRg%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D%2C%20GeneratedAssetLocation%20-%3E%20None%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"aa0e1f26-becd-42d6-83ee-62c4c71e7681"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Audio%5BFrontEndRef%5B%223084d98a-f8fc-4003-b2b6-0adfe3c2edd8%22%5D%2C%20%22SignedInteger16%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6UkJRuYGVvqpiYbGOiamCWl6VokGifpJqUkWpimGSalmCQaAQCU3haE%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Improved support for Video object
+For quite some time `Video` could only show "motion picture" without any audio. Now we have audio playback as well.
+
+> UPD: A few seconds before the release. We found a way to stream it to the native browser's video engine. It will work even better
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"a2280059-0674-404b-95de-46b51e9bc376"} type={"Input"} opts={{}} >{`Video%5B%22ExampleData%2FCaminandes.mp4%22%5D`}</WLJSEditor>
+
+## Better `Inset` support
+It allows to combine multiple different graphics objects in a quite complex way. Here are a few example
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"c57f72a1-52c3-48f9-ac4b-a7026d8892e6"} type={"Input"} opts={{}} >{`Plot%5BSin%5Bx%5D%2C%20%7Bx%2C%200%2C%2010%7D%2C%20%0A%20Epilog%20-%3E%20Inset%5BGraphics3D%5BCylinder%5B%5D%2C%20ImageSize%20-%3E%2060%5D%2C%20%7B0.5%2C0.5%7D%5D%5D%0AGraphics%5B%7BCircle%5B%5D%2C%20Inset%5BEditorView%5BToString%5Bx%5E2%20%2B%20y%5E2%20%3D%3D%201%20%2F%2F%20Unevaluated%2C%20StandardForm%5D%5D%2C%20%7B0%2C%200%7D%2C%20Center%2C%20%7B1%2C0.7%7D%5D%7D%2C%20ImageSize-%3E200%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"b63082d8-b496-4ae6-9892-cb3c34f5ff6d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225393609c-0f83-4065-880c-9e21d14e9307%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxpbGpsZWCbrGqRZGOuaGJiZ6lpYGCTrWqYaGaYYmqRaGhuYAwBtzBSO%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"19866073-80f8-4981-8bf3-da5a734e718d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BCircle%5B%7B0%2C%200%7D%5D%2C%20Inset%5BEditorView%5B%22%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%2B%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%3D%3D1%22%5D%2C%20%7B0%2C%200%7D%2C%20Center%2C%20%7B1%2C%200.7%7D%5D%7D%2C%20ImageSize%20-%3E%20200%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHAvSizIyEwuhoiA5H0yi0sgqtmAhHNmUXJOKqpsJpBmABNpIKFiViDhmVecCtXGBSRcUzJL8ovCMlPLg32AXA2t4AKnaC3NgPzy1KLoCg2tGi1NHTBpFKuhFQuU1NLURlVUiVWRra0hLrdAnJuaV5JahKYE5KqiNDB4Zo%2BQCyrNSS3mBLk9NzE9NTizKjXzBJAHAJcsQnQ%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or combination of overlayed raster images
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"6881111f-fbea-496a-9e62-93404fec2ce7"} type={"Input"} opts={{}} >{`img%20%3D%20%28%2AVB%5B%2A%29%28FrontEndRef%5B%223404a670-7ee4-478b-9771-8ccfa938b07d%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5sYmCSamRvomqemmuiamFsk6VqamxvqWiQnpyVaGlskGZinAAB3QRVU%22%2A%29%28%2A%5DVB%2A%29%3B%0Afaces%20%3D%20FindFaces%5Bimg%5D%3B%0Ares%20%3D%20HighlightImage%5Bimg%2C%20%7B%22Blur%22%2C%20faces%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c5a18aee-5d96-46f4-88dd-5cd14fb258f9"} id={"c00f6aca-74b5-4752-9dbd-7abaddccf16f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%222ed27c25-8a6c-4ad4-80e5-91b2daa99385%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6WmGJknG5nqWiSaJeuaJKaY6FoYpJrqWhomGaUkJlpaGluYAgCHkhWo%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Internals
+
+### Welcome Screen
+If WLJS Notebook is launched for the first time, it will guide a user though a short tutorial.
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+### Watchdog 🩼
+We added a set of self-tests for the Wolfram Kernel, which are performed periodically during the active session and before any evaluation. They take about $10^{-6}$ seconds of computational time; however, they allow for hot-reloading some of the modules that may misbehave due to uncontrollable definition reloads in the Wolfram Language Standard Library.
+
+> Yes, this is a sort of workaround. The Wolfram Kernel can clear any custom `FormatValues` of the system symbol, even those that do not interfere with system definitions. This is a big pain, but we can still live with it since it happens rarely and only for particular symbols.
+
+### UI bug fixes
+- Layout scroll bars corrections for mini apps on Windows
+
+## On-demand license
+
+If you want to try WLJS Notebook without binding the free license to your machine, you can issue [license entitlement](https://reference.wolfram.com/language/ref/CreateLicenseEntitlement.html) using Wolfram Cloud or a friend. Then
+
+
+
+<WLJSHTML>{`%3Cpre%20%3E%3Ccode%20%3E%0Agit%20clone%20https%3A%2F%2Fgithub.com%2FJerryI%2Fwolfram-js-frontend%0Acd%20wolfram-js-frontend%0Awolframscript%20-f%20Scripts%2Fstart.wls%20-entitlement%20XXX-CODE-OF-ENTITLEMENT-XXX%0A%3C%2Fcode%3E%3C%2Fpre%3E`}</WLJSHTML>
+
+
+
+It also would make sense on servers.
+
+:::warning
+In this regime the evaluation kernel works much slower
+:::
+
+---
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20img%20%7B%0A%20%20%20%20border-radius%3A%200.5rem%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

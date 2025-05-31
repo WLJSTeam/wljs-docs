@@ -1,0 +1,43 @@
+# Brownian Motion Maze Solving
+An adapted example from [Wolfram Community](https://community.wolfram.com/groups/-/m/t/2628034) (Christopher Wolfram)
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/933b68dd-3217-4bbd-a615-428eace6f017.txt').default} notebook={require('./attachments/notebook-933.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"3372825f-32c1-4054-825c-e9e1886bbcdf"} type={"Input"} opts={{}} >{`dims%3D%7B8%2C12%7D%3B%0AhallwayThickness%3D0.8%3B%0AballCount%3D1000%3B%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"564b0867-2913-4e5c-a7be-45ca6c6da006"} type={"Input"} opts={{}} >{`spanningTree%20%3D%20FindSpanningTree%5BGridGraph%5Bdims%2C%20EdgeWeight-%3E%7B_%3A%3ERandomReal%5B%5D%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"b40dac99-0101-45dc-b19b-76b16c332071"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28CoffeeLiqueur%60Extensions%60Boxes%60Workarounds%60temporal%243001032%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpySbmaSaJxrqJhmmmumaJCcl6iaZWBjqplqkGCWnGaekGphbAgCUYRZh%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Create walls using regions
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"5a83a8bd-4586-4cba-8efc-44d9d4cc7dff"} type={"Input"} opts={{}} >{`outerRegion%20%3D%20Rectangle%5B%0A%20%20%20%20%7B1%2C%201%7D%20-%201%20%2B%20hallwayThickness%2C%20%0A%20%20%20%20Reverse%5Bdims%5D%20%2B%201%0A%5D%3B%0A%0AwallsRegion%20%3D%20RegionDifference%5B%0A%20%20%20%20RegionDifference%5B%0A%20%20%20%20%20%20%20%20Rectangle%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7B1%2C%201%7D%20-%201%20%2B%20hallwayThickness%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20Reverse%5Bdims%5D%20%2B%201%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20RegionDilation%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20DiscretizeGraphics%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Line%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20GraphEmbedding%5BspanningTree%5D%5B%5B%23%5D%5D%20%26%20%2F%40%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20List%20%40%40%40%20EdgeList%5BspanningTree%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%20%2F%2F%20Graphics%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20Rectangle%5B%7B0%2C%200%7D%2C%20%7B1%2C%201%7D%20%2A%20hallwayThickness%5D%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%5D%2C%0A%20%20%20%20Rectangle%5B%0A%20%20%20%20%20%20%20%20%7Bdims%5B%5B2%5D%5D%2C%20hallwayThickness%7D%2C%20%0A%20%20%20%20%20%20%20%20%7Bdims%5B%5B2%5D%5D%2C%200%7D%20%2B%20%7BhallwayThickness%2C%201%7D%0A%20%20%20%20%5D%0A%5D%3B`}</WLJSEditor>
+
+Testing functions
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"902273d8-d353-4ec6-93c4-a15a4dd1fe8f"} type={"Input"} opts={{}} >{`wallMember%20%3D%20RegionMember%5BwallsRegion%5D%3B%0AmazeMember%20%3D%20RegionMember%5BouterRegion%5D%3B%0AinitPs%20%3D%20%7B1%20%2B%20hallwayThickness%2F2%2C%20dims%5B%5B1%5D%5D%20%2B%20hallwayThickness%2F2%7D%3B`}</WLJSEditor>
+
+__Run the simulation__
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"22bb60d6-a030-4492-b998-1d9ba6e59b93"} type={"Input"} opts={{}} >{`positionSeries%20%3D%20%0A%20Module%5B%7Bps%2C%20vs%2C%20vps%2C%20skip%20%3D%2010%7D%2C%20%0A%20%20%20ps%20%3D%20ConstantArray%5BinitPs%2C%20ballCount%5D%3B%0A%20%20%20vps%20%3D%20ps%3B%0A%20%20%20%0A%20%20%20Show%5BGraphics%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20Orange%2C%20%0A%20%20%20%20%20Point%5Bvps%20%2F%2F%20Offload%5D%0A%20%20%20%20%7D%2C%20%0A%20%20%20%20ImageSize%20-%3E%20500%2C%20TransitionType-%3ENone%0A%20%20%20%5D%2C%20wallsRegion%5D%20%2F%2F%20Print%3B%0A%20%20%20%0A%20%20%20%0A%20%20%20Reap%5B%0A%20%20%20%20%20Sow%5Bps%5D%3B%0A%20%20%20%20%20While%5BAnd%20%40%40%20mazeMember%5Bps%5D%2C%20%0A%20%20%20%20%20%20vs%20%3D%20RandomPoint%5BCircle%5B%5D%2C%20ballCount%5D%20%2A%200.1%3B%0A%20%20%20%20%20%20ps%20%2B%3D%20vs%3B%0A%20%20%20%20%20%20ps%20-%3D%20vs%20%2A%20Boole%5BwallMember%5Bps%5D%5D%3B%0A%20%20%20%20%20%20If%5Bskip%20%3C%3D%200%2C%20vps%20%3D%20ps%3B%20skip%20%3D%2010%3B%2C%20skip--%5D%3B%0A%20%20%20%20%20%20Sow%5Bps%5D%0A%20%20%20%20%20%5D%0A%20%20%20%5D%5B%5B2%2C%201%5D%5D%0A%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"19e7b06e-d7ec-46c3-94d5-58682846719c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2272e40b87-611b-49ab-84e7-09a618676961%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxulmhgkWZjrmhkaJumaWCYm6VqYpJrrGlgmmhlamJmbWZoZAgB4eBTE%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Winning index
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"0b603876-cf04-49d5-b7e4-c94547b75114"} type={"Input"} opts={{}} >{`winningIndex%3DFirstPosition%5BmazeMember%40Last%40positionSeries%2CFalse%5D%5B%5B1%5D%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"d464c636-39e7-4978-80d7-8eef243ea2c9"} type={"Output"} opts={{}} >{`913`}</WLJSEditor>
+
+Show it on maze
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"047ca7b5-fa63-4053-a319-ba6772f017bc"} type={"Input"} opts={{}} >{`Show%5BGraphics%5B%7BOrange%2CLine%5BpositionSeries%5B%5BAll%2CwinningIndex%5D%5D%5D%7D%2CImageSize-%3E500%5D%2C%20wallsRegion%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"933b68dd-3217-4bbd-a615-428eace6f017"} id={"ec77806b-a351-4ff9-b325-69f74bd36d30"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%221fffa7cd-b284-4648-a5a5-77d29bf79842%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6alpSWaJ6foJhlZmOiamJlY6CaaJprqmpunGFkmpZlbWpgYAQCPzxW6%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

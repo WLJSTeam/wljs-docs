@@ -1,0 +1,38 @@
+# Physically accurate materials
+Use `Directive` to tune the material parameters.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/e40cbf1d-b744-45c0-96a1-dc25e88a4ae6.txt').default} notebook={require('./attachments/notebook-e40.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"f035b2f0-fd9d-4621-b8c6-b387d7a41d8f"} type={"Input"} opts={{}} >{`Graphics3D%5B%7BDarker%5BWhite%5D%2C%20Polygon%5B%7B%7B-2%2C-2%2C0%7D%2C%20%7B2%2C-2%2C0%7D%2C%20%7B2%2C2%2C0%7D%2C%20%7B-2%2C2%2C0%7D%7D%5D%2C%7B%20Directive%5BCyan%2C%20%22MaterialThickness%22-%3E1.0%2C%20%22Transmission%22-%3E1.0%2C%22Roughness%22-%3E0.13%2C%20%22Ior%22-%3E2.0%5D%2C%20Sphere%5B%7B0%2C0%2C1%7D%2C%201%5D%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"7b9d24fa-e344-4f64-bc9b-ec185c3438a7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics3D%5B%7BRGBColor%5B0.6666666666666667%2C%200.6666666666666667%2C%200.6666666666666667%5D%2C%20Polygon%5B%7B%7B-2%2C%20-2%2C%200%7D%2C%20%7B2%2C%20-2%2C%200%7D%2C%20%7B2%2C%202%2C%200%7D%2C%20%7B-2%2C%202%2C%200%7D%7D%5D%2C%20%7BDirective%5BRGBColor%5B0%2C%201%2C%201%5D%2C%20%22MaterialThickness%22%20-%3E%201.%2C%20%22Transmission%22%20-%3E%201.%2C%20%22Roughness%22%20-%3E%200.13%2C%20%22Ior%22%20-%3E%202.%5D%2C%20Sphere%5B%7B0%2C%200%2C%201%7D%2C%201%5D%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeF5BwL0osyMhMLjZ2SWOGqfDJLC6B8DiARJC7k3N%2BTn5RUVgoCDy1x2RAjGMHEgH5OZXp%2BXlpLJhmwXiZ%2F%2F7%2F%2Fw8hgCIMaJJMQAZ%2BSTCBRRKsCSHJhOICVhCPE0i4ZBalJpdklqViehCsL5MRRiBMCCrNSQ0WBDJ8E0tSizITc0KAIZadl1pcXMQABh%2Fs0RTzABkhRYl5xbmZxcWZ%2BXm41IFcFJRfmp4BNmxJgS3X9cUH0BWBHOoJDH%2BIGQwOEGk2IBFckJFalIoWDgywIEB4BQAKH3YD%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"4dda5cca-e976-4aa0-ae90-7766f6bc0160"} type={"Input"} opts={{}} >{`Graphics3D%5B%7BDarker%5BWhite%5D%2C%20Polygon%5B%7B%7B-2%2C-2%2C0%7D%2C%20%7B2%2C-2%2C0%7D%2C%20%7B2%2C2%2C0%7D%2C%20%7B-2%2C2%2C0%7D%7D%5D%2C%7B%20Directive%5B%22Emissive%22-%3ERed%5D%2C%20Sphere%5B%7B0%2C0%2C1%7D%2C%201%5D%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"21dcc98f-8df0-48dd-88f0-af6006267a76"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics3D%5B%7BRGBColor%5B0.6666666666666667%2C%200.6666666666666667%2C%200.6666666666666667%5D%2C%20Polygon%5B%7B%7B-2%2C%20-2%2C%200%7D%2C%20%7B2%2C%20-2%2C%200%7D%2C%20%7B2%2C%202%2C%200%7D%2C%20%7B-2%2C%202%2C%200%7D%7D%5D%2C%20%7BDirective%5B%22Emissive%22%20-%3E%20RGBColor%5B1%2C%200%2C%200%5D%5D%2C%20Sphere%5B%7B0%2C%200%2C%201%7D%2C%201%5D%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeF5BwL0osyMhMLjZ2SWOGqfDJLC6B8DiARJC7k3N%2BTn5RUVgoCDy1x2RAjGMHEgH5OZXp%2BXlpLJhmwXiZ%2F%2F7%2F%2Fw8hgCIMaJJMQAZ%2BSTCBRRKsCSHJhOICsAM5gYRLZlFqcklmWSpCQVBpTmowyKeuuZnFxSApDL9nMsLMRTKcDUgEF2SkFqWiuQSuDqINRAAA%2FRxXvQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or use built-in directives
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"76224397-09be-424b-8336-b9be6d462841"} type={"Input"} opts={{}} >{`Plot3D%5BSin%5Bx%5D%20Cos%5By%5D%2C%20%7Bx%2C-10%2C10%7D%2C%20%7By%2C-10%2C10%7D%5D%5B%5B1%5D%5D%3B%0AGraphics3D%5B%7B%25%2C%20%7BGraphics3D%60Materials%5B%23%5D%2C%20%20Sphere%5B%7B0%2C0%2C2%7D%2C%206%5D%7D%7D%5D%20%26%2F%40%20%7B%22Glass%22%7D%20%2F%2F%20Column%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"0972d33d-7bff-4c29-9cfd-79d22466f9bf"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%223fc58bc8-e877-4539-a33f-6e504f5f6399%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6clm1okJVvoplqYm%2BuamBpb6iYaG6fpmqWaGpikmaaZGVtaAgCFEBVm%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"03616c2e-9e13-4d83-9d52-b75b32e36769"} type={"Input"} opts={{}} >{`Graphics3D%5B%7B%0A%20%20PointLight%5BRed%2C%20-%7B2%2C%202%2C%20-2%7D%5D%2C%0A%20%20PointLight%5BGreen%2C%20-%7B-2%2C%202%2C%20-2%7D%5D%2C%0A%20%20PointLight%5BBlue%2C%20-%7B-2%2C%20-2%2C%20-2%7D%5D%2C%0A%20%20%7B%0A%20%20%20%20Directive%5B%22Roughness%22%20-%3E%201%5D%2C%0A%20%20%20%20Icosahedron%5B1%5D%0A%20%20%7D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"400fb7fb-0f62-4826-8347-477dbcd66833"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics3D%5B%7BPointLight%5BRGBColor%5B1%2C%200%2C%200%5D%2C%20%7B-2%2C%20-2%2C%202%7D%5D%2C%20PointLight%5BRGBColor%5B0%2C%201%2C%200%5D%2C%20%7B2%2C%20-2%2C%202%7D%5D%2C%20PointLight%5BRGBColor%5B0%2C%200%2C%201%5D%2C%20%7B2%2C%202%2C%202%7D%5D%2C%20%7BDirective%5B%22Roughness%22%20-%3E%201%5D%2C%20Icosahedron%5B1%5D%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyd0EsOwiAQgGGqXfg4hWfwBtqkmnRh8ASVQpmkYQxQjy%2FyCLjRxLj5E5jhW7C7IRUVIcTUPiechnTa%2BLS6v0tgZt%2BIOm90YKxY5I0LgrIdjNKKZbhb%2BdD2cMQJNQQHSE5ayAQ8nXMpAftRjFj1RQzEf2JhP4klSSx%2FEH9p7dOA5szCg78X6Dzxa5hRnEepuDGJj2%2B2PmeGppd80Kji5AXx81Mu%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Real-time pathtracing
+This option allows to render using unbiased methods
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"21117300-285c-4860-9645-de2bb1fd50e6"} type={"Input"} opts={{}} >{`Plot3D%5BSin%5Bx%5D%20Cos%5By%5D%2C%20%7Bx%2C-10%2C10%7D%2C%20%7By%2C-10%2C10%7D%5D%5B%5B1%5D%5D%3B%0AGraphics3D%5B%7B%25%2C%20%7BGraphics3D%60Materials%5B%22Glass%22%5D%2C%20Red%2C%20Sphere%5B%7B0%2C0%2C2%7D%2C%206%5D%7D%7D%2C%20%22Renderer%22-%3E%22PathTracing%22%5D`}</WLJSEditor>
+
+One can specify directly in `Directive`
+
+<WLJSEditor display={"codemirror"} nid={"e40cbf1d-b744-45c0-96a1-dc25e88a4ae6"} id={"74146a3f-27fe-4e3c-a4ce-ab800b721890"} type={"Input"} opts={{}} >{`Graphics3D%5B%7B%0A%20%20Polygon%5B30%20%7B%7B-1%2C-1%2C0%7D%2C%20%7B-1%2C1%2C0%7D%2C%20%7B1%2C1%2C0%7D%2C%20%7B1%2C-1%2C0%7D%7D%5D%2C%0A%20%20%7BDirective%5B%22Metalness%22-%3E1%2C%20%22Roughness%22-%3E0%5D%2C%20Sphere%5B%7B-5%2C0%2C2%7D%2C2%5D%7D%2C%0A%20%20%7BDirective%5B%22Roughness%22-%3E0%5D%2C%20Red%2C%20Sphere%5B%7B-5%2C5%2C2%7D%2C2%5D%7D%2C%0A%20%20%7BDirective%5B%22Roughness%22-%3E0%2C%20%22Transmission%22-%3E1.0%2C%20%22MaterialThickness%22-%3E0.2%5D%2C%20Blue%2C%20Sphere%5B%7B3%2C-1%2C2%7D%2C2%5D%7D%2C%0A%0A%20%20%7BDirective%5B%22Emissive%22-%3EWhite%5D%2C%20Polygon%5B%20%7B%7B10%2C13%2C0%7D%2C%7B10%2C13%2C30%7D%2C%7B-20%2C13%2C30%7D%2C%7B-20%2C13%2C0%7D%7D%5D%7D%0A%7D%2C%20Lighting-%3ENone%2C%20Background-%3EBlack%2C%20%22Renderer%22-%3E%22PathTracing%22%5D`}</WLJSEditor>

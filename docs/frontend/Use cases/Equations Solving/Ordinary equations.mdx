@@ -1,0 +1,172 @@
+# Equation Solving
+
+The Wolfram Language encompasses the world's most extensive array of numerical and symbolic equation-solving tools, featuring numerous pioneering algorithms. These are all readily accessible via a limited set of highly efficient functions. Thanks to the symbolic framework of the Wolfram Language, both equations and their solutions can be easily represented symbolically, and seamlessly incorporated into computations and visualizations.
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+## Solve
+Address a quadratic equation.
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/0a93c44c-2131-485e-b28a-e3a4f6394cec.txt').default} notebook={require('./attachments/notebook-0a9.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"ba71316e-7d12-4546-b1a7-4360df26edd6"} type={"Input"} opts={{}} >{`sol%20%3D%20Solve%5B%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20a%20x%20%2B%201%20%3D%3D%200%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"dad1b4ea-efd6-4642-875c-fc9608efc4ef"} type={"Output"} opts={{}} >{`%7B%7Bx-%3E%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%29%20%28-a-%28%2ASqB%5B%2A%29Sqrt%5B-4%2B%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%28%2A%5DSqB%2A%29%29%7D%2C%7Bx-%3E%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%29%20%28-a%2B%28%2ASqB%5B%2A%29Sqrt%5B-4%2B%28%2ASpB%5B%2A%29Power%5Ba%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%28%2A%5DSqB%2A%29%29%7D%7D`}</WLJSEditor>
+
+Solve simultaneous equations in $x$ and $y$ 
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"7e994abf-06f5-412a-ad30-d61817b39b12"} type={"Input"} opts={{}} >{`Solve%5Ba%20x%20%2B%20y%20%3D%3D%207%20%26%26%20b%20x%20-%20y%20%3D%3D%201%2C%20%7Bx%2C%20y%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"4215899e-6c84-4a0c-aa6b-e62ed1ea8e54"} type={"Output"} opts={{}} >{`%7B%7Bx-%3E%28%2AFB%5B%2A%29%28%288%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28a%2Bb%29%29%28%2A%5DFB%2A%29%2Cy-%3E-%28%2AFB%5B%2A%29%28%28a-7%20b%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28a%2Bb%29%29%28%2A%5DFB%2A%29%7D%7D`}</WLJSEditor>
+
+Solve equations in a geometric region
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"2b534219-6c26-42db-a686-b9e3323c54cc"} type={"Input"} opts={{}} >{`Solve%5B%0A%20%20Element%5B%7Bx%2C%20y%7D%2C%20InfiniteLine%5B%7B%7B0%2C%200%7D%2C%20%7B2%2C%201%7D%7D%5D%5D%20%26%26%20%0A%20%20Element%5B%7Bx%2C%20y%7D%2C%20Circle%5B%5D%5D%0A%2C%20%7Bx%2C%20y%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"4fdb29d9-caf6-4a62-ac49-51fbffef7ef6"} type={"Output"} opts={{}} >{`%7B%7Bx-%3E-%28%2AFB%5B%2A%29%28%282%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B5%5D%28%2A%5DSqB%2A%29%29%29%28%2A%5DFB%2A%29%2Cy-%3E-%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B5%5D%28%2A%5DSqB%2A%29%29%29%28%2A%5DFB%2A%29%7D%2C%7Bx-%3E%28%2AFB%5B%2A%29%28%282%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B5%5D%28%2A%5DSqB%2A%29%29%29%28%2A%5DFB%2A%29%2Cy-%3E%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASqB%5B%2A%29Sqrt%5B5%5D%28%2A%5DSqB%2A%29%29%29%28%2A%5DFB%2A%29%7D%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"00d6d1a8-d736-4262-b9f9-4b89dd45d70d"} type={"Input"} opts={{}} >{`Graphics%5B%7B%7BBlue%2C%20Line%5BNormalize%20%2F%40%20%7B-%7B2%2C%201%7D%2C%20%7B2%2C%201%7D%7D%5D%2C%20%0A%20%20%20Circle%5B%7B0%2C0%7D%2C%201%5D%7D%2C%20%7BPointSize%5BLarge%5D%2C%20Red%2C%20Point%5B%7Bx%2C%20y%7D%5D%20%2F.%20%25%7D%7D%2C%20AspectRatio-%3E1%2C%20ImageSize-%3ESmall%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"af9f9c70-b160-46b4-9654-d07091ecfaca"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2277e3851b-8470-4241-a0b0-9e2b32a33412%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5unGluYGibpWpiYG%2BiaGJkY6iYaJBnoWqYaJRkbJRobmxgaAQBx8BSf%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## NSolve
+Approximate solutions to a polynomial equation:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"3e6f67ca-6142-4319-a93e-ecb4cf906426"} type={"Input"} opts={{}} >{`NSolve%5B%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%295%5D%28%2A%5DSpB%2A%29%20-%202%20x%20%2B%203%20%3D%3D%200%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"3ba80e05-f809-43f0-a4f0-f1dc9182fad3"} type={"Output"} opts={{}} >{`%7B%7Bx-%3E-1.4236058485523317%60%7D%2C%7Bx-%3E-0.24672925691056408%60-1.3208163474502472%60%20I%7D%2C%7Bx-%3E-0.24672925691056408%60%2B1.3208163474502472%60%20I%7D%2C%7Bx-%3E0.9585321811867298%60%20-0.49842777903184593%60%20I%7D%2C%7Bx-%3E0.9585321811867298%60%20%2B0.49842777903184593%60%20I%7D%7D`}</WLJSEditor>
+
+Solve the equation $sin(z + sin(z + sin(z))) = cos(z + cos(z + cos(z)))$
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"4a2e46a8-4242-4c15-94fa-1a3cbbb705ae"} type={"Input"} opts={{}} >{`eq%5Bz_%5D%20%3A%3D%20Sin%5Bz%20%2B%20Sin%5Bz%20%2B%20Sin%5Bz%5D%5D%5D%20%3D%3D%20Cos%5Bz%20%2B%20Cos%5Bz%20%2B%20Cos%5Bz%5D%5D%5D%0Aroots%20%3D%20NSolve%5Beq%5Bz%5D%20%26%26%20-3%20%3C%20%0A%20%20%20%20%20Re%5Bz%5D%20%3C%203%20%26%26%20-3%20%3C%20Im%5Bz%5D%20%3C%203%2C%20z%2C%20MaxRoots%20-%3E%20Infinity%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"6388d58d-dba1-4182-a274-724f682a71d5"} type={"Input"} opts={{}} >{`ListPlot%5B%7BRe%5Bz%5D%2C%20Im%5Bz%5D%7D%20%2F.%20roots%2C%20%0A%20PlotLabel%20-%3E%20%0A%20%20ToString%5BSin%5Bz%20%2B%20Sin%5Bz%20%2B%20Sin%5Bz%5D%5D%5D%20%3D%3D%20Cos%5Bz%20%2B%20Cos%5Bz%20%2B%20Cos%5Bz%5D%5D%5D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"2bf2402b-a010-4afb-8e5e-20eba3110c3f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f7a08193-ad1d-4419-b796-e757c01d1fb1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5knGlgYWhrrJqYYpuiamBha6iaZW5rpppqbmicbGKYYpiUZAgCAGhV0%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## FindRoot
+*Searches for a numerical root*
+
+Find the solution near 0
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"ba7e8f8a-e7f7-4b16-bc0c-b2c7cd8690d1"} type={"Input"} opts={{}} >{`FindRoot%5BCos%5Bx%5D%20%3D%3D%20x%2C%20%7Bx%2C%200%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"cb5ede1b-9c13-4c79-9ec8-76d602de0647"} type={"Output"} opts={{}} >{`%7Bx-%3E0.7390851332151607%60%7D`}</WLJSEditor>
+
+Solve a nonlinear system of equations:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"e61d3e64-a08e-4703-bc66-c75a56443d57"} type={"Input"} opts={{}} >{`FindRoot%5B%7BExp%5Bx%20-%202%5D%20%3D%3D%20y%2C%20y%5E2%20%3D%3D%20x%7D%2C%20%7B%7Bx%2C%201%7D%2C%20%7By%2C%201%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"7f67b409-3ab0-4a16-af3d-eb00f120b7ac"} type={"Output"} opts={{}} >{`%7Bx-%3E0.019026016103714054%60%2Cy-%3E0.13793482556524314%60%7D`}</WLJSEditor>
+
+Compute *inverse function*
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"cc5db9a7-c8b4-4e96-8ced-7954533a24c2"} type={"Input"} opts={{}} >{`inv%5Bf_%2C%20s_%5D%20%3A%3D%20Function%5B%7Bt%7D%2C%20s%20%2F.%20FindRoot%5Bf%20-%20t%2C%20%7Bs%2C%201%7D%5D%5D`}</WLJSEditor>
+
+Approximate exponent
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"1545db2b-2408-4981-afc8-711e49450428"} type={"Input"} opts={{}} >{`einv%20%3D%20inv%5BExp%5Bx%5D%2C%20x%5D%0APlot%5B%7Beinv%5Bx%5D%2C%20Log%5Bx%5D%20%2B%200.5%7D%2C%20%7Bx%2C%200%2C%201%7D%2C%20PlotRange%20-%3E%20All%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"c4a7bff7-3741-4772-a8f2-44356c7933d2"} type={"Output"} opts={{}} >{`Function%5B%7Bt%24%7D%2Cx%2F.%20FindRoot%5B%28%2ASpB%5B%2A%29Power%5BE%28%2A%7C%2A%29%2C%28%2A%7C%2A%29x%5D%28%2A%5DSpB%2A%29-t%24%2C%7Bx%2C1%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"e6fd9baf-3e2e-43e2-893b-76ebad6bc43f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d672b5b7-6311-4f00-82a3-d67392ad06f5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5iZGyWZJpnrmhkbGuqapBkY6FoYJRrrAsWNLY0SUwzM0kwBeK4VDg%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Find minimum
+Find a local minimum, starting the search at $x=2$:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"c377c747-d105-44ac-98e2-3ede6f0d92c1"} type={"Input"} opts={{}} >{`FindMinimum%5Bx%20Cos%5Bx%5D%2C%20%7Bx%2C%202%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"b039168b-f5b2-4f47-b829-f8be7ceb853e"} type={"Output"} opts={{}} >{`%7B-3.2883713955908966%60%2C%7Bx-%3E3.425618459492147%60%7D%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"76316a3a-74b7-4d2d-9d66-06700adf9164"} type={"Input"} opts={{}} >{`Plot%5Bx%20Cos%5Bx%5D%2C%20%7Bx%2C%200%2C%2020%7D%2C%20Prolog-%3E%7BRed%2C%20Line%5B%7B%7B0%2C0%7D%2C%20%7B20%2C0%7D%7D%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"1d47eb45-bc23-45e5-a804-5707a0675603"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22241d39f0-7923-42c1-b6dd-586077aebc69%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5kYphhbphnomlsaGeuaGCUb6iaZpaTomlqYGZibJ6YmJZtZAgB2xxVK%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Find a minimum of a function over a geometric region:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"8a8b61d4-6edc-4d55-9782-4be1ee0040ab"} type={"Input"} opts={{}} >{`FindMinimum%5B%7Bx%20%2B%20y%2C%20Element%5B%7Bx%2C%20y%7D%2C%20Disk%5B%5D%5D%7D%2C%20%7Bx%2C%20y%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"653df547-1929-4db3-911b-b6730bec6f02"} type={"Output"} opts={{}} >{`%7B-1.4142152367632073%60%2C%7Bx-%3E-0.7071076183816036%60%2Cy-%3E-0.7071076183816036%60%7D%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"370b40e8-547b-481b-8e7f-b927a3f85a8c"} type={"Input"} opts={{}} >{`Show%5BContourPlot%5Bx%20%2B%20y%2C%20Element%5B%7Bx%2C%20y%7D%2C%20Disk%5B%5D%5D%5D%2C%20%0A%20Graphics%5B%7BRed%2C%20PointSize%5BLarge%5D%2C%20Point%5B%7Bx%2C%20y%7D%20%2F.%20Last%5B%25%5D%5D%7D%5D%2C%20ImageSize-%3E300%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"b3b5ba7d-cffe-4d0c-a218-fe192d123519"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d9bb0245-4d86-4aa6-a23b-378bf02eeb6b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1gmJRkYmZjqmqRYmOmaJCaa6SYaGSfpGptbJKUZGKWmJpklAQCF%2FRX5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Minimize
+Minimize a univariate function:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"87c4e0f2-3014-486b-bd75-120b19d612db"} type={"Input"} opts={{}} >{`Minimize%5B2%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%203%20x%20%2B%205%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"c29eabaa-723a-4f33-8605-3b71188aa5d6"} type={"Output"} opts={{}} >{`%7B%28%2AFB%5B%2A%29%28%2831%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%288%29%29%28%2A%5DFB%2A%29%2C%7Bx-%3E%28%2AFB%5B%2A%29%28%283%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%29%29%28%2A%5DFB%2A%29%7D%7D`}</WLJSEditor>
+
+A minimization problem containing parameters:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"7198d7e9-92a3-4347-8623-aada0800a10b"} type={"Input"} opts={{}} >{`Minimize%5Ba%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20b%20x%20%2B%20c%2C%20x%5D%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"4aeab578-d945-4c18-9cbe-d533e5541af1"} type={"Output"} opts={{}} >{`%7B%28%2ATB%5B%2A%29Piecewise%5B%7B%7B%28%2A%7C%2A%29c%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28b%3D%3D0%26%26a%3D%3D0%29%7C%7C%28b%3D%3D0%26%26a%3E0%29%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%28-%28%28%2ASpB%5B%2A%29Power%5Bb%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%29%2B4%20a%20c%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%284%20a%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28b%3E0%26%26a%3E0%29%7C%7C%28b%3C0%26%26a%3E0%29%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%29-Infinity%28%2A%7C%2A%29%2C%28%2A%7C%2A%29True%28%2A%7C%2A%29%7D%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcGcQJGAzNTk1PLM4tRMZiAPAA9oC9E%3D%2A%29%28%2A%5DTB%2A%29%2C%7Bx-%3E%28%2ATB%5B%2A%29Piecewise%5B%7B%7B%28%2A%7C%2A%29-%28%2AFB%5B%2A%29%28%28b%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%20a%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28b%3E0%26%26a%3E0%29%7C%7C%28b%3C0%26%26a%3E0%29%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28b%3D%3D0%26%26a%3D%3D0%29%7C%7C%28b%3D%3D0%26%26a%3E0%29%28%2A%7C%2A%29%7D%2C%7B%28%2A%7C%2A%29Indeterminate%28%2A%7C%2A%29%2C%28%2A%7C%2A%29True%28%2A%7C%2A%29%7D%7D%5D%28%2A%7C%2A%29%28%2A1%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcGcQJGAzNTk1PLM4tRMZiAPAA9oC9E%3D%2A%29%28%2A%5DTB%2A%29%7D%7D`}</WLJSEditor>
+
+## NMinimize
+Find the global minimum of an unconstrained problem:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"311e03b8-ed17-40c0-9ddd-bbfe737d67c4"} type={"Input"} opts={{}} >{`NMinimize%5B%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%294%5D%28%2A%5DSpB%2A%29%20-%203%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%20x%2C%20x%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"c06eea28-f88c-44f5-9da7-7b15d1ca499f"} type={"Output"} opts={{}} >{`%7B-3.5139050389347886%60%2C%7Bx-%3E1.300839565947765%60%7D%7D`}</WLJSEditor>
+
+Find the global minimum of problems with constraints:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"6507069a-b0c8-40ce-a133-1b174daddf4f"} type={"Input"} opts={{}} >{`NMinimize%5B%7B%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%20%28%2ASpB%5B%2A%29Power%5B%28y%20-%201%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%2C%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%20%28%2ASpB%5B%2A%29Power%5By%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%3C%3D%204%7D%2C%20%7Bx%2C%20y%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"e0376cf4-300b-4834-bd77-8e09e9551972"} type={"Output"} opts={{}} >{`%7B-9.000000014992256%60%2C%7Bx-%3E2.8850141663858584%60%2A%5E-10%2Cy-%3E-2.0000000024987092%60%7D%7D`}</WLJSEditor>
+
+## Linear Solve
+Solve the matrix-vector equation 
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"b701625b-bb37-4d04-adb2-7ea40be1316a"} type={"Input"} opts={{}} >{`%7B%7Br%2C%20s%7D%2C%20%7Bt%2C%20u%7D%7D%2F%2FMatrixForm`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"7f2036d5-b16b-4a92-91ae-d5d5f0cf1657"} type={"Output"} opts={{}} >{`%28%28%2AGB%5B%2A%29%7B%7Br%28%2A%7C%2A%29%2C%28%2A%7C%2A%29s%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7Bt%28%2A%7C%2A%29%2C%28%2A%7C%2A%29u%7D%7D%28%2A%5DGB%2A%29%29`}</WLJSEditor>
+
+Substitute it to `LinearSolve`
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"3b4a0f5d-9878-4925-9008-46d5dfad108c"} type={"Input"} opts={{}} >{`LinearSolve%5B%28%28%2AGB%5B%2A%29%7B%7Br%28%2A%7C%2A%29%2C%28%2A%7C%2A%29s%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7Bt%28%2A%7C%2A%29%2C%28%2A%7C%2A%29u%7D%7D%28%2A%5DGB%2A%29%29%2C%20%7By%2C%20z%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"41c4073e-b3ae-408a-b9b6-bf7429835b58"} type={"Output"} opts={{}} >{`%7B%28%2AFB%5B%2A%29%28%28u%20y-s%20z%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28-s%20t%2Br%20u%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%28t%20y-r%20z%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28s%20t-r%20u%29%29%28%2A%5DFB%2A%29%7D`}</WLJSEditor>
+
+Solve a rectangular matrix equation
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"5ad853d6-3564-4438-acb1-95ce4402172e"} type={"Input"} opts={{}} >{`m%20%3D%20%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%295%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%296%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B3%28%2A%7C%2A%29%2C%28%2A%7C%2A%297%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B4%28%2A%7C%2A%29%2C%28%2A%7C%2A%298%7D%7D%28%2A%5DGB%2A%29%29%3B%20b%20%3D%20%28%28%2AGB%5B%2A%29%7B%7B9%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B10%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B11%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B12%7D%7D%28%2A%5DGB%2A%29%29%3B%0A%0ALinearSolve%5Bm%2Cb%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"61e9defd-80a8-4e88-8160-f4be40692a0b"} type={"Output"} opts={{}} >{`%7B%7B-1%7D%2C%7B2%7D%7D`}</WLJSEditor>
+
+Verify
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"d1ceeae2-8f2c-4fa3-a5e4-29bf39332e3f"} type={"Input"} opts={{}} >{`m.%25%20%3D%3D%20b`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"ead6ed59-c246-4c70-b9f8-d942165d8d53"} type={"Output"} opts={{}} >{`True`}</WLJSEditor>
+
+## RSolve
+Solve a difference equation
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"ad71f19e-a6e6-4f10-b80b-47fd7077a2f5"} type={"Input"} opts={{}} >{`RSolve%5Ba%5Bn%20%2B%201%5D%20-%202%20a%5Bn%5D%20%3D%3D%201%2C%20a%5Bn%5D%2C%20n%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"af438eca-0c12-42fb-85ee-99f398642b03"} type={"Output"} opts={{}} >{`%7B%7Ba%5Bn%5D-%3E-1%2B%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%29n%5D%28%2A%5DSpB%2A%29%2B%28%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-1%2Bn%5D%28%2A%5DSpB%2A%29%29%20%28%2ASbB%5B%2A%29Subscript%5BC%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%5D%28%2A%5DSbB%2A%29%7D%7D`}</WLJSEditor>
+
+Include a boundary condition:
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"6f32d8c3-dc5b-4d77-b9cc-23c2b295dc0b"} type={"Input"} opts={{}} >{`RSolve%5B%7Ba%5Bn%20%2B%201%5D%20-%202%20a%5Bn%5D%20%3D%3D%201%2C%20a%5B0%5D%20%3D%3D%201%7D%2C%20a%5Bn%5D%2C%20n%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"0a93c44c-2131-485e-b28a-e3a4f6394cec"} id={"012bccc7-e5e4-4e31-ad7d-ac9f400d6237"} type={"Output"} opts={{}} >{`%7B%7Ba%5Bn%5D-%3E-1%2B%28%2ASpB%5B%2A%29Power%5B2%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%2Bn%5D%28%2A%5DSpB%2A%29%7D%7D`}</WLJSEditor>
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+## And many more!
+
+:::tip
+Visit Wolfram Language documentation center
+:::

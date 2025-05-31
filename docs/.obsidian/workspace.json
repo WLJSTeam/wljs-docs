@@ -1,0 +1,285 @@
+{
+  "main": {
+    "id": "3ae9790c1a3fa981",
+    "type": "split",
+    "children": [
+      {
+        "id": "545d8c976d506473",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "169c9c88173f07a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Advanced/Slides/Slides.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Slides"
+            }
+          },
+          {
+            "id": "ddfd43395dc6d1df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Cell types/Markdown.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Markdown"
+            }
+          },
+          {
+            "id": "aa45ea3e32bdd8e2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Reference/Formatting/Bra.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bra"
+            }
+          },
+          {
+            "id": "d56f995295699f60",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "frontend/Cell types/ESM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ESM"
+            }
+          },
+          {
+            "id": "bac701eb4f4ba1c3",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "imgs/Drawing 2025-02-08 23.24.35.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-02-08 23.24.35.excalidraw"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4baf1058f020ac30",
+    "type": "split",
+    "children": [
+      {
+        "id": "57dd28b309d04946",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06328218290ccda3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0fb78a38376620dd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Markdown",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "417adf5fb721b03b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 325.5
+  },
+  "right": {
+    "id": "a752dd5ced191c4a",
+    "type": "split",
+    "children": [
+      {
+        "id": "5720a25f10d11cc8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d6289efb5f550d6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "frontend/Exporting/Dynamic HTML.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Dynamic HTML"
+            }
+          },
+          {
+            "id": "60bc3d2704072c27",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "frontend/Reference/Interpreter/Refresh.md",
+                "linksCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Refresh"
+            }
+          },
+          {
+            "id": "f5a3603434bc9349",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ecc002122acc3327",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "frontend/Reference/Interpreter/Refresh.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Refresh"
+            }
+          },
+          {
+            "id": "afe0967b9f64f51c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "169c9c88173f07a3",
+  "lastOpenFiles": [
+    "frontend/Cell types/Markdown.md",
+    "frontend/Importing/Markdown.md",
+    "frontend/Advanced/Command palette/Templates.md",
+    "frontend/Advanced/Slides/Slides.md",
+    "frontend/Advanced/Slides/Styling.md",
+    "frontend/Advanced/Styling.md",
+    "frontend/Reference/GUI/EditorView.md",
+    "Screenshot 2025-05-29 at 08.32.01.png",
+    "frontend/Advanced/Dynamics/Scoping.md",
+    "frontend/Exporting/Dynamic HTML.md",
+    "frontend/Dynamics.md",
+    "manupualtetetet-ezgif.com-video-to-gif-converter.gif",
+    "frontend/instruction.md",
+    "frontend/Advanced/Packages.md",
+    "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
+    "frontend/Reference/GUI/Animate.md",
+    "frontend/Reference/Plotting Functions/ManipulatePlot.md",
+    "frontend/Reference/Plotting Functions/ManipulateParametricPlot.md",
+    "frontend/Reference/GUI/Manipulate.md",
+    "frontend/Reference/Cells and Notebook/CellPrint.md",
+    "tutor5.mp4",
+    "Tutor3.mp4",
+    "frontend/Reference/Plotly/PlotlyRestyle.md",
+    "frontend/Reference/GUI/MMAView.md",
+    "frontend/Reference/GUI/InputButton.md",
+    "frontend/Development/Rendering composition.md",
+    "Example with Animate.mp4",
+    "5193032764637704507.jpg",
+    "5193032764637704505.jpg",
+    "5193032764637704506.jpg",
+    "frontend/Advanced/Mini apps/Multi-window/index.mdx",
+    "Multiwindow-example.wlw",
+    "windowsdemo-ezgif.com-video-to-gif-converter.gif",
+    "frontend/Advanced/Mini apps/Multi-window/attachments/notebook-798.wln",
+    "frontend/Advanced/Mini apps/Multi-window/attachments/7985ca69-abc8-4429-83a5-86b12828f55f.txt",
+    "frontend/Advanced/Mini apps/index.mdx",
+    "frontend/Advanced/Mini apps/attachments/notebook-798.wln",
+    "frontend/Advanced/Mini apps/attachments/7985ca69-abc8-4429-83a5-86b12828f55f.txt",
+    "frontend/Reference/Slides/SlideEventListener.md",
+    "frontend/Reference/Cells and Notebook/RemoteCellObj.md",
+    "frontend/Advanced/Dynamics/Animation.md",
+    "AnimateExample-ezgif.com-video-to-gif-converter.gif",
+    "frontend/Reference/Formatting/TeXForm.md",
+    "Screenshot 2025-05-22 at 19.08.07.png",
+    "Screenshot 2025-05-22 at 19.07.26.png",
+    "bubbleseasy-ezgif.com-video-to-gif-converter.gif"
+  ]
+}

@@ -1,0 +1,217 @@
+# Release notes *2.7.2*
+
+🔥 What’s New
+- WebGL Hardware Acceleration – Smoother GraphicsComplex rendering for DensityPlot, ContourPlot, and more.
+- Experimental Texture Support – 2D GraphicsComplex now supports Texture mapping.
+- Placed with Legended – Fully supported for more flexible legend positioning.
+- TeXForm Returns – Convert, import, and render TeX in markdown cells.
+- GeoGraphics Raster Support – Improved rendering with full rasterization.
+- ImageUpscaling Option – Better quality when using Rasterize (Desktop App only).
+- WLJS Interpreter Enhancements – Improved support for dynamic/numeric arrays and Offload.
+- Improved HTML Export – Manipulate now works offline with better memory management.
+- Organized Examples & Guides – Revamped structure for easier learning (more content coming).
+
+⸻
+
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/c338ed87-7d2c-400d-a091-caf51246769f.txt').default} notebook={require('./attachments/notebook-c33.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"05ebcbde-aa48-40d5-8f89-933417cb2adf"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+
+
+
+## UI Update: resizable sidebar!
+Just drag ;)
+
+## Hardware acceleration of GraphicsComplex
+2D version of `GraphicsComplex` featured in `DensityPlot` and many others was reimplemented in WebGL. We combine SVG and raster graphics to get the best of both worlds
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"4453648c-bdd8-4159-9be7-7e10b9df0858"} type={"Input"} opts={{}} >{`ContourPlot%5BCos%5Bx%5D%20%2B%20Cos%5By%5D%2C%20%7Bx%2C%200%2C%204%20Pi%7D%2C%20%7By%2C%200%2C%204%20Pi%7D%2C%20PlotLegends-%3EAutomatic%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"bfce5574-7646-4415-87dc-e3aa1fdb9063"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%229f76f44f-5efb-451f-87ff-5eaf780d3f86%22%5D%2C%20InputForm%5D%2C%20Placed%5BBarLegend%5B%7BBlend%5B%22WL13DefaultDensityGradient%22%2C%20%231%5D%20%26%20%2C%20%7B-2.%2C%202.%7D%7D%2C%20%7B%7B-1.5%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B-1.%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B-0.5%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B0.%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B0.5%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B1.%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B1.5%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%2C%20%7B2.%2C%20Directive%5BGrayLevel%5B0%5D%2C%20Opacity%5B0.5%5D%2C%20CapForm%5B%22Butt%22%5D%5D%7D%7D%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%2C%20LegendMarkerSize%20-%3E%20225%2C%20ScalingFunctions%20-%3E%20%7BIdentity%2C%20Identity%7D%2C%20Charting%60AxisLabel%20-%3E%20None%2C%20Charting%60TickSide%20-%3E%20Right%2C%20ColorFunctionScaling%20-%3E%20True%5D%2C%20After%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJzFVE1P3DAQTaF8VVSCilNvSFxXgrKwy4nCfqBK4UNrVK71xuPFwtjIcSjpnys%2FBf4BR46diXeXTcS5yWHkGb%2BZ9yZR3ubQDuR8FEXpZww%2FFfzuQmId99axJazEMAIjvsk5gnzC0BMK7wgoP1DtC4a%2Bs8b3jOg9QJJ5PtTAtrB8IFv7stmUjT2Qw0Zzb0c22i1JKZet9rbYle39MPgjhkGGbct0AC7Ojc6L6qXLIOhbxHCheQJCrlBO4Zi7IPBtTKxSH5TRrH5mEq%2BsCfcL1KIRzr7i6Sre2e2C5Jn2XTCp8vmJ40KBGffTNKatV5SVCVwUnsfJ4btcLgl4D%2F36NyxCwrvKAQq7h0BFJSTPY7gHrQgc6vQFzu94gtrGQ54O3246%2FK5v3S0jnuPMv8%2F6UgvrUy2sOKqOXQ9r%2Ba61sL7Wwoq%2F1%2F9iJRcqfC7mQ9DM5xpkNCupAl2NJh4Z89xmnpFNdazObk0FuTZFnnJ3A46pP6Ceo1lrmeJYwrUyo4l7peW3UjjbD4FGhduVksoo8ubONXceZ%2F06elBpsVRxf2YNVNDrs%2BhLldwwJaDwzIEaXVcX3wh7WjcROdY8de2i80h6cCWJ%2FwDjPW1m%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+It not only looks smoother (before we only had flat-shading), but also has less impact on the notebook performances
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"384a70f3-fbd5-49e7-a3a5-c75cd4efe4e5"} type={"Input"} opts={{}} >{`%20DensityPlot%5BCos%5Bx%5D%20Sin%5By%5D%2C%20%7Bx%2C%20-4Pi%2C%204Pi%7D%2C%20%7By%2C%20-4Pi%2C%204Pi%7D%2C%20%0A%20ColorFunction%20-%3E%20ColorData%5B%22Rainbow%22%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"0779717a-8802-46db-a835-d60329f6da0d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e4f9c851-e183-4a43-9841-1de4cbbd2804%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5qkWSZbmBrqphpaGOuaJJoY61pamBjqGqakmiQnJaUYWRiYAACBXhV2%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### Texture support
+This feature is still experimental and might not work in all cases. Now we do support `Texture` mapping in 2D `GraphicsComplex`, which make possible to do complex plots
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"d655de5e-9d8d-4505-9ea4-f152615309cf"} type={"Input"} opts={{}} >{`ComplexPlot%5B%28%2AFB%5B%2A%29%28%28%28%2ASpB%5B%2A%29Power%5Bz%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20%2B%201%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%28%28%2ASpB%5B%2A%29Power%5Bz%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%20-%201%29%29%28%2A%5DFB%2A%29%2C%20%7Bz%2C%20-2%20-%202%20I%2C%202%20%2B%202%20I%7D%2C%20%0A%20PlotLegends%20-%3E%20Automatic%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"2bdf620c-a4c6-4bf4-8df2-4e73b1da9b42"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%2223eac45f-ae38-4196-b1c3-70a5a35a6e42%22%5D%2C%20InputForm%5D%2C%20Placed%5BBarLegend%5B%7BColorDataFunction%5B%22MidShiftBalancedHue%22%2C%20%22ThemeGradients%22%2C%20%7B0%2C%201%7D%2C%20Blend%5B%22MidShiftBalancedHue%22%2C%20%231%5D%20%26%20%5D%5B%231%5D%20%26%20%2C%20%7B0%2C%201%7D%7D%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%2C%20LegendMarkerSize%20-%3E%20225%2C%20%22ColorFunctionShading%22%20-%3E%20None%2C%20OpacityFunction%20-%3E%20%281%20-%20Rescale%5B%231%2C%20%7B0%2C%200.9%7D%2C%20%7B0%2C%201%7D%5D%20%26%20%29%2C%20%22OpacityFunctionTicks%22%20-%3E%20%7B%7B0%2C%20%220%22%7D%2C%20%7B0.9%2C%204%7D%2C%20%7B1%2C%20%22Infinity%22%7D%7D%2C%20%22OpacityFunctionSize%22%20-%3E%20Scaled%5B0.5%5D%2C%20%22OpacityFunctionRange%22%20-%3E%20%7B0%2C%201%7D%2C%20Charting%60TickLabels%20-%3E%20%7B%22-%5C%5BPi%5D%22%2C%20%22-%5C%5BPi%5D%2F2%22%2C%20%220%22%2C%20%22%5C%5BPi%5D%2F2%22%2C%20%22%5C%5BPi%5D%22%7D%2C%20Ticks%20-%3E%20%7B%7B0.%2C%200.25%2C%200.5%2C%200.75%2C%201.%7D%2C%20%7B%7B0%2C%201%2F20%2C%201%2F10%2C%203%2F20%2C%201%2F5%7D%2C%20%7B1%2F5%2C%201%2F4%2C%203%2F10%2C%207%2F20%2C%202%2F5%7D%2C%20%7B2%2F5%2C%209%2F20%2C%201%2F2%2C%2011%2F20%2C%203%2F5%7D%2C%20%7B3%2F5%2C%2013%2F20%2C%207%2F10%2C%203%2F4%2C%204%2F5%7D%2C%20%7B4%2F5%2C%2017%2F20%2C%209%2F10%2C%2019%2F20%2C%201%7D%7D%7D%2C%20Charting%60TickSide%20-%3E%20Right%2C%20ColorFunctionScaling%20-%3E%20True%5D%2C%20After%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyNVctu00AUNYmbkEKhJf0BJLYReRboJqJpCkgpRZmIVRfc2NfJqM64Go8F4RtB4hNgx4IFfwDzSNzYTpzMYjy%2Bz3PPncfTcTD0ipZlhQdy%2Bkjx8zk6AQcRcFKWkgFOkLlNr6BM9uXUd6nUKUPvnpI9kdMFD5joM7f%2FBZ1IwNhH8kyKmy0Ep93xaoCtl7V249VJbdxwWrUXdehAqwMn2F4EtuU0jKTbfbVAcK%2BYP9fSEY%2FQ4CvJ6YMPDrqeghpW5HQG3AC8CzOgoTDIVKyLiDmCBkxLPKUPj%2BTUC%2FyAn4OApZ5UpfSSumRKPXEGPjCZ522E5JHCMMUZvuHgUmQiTKai8mtRHT2bVFvuKZy%2BxLgph3FUAYkfiJVYSdGmtAkCdYsGMEafiLmPnpWgJWn6MG7vAOZBJEjJMBPNWMryMLa8BH6DnNCvSH9lkpPjJbUxrVNJGptoi%2FcBw1Tcx3JxdQsOFfNEo9awaOvuR%2BFKzYrYEZ1hSP%2FJYTZJWe%2Bf0AF%2FLa1ZDvn3b2r86e7Gry4xBXlEnZvQpM8yHQcjKlg9qYiTUzuLTtnrllyfNpuNfgpHNYtDdcUUrbyI4sDllh4%2Fu9vLGAKb4I67TGXvTYEL2dxPqn695UJvb9Vb3x%2B169N6q1cnlbv186bhQh%2F2WFSKf1K5TJsVxckznsi1qFP203x%2BdOPKF4vfy8XfbtI1%2BadLNpn0XQSKGvA1CfQ4R7e%2FXlfc5qeypwDlWW7Q2TnZNyAr5yAr7IyskIOssq32wnrdgxy%2F4s7IijnIDnIylLd1cwPX9s7I7BxkRznIKjnIqku%2FdcdVP3mrx5VQ1xysIZ1M0%2B9C9haXV8nyFlfvsfZ87QnkGsM7Vz6L8iL5D4UQwsM%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or here is an explicit example
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"1171bd48-fa4a-4455-bec0-1e6e459fd34e"} type={"Input"} opts={{}} >{`texture%20%3D%20Texture%5B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d86b6f35-0f6f-4159-bf14-6627b1a35523%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp1iYJZmlGZvqGqSZpemaGJpa6ialGZrompkZmScZJhqbmhoZAwCBcRUY%22%2A%29%28%2A%5DVB%2A%29%5D%3B%0A%0AParametricPlot%5B%7Br%20Cos%5B%5C%5BTheta%5D%5D%2C%20r%20Sin%5B%5C%5BTheta%5D%5D%7D%2C%20%7Br%2C%201%2C%20%0A%20%202%7D%2C%20%7B%5C%5BTheta%5D%2C%200%2C%202%20Pi%2F3%7D%2C%20PlotRange%20-%3E%20All%2C%20Mesh%20-%3E%2015%2C%20PlotStyle-%3Etexture%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"1ac89a19-4537-465b-b52a-73ff8ec82926"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%225d4848ee-5af4-42ab-86d4-d673c2e6d349%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6aYWJhYpKbqmiammeiaGCUm6VqYpZjoppiZGycbpZqlGJtYAgCHmRW1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### Placed
+This key-symbol now will fully work with `Legended` too
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"6cc67523-9448-45a1-b245-44911d4bb4f2"} type={"Input"} opts={{}} >{`Plot%5B%0A%20%20%7Bx%2Cx%5E2%7D%2C%20%7Bx%2C0%2C1%7D%2C%20%0A%20%20PlotLegends-%3EPlaced%5BSwatchLegend%5BAutomatic%5D%2C%20%7B0.2%2C0.2%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"188a1fb0-3399-4f33-a10b-832033d5c015"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%22a8054f96-296b-4648-ab68-3a3726fb371c%22%5D%2C%20InputForm%5D%2C%20Placed%5BSwatchLegend%5B%7BDirective%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.24%2C%200.6%2C%200.8%5D%2C%20AbsoluteThickness%5B2%5D%5D%2C%20Directive%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.95%2C%200.627%2C%200.1425%5D%2C%20AbsoluteThickness%5B2%5D%5D%7D%2C%20%7BHoldForm%5BPlaceholder%5BStyle%5B1%2C%20Smaller%5D%5D%5D%2C%20HoldForm%5BPlaceholder%5BStyle%5B2%2C%20Smaller%5D%5D%5D%7D%2C%20LegendMarkers%20-%3E%20Automatic%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%5D%2C%20%7B0.2%2C%200.2%7D%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJylUjtOw0AQNf9fkIADICHRRoI4mFBEFpAEkIz4GNGv7VmyYu2N1mvAB%2BAQ0NJxAmo6GgoaDgANQkJwA%2FYDQU6DBFM87b6deTM7M3MB28cDlmWlkxIOCZw2IGQcCcb9Ecl4cARJVMH9ymVcQjMi8k054j7FzUhocZaIZhI1zyDMBAoo%2BPOSRrWFpSpeccqVFScoV51qrYwCp1a2kb1ccXBgLy%2BGRnhQwn4mw0bVAVC0k9Bcswc8A1PfsIRdikKI8JC6lyT4p0iEbVPjj5JHUmFixiQ0CIdQkBMw9apP7XRQSETOLW3vrnHWuTfW1hllnN%2FMnr%2Fu3dy73Nb25PLLC2UvrpGZlrAapIxmAg7aJDxOIE2JKuG%2FmbG2N5dffzxsB1PPLq%2BPP1516re%2FZy52oO9bepPRqMV4bJiJ7z62JQ3cBKmO%2BiKnQLql%2BjGiVL7%2FTaa%2FV6YwZ71sZmzbiB8DT3XDVjPBYiRIz1bovfNQAFRrY6vwzaJrqSvsoZxlwldrIxubxUmxPV%2FzvHO7B%2F3JrQgSISf0CWE7y%2FI%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"2bdb9143-9f8f-4c4b-a19d-0a6b4f585708"} type={"Input"} opts={{}} >{`Plot%5B%0A%20%20%7Bx%2Cx%5E2%7D%2C%20%7Bx%2C0%2C1%7D%2C%20%0A%20%20PlotLegends-%3EPlaced%5BSwatchLegend%5BAutomatic%5D%2C%20%7BTop%2C%20Right%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"c824a2f8-7baa-47bc-9e3e-2a116532d4da"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%2279796bff-38a0-4528-849d-2e12e998753e%22%5D%2C%20InputForm%5D%2C%20Placed%5BSwatchLegend%5B%7BDirective%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.24%2C%200.6%2C%200.8%5D%2C%20AbsoluteThickness%5B2%5D%5D%2C%20Directive%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.95%2C%200.627%2C%200.1425%5D%2C%20AbsoluteThickness%5B2%5D%5D%7D%2C%20%7BHoldForm%5BPlaceholder%5BStyle%5B1%2C%20Smaller%5D%5D%5D%2C%20HoldForm%5BPlaceholder%5BStyle%5B2%2C%20Smaller%5D%5D%5D%7D%2C%20LegendMarkers%20-%3E%20Automatic%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Row%22%5D%2C%20%7BTop%2C%20Right%7D%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJylUktOAkEQHfyLmKgHMDFxS6J8hFmQCQqoCQRliPuemRro0EyTnh6RA3gI3brzBKw9gAs3HkA3xsToDexPwAwbE63Fy8zrqldVr3vHoS1%2F3jCMcF3ABYZhBVzKEKfMXhZMHToQeBl%2FTqYkBVQ9LM5kop%2BQ3JaAGqMBrwZe9QrciCOHgL0r6IJZMA8c309ni2gvnctniulizvTSGdjPgGkWC%2FksaOEFAa1IlK3ID0BeMyAjxbZZBHq%2BJQFnBLng%2BYvyPyXAHiLudvWMP0p1HHJdsyqgghm4HF%2BCnlcu1RwgF%2FMRM1R8WjpZ9T4%2BPKKEMjbevn4%2FHz9aLKvixWK3NzLeLC2zKaDshJREHNpd7PYCCEMsR%2FhvZ1%2FFh8Xuv54azsarxUrJ57tB6eH3znEHEhPpE0q8GmV9zaxNfOwKGpguko7afEQAT0e1%2B4gQcf43mblZmdg9q8emr62BWA9YqAwrR5z2EcfuTLZ8d3XkAFHavhFbM56amgrX0YhG3JYGt%2Bgw7k0o2TYdqIFbuNPlasNTDwIurucbOVLEog%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"16579c9d-2970-4de0-acb7-8b4df7bc7b42"} type={"Input"} opts={{}} >{`Plot%5B%0A%20%20%7Bx%2Cx%5E2%7D%2C%20%7Bx%2C0%2C1%7D%2C%20%0A%20%20PlotLegends-%3EPlaced%5BSwatchLegend%5BAutomatic%5D%2C%20After%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"924cbcab-078d-4f15-b1b0-183d4d3f11b6"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Legended%5BToExpression%5BFrontEndRef%5B%22e7fbcf02-69f8-4ecf-8884-ac559efbef1d%22%5D%2C%20InputForm%5D%2C%20Placed%5BSwatchLegend%5B%7BDirective%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.24%2C%200.6%2C%200.8%5D%2C%20AbsoluteThickness%5B2%5D%5D%2C%20Directive%5BOpacity%5B1.%5D%2C%20RGBColor%5B0.95%2C%200.627%2C%200.1425%5D%2C%20AbsoluteThickness%5B2%5D%5D%7D%2C%20%7BHoldForm%5BPlaceholder%5BStyle%5B1%2C%20Smaller%5D%5D%5D%2C%20HoldForm%5BPlaceholder%5BStyle%5B2%2C%20Smaller%5D%5D%5D%7D%2C%20LegendMarkers%20-%3E%20Automatic%2C%20LabelStyle%20-%3E%20%7B%7D%2C%20LegendLayout%20-%3E%20%22Column%22%5D%2C%20After%2C%20Identity%5D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJylUktKA0EQHf9%2FUA8gCG4HNP7iIgzRJCokRB1x39NTbRo706Gnx5gDeAjduvMEWXsAF248gG5EEL2B1d0YiRtBa%2FGYqa569eqzGMkjNuR5XjqDcMKhXQIqFdFShWPoqcIpJHGODZqQSYRyzPHNBLIB45tHqCiZ6HISly%2BAZppEAsIldMMmiyhbzvkbWyzvrwFlfj6fX%2FMJXV%2FfAhYBW4kd8TDCUYZp4%2BYDSFxPRMd6j1UGTt8owoEgFGI2Yv6nEcI20bThNH4zVXmqXc4EQokroJqfg9Nrmqq3COW6ozxr74ELtrV3t3ekkEp1Fy5fD7v3gVq19hSo6ytjL4GjmUMoRqkUmYbjBqdnCaQpNxL%2BW5lZewvU7cdDLZp9DlRh8vGmVbj7vXL%2FBAa%2BqPekiCtSNZ1n6muODXSDcklmoqHuCOA9qWGTCIHvf6MZ%2FEnTt2d7bG5tNaLOQKV2YMVMyybRnP6INndXJREIy828vjb7Q6d7xFXSkZkOzdngYLNmYtUVmcZqpp39GBKNu%2FgEN8PDUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## TeXForm is back!
+We dropped a long time ago this feature, but now it is back
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"e2270a47-0dad-423c-adb3-2fbdf76c997f"} type={"Input"} opts={{}} >{`TeXForm%5BSeries%5BSin%5Bx%5D%2C%20%7Bx%2C0%2C4%7D%5D%2F%2FNormal%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"9cb97a1b-b689-4b49-916a-1fb0d7820e03"} type={"Output"} opts={{}} >{`%22x-%5C%5Cfrac%7Bx%5E3%7D%7B6%7D%22`}</WLJSEditor>
+
+Now import it back
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"10065d5a-9caf-49b4-9303-2a94fac18c1b"} type={"Input"} opts={{}} >{`ToExpression%5B%25%2C%20TeXForm%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"b5c20fbc-43c4-417d-ac01-5b44a07e67c5"} type={"Output"} opts={{}} >{`x-%28%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%286%29%29%28%2A%5DFB%2A%29%29%20%28%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%293%5D%28%2A%5DSpB%2A%29%29`}</WLJSEditor>
+
+Now use to draw TeX equations using inline markdown cells
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"341f4732-d28c-471c-8e15-eeb6838a4cd5"} type={"Input"} opts={{}} >{`CellView%5BStringJoin%5B%0A%20%20%22%24%24%5Cn%22%2C%0A%20%20TeXForm%5BSeries%5BSin%5Bx%5D%2C%20%7Bx%2C0%2C7%7D%5D%20%2F%2F%20Normal%5D%2C%0A%20%20%22%5Cn%24%24%22%0A%5D%2C%20%22Display%22-%3E%22markdown%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"9cc55e70-7ea1-484f-8e81-1abd20392591"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2283721a5a-d923-485b-80e5-2ba472fe3dc0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxibGxkmmibqplgaGeuaWJgm6VoYpJrqGiUlmpgbpaUapyQbAAB45xVt%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## GeoGraphics
+We added the full support of its rasterized version
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"cc4f4497-96ca-45c7-903b-cf1305b7f7bd"} type={"Input"} opts={{}} >{`Entity%5B%22Country%22%2C%20%22Italy%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"fcbaef6a-f40e-4491-9a2e-fa6e41cd1f27"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Italy%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8KZgOKuOaVZJZUBrMDmc75pXklRZXBrEC2Z0liTiUAdDwSUA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"1d8a4b9f-15de-47b9-b5e8-6607b7250bff"} type={"Input"} opts={{}} >{`GeoGraphics%5B%7BEdgeForm%5BBlack%5D%2C%20FaceForm%5BRed%5D%2C%20Polygon%5BHere%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"7615364d-d26f-4dfd-9faf-fdba0abea019"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2240b9e75a-753d-4879-aa0d-da04817ceee1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxgkWaaamybqmpsap%2BiaWJhb6iYmGqTopiQamFgYmienpqYaAgCB7BXV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## ImageUpscaling option
+
+:::warning
+`Rasterize` is available only for WLJS Desktop App
+:::
+
+When rasterizing images you can upscale the canvas by an integer factor
+
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"72042ed1-0051-49bd-b204-f655ec565085"} type={"Input"} opts={{}} >{`Plot%5Bx%2C%20%7Bx%2C0%2C1%7D%5D%3B%0ARasterize%5B%25%2C%20%22ImageUpscaling%22-%3E2%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"333c9e29-6b2f-4c78-a062-77368773fb77"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22cc9063ec-cdd2-4809-8a3e-8c29779e2d47%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJydbGpgZpybrJqekGOmaWBhY6lokGqfqWiQbWZqbW6YapZiYAwCMMRW5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+This comes handy for exporting hi-rez figures.
+
+## Misc static graphics
+Some of gauges now can be used as static graphics
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"eb6ae8af-11f0-4e91-9acc-5027f528fd9c"} type={"Input"} opts={{}} >{`ClockGauge%5B%7B14%2C%2042%2C%2056%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"1804ac1f-5166-49a1-b22e-84c0d3bd604f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a82c9249-2e4a-43bc-b9c9-2cdd5b1781b7%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1oYJVsamVjqGqWaJOqaGCcl6yZZJgO5ySkppkmG5haGSeYAhnUV1g%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"532f7445-a586-4279-9609-13d051528bb7"} type={"Input"} opts={{}} >{`ThermometerGauge%5B25%2C%20%7B0%2C%20100%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"2b41c73e-935f-41e7-a851-fc8a1cd33e66"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e11ffba1-7ce9-49b2-a9f5-e6cff727e334%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxoapqUlJRrqmienWuqaWCYZ6SZappnqppolp6WZG5mnGhubAACVcRZB%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+__WordCloud__ can also be used in the same way
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"9db69b27-03be-4117-8663-975ea5981a97"} type={"Input"} opts={{}} >{`trigrams%20%3D%20%0A%20%20Tally%40%2AFlatten%40%2A%0A%20%20%20%20Map%5BToLowerCase%2F%2ACharacters%2F%2A%28Partition%5B%23%2C%203%2C%201%5D%20%26%29%2F%2A%0A%20%20%20%20%20%20Map%5BStringJoin%5D%5D%40%0A%20%20%20StringSplit%5BExampleData%5B%7B%22Text%22%2C%20%22AeneidEnglish%22%7D%5D%2C%20%0A%20%20%20%20Except%5BLetterCharacter%5D%20..%5D%3B%0A%20%20%20%20%0AWordCloud%5BTake%5BSortBy%5Btrigrams%2C%20Last%5D%2C%20-50%5D%2C%20%0A%20ColorFunction%20-%3E%20%28Blend%5B%7BGrayLevel%5B0.5%5D%2C%20GrayLevel%5B0%5D%7D%2C%20%231%5D%20%26%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"29ef4225-6cbf-49ea-a7e0-51ce3cf4375d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22877cbb1e-7dc0-4fc2-9f7f-c9f139978ee0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5ibJyclGabqmqckG%2BiapCUb6VqmmafpJlumGRpbWppbpKYaAACQMhYg%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## WLJS Interpreter
+We improved dynamics in our wljs-interpreter (*quazi Wolfram Language interpreter running on Javascript engine*).
+
+Before depending if you were passing packaged/numerical array to some `Offload` expression it could throw an exception since nested symbols like `List` did not work well with numerical arrays. However, now it is safe to use such expressions
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"ea93b0c6-4d21-4bae-aabe-ad5e6d5d27d4"} type={"Input"} opts={{}} >{`axes%20%3D%20RandomReal%5B3%2C%20%7B3%2C3%7D%5D%3B%20%28%2ABB%5B%2A%29%28%2Aensures%20it%20is%20a%20packed%20array%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"6149ab72-fd06-445d-8f62-8cce853e5b8a"} type={"Input"} opts={{}} >{`Graphics3D%5B%7B%0A%20%20Red%2C%20Tube%5B%7B%7B0.%2C0.%2C0.%7D%2C%20axes%5B%5B1%5D%5D%7D%20%2F%2F%20Offload%2C%20%7B0.1%2C%200.01%7D%5D%2C%0A%20%20Green%2C%20Tube%5B%7B%7B0.%2C0.%2C0.%7D%2C%20axes%5B%5B2%5D%5D%7D%20%2F%2F%20Offload%2C%20%7B0.1%2C%200.01%7D%5D%2C%0A%20%20Blue%2C%20Tube%5B%7B%7B0.%2C0.%2C0.%7D%2C%20axes%5B%5B3%5D%5D%7D%20%2F%2F%20Offload%2C%20%7B0.1%2C%200.01%7D%5D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"f25a7c17-eeb8-4a37-987b-5f6b5e56d37c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics3D%5B%7BRGBColor%5B1%2C%200%2C%200%5D%2C%20Tube%5BOffload%5B%7B%7B0.%2C%200.%2C%200.%7D%2C%20axes%5B%5B1%5D%5D%7D%5D%2C%20%7B0.1%2C%200.01%7D%5D%2C%20RGBColor%5B0%2C%201%2C%200%5D%2C%20Tube%5BOffload%5B%7B%7B0.%2C%200.%2C%200.%7D%2C%20axes%5B%5B2%5D%5D%7D%5D%2C%20%7B0.1%2C%200.01%7D%5D%2C%20RGBColor%5B0%2C%200%2C%201%5D%2C%20Tube%5BOffload%5B%7B%7B0.%2C%200.%2C%200.%7D%2C%20axes%5B%5B3%5D%5D%7D%5D%2C%20%7B0.1%2C%200.01%7D%5D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRAeF5BwL0osyMhMLjZ2SWODqfDJLC5JYwbxOIBEkLuTc35OflEmSE8mA4xIY4IpDylNSoUYyA4k%2FNPScvITUxDSCNNgvCIGKMBkILQFJBaVgBmJFanFYLtRjSyaNRMEdtoXVYusc39Y1WKPxclg18LdTV8nM1HgZLi76etkZiKcDADSfHB2%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Here it is used as a mixure of dynamic symbol `axes` (which is a numeric array due to Wolfram Engine optimizations) and external `List`.
+
+Try to update, it should work
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"bebfb258-f26d-4699-873e-8dd4f5e2eeea"} type={"Input"} opts={{}} >{`axes%20%3D%20Map%5B%28%23%20%2B%200.1%20Cross%5B%7B1.%2C1.%2C1.%7D%2C%20%23%5D%29%26%2C%20axes%5D%3B`}</WLJSEditor>
+
+Operations such as `Plus`, `Times` shall work like normal as well.
+
+## Better export to interactive HTML
+We managed to make `Manipulate` work offline! Before it was only possible for custom dynamics or `ManipulatePlot` to function properly, since it does not involve dynamic frontend object creation. Now we turn off garbage collector before processing the notebook, let it accumulate objects and turn it back on after the exporting process has been finished.
+
+The good news, you don't need to think about it. See it in action
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"aa77746b-6c64-47db-aec4-e558b2dfe3ab"} type={"Input"} opts={{}} >{`Manipulate%5B%0A%20%20Row%5B%7B%0A%20%20%20%20%22m%22%2C%20%22%3D%3D%22%2C%20MatrixForm%5Bm%5D%2C%20%0A%20%20%20%20StreamPlot%5BEvaluate%5Bm%20.%20%7Bx%2C%20y%7D%5D%2C%20%7Bx%2C%20-1%2C%201%7D%2C%20%7By%2C%20-1%2C%201%7D%2C%20%0A%20%20%20%20%20%20StreamScale%20-%3E%20Large%2C%20ImageSize%20-%3E%20Small%0A%20%20%20%20%5D%0A%20%20%7D%5D%2C%20%7B%7Bm%2C%20%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%7D%7D%28%2A%5DGB%2A%29%29%7D%2C%20%7B%20%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%7D%7D%28%2A%5DGB%2A%29%29%20-%3E%20%22Nodal%20source%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%7D%28%2A%5DGB%2A%29%29%20%20-%3E%20%22Degenerate%20source%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B-1%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%7D%28%2A%5DGB%2A%29%29%20-%3E%20%22Spiral%20source%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B-1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-2%7D%7D%28%2A%5DGB%2A%29%29%20%20-%3E%20%22Nodal%20sink%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B-1%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-1%7D%7D%28%2A%5DGB%2A%29%29%20-%3E%20%22Degenerate%20sink%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B-1%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-1%7D%7D%28%2A%5DGB%2A%29%29%20-%3E%20%22Spiral%20sink%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%291%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B-1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%7D%28%2A%5DGB%2A%29%29%20-%3E%20%22Center%22%2C%20%20%28%28%2AGB%5B%2A%29%7B%7B1%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%29-2%7D%7D%28%2A%5DGB%2A%29%29%20%20-%3E%20%22Saddle%22%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"c338ed87-7d2c-400d-a091-caf51246769f"} id={"d788f17f-5f61-4d81-9fc8-31f49739d7ad"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22509758da-8e51-4178-a5af-e81893425030%22%2C%20%22Initial%22%20-%3E%20%7B%7B%7B1%2C%200%7D%2C%20%7B0%2C%202%7D%7D%7D%2C%20%22View%22%20-%3E%20%228d3d8778-6b99-41b3-9af7-6c93fbbecfb8%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6QYp1iYm1vomiVZWuqaGCYZ61omppnrmiVbGqclJaUmpyVZAACCUhYm%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%227220da85-6156-4421-8fdc-b4d0178f7d66%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxsZGaQkWpjqmhmamumamBgZ6lqkpSTrJpmkGBiaW6SZp5iZAQB03RUZ%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+## Better structured examples
+We sorted out all examples and guides we had. Some sections are sill populating with the content.
+
+:::Yo
+We need your help
+:::
+
+__Preview__
+
+- **Introduction to WLJS** - a brief overview of notebook interface and WL
+- **Data Visualization** - showcases of the most essential plotting functions and charts in 2D and 3D, including path-tracing and PBR materials.
+  
+- **For Data Scientists**
+- **For Julia Users**
+- **For Jupyter Users**
+- **For MATLAB Users**
+- **For Python Users**
+- **For Mathematica Users**
+- **For Machine Learning (ML)**
+- **For Physicists**
+
+- **Numerical Data Handling**
+- **Differential Calculus**
+- **Media Formats**
+- **Geographical Data**
+- **Symbolic Programming**
+
+- **Animation**
+- **Dynamics and Interactivity**
+- **GUI Building Blocks**
+
+- **OpenCL**
+
+- **Slides and Presentations**
+
+- **Advanced Syntax Sugar**
+- **JavaScript Bindings**
+- **Mixing Languages**
+- **Frontend Interpreter**
+- **Notebook Utilities**
+- **Standalone Widgets**
+
+- **Experimental**
+- **Release Notes**
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

@@ -1,0 +1,147 @@
+---
+authors: jerryi
+tags:
+  - notebook
+enableComments: true
+---
+
+# An overview of Wolfram Language and WLJS
+Here we will quickly go though the basics of those two.
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/07d1d4eb-9d47-4fc1-9211-da04c457e56c.txt').default} notebook={require('./attachments/notebook-07d.wln').default}/>
+
+
+
+
+---
+
+
+![](attachments/Interface-1.png)
+
+By the default any text in a new cell is considered to be Wolfram Language
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"7c7a2422-7a62-43ea-b8ca-49253fc799ca"} type={"Input"} opts={{}} >{`1%2B1`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"4a304623-4076-49bb-a487-effcb054b947"} type={"Output"} opts={{}} >{`2`}</WLJSEditor>
+
+__To evaluate an expression__ press play icon or `Shift+Enter`
+
+*One can also hide any input cell by clicking on a ^ mark on the left side*
+
+### Text cells
+For typing regular text, embedding pictures, making description we use Markdown language.
+
+To make markdown cell type __in the first line of a new cell__ `.md`, if it was an anonymous file
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"8e022d34-0096-4501-99c5-f22ca6c49b32"} type={"Input"} opts={{}} >{`.md%0A%0A%23%20Heading%201%0A%23%23%20Heading%202%0A%0AHere%20is%20a%20regular%20paragraph%2C%20which%20can%20__be%20styled__%20in%20a%20%2Adifferent%20way%2A.%20Then%20press%20%60Shift%2BEnter%60%20to%20make%20an%20output%20cell.%0A%0AYou%20can%20also%20hide%20an%20input%20cell%20automatically%20by%20a%20shortcut%20%60Win%2FCmd%20%2B%202%60%0A%0A%24%5C%5CLaTeX%24%20is%20also%20supported%0A%0AAs%20well%20as%20regular%20HTML%20%3Cspan%20style%3D%22color%3Ared%22%3Elanguage%3C%2Fspan%3E`}</WLJSEditor>
+
+
+# Heading 1
+## Heading 2
+
+Here is a regular paragraph, which can __be styled__ in a *different way*. Then press `Shift+Enter` to make an output cell.
+
+You can also hide an input cell automatically by a shortcut `Win/Cmd + 2`
+
+$\LaTeX$ is also supported
+
+As well as regular HTML <WLJSHTML>{`%3Cspan%20style%3D%22color%3Ared%22%3Elanguage%3C%2Fspan%3E`}</WLJSHTML>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"2de6a50a-67a5-4860-a8dd-575e1d36bdb0"} type={"Input"} opts={{}} >{`.md%0ATo%20embed%20a%20picture%20type%0A%0A%21%5Balt%5D%28https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Fa0%2FKilroy_was_here_%2528re-drawn%2529.gif%29`}</WLJSEditor>
+
+To embed a picture type
+
+![alt](https://upload.wikimedia.org/wikipedia/commons/a/a0/Kilroy_was_here_%28re-drawn%29.gif)
+
+Or __just drag and drop__ any image file to a cell
+
+There are many more cell types are available. For example
+
+### Javascript
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"fe51f3dd-2182-4a39-ad18-f37f91c4a6fe"} type={"Input"} opts={{}} >{`.js%0A%0Areturn%201%2B1%3B`}</WLJSEditor>
+
+<WLJSEditor display={"js"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"accc0c94-2f76-47f0-9a15-77af41427a2f"} type={"Output"} opts={{}} >{`%0Areturn%201%2B1%3B`}</WLJSEditor>
+
+### Mermaid
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"6e45244a-66b1-4b8a-bf4c-75d98ea27491"} type={"Input"} opts={{}} >{`.mermaid%0A%0Agraph%20LR%0A%20%20%20%20A%5BSquare%20Rect%5D%20--%20Link%20text%20--%3E%20B%28%28Circle%29%29%0A%20%20%20%20A%20--%3E%20C%28Round%20Rect%29%0A%20%20%20%20B%20--%3E%20D%7BRhombus%7D%0A%20%20%20%20C%20--%3E%20D`}</WLJSEditor>
+
+<WLJSEditor display={"mermaid"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"f231cccd-bde1-460c-b3e1-66dcba7f2798"} type={"Output"} opts={{}} >{`%0Agraph%20LR%0A%20%20%20%20A%5BSquare%20Rect%5D%20--%20Link%20text%20--%3E%20B%28%28Circle%29%29%0A%20%20%20%20A%20--%3E%20C%28Round%20Rect%29%0A%20%20%20%20B%20--%3E%20D%7BRhombus%7D%0A%20%20%20%20C%20--%3E%20D`}</WLJSEditor>
+
+***and many more!***
+
+---
+
+# Wolfram Language
+A symbolic programming language
+
+There are a few key-features compared to other languages
+
+- Data and code are indistinguishable.
+- It employs a pattern matching approach.
+- It features a versatile standard library, friendly for mathematicians and physicists.
+- It boasts a comprehensive standard library for visualizing data.
+- Provides powerful syntax sugar
+
+*Output cells are editable, you can evaluate it as well*
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"04b2abe9-905d-4fb8-bd45-69543e622289"} type={"Input"} opts={{"Hidden":false}} >{`%7B1%2C1%2C2%2C2%2C2%2C2%7D%20%2F.%20%7B2%20-%3E%201%2C%201%20-%3E%200%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"2da21ecc-5850-4c4b-8918-cf2f6d10c8b1"} type={"Output"} opts={{}} >{`%7B0%2C0%2C1%2C1%2C1%2C1%7D`}</WLJSEditor>
+
+rules are one of the most powerful features, i.e.
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"f744586e-2aeb-4d61-8786-ca8a003cc5be"} type={"Input"} opts={{}} >{`%7B0%2C0%2C1%2C1%2C1%2C1%7D%20%2F.%20%7Bany_Integer%20%3A%3E%20any%20%2F%202%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"9fb0e38e-32b9-4e3e-a5d2-0898424b7a94"} type={"Output"} opts={{}} >{`%7B0%2C0%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D`}</WLJSEditor>
+
+And __everything is a Symbol (or expression)__
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"edf444c4-caa8-45e8-8d54-3225c08f98ef"} type={"Input"} opts={{}} >{`%7B0%2C0%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%20%2F.%20%7Bany_%3FNumericQ%20%3A%3E%20%7BRGBColor%5Bany%2C%201-any%2C%201%5D%2C%20any%7D%20%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"8b046a86-2f20-44e0-8601-03fedac0294d"} type={"Output"} opts={{}} >{`%7B%7B%28%2AVB%5B%2A%29%28RGBColor%5B0%2C%201%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxQAGU8cEezgAAAxwUjA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C0%7D%2C%7B%28%2AVB%5B%2A%29%28RGBColor%5B0%2C%201%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxQAGU8cEezgAAAxwUjA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C0%7D%2C%7B%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%2C%7B%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%2C%7B%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%2C%7B%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%7D`}</WLJSEditor>
+
+or may be you prefer tables
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"1f798744-d529-4336-9117-641faecf082d"} type={"Input"} opts={{}} >{`%25%20%2F%2F%20Transpose%20%2F%2F%20TableForm%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"3c755910-8ffc-4709-96ee-5f5077a8c229"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28RGBColor%5B0%2C%201%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxQAGU8cEezgAAAxwUjA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28RGBColor%5B0%2C%201%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxQAGU8cEezgAAAxwUjA%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B0%28%2A%7C%2A%29%2C%28%2A%7C%2A%290%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+Or something more complicated
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"a532adcf-31fd-4c97-a09c-f041851b9f75"} type={"Input"} opts={{"Hidden":false}} >{`Table%5BIf%5BPrimeQ%5Bi%5D%2C%20Framed%5Bi%2C%20Background-%3EYellow%5D%2C%20i%5D%2C%20%7Bi%2C%201%2C%2020%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"2eeb874a-b6b0-4a3d-860f-0dca7c15e32b"} type={"Output"} opts={{}} >{`%7B1%2C%28%2ABB%5B%2A%29%282%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C%28%2ABB%5B%2A%29%283%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C4%2C%28%2ABB%5B%2A%29%285%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C6%2C%28%2ABB%5B%2A%29%287%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C8%2C9%2C10%2C%28%2ABB%5B%2A%29%2811%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C12%2C%28%2ABB%5B%2A%29%2813%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C14%2C15%2C16%2C%28%2ABB%5B%2A%29%2817%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C18%2C%28%2ABB%5B%2A%29%2819%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHArSsxNdcqvgIiA5INKc1KLuYAMp8Tk7PSi%2FNK8lDRmmPIgdyfn%2FJz8okyQcRACiBnQdPMAGcElRZkF%2FnmeeQWlJcWsIJsSc4pTAcQ1Hcg%3D%22%2A%29%28%2A%5DBB%2A%29%2C20%7D`}</WLJSEditor>
+
+---
+
+The same counts for Graphics
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"45073fef-738f-4777-b3e1-ac7afd285adb"} type={"Input"} opts={{}} >{`Plot%5Bx%2C%20%7Bx%2C0%2C1%7D%2C%20PlotStyle%20-%3E%20%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"8692261e-c3ac-4597-bfba-82b1e16b6188"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%220abffd63-2484-4b4f-b2e2-f0e9e52c0377%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyQmpaWlmBnrGplYmOiaJJmk6SYZpRrpphmkWqaaGiUbGJubAwCNohXQ%22%2A%29%28%2A%5DVB%2A%29%20%2F.%20%7B%28%2AVB%5B%2A%29%28RGBColor%5B1%2F2%2C%201%2F2%2C%201%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEDe3TGB3sAGJkVmw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%20-%3E%20Red%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"7d3407cc-0c74-46a8-a33d-77dc0f8b0bcb"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e630c1ab-22ee-4894-bd4e-df01145b168a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5oZGyQbJibpGhmlpuqaWFia6CalmKTqpqQZGBqamCYZmlkkAgCJYBXF%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+*This is not a picture, this is a set of Wolfram Expressions covered with a decoration. Underneath there is still a working code*
+
+Or may be
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"c0a2b367-979e-4ac9-812d-1c608049abd9"} type={"Input"} opts={{}} >{`Graphics3D%5BSphere%5B%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"83d854ba-b34a-4c95-a012-1d95e30a9c29"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%223a8e7b43-b8da-4fd7-8029-9fce36edb5d3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGydapJonmRjrJlmkJOqapKWY61oYGFnqWqYlpxqbpaYkmaYYAwCNjRZC%22%2A%29%28%2A%5DVB%2A%29%2F.%20%7BSphere%20-%3E%20Cuboid%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"fae27ace-da79-4600-82f8-81274ec940f4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22167ffe0f-6f06-4ba9-ae2c-98abf947a7cc%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5qZp6WlGqTpmqUZmOmaJCVa6iamGiXrWlokJqVZmpgnmicnAwCPcxZx%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or play some sound
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"2a766044-8724-4913-8f22-30a57a3dac54"} type={"Input"} opts={{}} >{`ListPlay%5BTable%5BSin%5B2%20%CF%80%2050%20t%5D%2C%20%7Bt%2C%200%2C%201%2C%201.%2F2000%7D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07d1d4eb-9d47-4fc1-9211-da04c457e56c"} id={"64136dd2-d4a8-49ba-ada6-61a77e5d8344"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f51f5383-6cd0-41da-a191-c1bc8c4a6f6b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5kappkaWxjrmiWnGOiaGKYk6iYaWhrqJhsmJVskmySapZklAQCEkRX4%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

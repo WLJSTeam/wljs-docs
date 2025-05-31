@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="mdx-wrapper mdx-page plugin-pages plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.3.2">
+<title data-rh="true">JoyCon | WLJS Notebook</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://wljs.io/wljs-demo/test-joycon/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="msvalidate.01" content="558ACAAD3C892A685EC4981186E3711D"><meta data-rh="true" name="google-site-verification" content="EfqZCis7_qdi7v5e_xZFG-q1I2nGROZLaqCDsVDlt0Y"><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><meta data-rh="true" property="og:title" content="JoyCon | WLJS Notebook"><meta data-rh="true" name="description" content="Use Nintendo Switch controllers to move slides and trigger actions"><meta data-rh="true" property="og:description" content="Use Nintendo Switch controllers to move slides and trigger actions"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wljs.io/wljs-demo/test-joycon/"><link data-rh="true" rel="alternate" href="https://wljs.io/wljs-demo/test-joycon/" hreflang="en"><link data-rh="true" rel="alternate" href="https://wljs.io/wljs-demo/test-joycon/" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/releases/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/releases/atom.xml" title="WLJS Notebook Atom Feed">
+<link rel="alternate" type="application/rss+xml" href="/widgets/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/widgets/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/dist/interpreter.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/src/core.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@base/src/module.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/boxes.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/metamarkers.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/objects.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/frontsubmit.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-mk@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@base/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-revealjs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@base/dist/kernel.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.bd0a459f.css">
+<script src="/assets/js/runtime~main.3eb30a5a.js" defer="defer"></script>
+<script src="/assets/js/main.716d9ae2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo3.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo2.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WLJS</b></a><a class="navbar__item navbar__link" href="/setup">Documentation</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/releases">Release notes</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" style="border:0;border-radius:6px" href="/wljs-demo">Demonstration Project</a><a class="navbar__item navbar__link" href="/widgets">Mini apps</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link" style="border:0;border-radius:6px">Discuss</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/sponsorship">Support us</a><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><main class="container container--fluid margin-vert--lg"><div class="row mdxPageWrapper_j9I6"><div class="col col--8"><article><h1>JoyCon</h1>
+<p>Use Nintendo Switch controllers to move slides and trigger actions</p>
+<div><br></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="javascript">Javascript<a href="#javascript" class="hash-link" aria-label="Direct link to Javascript" title="Direct link to Javascript">​</a></h2>
+<p>Here we use a library from NPM and bundle it right here.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p><strong>You do not need to build it by yourself</strong>, WLJS Notebook stores assembled Javascript code in the output cell</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-build">How to build<a href="#how-to-build" class="hash-link" aria-label="Direct link to How to build" title="Direct link to How to build">​</a></h3>
+<p>Install NPM package locally</p>
+<!-- -->
+<a href="/d6eece6a015882b9a9ce5be74640aae4.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.sh
+npm install joy-con-webhid --prefix .</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
+added 2 packages, and audited 5 packages in 4s
+
+found 0 vulnerabilities
+</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Now we write a supportive Javascript code, which takes care about the initialization, joystick drift and pipes to even system of Wolfram Kernel.</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="h-fade-20 codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.esm
+import {connectJoyCon, connectedJoyCons} from &#x27;joy-con-webhid&#x27;;
+
+const button = document.createElement(&#x27;button&#x27;);
+button.className = &#x27;relative cursor-pointer rounded-md 0 h-6 pl-3 pr-2 text-left text-gray-500  focus:outline-none ring-1 sm:text-xs sm:leading-6 bg-gray-100&#x27;;
+button.innerText = &quot;Connect&quot;;
+let state = &quot;Connect&quot;;
+
+let joyConQ = false;
+
+let timer = performance.now();
+const buttons = {
+  a: false,
+  b: false,
+  home: false,
+  plus: false,
+  r: false,
+  sl: false,
+  sr: false,
+  x: false,
+  y: false,
+  zr: false
+}
+
+const stick = [0.,0.];
+let restingStick = [0.,0.];
+let calibrated = false;
+
+const accelerometer = [0.0,0.0,0.0];
+
+const interval = setInterval(async () =&gt; {
+  const devices = connectedJoyCons.values();
+  joyConQ = false;
+  for (const joyCon of devices) {
+    joyConQ = true;
+    if (joyCon.eventListenerAttached) {
+      continue;
+    }
+    // Open the device and enable standard full mode 
+    await joyCon.open();
+    await joyCon.enableStandardFullMode();
+    //await joyCon.enableIMUMode();
+    await joyCon.enableVibration();
+    // Get information about the connected Joy-Con.
+    //console.log(await joyCon.getDeviceInfo());
+    // Rumble.
+    await joyCon.rumble(600, 600, 0.5);
+    // Listen for HID input reports.
+    joyCon.addEventListener(&#x27;hidinput&#x27;, ({ detail }) =&gt; {
+      // Careful, this fires at ~60fps.
+      if (!calibrated) {
+        restingStick = [Number(detail.analogStickRight.horizontal), Number(detail.analogStickRight.vertical)]
+        calibrated = true;
+        return;
+      }
+      const time = performance.now();
+      if (time - timer &gt; 50) { // reduce a bit
+          timer = time;
+        
+          let pressedQ = false;
+          let movedQ = false;
+          let acceleratedQ = false;
+        
+          for (const key of Object.keys(buttons)) {
+            if (!buttons[key] &amp;&amp; detail.buttonStatus[key]) pressedQ = true;
+            buttons[key] = detail.buttonStatus[key];
+          }
+
+          const vertical = Number(detail.analogStickRight.vertical)  -restingStick[1];
+          const horizontal = Number(detail.analogStickRight.horizontal) - restingStick[0];
+
+          if (Math.abs(vertical) &gt; 0.1) movedQ = true;
+          if (Math.abs(horizontal) &gt; 0.1) movedQ = true;
+
+          stick[1] = -vertical;
+          stick[0] = horizontal;
+
+          //const acceleration = detail.actualAccelerometer;
+
+          //if (Math.abs(accelerometer[0] - acceleration.x) &gt; 0.001) acceleratedQ = true;
+          //if (Math.abs(accelerometer[1] - acceleration.y) &gt; 0.001) acceleratedQ = true;
+          //if (Math.abs(accelerometer[2] - acceleration.z) &gt; 0.001) acceleratedQ = true;
+
+          //accelerometer[0] =  acceleration.x;
+          //accelerometer[1] =  acceleration.y;
+          //accelerometer[2] =  acceleration.z;
+
+          if (pressedQ) {
+            for (const key of Object.keys(buttons)) {
+              if (buttons[key]) {
+                server.kernel.io.fire(&#x27;JoyCon&#x27;, true, key);
+                break;
+              }
+            }
+          }
+
+         if (movedQ) {
+            server.kernel.io.fire(&#x27;JoyCon&#x27;, stick, &#x27;Stick&#x27;);
+         }
+
+         //if (acceleratedQ) {
+            //server.kernel.io.fire(&#x27;JoyCon&#x27;, accelerometer, &#x27;Acceleration&#x27;);
+         //}
+      };
+    });
+    joyCon.eventListenerAttached = true;
+  }
+
+  if (joyConQ) {
+    if (state != &quot;Connected&quot;) {
+      state = &quot;Connected&quot;;
+      button.innerText=state;
+      button.style.background = &#x27;#d8ffd8&#x27;;
+    }
+  } else {
+    if (state != &quot;Connect&quot;) {
+      state = &quot;Connect&quot;;
+      button.innerText=state;
+      button.style.background = &#x27;&#x27;;
+    }
+  }
+}, 2000);
+
+button.addEventListener(&#x27;click&#x27;, async () =&gt; {
+  // `JoyCon.connectJoyCon()` handles the initial HID pairing.
+  if (!joyConQ) {
+    await connectJoyCon();
+    return;
+  }
+
+});
+
+this.return(button);
+
+this.ondestroy(() =&gt; {
+  cancelInterval(interval);
+})</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">// node_modules/joy-con-webhid/dist/madgwick.js
+function Madgwick(sampleInterval, options) {
+  options = options || {};
+  const sampleFreq = 1e3 / sampleInterval;
+  let beta = options.beta || 0.4;
+  let initalised = options.doInitialisation === true ? false : true;
+  let q0 = 1, q1 = 0, q2 = 0, q3 = 0;
+  let recipSampleFreq = 1 / sampleFreq;
+  function madgwickAHRSUpdateIMU(gx, gy, gz, ax, ay, az) {
+    let recipNorm;
+    let s0, s1, s2, s3;
+    let qDot1, qDot2, qDot3, qDot4;
+    let v2q0, v2q1, v2q2, v2q3, v4q0, v4q1, v4q2, v8q1, v8q2, q0q0, q1q1, q2q2, q3q3;
+    qDot1 = 0.5 * (-q1 * gx - q2 * gy - q3 * gz);
+    qDot2 = 0.5 * (q0 * gx + q2 * gz - q3 * gy);
+    qDot3 = 0.5 * (q0 * gy - q1 * gz + q3 * gx);
+    qDot4 = 0.5 * (q0 * gz + q1 * gy - q2 * gx);
+    if (!(ax === 0 &amp;&amp; ay === 0 &amp;&amp; az === 0)) {
+      recipNorm = (ax * ax + ay * ay + az * az) ** -0.5;
+      ax *= recipNorm;
+      ay *= recipNorm;
+      az *= recipNorm;
+      v2q0 = 2 * q0;
+      v2q1 = 2 * q1;
+      v2q2 = 2 * q2;
+      v2q3 = 2 * q3;
+      v4q0 = 4 * q0;
+      v4q1 = 4 * q1;
+      v4q2 = 4 * q2;
+      v8q1 = 8 * q1;
+      v8q2 = 8 * q2;
+      q0q0 = q0 * q0;
+      q1q1 = q1 * q1;
+      q2q2 = q2 * q2;
+      q3q3 = q3 * q3;
+      s0 = v4q0 * q2q2 + v2q2 * ax + v4q0 * q1q1 - v2q1 * ay;
+      s1 = v4q1 * q3q3 - v2q3 * ax + 4 * q0q0 * q1 - v2q0 * ay - v4q1 + v8q1 * q1q1 + v8q1 * q2q2 + v4q1 * az;
+      s2 = 4 * q0q0 * q2 + v2q0 * ax + v4q2 * q3q3 - v2q3 * ay - v4q2 + v8q2 * q1q1 + v8q2 * q2q2 + v4q2 * az;
+      s3 = 4 * q1q1 * q3 - v2q1 * ax + 4 * q2q2 * q3 - v2q2 * ay;
+      recipNorm = (s0 * s0 + s1 * s1 + s2 * s2 + s3 * s3) ** -0.5;
+      s0 *= recipNorm;
+      s1 *= recipNorm;
+      s2 *= recipNorm;
+      s3 *= recipNorm;
+      qDot1 -= beta * s0;
+      qDot2 -= beta * s1;
+      qDot3 -= beta * s2;
+      qDot4 -= beta * s3;
+    }
+    q0 += qDot1 * recipSampleFreq;
+    q1 += qDot2 * recipSampleFreq;
+    q2 += qDot3 * recipSampleFreq;
+    q3 += qDot4 * recipSampleFreq;
+    recipNorm = (q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3) ** -0.5;
+    q0 *= recipNorm;
+    q1 *= recipNorm;
+    q2 *= recipNorm;
+    q3 *= recipNorm;
+  }
+  function cross_product(ax, ay, az, bx, by, bz) {
+    return { x: ay * bz - az * by, y: az * bx - ax * bz, z: ax * by - ay * bx };
+  }
+  function eulerAnglesFromImuRad(ax, ay, az, mx, my, mz) {
+    const pitch = -Math.atan2(ax, Math.sqrt(ay * ay + az * az));
+    const tmp1 = cross_product(ax, ay, az, 1, 0, 0);
+    const tmp2 = cross_product(1, 0, 0, tmp1.x, tmp1.y, tmp1.z);
+    const roll = Math.atan2(tmp2.y, tmp2.z);
+    const cr = Math.cos(roll);
+    const sp = Math.sin(pitch);
+    const sr = Math.sin(roll);
+    const yh = my * cr - mz * sr;
+    const xh = mx * Math.cos(pitch) + my * sr * sp + mz * cr * sp;
+    const heading = -Math.atan2(yh, xh);
+    return { heading, pitch, roll };
+  }
+  function toQuaternion2(eulerAngles) {
+    const cy = Math.cos(eulerAngles.heading * 0.5);
+    const sy = Math.sin(eulerAngles.heading * 0.5);
+    const cp = Math.cos(eulerAngles.pitch * 0.5);
+    const sp = Math.sin(eulerAngles.pitch * 0.5);
+    const cr = Math.cos(eulerAngles.roll * 0.5);
+    const sr = Math.sin(eulerAngles.roll * 0.5);
+    return { w: cr * cp * cy + sr * sp * sy, x: sr * cp * cy - cr * sp * sy, y: cr * sp * cy + sr * cp * sy, z: cr * cp * sy - sr * sp * cy };
+  }
+  function init(ax, ay, az, mx, my, mz) {
+    const ea = eulerAnglesFromImuRad(ax, ay, az, mx, my, mz);
+    const iq = toQuaternion2(ea);
+    const recipNorm = (iq.w * iq.w + iq.x * iq.x + iq.y * iq.y + iq.z * iq.z) ** -0.5;
+    q0 = iq.w * recipNorm;
+    q1 = iq.x * recipNorm;
+    q2 = iq.y * recipNorm;
+    q3 = iq.z * recipNorm;
+    initalised = true;
+  }
+  function madgwickAHRSUpdate(gx, gy, gz, ax, ay, az, mx, my, mz, deltaTimeSec) {
+    recipSampleFreq = deltaTimeSec || recipSampleFreq;
+    if (!initalised) {
+      init(ax, ay, az, mx, my, mz);
+    }
+    let recipNorm;
+    let s0, s1, s2, s3;
+    let qDot1, qDot2, qDot3, qDot4;
+    let hx, hy;
+    let v2q0mx, v2q0my, v2q0mz, v2q1mx, v2bx, v2bz, v4bx, v4bz, v2q0, v2q1, v2q2, v2q3, v2q0q2, v2q2q3;
+    let q0q0, q0q1, q0q2, q0q3, q1q1, q1q2, q1q3, q2q2, q2q3, q3q3;
+    if (mx === void 0 || my === void 0 || mz === void 0 || mx === 0 &amp;&amp; my === 0 &amp;&amp; mz === 0) {
+      madgwickAHRSUpdateIMU(gx, gy, gz, ax, ay, az);
+      return;
+    }
+    qDot1 = 0.5 * (-q1 * gx - q2 * gy - q3 * gz);
+    qDot2 = 0.5 * (q0 * gx + q2 * gz - q3 * gy);
+    qDot3 = 0.5 * (q0 * gy - q1 * gz + q3 * gx);
+    qDot4 = 0.5 * (q0 * gz + q1 * gy - q2 * gx);
+    if (!(ax === 0 &amp;&amp; ay === 0 &amp;&amp; az === 0)) {
+      recipNorm = (ax * ax + ay * ay + az * az) ** -0.5;
+      ax *= recipNorm;
+      ay *= recipNorm;
+      az *= recipNorm;
+      recipNorm = (mx * mx + my * my + mz * mz) ** -0.5;
+      mx *= recipNorm;
+      my *= recipNorm;
+      mz *= recipNorm;
+      v2q0mx = 2 * q0 * mx;
+      v2q0my = 2 * q0 * my;
+      v2q0mz = 2 * q0 * mz;
+      v2q1mx = 2 * q1 * mx;
+      v2q0 = 2 * q0;
+      v2q1 = 2 * q1;
+      v2q2 = 2 * q2;
+      v2q3 = 2 * q3;
+      v2q0q2 = 2 * q0 * q2;
+      v2q2q3 = 2 * q2 * q3;
+      q0q0 = q0 * q0;
+      q0q1 = q0 * q1;
+      q0q2 = q0 * q2;
+      q0q3 = q0 * q3;
+      q1q1 = q1 * q1;
+      q1q2 = q1 * q2;
+      q1q3 = q1 * q3;
+      q2q2 = q2 * q2;
+      q2q3 = q2 * q3;
+      q3q3 = q3 * q3;
+      hx = mx * q0q0 - v2q0my * q3 + v2q0mz * q2 + mx * q1q1 + v2q1 * my * q2 + v2q1 * mz * q3 - mx * q2q2 - mx * q3q3;
+      hy = v2q0mx * q3 + my * q0q0 - v2q0mz * q1 + v2q1mx * q2 - my * q1q1 + my * q2q2 + v2q2 * mz * q3 - my * q3q3;
+      v2bx = Math.sqrt(hx * hx + hy * hy);
+      v2bz = -v2q0mx * q2 + v2q0my * q1 + mz * q0q0 + v2q1mx * q3 - mz * q1q1 + v2q2 * my * q3 - mz * q2q2 + mz * q3q3;
+      v4bx = 2 * v2bx;
+      v4bz = 2 * v2bz;
+      s0 = -v2q2 * (2 * q1q3 - v2q0q2 - ax) + v2q1 * (2 * q0q1 + v2q2q3 - ay) - v2bz * q2 * (v2bx * (0.5 - q2q2 - q3q3) + v2bz * (q1q3 - q0q2) - mx) + (-v2bx * q3 + v2bz * q1) * (v2bx * (q1q2 - q0q3) + v2bz * (q0q1 + q2q3) - my) + v2bx * q2 * (v2bx * (q0q2 + q1q3) + v2bz * (0.5 - q1q1 - q2q2) - mz);
+      s1 = v2q3 * (2 * q1q3 - v2q0q2 - ax) + v2q0 * (2 * q0q1 + v2q2q3 - ay) - 4 * q1 * (1 - 2 * q1q1 - 2 * q2q2 - az) + v2bz * q3 * (v2bx * (0.5 - q2q2 - q3q3) + v2bz * (q1q3 - q0q2) - mx) + (v2bx * q2 + v2bz * q0) * (v2bx * (q1q2 - q0q3) + v2bz * (q0q1 + q2q3) - my) + (v2bx * q3 - v4bz * q1) * (v2bx * (q0q2 + q1q3) + v2bz * (0.5 - q1q1 - q2q2) - mz);
+      s2 = -v2q0 * (2 * q1q3 - v2q0q2 - ax) + v2q3 * (2 * q0q1 + v2q2q3 - ay) - 4 * q2 * (1 - 2 * q1q1 - 2 * q2q2 - az) + (-v4bx * q2 - v2bz * q0) * (v2bx * (0.5 - q2q2 - q3q3) + v2bz * (q1q3 - q0q2) - mx) + (v2bx * q1 + v2bz * q3) * (v2bx * (q1q2 - q0q3) + v2bz * (q0q1 + q2q3) - my) + (v2bx * q0 - v4bz * q2) * (v2bx * (q0q2 + q1q3) + v2bz * (0.5 - q1q1 - q2q2) - mz);
+      s3 = v2q1 * (2 * q1q3 - v2q0q2 - ax) + v2q2 * (2 * q0q1 + v2q2q3 - ay) + (-v4bx * q3 + v2bz * q1) * (v2bx * (0.5 - q2q2 - q3q3) + v2bz * (q1q3 - q0q2) - mx) + (-v2bx * q0 + v2bz * q2) * (v2bx * (q1q2 - q0q3) + v2bz * (q0q1 + q2q3) - my) + v2bx * q1 * (v2bx * (q0q2 + q1q3) + v2bz * (0.5 - q1q1 - q2q2) - mz);
+      recipNorm = (s0 * s0 + s1 * s1 + s2 * s2 + s3 * s3) ** -0.5;
+      s0 *= recipNorm;
+      s1 *= recipNorm;
+      s2 *= recipNorm;
+      s3 *= recipNorm;
+      qDot1 -= beta * s0;
+      qDot2 -= beta * s1;
+      qDot3 -= beta * s2;
+      qDot4 -= beta * s3;
+    }
+    q0 += qDot1 * recipSampleFreq;
+    q1 += qDot2 * recipSampleFreq;
+    q2 += qDot3 * recipSampleFreq;
+    q3 += qDot4 * recipSampleFreq;
+    recipNorm = (q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3) ** -0.5;
+    q0 *= recipNorm;
+    q1 *= recipNorm;
+    q2 *= recipNorm;
+    q3 *= recipNorm;
+  }
+  return { update: madgwickAHRSUpdate, init, getQuaternion() {
+    return { w: q0, x: q1, y: q2, z: q3 };
+  } };
+}
+
+// node_modules/joy-con-webhid/dist/parse.js
+var leftMadgwick = new Madgwick(10);
+var rightMadgwick = new Madgwick(10);
+var rad2deg = 180 / Math.PI;
+function baseSum(array, iteratee) {
+  let result;
+  for (const value of array) {
+    const current = iteratee(value);
+    if (current !== void 0) {
+      result = result === void 0 ? current : result + current;
+    }
+  }
+  return result;
+}
+function mean(array) {
+  return baseMean(array, (value) =&gt; value);
+}
+function baseMean(array, iteratee) {
+  const length = array == null ? 0 : array.length;
+  return length ? baseSum(array, iteratee) / length : NaN;
+}
+function calculateBatteryLevel(value) {
+  let level;
+  switch (value[0]) {
+    case 8:
+      level = &quot;full&quot;;
+      break;
+    case 4:
+      level = &quot;medium&quot;;
+      break;
+    case 2:
+      level = &quot;low&quot;;
+      break;
+    case 1:
+      level = &quot;critical&quot;;
+      break;
+    case 0:
+      level = &quot;empty&quot;;
+      break;
+    default:
+      level = &quot;charging&quot;;
+  }
+  return level;
+}
+var ControllerType = { 1: &quot;Left Joy-Con&quot;, 2: &quot;Right Joy-Con&quot;, 3: &quot;Pro Controller&quot; };
+var bias = 0.75;
+var zeroBias = 0.0125;
+var scale = Math.PI / 2;
+function toEulerAngles(lastValues, gyroscope, accelerometer, productId) {
+  const now = Date.now();
+  const dt = lastValues.timestamp ? (now - lastValues.timestamp) / 1e3 : 0;
+  lastValues.timestamp = now;
+  const norm = Math.sqrt(accelerometer.x ** 2 + accelerometer.y ** 2 + accelerometer.z ** 2);
+  lastValues.alpha = (1 - zeroBias) * (lastValues.alpha + gyroscope.z * dt);
+  if (norm !== 0) {
+    lastValues.beta = bias * (lastValues.beta + gyroscope.x * dt) + (1 - bias) * (accelerometer.x * scale / norm);
+    lastValues.gamma = bias * (lastValues.gamma + gyroscope.y * dt) + (1 - bias) * (accelerometer.y * -scale / norm);
+  }
+  return { alpha: productId === 8198 ? (-1 * (lastValues.alpha * 180) / Math.PI * 430 % 90).toFixed(6) : (lastValues.alpha * 180 / Math.PI * 430 % 360).toFixed(6), beta: (-1 * (lastValues.beta * 180) / Math.PI).toFixed(6), gamma: productId === 8198 ? (-1 * (lastValues.gamma * 180) / Math.PI).toFixed(6) : (lastValues.gamma * 180 / Math.PI).toFixed(6) };
+}
+function toEulerAnglesQuaternion(q) {
+  const ww = q.w * q.w;
+  const xx = q.x * q.x;
+  const yy = q.y * q.y;
+  const zz = q.z * q.z;
+  return { alpha: (rad2deg * Math.atan2(2 * (q.x * q.y + q.z * q.w), xx - yy - zz + ww)).toFixed(6), beta: (rad2deg * -Math.asin(2 * (q.x * q.z - q.y * q.w))).toFixed(6), gamma: (rad2deg * Math.atan2(2 * (q.y * q.z + q.x * q.w), -xx - yy + zz + ww)).toFixed(6) };
+}
+function toQuaternion(gyro, accl, productId) {
+  if (productId === 8198) {
+    leftMadgwick.update(gyro.x, gyro.y, gyro.z, accl.x, accl.y, accl.z);
+    return leftMadgwick.getQuaternion();
+  }
+  rightMadgwick.update(gyro.x, gyro.y, gyro.z, accl.x, accl.y, accl.z);
+  return rightMadgwick.getQuaternion();
+}
+function toAcceleration(value) {
+  const view = new DataView(value.buffer);
+  return parseFloat((244e-6 * view.getInt16(0, true)).toFixed(6));
+}
+function toDegreesPerSecond(value) {
+  const view = new DataView(value.buffer);
+  return parseFloat((0.06103 * view.getInt16(0, true)).toFixed(6));
+}
+function toRevolutionsPerSecond(value) {
+  const view = new DataView(value.buffer);
+  return parseFloat((1694e-7 * view.getInt16(0, true)).toFixed(6));
+}
+function parseDeviceInfo(rawData, data) {
+  const bytes = rawData.slice(15, 15 + 11);
+  const firmwareMajorVersionRaw = bytes.slice(0, 1)[0];
+  const firmwareMinorVersionRaw = bytes.slice(1, 2)[0];
+  const typeRaw = bytes.slice(2, 3);
+  const macAddressRaw = bytes.slice(4, 10);
+  const macAddress = [];
+  macAddressRaw.forEach((number) =&gt; {
+    macAddress.push(number.toString(16));
+  });
+  const spiColorInUseRaw = bytes.slice(11, 12);
+  const result = { _raw: bytes.slice(0, 12), _hex: bytes.slice(0, 12), firmwareVersion: { major: firmwareMajorVersionRaw, minor: firmwareMinorVersionRaw }, type: ControllerType[typeRaw[0]], macAddress: macAddress.join(&quot;:&quot;), spiColorInUse: spiColorInUseRaw[0] === 1 };
+  return result;
+}
+function parseInputReportID(rawData, data) {
+  const inputReportID = { _raw: rawData.slice(0, 1), _hex: data.slice(0, 1) };
+  return inputReportID;
+}
+function parseTimer(rawData, data) {
+  const timer2 = { _raw: rawData.slice(1, 2), _hex: data.slice(1, 2) };
+  return timer2;
+}
+function parseBatteryLevel(rawData, data) {
+  const batteryLevel = { _raw: rawData.slice(2, 3), _hex: data.slice(2, 3), level: calculateBatteryLevel(data.slice(2, 3)) };
+  return batteryLevel;
+}
+function parseConnectionInfo(rawData, data) {
+  const connectionInfo = { _raw: rawData.slice(2, 3), _hex: data.slice(2, 3) };
+  return connectionInfo;
+}
+function parseButtonStatus(rawData, data) {
+  const buttonStatus = { _raw: rawData.slice(1, 3), _hex: data.slice(1, 3) };
+  return buttonStatus;
+}
+function parseCompleteButtonStatus(rawData, data) {
+  const buttonStatus = { _raw: rawData.slice(3, 6), _hex: data.slice(3, 6), y: Boolean(1 &amp; rawData[3]), x: Boolean(2 &amp; rawData[3]), b: Boolean(4 &amp; rawData[3]), a: Boolean(8 &amp; rawData[3]), r: Boolean(64 &amp; rawData[3]), zr: Boolean(128 &amp; rawData[3]), down: Boolean(1 &amp; rawData[5]), up: Boolean(2 &amp; rawData[5]), right: Boolean(4 &amp; rawData[5]), left: Boolean(8 &amp; rawData[5]), l: Boolean(64 &amp; rawData[5]), zl: Boolean(128 &amp; rawData[5]), sr: Boolean(16 &amp; rawData[3]) || Boolean(16 &amp; rawData[5]), sl: Boolean(32 &amp; rawData[3]) || Boolean(32 &amp; rawData[5]), minus: Boolean(1 &amp; rawData[4]), plus: Boolean(2 &amp; rawData[4]), rightStick: Boolean(4 &amp; rawData[4]), leftStick: Boolean(8 &amp; rawData[4]), home: Boolean(16 &amp; rawData[4]), capture: Boolean(32 &amp; rawData[4]), chargingGrip: Boolean(128 &amp; rawData[4]) };
+  return buttonStatus;
+}
+function parseAnalogStick(rawData, data) {
+  const analogStick = { _raw: rawData.slice(3, 4), _hex: data.slice(3, 4) };
+  return analogStick;
+}
+function parseAnalogStickLeft(rawData, data) {
+  let horizontal = rawData[6] | (rawData[7] &amp; 15) &lt;&lt; 8;
+  horizontal = ((horizontal / 1995 - 1) * 2).toFixed(1);
+  let vertical = (rawData[7] &gt;&gt; 4 | rawData[8] &lt;&lt; 4) * -1;
+  vertical = ((vertical / 2220 + 1) * 2).toFixed(1);
+  const analogStickLeft = { _raw: rawData.slice(6, 9), _hex: data.slice(6, 9), horizontal, vertical };
+  return analogStickLeft;
+}
+function parseAnalogStickRight(rawData, data) {
+  let horizontal = rawData[9] | (rawData[10] &amp; 15) &lt;&lt; 8;
+  horizontal = ((horizontal / 1995 - 1) * 2).toFixed(1);
+  let vertical = (rawData[10] &gt;&gt; 4 | rawData[11] &lt;&lt; 4) * -1;
+  vertical = ((vertical / 2220 + 1) * 2).toFixed(1);
+  const analogStickRight = { _raw: rawData.slice(9, 12), _hex: data.slice(9, 12), horizontal, vertical };
+  return analogStickRight;
+}
+function parseFilter(rawData, data) {
+  const filter = { _raw: rawData.slice(4), _hex: data.slice(4) };
+  return filter;
+}
+function parseVibrator(rawData, data) {
+  const vibrator = { _raw: rawData.slice(12, 13), _hex: data.slice(12, 13) };
+  return vibrator;
+}
+function parseAck(rawData, data) {
+  const ack = { _raw: rawData.slice(13, 14), _hex: data.slice(13, 14) };
+  return ack;
+}
+function parseSubcommandID(rawData, data) {
+  const subcommandID = { _raw: rawData.slice(14, 15), _hex: data.slice(14, 15) };
+  return subcommandID;
+}
+function parseSubcommandReplyData(rawData, data) {
+  const subcommandReplyData = { _raw: rawData.slice(15), _hex: data.slice(15) };
+  return subcommandReplyData;
+}
+function parseAccelerometers(rawData, data) {
+  const accelerometers = [{ x: { _raw: rawData.slice(13, 15), _hex: data.slice(13, 15), acc: toAcceleration(rawData.slice(13, 15)) }, y: { _raw: rawData.slice(15, 17), _hex: data.slice(15, 17), acc: toAcceleration(rawData.slice(15, 17)) }, z: { _raw: rawData.slice(17, 19), _hex: data.slice(17, 19), acc: toAcceleration(rawData.slice(17, 19)) } }, { x: { _raw: rawData.slice(25, 27), _hex: data.slice(25, 27), acc: toAcceleration(rawData.slice(25, 27)) }, y: { _raw: rawData.slice(27, 29), _hex: data.slice(27, 29), acc: toAcceleration(rawData.slice(27, 29)) }, z: { _raw: rawData.slice(29, 31), _hex: data.slice(29, 31), acc: toAcceleration(rawData.slice(29, 31)) } }, { x: { _raw: rawData.slice(37, 39), _hex: data.slice(37, 39), acc: toAcceleration(rawData.slice(37, 39)) }, y: { _raw: rawData.slice(39, 41), _hex: data.slice(39, 41), acc: toAcceleration(rawData.slice(39, 41)) }, z: { _raw: rawData.slice(41, 43), _hex: data.slice(41, 43), acc: toAcceleration(rawData.slice(41, 43)) } }];
+  return accelerometers;
+}
+function parseGyroscopes(rawData, data) {
+  const gyroscopes = [[{ _raw: rawData.slice(19, 21), _hex: data.slice(19, 21), dps: toDegreesPerSecond(rawData.slice(19, 21)), rps: toRevolutionsPerSecond(rawData.slice(19, 21)) }, { _raw: rawData.slice(21, 23), _hex: data.slice(21, 23), dps: toDegreesPerSecond(rawData.slice(21, 23)), rps: toRevolutionsPerSecond(rawData.slice(21, 23)) }, { _raw: rawData.slice(23, 25), _hex: data.slice(23, 25), dps: toDegreesPerSecond(rawData.slice(23, 25)), rps: toRevolutionsPerSecond(rawData.slice(23, 25)) }], [{ _raw: rawData.slice(31, 33), _hex: data.slice(31, 33), dps: toDegreesPerSecond(rawData.slice(31, 33)), rps: toRevolutionsPerSecond(rawData.slice(31, 33)) }, { _raw: rawData.slice(33, 35), _hex: data.slice(33, 35), dps: toDegreesPerSecond(rawData.slice(33, 35)), rps: toRevolutionsPerSecond(rawData.slice(33, 35)) }, { _raw: rawData.slice(35, 37), _hex: data.slice(35, 37), dps: toDegreesPerSecond(rawData.slice(35, 37)), rps: toRevolutionsPerSecond(rawData.slice(35, 37)) }], [{ _raw: rawData.slice(43, 45), _hex: data.slice(43, 45), dps: toDegreesPerSecond(rawData.slice(43, 45)), rps: toRevolutionsPerSecond(rawData.slice(43, 45)) }, { _raw: rawData.slice(45, 47), _hex: data.slice(45, 47), dps: toDegreesPerSecond(rawData.slice(45, 47)), rps: toRevolutionsPerSecond(rawData.slice(45, 47)) }, { _raw: rawData.slice(47, 49), _hex: data.slice(47, 49), dps: toDegreesPerSecond(rawData.slice(47, 49)), rps: toRevolutionsPerSecond(rawData.slice(47, 49)) }]];
+  return gyroscopes;
+}
+function calculateActualAccelerometer(accelerometers) {
+  const elapsedTime = 5e-3 * accelerometers.length;
+  const actualAccelerometer = { x: parseFloat((mean(accelerometers.map((g) =&gt; g[0])) * elapsedTime).toFixed(6)), y: parseFloat((mean(accelerometers.map((g) =&gt; g[1])) * elapsedTime).toFixed(6)), z: parseFloat((mean(accelerometers.map((g) =&gt; g[2])) * elapsedTime).toFixed(6)) };
+  return actualAccelerometer;
+}
+function calculateActualGyroscope(gyroscopes) {
+  const elapsedTime = 5e-3 * gyroscopes.length;
+  const actualGyroscopes = [mean(gyroscopes.map((g) =&gt; g[0])), mean(gyroscopes.map((g) =&gt; g[1])), mean(gyroscopes.map((g) =&gt; g[2]))].map((v) =&gt; parseFloat((v * elapsedTime).toFixed(6)));
+  return { x: actualGyroscopes[0], y: actualGyroscopes[1], z: actualGyroscopes[2] };
+}
+function parseRingCon(rawData, data) {
+  const ringcon = { _raw: rawData.slice(38, 2), _hex: data.slice(38, 2), strain: new DataView(rawData.buffer, 39, 2).getInt16(0, true) };
+  return ringcon;
+}
+
+// node_modules/joy-con-webhid/dist/connectRingCon.js
+var connectRingCon = async (device) =&gt; {
+  const defineSendReportAsyncFunction = ({ subcommand, expectedReport, timeoutErrorMessage = &quot;timeout.&quot; }) =&gt; (device2) =&gt; new Promise(async (resolve, reject) =&gt; {
+    const timeoutId = setTimeout(() =&gt; {
+      device2.removeEventListener(&quot;inputreport&quot;, checkInputReport);
+      reject(new Error(timeoutErrorMessage));
+    }, 5e3);
+    const checkInputReport = (event) =&gt; {
+      if (event.reportId !== 33) {
+        return;
+      }
+      const data = new Uint8Array(event.data.buffer);
+      for (const [key, value] of Object.entries(expectedReport)) {
+        if (data[key - 1] !== value) {
+          return;
+        }
+      }
+      device2.removeEventListener(&quot;inputreport&quot;, checkInputReport);
+      clearTimeout(timeoutId);
+      setTimeout(resolve, 50);
+    };
+    device2.addEventListener(&quot;inputreport&quot;, checkInputReport);
+    await device2.sendReport(1, new Uint8Array([0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand]));
+  });
+  const setInputReportModeTo0x30 = defineSendReportAsyncFunction({ subcommand: [3, 48], expectedReport: { 14: 3 } });
+  const enablingMCUData221 = defineSendReportAsyncFunction({ subcommand: [34, 1], expectedReport: { 13: 128, 14: 34 } });
+  const enablingMCUData212111 = defineSendReportAsyncFunction({ subcommand: [33, 33, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 243], expectedReport: { 14: 33 } });
+  const getExtData59 = defineSendReportAsyncFunction({ subcommand: [89], expectedReport: { 14: 89, 16: 32 }, timeoutErrorMessage: &quot;ring-con not found.&quot; });
+  const getExtDevInFormatConfig5C = defineSendReportAsyncFunction({ subcommand: [92, 6, 3, 37, 6, 0, 0, 0, 0, 28, 22, 237, 52, 54, 0, 0, 0, 10, 100, 11, 230, 169, 34, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 144, 168, 225, 52, 54], expectedReport: { 14: 92 } });
+  const startExternalPolling5A = defineSendReportAsyncFunction({ subcommand: [90, 4, 1, 1, 2], expectedReport: { 14: 90 } });
+  await enablingMCUData221(device);
+  await enablingMCUData212111(device);
+  await getExtData59(device);
+  await getExtDevInFormatConfig5C(device);
+  await startExternalPolling5A(device);
+};
+
+// node_modules/joy-con-webhid/dist/joycon.js
+var concatTypedArrays = (a, b) =&gt; {
+  const c = new a.constructor(a.length + b.length);
+  c.set(a, 0);
+  c.set(b, a.length);
+  return c;
+};
+var JoyCon = class extends EventTarget {
+  constructor(device) {
+    super();
+    this.device = device;
+    this.lastValues = { timestamp: null, alpha: 0, beta: 0, gamma: 0 };
+  }
+  async open() {
+    if (!this.device.opened) {
+      await this.device.open();
+    }
+    this.device.addEventListener(&quot;inputreport&quot;, this._onInputReport.bind(this));
+  }
+  async getRequestDeviceInfo() {
+    const outputReportID = 1;
+    const subcommand = [2];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand];
+    const result = new Promise((resolve) =&gt; {
+      const onDeviceInfo = ({ detail: deviceInfo }) =&gt; {
+        this.removeEventListener(&quot;deviceinfo&quot;, onDeviceInfo);
+        delete deviceInfo._raw;
+        delete deviceInfo._hex;
+        resolve(deviceInfo);
+      };
+      this.addEventListener(&quot;deviceinfo&quot;, onDeviceInfo);
+    });
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+    return result;
+  }
+  async getBatteryLevel() {
+    const outputReportID = 1;
+    const subCommand = [80];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subCommand];
+    const result = new Promise((resolve) =&gt; {
+      const onBatteryLevel = ({ detail: batteryLevel }) =&gt; {
+        this.removeEventListener(&quot;batterylevel&quot;, onBatteryLevel);
+        delete batteryLevel._raw;
+        delete batteryLevel._hex;
+        resolve(batteryLevel);
+      };
+      this.addEventListener(&quot;batterylevel&quot;, onBatteryLevel);
+    });
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+    return result;
+  }
+  async enableSimpleHIDMode() {
+    const outputReportID = 1;
+    const subcommand = [3, 63];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async enableStandardFullMode() {
+    const outputReportID = 1;
+    const subcommand = [3, 48];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async enableIMUMode() {
+    const outputReportID = 1;
+    const subcommand = [64, 1];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async disableIMUMode() {
+    const outputReportID = 1;
+    const subcommand = [64, 0];
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async enableVibration() {
+    const outputReportID = 1;
+    const subcommand = [72, 1];
+    const data = [0, 0, 1, 64, 64, 0, 1, 64, 64, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async disableVibration() {
+    const outputReportID = 1;
+    const subcommand = [72, 0];
+    const data = [0, 0, 1, 64, 64, 0, 1, 64, 64, ...subcommand];
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async enableRingCon() {
+    await connectRingCon(this.device);
+  }
+  async enableUSBHIDJoystickReport() {
+    const usb = this.device.collections[0].outputReports.find((r) =&gt; r.reportId == 128) != null;
+    if (usb) {
+      await this.device.sendReport(128, new Uint8Array([1]));
+      await this.device.sendReport(128, new Uint8Array([2]));
+      await this.device.sendReport(1, new Uint8Array([3]));
+      await this.device.sendReport(128, new Uint8Array([4]));
+    }
+  }
+  async rumble(lowFrequency, highFrequency, amplitude) {
+    const clamp = (value, min, max) =&gt; Math.min(Math.max(value, min), max);
+    const outputReportID = 16;
+    const data = new Uint8Array(9);
+    data[0] = 0;
+    let lf = clamp(lowFrequency, 40.875885, 626.286133);
+    let hf = clamp(highFrequency, 81.75177, 1252.572266);
+    hf = (Math.round(32 * Math.log2(hf * 0.1)) - 96) * 4;
+    lf = Math.round(32 * Math.log2(lf * 0.1)) - 64;
+    const amp = clamp(amplitude, 0, 1);
+    let hfAmp;
+    if (amp == 0) {
+      hfAmp = 0;
+    } else if (amp &lt; 0.117) {
+      hfAmp = (Math.log2(amp * 1e3) * 32 - 96) / (5 - Math.pow(amp, 2)) - 1;
+    } else if (amp &lt; 0.23) {
+      hfAmp = Math.log2(amp * 1e3) * 32 - 96 - 92;
+    } else {
+      hfAmp = (Math.log2(amp * 1e3) * 32 - 96) * 2 - 246;
+    }
+    let lfAmp = Math.round(hfAmp) * 0.5;
+    const parity = lfAmp % 2;
+    if (parity &gt; 0) {
+      --lfAmp;
+    }
+    lfAmp = lfAmp &gt;&gt; 1;
+    lfAmp += 64;
+    if (parity &gt; 0) {
+      lfAmp |= 32768;
+    }
+    data[1] = hf &amp; 255;
+    data[2] = hfAmp + (hf &gt;&gt;&gt; 8 &amp; 255);
+    data[3] = lf + (lfAmp &gt;&gt;&gt; 8 &amp; 255);
+    data[4] += lfAmp &amp; 255;
+    for (let i = 0; i &lt; 4; i++) {
+      data[5 + i] = data[1 + i];
+    }
+    await this.device.sendReport(outputReportID, new Uint8Array(data));
+  }
+  async setLEDState(n) {
+    const NO_RUMBLE = [0, 0, 0, 0, 0, 0, 0, 0];
+    const subcommand = [48, n];
+    await this.device.sendReport(1, new Uint8Array([...NO_RUMBLE, 0, ...subcommand]));
+  }
+  async setLED(n) {
+    this.ledstate |= 1 &lt;&lt; n;
+    await this.setLEDState(this.ledstate);
+  }
+  async resetLED(n) {
+    this.ledstate &amp;= ~(1 &lt;&lt; n | 1 &lt;&lt; 4 + n);
+    await this.setLEDState(this.ledstate);
+  }
+  async blinkLED(n) {
+    this.ledstate &amp;= ~(1 &lt;&lt; n);
+    this.ledstate |= 1 &lt;&lt; 4 + n;
+    await this.setLEDState(this.ledstate);
+  }
+  _onInputReport(event) {
+    let { data, reportId, device } = event;
+    if (!data) {
+      return;
+    }
+    data = concatTypedArrays(new Uint8Array([reportId]), new Uint8Array(data.buffer));
+    const hexData = data.map((byte) =&gt; byte.toString(16));
+    let packet = { inputReportID: parseInputReportID(data, hexData) };
+    switch (reportId) {
+      case 63: {
+        packet = { ...packet, buttonStatus: parseButtonStatus(data, hexData), analogStick: parseAnalogStick(data, hexData), filter: parseFilter(data, hexData) };
+        break;
+      }
+      case 33:
+      case 48: {
+        packet = { ...packet, timer: parseTimer(data, hexData), batteryLevel: parseBatteryLevel(data, hexData), connectionInfo: parseConnectionInfo(data, hexData), buttonStatus: parseCompleteButtonStatus(data, hexData), analogStickLeft: parseAnalogStickLeft(data, hexData), analogStickRight: parseAnalogStickRight(data, hexData), vibrator: parseVibrator(data, hexData) };
+        if (reportId === 33) {
+          packet = { ...packet, ack: parseAck(data, hexData), subcommandID: parseSubcommandID(data, hexData), subcommandReplyData: parseSubcommandReplyData(data, hexData), deviceInfo: parseDeviceInfo(data, hexData) };
+        }
+        if (reportId === 48) {
+          const accelerometers = parseAccelerometers(data, hexData);
+          const gyroscopes = parseGyroscopes(data, hexData);
+          const rps = calculateActualGyroscope(gyroscopes.map((g) =&gt; g.map((v) =&gt; v.rps)));
+          const dps = calculateActualGyroscope(gyroscopes.map((g) =&gt; g.map((v) =&gt; v.dps)));
+          const acc = calculateActualAccelerometer(accelerometers.map((a) =&gt; [a.x.acc, a.y.acc, a.z.acc]));
+          const quaternion = toQuaternion(rps, acc, device.productId);
+          packet = { ...packet, accelerometers, gyroscopes, actualAccelerometer: acc, actualGyroscope: { dps, rps }, actualOrientation: toEulerAngles(this.lastValues, rps, acc, device.productId), actualOrientationQuaternion: toEulerAnglesQuaternion(quaternion), quaternion, ringCon: parseRingCon(data, hexData) };
+        }
+        break;
+      }
+    }
+    if (packet.deviceInfo?.type) {
+      this._receiveDeviceInfo(packet.deviceInfo);
+    }
+    if (packet.batteryLevel?.level) {
+      this._receiveBatteryLevel(packet.batteryLevel);
+    }
+    this._receiveInputEvent(packet);
+  }
+  _receiveDeviceInfo(deviceInfo) {
+    this.dispatchEvent(new CustomEvent(&quot;deviceinfo&quot;, { detail: deviceInfo }));
+  }
+  _receiveBatteryLevel(batteryLevel) {
+    this.dispatchEvent(new CustomEvent(&quot;batterylevel&quot;, { detail: batteryLevel }));
+  }
+};
+var JoyConLeft = class extends JoyCon {
+  constructor(device) {
+    super(device);
+  }
+  _receiveInputEvent(packet) {
+    delete packet.buttonStatus.x;
+    delete packet.buttonStatus.y;
+    delete packet.buttonStatus.b;
+    delete packet.buttonStatus.a;
+    delete packet.buttonStatus.plus;
+    delete packet.buttonStatus.r;
+    delete packet.buttonStatus.zr;
+    delete packet.buttonStatus.home;
+    delete packet.buttonStatus.rightStick;
+    this.dispatchEvent(new CustomEvent(&quot;hidinput&quot;, { detail: packet }));
+  }
+};
+var JoyConRight = class extends JoyCon {
+  constructor(device) {
+    super(device);
+  }
+  _receiveInputEvent(packet) {
+    delete packet.buttonStatus.up;
+    delete packet.buttonStatus.down;
+    delete packet.buttonStatus.left;
+    delete packet.buttonStatus.right;
+    delete packet.buttonStatus.minus;
+    delete packet.buttonStatus.l;
+    delete packet.buttonStatus.zl;
+    delete packet.buttonStatus.capture;
+    delete packet.buttonStatus.leftStick;
+    this.dispatchEvent(new CustomEvent(&quot;hidinput&quot;, { detail: packet }));
+  }
+};
+var GeneralController = class extends JoyCon {
+  constructor(device) {
+    super(device);
+  }
+  _receiveInputEvent(packet) {
+    this.dispatchEvent(new CustomEvent(&quot;hidinput&quot;, { detail: packet }));
+  }
+};
+
+// node_modules/joy-con-webhid/dist/index.js
+var connectedJoyCons = /* @__PURE__ */ new Map();
+var devices = [];
+var getDeviceID = (device) =&gt; {
+  const n = devices.indexOf(device);
+  if (n &gt;= 0) {
+    return n;
+  }
+  devices.push(device);
+  return devices.length - 1;
+};
+var addDevice = async (device) =&gt; {
+  const id = getDeviceID(device);
+  console.log(`HID connected: ${id} ${device.productId.toString(16)} ${device.productName}`);
+  connectedJoyCons.set(id, await connectDevice(device));
+};
+var removeDevice = async (device) =&gt; {
+  const id = getDeviceID(device);
+  console.log(`HID disconnected: ${id} ${device.productId.toString(16)} ${device.productName}`);
+  connectedJoyCons.delete(id);
+};
+navigator.hid.addEventListener(&quot;connect&quot;, async ({ device }) =&gt; {
+  addDevice(device);
+});
+navigator.hid.addEventListener(&quot;disconnect&quot;, ({ device }) =&gt; {
+  removeDevice(device);
+});
+document.addEventListener(&quot;DOMContentLoaded&quot;, async () =&gt; {
+  const devices2 = await navigator.hid.getDevices();
+  devices2.forEach(async (device) =&gt; {
+    await addDevice(device);
+  });
+});
+var connectJoyCon = async () =&gt; {
+  const filters = [{ vendorId: 1406 }];
+  try {
+    const [device] = await navigator.hid.requestDevice({ filters });
+    if (!device) {
+      return;
+    }
+    await addDevice(device);
+  } catch (error) {
+    console.error(error.name, error.message);
+  }
+};
+var connectDevice = async (device) =&gt; {
+  let joyCon = null;
+  if (device.productId === 8198) {
+    joyCon = new JoyConLeft(device);
+  } else if (device.productId === 8199) {
+    if (device.productName === &quot;Joy-Con (R)&quot;) {
+      joyCon = new JoyConRight(device);
+    }
+  }
+  if (!joyCon) {
+    joyCon = new GeneralController(device);
+  }
+  await joyCon.open();
+  await joyCon.enableUSBHIDJoystickReport();
+  await joyCon.enableStandardFullMode();
+  await joyCon.enableIMUMode();
+  return joyCon;
+};
+
+// &lt;stdin&gt;
+var button = document.createElement(&quot;button&quot;);
+button.className = &quot;relative cursor-pointer rounded-md 0 h-6 pl-3 pr-2 text-left text-gray-500  focus:outline-none ring-1 sm:text-xs sm:leading-6 bg-gray-100&quot;;
+button.innerText = &quot;Connect&quot;;
+var state = &quot;Connect&quot;;
+var joyConQ = false;
+var timer = performance.now();
+var buttons = {
+  a: false,
+  b: false,
+  home: false,
+  plus: false,
+  r: false,
+  sl: false,
+  sr: false,
+  x: false,
+  y: false,
+  zr: false
+};
+var stick = [0, 0];
+var restingStick = [0, 0];
+var calibrated = false;
+var interval = setInterval(async () =&gt; {
+  const devices2 = connectedJoyCons.values();
+  joyConQ = false;
+  for (const joyCon of devices2) {
+    joyConQ = true;
+    if (joyCon.eventListenerAttached) {
+      continue;
+    }
+    await joyCon.open();
+    await joyCon.enableStandardFullMode();
+    await joyCon.enableVibration();
+    await joyCon.rumble(600, 600, 0.5);
+    joyCon.addEventListener(&quot;hidinput&quot;, ({ detail }) =&gt; {
+      if (!calibrated) {
+        restingStick = [Number(detail.analogStickRight.horizontal), Number(detail.analogStickRight.vertical)];
+        calibrated = true;
+        return;
+      }
+      const time = performance.now();
+      if (time - timer &gt; 50) {
+        timer = time;
+        let pressedQ = false;
+        let movedQ = false;
+        let acceleratedQ = false;
+        for (const key of Object.keys(buttons)) {
+          if (!buttons[key] &amp;&amp; detail.buttonStatus[key]) pressedQ = true;
+          buttons[key] = detail.buttonStatus[key];
+        }
+        const vertical = Number(detail.analogStickRight.vertical) - restingStick[1];
+        const horizontal = Number(detail.analogStickRight.horizontal) - restingStick[0];
+        if (Math.abs(vertical) &gt; 0.1) movedQ = true;
+        if (Math.abs(horizontal) &gt; 0.1) movedQ = true;
+        stick[1] = -vertical;
+        stick[0] = horizontal;
+        if (pressedQ) {
+          for (const key of Object.keys(buttons)) {
+            if (buttons[key]) {
+              server.kernel.io.fire(&quot;JoyCon&quot;, true, key);
+              break;
+            }
+          }
+        }
+        if (movedQ) {
+          server.kernel.io.fire(&quot;JoyCon&quot;, stick, &quot;Stick&quot;);
+        }
+      }
+      ;
+    });
+    joyCon.eventListenerAttached = true;
+  }
+  if (joyConQ) {
+    if (state != &quot;Connected&quot;) {
+      state = &quot;Connected&quot;;
+      button.innerText = state;
+      button.style.background = &quot;#d8ffd8&quot;;
+    }
+  } else {
+    if (state != &quot;Connect&quot;) {
+      state = &quot;Connect&quot;;
+      button.innerText = state;
+      button.style.background = &quot;&quot;;
+    }
+  }
+}, 2e3);
+button.addEventListener(&quot;click&quot;, async () =&gt; {
+  if (!joyConQ) {
+    await connectJoyCon();
+    return;
+  }
+});
+g0this.return(button);
+g0this.ondestroy(() =&gt; {
+  cancelInterval(interval);
+});
+</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-use">How to use<a href="#how-to-use" class="hash-link" aria-label="Direct link to How to use" title="Direct link to How to use">​</a></h2>
+<ol>
+<li>Pair <em>right</em> JoyCon via bluetooth to your PC</li>
+<li>Click <strong>Connect</strong> button once</li>
+</ol>
+<div><br></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use cases<a href="#use-cases" class="hash-link" aria-label="Direct link to Use cases" title="Direct link to Use cases">​</a></h2>
+<p>Let&#x27;s go though basic example</p>
+<div><br></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="presenter-tool">Presenter tool<a href="#presenter-tool" class="hash-link" aria-label="Direct link to Presenter tool" title="Direct link to Presenter tool">​</a></h3>
+<p>Evaluate this cell below it will capture the following commands</p>
+<ul>
+<li><strong>ZR</strong> next slide</li>
+<li><strong>Y</strong> previous slide</li>
+</ul>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EventHandler[&quot;JoyCon&quot;, {
+  &quot;zr&quot; -&gt; (FrontSubmit[FrontSlidesSelected[&quot;navigateNext&quot;, 1]]&amp;),
+  &quot;y&quot; -&gt; (FrontSubmit[FrontSlidesSelected[&quot;navigatePrev&quot;, 1]]&amp;)
+}];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.slides
+
+# First
+---
+# Second
+---
+# Third</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div><br></div>
+<p>Here is how it looks</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/IMG_7868-ezgif.com-optimize-951-cd151d07bbad016e2d1f910b496b4254.gif" width="540" height="734" class="img_ev3q"></p><div><br></div><p></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="control-manipulateplot">Control <code>ManipulatePlot</code><a href="#control-manipulateplot" class="hash-link" aria-label="Direct link to control-manipulateplot" title="Direct link to control-manipulateplot">​</a></h3>
+<p>We can use Joystick to move sliders on the existing manipulate widget. For that we use <code>TrackedExpression</code> option</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">pos = 0.5 {1.0, 1.0};
+EventHandler[
+  &quot;JoyCon&quot;,
+  {
+    &quot;Stick&quot; -&gt; Function[xy, pos = pos + 0.05 xy],
+    &quot;r&quot; -&gt; Function[Null, pos = 0.5 {1.0, 1.0}]
+  }
+];
+
+ManipulateParametricPlot[
+  {Sin[x t], Cos[y t]},
+  {t, 0, 20},
+  {{x, 1.0}, -1, 1, 0.01},
+  {{y, 1.0}, -1, 1, 0.01},
+  &quot;TrackedExpression&quot; -&gt; Offload[pos],
+  Epilog -&gt; {Red, Point[Offload[pos]]}
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Click <strong>R</strong> to reset</p>
+<div><br></div>
+<p>Demonstration animation</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/IMG_7869-ezgif.com-optimize-a44-e0f0153f8b0a9268c14ed8617d674a14.gif" width="538" height="629" class="img_ev3q"></p></article></div><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#javascript" class="table-of-contents__link toc-highlight">Javascript</a><ul><li><a href="#how-to-build" class="table-of-contents__link toc-highlight">How to build</a></li></ul></li><li><a href="#how-to-use" class="table-of-contents__link toc-highlight">How to use</a></li><li><a href="#use-cases" class="table-of-contents__link toc-highlight">Use cases</a><ul><li><a href="#presenter-tool" class="table-of-contents__link toc-highlight">Presenter tool</a></li><li><a href="#control-manipulateplot" class="table-of-contents__link toc-highlight">Control <code>ManipulatePlot</code></a></li></ul></li></ul></div></div></div></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discussions<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://t.me/wljs_support" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">WLJS Notebook Project is open-source and licensed under GPL3</div></div></div></footer></div>
+</body>
+</html>

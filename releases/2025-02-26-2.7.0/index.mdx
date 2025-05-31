@@ -1,0 +1,101 @@
+
+# Release notes *2.7.0*
+
+- Insert a cell by moving with arrow keys and typing any letter.  
+- Copy cell groups as a single string and paste into a new input cell.  
+- Improved `Short` function for better formatting in outputs.  
+- New controls for navigating presentation slides using RevealJS API.  
+- `InputRange` sliders can be updated programmatically while maintaining state.  
+- `Manipulate` supports programmatic control with persistent state.  
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/108a701b-19a6-4658-ae90-6d7ed138172f.txt').default} notebook={require('./attachments/notebook-108.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"dcaadc4c-b98c-4f39-b50a-8f9cc2583be6"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+## UI Improvements
+
+### How to Add a Cell Between Others
+
+We have changed the method for creating a cell between other cells. *Simply move with the arrows down and type any letter.*
+
+### Copy Cell Group
+
+There is a new feature in the cell properties.
+
+![](attachments/Screenshot%202025-02-24%20at%2022.33.02-af0.png)<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+It compresses input and all output cells into a single string.
+
+:::note
+Paste the copied content into a new empty input cell.
+:::
+
+You can also copy non-Wolfram Language outputs in the same way.
+
+## Boxes or Decorations
+
+### Reimplementation of `Short`
+
+This expression is designed to shorten the output and is used in many outputs of Wolfram Language expressions, such as `NonLinearModelFit`, series outputs, and others. The native version often broke our internal formatting, but now we have replaced it with our implementation. It can be used directly.
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"4becaa84-f521-48d0-87b2-4d919d90269c"} type={"Input"} opts={{}} >{`Table%5BRandomColor%5B%5D%2C%20%7B100%7D%5D%20%2F%2F%20Short%20%0ATable%5BRandomColor%5B%5D%2C%20%7B100%7D%2C%20%7B3%7D%2C%20%7B30%7D%5D%20%2F%2F%20Short%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"83a11ad2-1d37-44b4-9e39-c5d942f68adc"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.4285740492163317%2C%200.7913909357229074%2C%200.7217959017443194%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qWiAZfPNg7m37oi2%2FM0SFg1%2FaF2nI8ez4LPHcHgBoWBk5%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28RGBColor%5B0.3890298402552268%2C%200.018771935566063824%2C%200.5120042572841128%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q6pF1ybr79IZ9EcP%2FKNfPFpPti3zC%2Bg6EJT2wBwBoExmp%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28RGBColor%5B0.16936020587613765%2C%200.9017860121159591%2C%200.6366193309657833%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qerBmb8KMtUfti%2B49PxCWd%2FuNfVHG7%2FMN%2BvFP7AGa6hy7%22%2A%29%28%2A%5DVB%2A%29%2C%3C%3C96%3E%3E%7D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"e3c0c330-e386-4e6b-99fe-5804117c0e06"} type={"Output"} opts={{}} >{`%7B%7B%7B%28%2AVB%5B%2A%29%28RGBColor%5B0.7325831065134378%2C%200.5979894508466139%2C%200.1719085829570397%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qsqtsUggqfG5fNGX59aO7lB7bFwU8vLlNkvGYPQBpXxoN%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28RGBColor%5B0.44795698759189584%2C%200.044087058186223826%2C%200.8720488878983641%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8qUjB%2BdyJ49R37ooREHaMpk5bZFxnoHBS8%2FPy1PQBfqRl1%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29%28RGBColor%5B0.6606665033903807%2C%200.9586376332282864%2C%200.9336369327142091%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gUSYZmp5S6pyflFiSX5RcEsQBHn4PCQNGaQPAeQCHJ3cs7PyS8q2vfLWERP5al9kdfR3Csaa9%2FZF3XxdPdHPXhrDwBlZRn0%22%2A%29%28%2A%5DVB%2A%29%2C%3C%3C26%3E%3E%7D%2C%3C%3C1%3E%3E%7D%2C%3C%3C98%3E%3E%7D`}</WLJSEditor>
+
+## Programmatic Controls of Presentation
+
+Similar to `FrontEditorSelected`, we have added a method to interact with a selected set of slides in the notebook. For example:
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"7cb325ef-3160-47bd-92fb-33e50707d3a1"} type={"Input"} opts={{}} >{`.slide%0A%0A%23%20First%0A%0A---%0A%0A%23%20Second`}</WLJSEditor>
+
+Now try to run this
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"42ff996a-5074-4610-a12d-de6e229a62d6"} type={"Input"} opts={{}} >{`FrontSlidesSelected%5B%22navigateNext%22%2C%201%5D%20%2F%2F%20FrontSubmit%3B`}</WLJSEditor>
+
+We directly forward your commands to RevealJS API. Please see it for more available commands.
+
+## Programmatic Controls of Sliders
+We added an extra option to control `InputRange` programmatically
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"a9dbae7b-4975-4934-9f57-1db4293194dd"} type={"Input"} opts={{}} >{`sliderPos%20%3D%200.4%3B%0AInputRange%5B0%2C1%2C0.1%2C%20%22TrackedExpression%22-%3EOffload%5BsliderPos%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"83dc7056-0aeb-4a14-b3cc-321dc07200bc"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22f903686f-d40c-4727-a3c7-dd83755ecf57%22%2C%20%22Initial%22%20-%3E%200.5%2C%20%22View%22%20-%3E%20%22776c46e6-7c4a-480c-b713-dac670eac7f0%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5ubJZuYpZrpmiebJOqaWBgk6yaZGxrrpiQmm5kbpCYmm6cZAACBvBXV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+If you set `sliderPos` symbol to a new value, it will move the slider above
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"4a6c19e7-5fcc-4336-abbe-50ae0effe697"} type={"Input"} opts={{}} >{`sliderPos%20%3D%20RandomReal%5B%5D%3B`}</WLJSEditor>
+
+It will still trigger an event and revert to the set value even if you refresh the page. In this sense, you give your slider a persistent state.
+
+## Programmatic Controls of Manipulate*
+One can do the same for `Manipulate` or `ManipulatePlot`. Keep in mind to use lists for them
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"338aca10-ebfa-41bb-beb3-bc3d527d59c1"} type={"Input"} opts={{}} >{`manList%20%3D%20%7B0.3%2C%200.8%7D%3B%0AManipulatePlot%5BSinc%5Bw%20x%20%2B%20b%20%28%2ASpB%5B%2A%29Power%5Bx%28%2A%7C%2A%29%2C%28%2A%7C%2A%292%5D%28%2A%5DSpB%2A%29%5D%2C%20%7Bx%2C-10%2C10%7D%2C%20%7Bw%2C0%2C1%7D%2C%20%7Bb%2C0%2C1%7D%2C%20%22TrackedExpression%22-%3EOffload%5BmanList%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"06c4e502-1b25-4356-b038-c3dcb2f91529"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28Graphics%5B%7BAbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%2C%20Line%5BOffload%5Bpts%24273899%5D%5D%7D%2C%20ImageSize%20-%3E%20%7B400%2C%20300%7D%2C%20PlotRange%20-%3E%20Automatic%2C%20Axes%20-%3E%20True%2C%20TransitionType%20-%3E%20%22Linear%22%2C%20TransitionDuration%20-%3E%2050%2C%20Epilog%20-%3E%20%7B%7D%2C%20Prolog%20-%3E%20%7B%7D%2C%20AxesLabel%20-%3E%20%7B%7D%2C%20%22TrackedExpression%22%20-%3E%20Offload%5BmanList%5D%2C%20PlotRange%20-%3E%20%7B%7B-11.%2C%2011.%7D%2C%20%7B-0.27646932615223113%2C%201.0607842536262968%7D%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWncIB4HkHAvSizIyEwuTmOGyftkFpdAVAsCCcek4vyc0pLUEKCi7LzU4uJMJqAoRDVIf5C7k3N%2BTn5RUcG0SU9Vply3LzKc9nJ6h%2FkD%2B6LjLTO8V217Zo%2Bw2iczLxXCYwcS%2FmlpOfmJKcVcQHZBSbGKkbmxhaVlGhNMdVBpTmoxJ5DhmZuYnhqcWZWKkAM5MnMC0KhMHSCBRU9ATn5JUGJeOoTnWFqSn5tYkpmMphLEcKwA%2BgrECCkqTUWT5wMLJ%2BYVZ5Zk5ueFVBakBrNB%2FZFYhKZWCEWtS2lRIojONGLAcB%2FICNeCzJz89DQGlFDHVBZQlE9IGSfUDz6JSak5%2BFQGC0JcmJydmuJaUVAEisz8PMz4ALFzE%2FNwWAUPWNTIQOUVMYCB2gEYwwFNvvFjV9qajRf3F534c%2B3Fjx8f7AHOOqZd%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22b8afcf15-6d9d-4e5f-812b-1963cf0cbcbc%22%2C%20%22Initial%22%20-%3E%20%7B0.5%2C%200.5%7D%2C%20%22View%22%20-%3E%20%2252c74b0c-1029-4b9c-8c74-a7b1b6ed6cf1%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxolm5skGSTrGhoYWeqaJFkm61oARXQTzZMMk8xSU8yS0wwBf0UVzQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"108a701b-19a6-4658-ae90-6d7ed138172f"} id={"1fa07be7-8fd1-4d0c-a1d9-564ab694ff42"} type={"Input"} opts={{}} >{`manList%20%3D%20RandomReal%5B%7B0%2C1%7D%2C%202%5D%3B`}</WLJSEditor>
+
+## Minor bug fixes
+- Contexts aliases
+- HID devices plists for MacOS
+- Better control over `ViewBox`
+- CD/CI for CSockets library
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

@@ -1,0 +1,15 @@
+## Limit of algebraic polynomial roots: playing around with randomness and algebraic numbers
+An adaptation of David Moore (University of California San Diego) [work](https://community.wolfram.com/groups/-/m/t/2048213) published on Wolfram Community
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/13a6750a-03dd-405b-8a1f-3dc2d23de64c.txt').default} notebook={require('./attachments/notebook-13a.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"13a6750a-03dd-405b-8a1f-3dc2d23de64c"} id={"5d421dae-463a-4337-8ada-e4508599cb51"} type={"Input"} opts={{"Fade":true}} >{`SeedRandom%5B7%5D%3B%0Acoef%5Bn_%2C%20k_%5D%20%3A%3D%20coef%5Bn%2C%20k%5D%20%3D%20%28RandomReal%5B%7B-1%2C%201%7D%5D%20%2B%20RandomReal%5B%7B-1%2C%201%7D%5D%20I%29%3B%0A%0Asolve%5Btheta_%2C%20n_%5D%20%3A%3D%20NSolve%5B%0A%20%20%20Sum%5Bcoef%5Bn%2C%20k%5D%20z%5Ek%2C%20%7Bk%2C%201%2C%20n%7D%5D%20%2B%200.2%20E%5E%28I%20theta%29%20%2B%20%0A%20%20%20%20%200.9%20E%5E%28I%202%20theta%29%20z%5E3%20If%5Bn%20%3E%3D%203%2C%201%2C%200%5D%20%2B%20%0A%20%20%20%20%200.9%20E%5E%28I%203%20theta%29%20z%5E6%20If%5Bn%20%3E%3D%206%2C%201%2C%200%5D%20%3D%3D%200%2C%0A%20%20%20z%0A%5D%3B%0A%0Adisks%5Btheta_%2C%20n_%5D%20%3A%3D%20%0A%20%20List%20%40%40%40%20Flatten%5B%0A%20%20%20%20Table%5B%7BRe%5Bz%5D%2C%20Im%5Bz%5D%2C%20Max%5B0.3%2Fn%2C%200.001%5D%7D%20%2F.%20solve%5Btheta%2C%20n%5D%2C%20%0A%20%20%20%20%20%20%7Bn%2C%204%2C%2030%7D%5D%2C%201%0A%20%20%5D%3B%0A%0Adata%20%3D%20NumericArray%5Bdisks%5B0%2C%20n%5D%5D%3B%0A%0A%5C%5BTheta%5D%20%3D%200%3B%0A%0AEventHandler%5B%0A%20%20%22frame%22%2C%20%0A%20%20Function%5BNull%2C%0A%20%20%20%20data%20%3D%20NumericArray%5Bdisks%5B%5C%5BTheta%5D%2C%20n%5D%5D%3B%0A%20%20%20%20%5C%5BTheta%5D%20%3D%20%5C%5BTheta%5D%20%2B%200.02%3B%0A%20%20%5D%0A%5D%3B%0A%0AGraphics%5B%7B%0A%20%20Black%2C%20Opacity%5B0.85%5D%2C%20%0A%20%20Table%5B%0A%20%20%20%20With%5B%7Bi%20%3D%20i%7D%2C%20%0A%20%20%20%20%20%20Disk%5Bdata%5B%5Bi%5D%5D%2C%20data%5B%5Bi%5D%5D%5B%5B3%5D%5D%5D%20%2F%2F%20Offload%0A%20%20%20%20%5D%2C%20%0A%20%20%20%20%7Bi%2C%20Length%5Bdata%5D%7D%0A%20%20%5D%2C%0A%20%20AnimationFrameListener%5Bdata%20%2F%2F%20Offload%2C%20%22Event%22%20-%3E%20%22frame%22%5D%0A%20%20%7D%2C%0A%20%20PlotRange%20-%3E%201.5%7B%7B-1%2C%201%7D%2C%20%7B-1%2C%201%7D%7D%2C%20%0A%20%20TransitionType%20-%3E%20None%2C%20%0A%20%20ImageSize%20-%3E%20500%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"13a6750a-03dd-405b-8a1f-3dc2d23de64c"} id={"33788230-910b-4c65-b77e-2dc76966dafa"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2270dced75-bf56-413d-ac95-2a59df6a126e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxukJKemmJvqJqWZmumaGBqn6CYmW5rqGiWaWqakmSUaGpmlAgCNuBYH%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

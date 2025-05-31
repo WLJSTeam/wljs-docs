@@ -1,0 +1,11 @@
+{
+"objects":[
+	"Association",
+	["Rule","'67651fbd-9a8b-4f9e-b498-5f83cda30391'",["Hold",["HTMLView","'<button style=\"\" class=\"sm-controls rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 \" type=\"button\" id=\"#instanceId\">Sinc<\/button>\n<script type=\"module\"> const el = document.getElementById('#instanceId');\n            el.addEventListener('click', (event)=>{\n                server.kernel.io.fire('d2a2f570-23bb-4f96-9a24-ac2c630aaa56', true, 'Default');     \n            });<\/script>'",["Rule","Prolog",["CoffeeLiqueur`Extensions`InputsOutputs`Tools`TemplateProcessor",["Association",["Rule","'instanceId'",["CreateUUID"]]]]]]]],
+	["Rule","'c030c8fd-1bcd-473e-a387-9f46a1e4d079'",["Hold",["HTMLView","'<button style=\"\" class=\"sm-controls rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 \" type=\"button\" id=\"#instanceId\">Cos<\/button>\n<script type=\"module\"> const el = document.getElementById('#instanceId');\n            el.addEventListener('click', (event)=>{\n                server.kernel.io.fire('664aa2f9-546a-4cd5-941e-1da36df42bc1', true, 'Default');     \n            });<\/script>'",["Rule","Prolog",["CoffeeLiqueur`Extensions`InputsOutputs`Tools`TemplateProcessor",["Association",["Rule","'instanceId'",["CreateUUID"]]]]]]]],
+	["Rule","'f63cf7fe-91c7-4b52-95cf-67a91de39074'",["Hold",["HTMLView","'<button style=\"\" class=\"sm-controls rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 \" type=\"button\" id=\"#instanceId\">x<\/button>\n<script type=\"module\"> const el = document.getElementById('#instanceId');\n            el.addEventListener('click', (event)=>{\n                server.kernel.io.fire('4b322b3f-48c9-4c96-9423-c8eeb55eddbd', true, 'Default');     \n            });<\/script>'",["Rule","Prolog",["CoffeeLiqueur`Extensions`InputsOutputs`Tools`TemplateProcessor",["Association",["Rule","'instanceId'",["CreateUUID"]]]]]]]]
+], 
+"symbols":[
+	"Association"
+]
+}

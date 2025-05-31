@@ -1,0 +1,20 @@
+## Rotation matrix
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/5944c11a-c615-4ba4-a750-e74572689856.txt').default} notebook={require('./attachments/notebook-594.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"5944c11a-c615-4ba4-a750-e74572689856"} id={"adf28c1f-4fac-416e-9b47-5ddd6cf68119"} type={"Input"} opts={{}} >{`rot%20%3D%20RotationMatrix%5B45%20Degree%2C%20%7B0%2C%200%2C%201%7D%5D%20%2F%2F%20N%3B%0Astair%20%3D%20GeometricTransformation%5BCuboid%5B%7B0%2C%200%2C%200%7D%2C%20%7B1.5%2C%201.5%2C%20.2%7D%5D%2C%20%0A%20%20Table%5B%7BRotationMatrix%5Ba%2C%20%7B0%2C%200%2C%201%7D%5D%2C%20%7BCos%5Ba%5D%2C%20Sin%5Ba%5D%2C%20a%7D%7D%2C%20%7Ba%2C%200%2C%20%0A%20%20%20%204%20Pi%2C%20.2%7D%5D%5D%3B%0A%0A%20%20%20%20%0AGraphics3D%5BGeometricTransformation%5Bstair%2C%20rot%20%2F%2F%20Offload%5D%2C%20Boxed%20-%3E%20False%2C%20ImageSize-%3E%7B500%2C500%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5944c11a-c615-4ba4-a750-e74572689856"} id={"bd770aa2-b181-4bea-8669-e513c4928d93"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%228f388751-10a8-476a-9e6f-99d356e108ff%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6QZW1iYmxrqGhokWuiamJsl6lqmmqXpWlqmGJuapRoaWKSlAQB1yhU1%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Manipulator
+
+<WLJSEditor display={"codemirror"} nid={"5944c11a-c615-4ba4-a750-e74572689856"} id={"6c7b398a-83c2-42e3-90bd-b94a90af2c69"} type={"Input"} opts={{}} >{`EventHandler%5BInputRange%5B0%2C%20180.0%20Degree%2C%201.0%20Degree%5D%2C%20%0A%20%20Function%5Bangle%2C%20rot%20%3D%20RotationMatrix%5Bangle%2C%7B0%2C%200%2C%201%7D%5D%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"5944c11a-c615-4ba4-a750-e74572689856"} id={"a6f5d4e7-a741-4c45-bf8c-3adffed39132"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22aa052f06-5076-4a71-8cd7-a8f75aa2b66a%22%2C%20%22Initial%22%20-%3E%201.5707963267948966%2C%20%22View%22%20-%3E%20%226480d200-8d92-4fef-b6ad-fd97555aacce%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5lYGKQYGRjoWqRYGumapKWm6SaZJabopqVYmpuamiYmJienAgCBlxY6%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-releases" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.3.2">
+<title data-rh="true">Release notes *2.6.7* | WLJS Notebook</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://wljs.io/releases/2025/01/28/2.6.7"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="msvalidate.01" content="558ACAAD3C892A685EC4981186E3711D"><meta data-rh="true" name="google-site-verification" content="EfqZCis7_qdi7v5e_xZFG-q1I2nGROZLaqCDsVDlt0Y"><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><meta data-rh="true" property="og:title" content="Release notes *2.6.7* | WLJS Notebook"><meta data-rh="true" name="description" content="The latest release introduces enhanced formatting features, including support for indexed expressions and improved Image3D rendering using maximum intensity projection. The REST API has been added to enable broader functionality for developers. Additionally, the integration of the WebUI Framework with WLX enables building complex applications directly within the notebook environment."><meta data-rh="true" property="og:description" content="The latest release introduces enhanced formatting features, including support for indexed expressions and improved Image3D rendering using maximum intensity projection. The REST API has been added to enable broader functionality for developers. Additionally, the integration of the WebUI Framework with WLX enables building complex applications directly within the notebook environment."><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2025-01-28T00:00:00.000Z"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wljs.io/releases/2025/01/28/2.6.7"><link data-rh="true" rel="alternate" href="https://wljs.io/releases/2025/01/28/2.6.7" hreflang="en"><link data-rh="true" rel="alternate" href="https://wljs.io/releases/2025/01/28/2.6.7" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://wljs.io/releases/2025/01/28/2.6.7","mainEntityOfPage":"https://wljs.io/releases/2025/01/28/2.6.7","url":"https://wljs.io/releases/2025/01/28/2.6.7","headline":"Release notes *2.6.7*","name":"Release notes *2.6.7*","description":"The latest release introduces enhanced formatting features, including support for indexed expressions and improved Image3D rendering using maximum intensity projection. The REST API has been added to enable broader functionality for developers. Additionally, the integration of the WebUI Framework with WLX enables building complex applications directly within the notebook environment.","datePublished":"2025-01-28T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://wljs.io/releases","name":"WLJS Notebook Releases"}}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/releases/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/releases/atom.xml" title="WLJS Notebook Atom Feed">
+<link rel="alternate" type="application/rss+xml" href="/widgets/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/widgets/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/dist/interpreter.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/src/core.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@base/src/module.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/boxes.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/metamarkers.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/objects.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/frontsubmit.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-mk@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@base/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-revealjs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@base/dist/kernel.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.bd0a459f.css">
+<script src="/assets/js/runtime~main.3eb30a5a.js" defer="defer"></script>
+<script src="/assets/js/main.716d9ae2.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo3.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo2.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WLJS</b></a><a class="navbar__item navbar__link" href="/setup">Documentation</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/releases">Release notes</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/wljs-demo">Demonstration Project</a><a class="navbar__item navbar__link" href="/widgets">Mini apps</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link" style="border:0;border-radius:6px">Discuss</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/sponsorship">Support us</a><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_re4s thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_pO2u margin-bottom--md">All our releases</div><ul class="sidebarItemList_Yudw clean-list"><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/27/2.7.6">Release notes *2.7.6*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/21/2.7.5">Release notes *2.7.5*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/05/10/2.7.4">Release notes *2.7.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/24/2.7.3">Release notes *2.7.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/11/2.7.2-X1">Release notes *2.7.2* X1</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/04/06/2.7.2">Release notes *2.7.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/03/28/2.7.1">Release notes *2.7.1*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/02/26/2.7.0">Release notes *2.7.0*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/02/15/2.6.8">Release notes *2.6.8*</a></li><li class="sidebarItem__DBe"><a aria-current="page" class="sidebarItemLink_mo7H sidebarItemLinkActive_I1ZP" href="/releases/2025/01/28/2.6.7">Release notes *2.6.7*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2025/01/06/2.6.5">Release notes *2.6.5*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/12/15/2.6.4">Release notes *2.6.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/12/03/2.6.3">Release notes *2.6.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/11/28/2.6.2">Release notes *2.6.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/11/05/2.6.1">Release notes *2.6.1*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/10/01/2.5.9">Release notes *2.5.9*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/09/10/2.5.7">Release notes *2.5.7*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/07/27/2.5.6">Release notes *2.5.6*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/06/13/2.5.4">Release notes *2.5.4*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/05/01/2.5.3">Release notes *2.5.3*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/03/10/2.5.2">Release notes *2.5.2*</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/releases/2024/02/05/2.5.0">Release notes *2.5.0*</a></li></ul></nav></aside><main class="col col--7"><article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting"><header><h2 class="title_xvU1" itemprop="headline">Release notes *2.6.7*</h2><div class="container_iJTo margin-vert--md"><time datetime="2025-01-28T00:00:00.000Z" itemprop="datePublished"></time> · <!-- -->4 min read</div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><p>The <strong>latest release</strong> introduces <strong>enhanced formatting features</strong>, including support for <strong>indexed expressions</strong> and improved <code>Image3D</code> rendering using <em>maximum intensity projection</em>. The <strong>REST API</strong> has been added to enable broader functionality for developers. Additionally, the integration of the <em>WebUI Framework</em> with <em>WLX</em> enables building complex applications directly within the notebook environment.</p>
+<div>
+<style>
+  .balloon {
+  height: 125px;
+  width: 105px;
+  border-radius: 75% 75% 70% 70%;
+  position: relative;
+}
+
+.balloon:before {
+  content: "";
+  height: 75px;
+  width: 1px;
+  padding: 1px;
+  background-color: #FDFD96;
+  display: block;
+  position: absolute;
+  top: 125px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.balloon:after {
+    content: "▲";
+    text-align: center;
+    display: block;
+    position: absolute;
+    color: inherit;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);
+  opacity: 1;}
+  to {transform: translateY(-300vh);
+  opacity: 0;}
+}
+#balloon-container {
+  height: 100vh;
+  top: 0;
+  position:fixed;
+  bottom: 0;
+  z-index: -99;  
+  padding: 1em;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: opacity 500ms;
+}
+</style>
+
+<div id="balloon-container">
+</div></div>
+<!-- -->
+<a href="/a89cd04ce98942cb1782448487f8bab2.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
+const balloonContainer = document.getElementById(&quot;balloon-container&quot;);
+
+function random(num) {
+  return Math.floor(Math.random() * num);
+}
+
+function getRandomStyles() {
+  var r = random(255);
+  var g = random(255);
+  var b = random(255);
+  var mt = random(200);
+  var ml = random(50);
+  var dur = random(5) + 5;
+  return `
+  background-color: rgba(${r},${g},${b},0.7);
+  color: rgba(${r},${g},${b},0.7); 
+  box-shadow: inset -7px -3px 10px rgba(${r - 10},${g - 10},${b - 10},0.7);
+  margin: ${mt}px 0 0 ${ml}px;
+  animation: float ${dur}s ease-in infinite
+  `;
+}
+
+function createBalloons(num) {
+  for (var i = num; i &gt; 0; i--) {
+    var balloon = document.createElement(&quot;div&quot;);
+    balloon.className = &quot;balloon&quot;;
+    balloon.style.cssText = getRandomStyles();
+    balloonContainer.append(balloon);
+  }
+}
+
+function removeBalloons() {
+  balloonContainer.style.opacity = 0;
+  setTimeout(() =&gt; {
+    balloonContainer.remove()
+  }, 500)
+}
+
+createBalloons(10);
+setTimeout(removeBalloons, 15000);
+
+return &#x27;&#x27;;
+</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="markdown">Markdown<a href="#markdown" class="hash-link" aria-label="Direct link to Markdown" title="Direct link to Markdown">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="admonitions">Admonitions<a href="#admonitions" class="hash-link" aria-label="Direct link to Admonitions" title="Direct link to Admonitions">​</a></h3>
+<p>Make admonitions like in Docusaurus (Facebook) using directives</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.md
+
+:::tip
+Use admonitions
+:::
+
+:::custom
+Text text
+:::</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Use admonitions</p></div></div>
+<div><p>Text text</p></div>
+<p>Supported types: <code>info</code>, <code>warning</code>, <code>tip</code>, <code>todo</code>, while any other combination will be styled as <code>info</code>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="todo-list">TODO list<a href="#todo-list" class="hash-link" aria-label="Direct link to TODO list" title="Direct link to TODO list">​</a></h3>
+<p>There is a special type of admonition, which also adds a live counter to the right-top corner of the notebook</p>
+<div><ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Task 1</li>
+<li class="task-list-item"><input type="checkbox" disabled="" checked=""> <!-- -->Task 2</li>
+</ul></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bookmarks">Bookmarks<a href="#bookmarks" class="hash-link" aria-label="Direct link to Bookmarks" title="Direct link to Bookmarks">​</a></h3>
+<p>This is a special keyword in markdown editor, which adds a bookmark on a page. It also appears in the top-right corner, by clicking on it you will be directed to the marked place on the page</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.md
+
+@bookmark</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>@bookmark</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="iframe-api">Iframe API<a href="#iframe-api" class="hash-link" aria-label="Direct link to Iframe API" title="Direct link to Iframe API">​</a></h2>
+<p>Want to embed WLJS interface to your app? The good old <code>iframe</code> tag is <a href="https://jerryi.github.io/wljs-docs/frontend/Development/API/Iframe" target="_blank" rel="noopener noreferrer">a way to go</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rest-api">REST API<a href="#rest-api" class="hash-link" aria-label="Direct link to REST API" title="Direct link to REST API">​</a></h2>
+<p><a href="https://jerryi.github.io/wljs-docs/frontend/Development/API/REST#link-check" target="_blank" rel="noopener noreferrer">API is provided</a> by a core extension wljs-api. All communication is done via HTTP POST request in JSON format. In a nutshell it allows to</p>
+<ul>
+<li>create transactions to evaluate Wolfram, WLX, any other support languages (see Cell Types) code and get back the result</li>
+<li>control evaluation kernels</li>
+<li>fetch Frontend Objects used for 3D, 2D graphics</li>
+<li>fetch extensions, assets</li>
+<li></li>
+</ul>
+<p>In principle public REST API is enough to write your own small notebook interface with full support of all available cell types, 3D graphics, sound and etc.</p>
+<p>For example</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.js
+const result = document.createElement(&#x27;span&#x27;);
+
+fetch(&#x27;http://127.0.0.1:20560/api/kernels/list/&#x27;, {
+  method:&#x27;POST&#x27;
+}).then((res) =&gt; {
+  res.json().then((r) =&gt; {
+    result.innerText = JSON.stringify(r);
+  }); 
+})  
+
+return result;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
+const dom = document.createElement(&#x27;span&#x27;);
+
+fetch(&#x27;http://127.0.0.1:20560/api/kernels/list/&#x27;, {
+  method:&#x27;POST&#x27;
+}).then((res) =&gt; {
+  res.json().then((r) =&gt; {
+    dom.innerText = JSON.stringify(r);
+  }); 
+})  
+
+return dom;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="eventhandler-update">EventHandler update<a href="#eventhandler-update" class="hash-link" aria-label="Direct link to EventHandler update" title="Direct link to EventHandler update">​</a></h2>
+<p>There are some minor changes. Attaching an event listener to any <code>Graphics</code> expression should feel more natural. For example</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">pc = {0.,0.};
+EventHandler[
+  Plot[x, {x,0,1}, Epilog-&gt;{Disk[pc // Offload, 0.1]}]
+, {&quot;mousemove&quot; -&gt; ((pc = #)&amp;)}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Alternative way is still valid</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Plot[x, {x,0,1}, Epilog-&gt;{
+  Disk[pc // Offload, 0.1],
+  EventHandler[Null, {&quot;mousemove&quot; -&gt; ((pc = #)&amp;)}]
+}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Here is forces event listener to attach to the nearest parent, which emits events. In this case, it is <code>Graphics</code> produced by <code>Plot</code>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-formatting">More formatting<a href="#more-formatting" class="hash-link" aria-label="Direct link to More formatting" title="Direct link to More formatting">​</a></h2>
+<p>We added the support for more formatting expressions</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="indexed">Indexed<a href="#indexed" class="hash-link" aria-label="Direct link to Indexed" title="Direct link to Indexed">​</a></h2>
+<p>It represents the component of <code>expr</code> with index <code>i</code> and formats as follows</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Indexed[x, 3]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*TB[*)Indexed[(*|*)x(*|*), {(*|*)3(*|*)}](*|*)(*1:eJxTTMoPSmMAgmIuIOGZl5JakZrilF8BAECTBhI=*)(*]TB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Or multiple</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Indexed[x, {3, 5}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*TB[*)Indexed[(*|*)x(*|*), {(*|*)3,5(*|*)}](*|*)(*1:eJxTTMoPSmMAgmIuIOGZl5JakZrilF8BAECTBhI=*)(*]TB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="better-support-for-image3d">Better support for Image3D<a href="#better-support-for-image3d" class="hash-link" aria-label="Direct link to Better support for Image3D" title="Direct link to Better support for Image3D">​</a></h2>
+<p>We implemented a shader version of <code>Image3D</code> using maximum intensity projection (MIP).</p>
+<p>It still lacks some options and can only work with grayscale 3D images</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Image3D[
+  ExampleData[{&quot;TestImage3D&quot;,&quot;CThead&quot;}], 
+  BoxRatios-&gt;{1,1,1}, 
+  ColorFunction-&gt;&quot;GrayLevelOpacity&quot;
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;3e31314e-aee1-4d05-af77-65e516b83005&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6caGxobmqTqJqamGuqapBiY6iammZvrmpmmmhqaJVkYGxiYAgCB5BU4&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="webui-framework-and-wlx">WebUI Framework and WLX<a href="#webui-framework-and-wlx" class="hash-link" aria-label="Direct link to WebUI Framework and WLX" title="Direct link to WebUI Framework and WLX">​</a></h2>
+<p>WLJS Notebook is built on the WLX and <a href="https://jerryi.github.io/wlx-docs/docs/Reference/WLX/WebUI/#webuieventlistener" target="_blank" rel="noopener noreferrer">WebUI technology</a> stack. Now it is fully usable even inside the notebook and does not conflict with the existing WebUI from the master Kernel.</p>
+<p>Want to build a more complex application? A fully functional sidebar? Here we go!</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">&lt;&lt;JerryI`WLX`Importer`
+&lt;&lt;JerryI`WLX`WebUI`</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Now disable caching and load a component</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">JerryI`WLX`Importer`Private`CacheControl[False];
+SidebarBody = ImportComponent[&quot;attachments/Sidebar/Body.wlx&quot;];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Use it as if it was a normal WL function</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.wlx
+event = CreateUUID[];
+EventHandler[event, {
+  filename_String :&gt; (Print[URLDecode[filename]];&amp;)
+}];
+
+SidebarBody[&quot;Path&quot;-&gt;NotebookDirectory[], &quot;Channel&quot;-&gt;event]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">&lt;nav class=&quot;flex flex-1 flex-col&quot; style=&quot;-webkit-app-region:none&quot;&gt;&lt;ul role=&quot;list&quot; class=&quot;flex flex-1 flex-col gap-y-7 p-0&quot;&gt;&lt;li class=&quot;list-none&quot;&gt;&lt;ul class=&quot;p-0 -mx-2 space-y-0 pl-0&quot;&gt;&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;bfc310c1-8882-4a3c-b8c8-cfeae1a1096a&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.0.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;bfc310c1-8882-4a3c-b8c8-cfeae1a1096a&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.0.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;9142bee9-8680-4b58-a089-ec4e761d9736&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.2.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;9142bee9-8680-4b58-a089-ec4e761d9736&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.2.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;3776c0fa-a914-4aa3-a34d-794cfafded7c&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.3.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;3776c0fa-a914-4aa3-a34d-794cfafded7c&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.3.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;77caf817-e2bd-4e45-9b21-ba43e44b0a41&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.4.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;77caf817-e2bd-4e45-9b21-ba43e44b0a41&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.4.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;60c6182b-d9b4-4794-90c3-f81b4c4fb385&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.6.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;60c6182b-d9b4-4794-90c3-f81b4c4fb385&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.6.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;c867458f-4ee3-4e51-8c85-165e4366b3bc&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.7.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;c867458f-4ee3-4e51-8c85-165e4366b3bc&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.7.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;b66d56e3-6950-4c57-bb64-02a81ff8e033&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.5.9.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;b66d56e3-6950-4c57-bb64-02a81ff8e033&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.5.9.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;85bc22dd-d455-4843-b3a6-022b152fbbaf&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.1.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;85bc22dd-d455-4843-b3a6-022b152fbbaf&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.1.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;fd2d3e79-a572-44b1-a140-e415343fa05a&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.2.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;fd2d3e79-a572-44b1-a140-e415343fa05a&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.2.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;27ee74ee-7fa8-41ca-ac6f-003fe87a1620&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.3.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;27ee74ee-7fa8-41ca-ac6f-003fe87a1620&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.3.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;cbd73e5d-6a28-4e17-8054-71d45f3ea244&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.4.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;cbd73e5d-6a28-4e17-8054-71d45f3ea244&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.4.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;f50259dc-d20b-4ff1-9d0b-e943ddda412d&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.5.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;f50259dc-d20b-4ff1-9d0b-e943ddda412d&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.5.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div class=&quot; pb-0.5 pt-0.5 text-gray-700 dark:text-gray-400 flex flex-start items-center pl-7 gap-x-1 rounded-md&quot; style=&quot;position: relative&quot;&gt;&lt;div &gt;&lt;svg class=&quot;w-4 h-5 text-gray-800&quot; viewBox=&quot;2 0 20 24&quot; stroke=&quot;currentColor&quot; fill=&quot;rgb(153 246 228)&quot; stroke-width=&quot;1&quot;&gt;&lt;path d=&quot;M8 4H7.2002C6.08009 4 5.51962 4 5.0918 4.21799C4.71547 4.40973 4.40973 4.71547 4.21799 5.0918C4 5.51962 4 6.08009 4 7.2002V16.8002C4 17.9203 4 18.4801 4.21799 18.9079C4.40973 19.2842 4.71547 19.5905 5.0918 19.7822C5.5192 20 6.07899 20 7.19691 20H8M8 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H8M8 4V20M12 11H16M12 8H16&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;button id=&quot;44136947-71ec-4b0b-9648-3e1b58cd75bf&quot; class=&quot;block rounded-md py-0 pr-0 text-sm leading-tight&quot;&gt;2.6.6.wln&lt;/button&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;44136947-71ec-4b0b-9648-3e1b58cd75bf&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;ef5a58cc-5768-4d4b-8da0-190995165ec6&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;%2Fusers%2Fkirill%2FGithub%2Fwljs-demos-archive%2FDemos%2FRelease%20notes%2F2.6.6.wln&#x27;);
+        });&lt;/script&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div style=&quot;position:relative&quot;&gt;&lt;div class=&quot;rounded-md&quot;&gt;&lt;button id=&quot;040b5009-5e3d-4eae-ac66-c710cd3f6e79&quot; class=&quot; flex items-center w-full text-left rounded-md pb-0.5 pt-0.5 pl-1 gap-x-1 text-sm text-gray-700 dark:text-gray-400&quot; type=&quot;button&quot; aria-controls=&quot;sub-menu-1&quot; aria-expanded=&quot;false&quot;&gt;&lt;svg id=&quot;svg-040b5009-5e3d-4eae-ac66-c710cd3f6e79&quot; class=&quot;text-gray-800 dark:text-gray-400 h-5 w-5 shrink-0&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;&lt;svg class=&quot;h-4 w-4 shrink-0 text-gray-800 dark:text-gray-400 group-hover:text-indigo-500&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;1.5&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z&quot;/&gt;&lt;/svg&gt;attachments&lt;/button&gt;&lt;/div&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;040b5009-5e3d-4eae-ac66-c710cd3f6e79&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;040b5009-5e3d-4eae-ac66-c710cd3f6e79&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;Button&#x27;);
+        });&lt;/script&gt;&lt;script type=&quot;module&quot;&gt; new UIJSScript({target: async function() { const button = document.getElementById(&#x27;svg-040b5009-5e3d-4eae-ac66-c710cd3f6e79&#x27;);
+        this.on(&#x27;Load&#x27;, (data) =&gt; {
+          button.classList.add(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });
+
+        this.on(&#x27;Show&#x27;, (data) =&gt; {
+          button.classList.add(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });        
+
+        this.on(&#x27;Hide&#x27;, (data) =&gt; {
+          button.classList.remove(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });}, uid: &#x27;b5f99252-1b84-4c52-b3ef-36b5710a4cc5&#x27;})&lt;/script&gt;&lt;div id=&quot;bffc0217-43cc-4e79-b728-b33e80e9404d&quot; class=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;list-none&quot;&gt;&lt;div style=&quot;position:relative&quot;&gt;&lt;div class=&quot;rounded-md&quot;&gt;&lt;button id=&quot;b89fee29-662a-4cad-a0cc-96f84d90ffc2&quot; class=&quot; flex items-center w-full text-left rounded-md pb-0.5 pt-0.5 pl-1 gap-x-1 text-sm text-gray-700 dark:text-gray-400&quot; type=&quot;button&quot; aria-controls=&quot;sub-menu-1&quot; aria-expanded=&quot;false&quot;&gt;&lt;svg id=&quot;svg-b89fee29-662a-4cad-a0cc-96f84d90ffc2&quot; class=&quot;text-gray-800 dark:text-gray-400 h-5 w-5 shrink-0&quot; viewBox=&quot;0 0 20 20&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z&quot; clip-rule=&quot;evenodd&quot;/&gt;&lt;/svg&gt;&lt;svg class=&quot;h-4 w-4 shrink-0 text-gray-800 dark:text-gray-400 group-hover:text-indigo-500&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke-width=&quot;1.5&quot; stroke=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; d=&quot;M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z&quot;/&gt;&lt;/svg&gt;.iconized&lt;/button&gt;&lt;/div&gt;&lt;script type=&quot;module&quot;&gt; const el = document.getElementById(&#x27;b89fee29-662a-4cad-a0cc-96f84d90ffc2&#x27;);
+        el.addEventListener(&#x27;click&#x27;, function (e) {
+            server.kernel.emitt(&#x27;b89fee29-662a-4cad-a0cc-96f84d90ffc2&#x27;, &#x27;&quot;&#x27;+el.value+&#x27;&quot;&#x27;, &#x27;Button&#x27;);
+        });&lt;/script&gt;&lt;script type=&quot;module&quot;&gt; new UIJSScript({target: async function() { const button = document.getElementById(&#x27;svg-b89fee29-662a-4cad-a0cc-96f84d90ffc2&#x27;);
+        this.on(&#x27;Load&#x27;, (data) =&gt; {
+          button.classList.add(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });
+
+        this.on(&#x27;Show&#x27;, (data) =&gt; {
+          button.classList.add(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });        
+
+        this.on(&#x27;Hide&#x27;, (data) =&gt; {
+          button.classList.remove(&#x27;rotate-90&#x27;, &#x27;text-gray-500&#x27;);
+        });}, uid: &#x27;9b02f518-3db0-4da2-893a-bd5d2928341c&#x27;})&lt;/script&gt;&lt;div id=&quot;1490b407-2909-4819-bea7-b464c64c1a53&quot; class=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>It does support fully lazy-loading and can work on multiple levels. It is exacly the same component used in WLJS Notebook interface.</p>
+<p><em>Ballon animation by Jemima (codepen)</em></p>
+<div>
+<style>
+  [transparency="false"] .bg-g-trans {
+    background: transparent !important;
+  }
+
+  [transparency="true"] .bg-g-trans {
+    background: transparent !important;
+  }
+</style></div></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/releases/2025/02/15/2.6.8"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">Release notes *2.6.8*</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/releases/2025/01/06/2.6.5"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">Release notes *2.6.5*</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#markdown" class="table-of-contents__link toc-highlight">Markdown</a><ul><li><a href="#admonitions" class="table-of-contents__link toc-highlight">Admonitions</a></li><li><a href="#todo-list" class="table-of-contents__link toc-highlight">TODO list</a></li><li><a href="#bookmarks" class="table-of-contents__link toc-highlight">Bookmarks</a></li></ul></li><li><a href="#iframe-api" class="table-of-contents__link toc-highlight">Iframe API</a></li><li><a href="#rest-api" class="table-of-contents__link toc-highlight">REST API</a></li><li><a href="#eventhandler-update" class="table-of-contents__link toc-highlight">EventHandler update</a></li><li><a href="#more-formatting" class="table-of-contents__link toc-highlight">More formatting</a></li><li><a href="#indexed" class="table-of-contents__link toc-highlight">Indexed</a></li><li><a href="#better-support-for-image3d" class="table-of-contents__link toc-highlight">Better support for Image3D</a></li><li><a href="#webui-framework-and-wlx" class="table-of-contents__link toc-highlight">WebUI Framework and WLX</a></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discussions<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://t.me/wljs_support" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">WLJS Notebook Project is open-source and licensed under GPL3</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+# Update Strategies
+
+This page outlines different strategies for updating interactive content, ranging from manual methods to fully automated rendering using built-in functions.
+
+---
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-7958395115962401960.txt').default} json={require('./attachments/10686975-e16f-498a-98ad-edc4177c3840.txt').default} />
+
+
+
+## Manual Updates
+
+### Dedicated Update
+
+Use update methods specific to graphical symbols like [Line](frontend/Reference/Graphics/Line.md), [Point](frontend/Reference/Graphics/Point.md), [Sphere](frontend/Reference/Graphics3D/Sphere.md), etc.
+
+```mathematica
+Module[{points = {}},
+  {
+    Graphics[{ColorData[97][1], Line[points // Offload]}, Axes -> True],
+    EventHandler[
+      InputGroup[{
+        InputRange[0, 10, 2, 4, "Label" -> "u"],
+        InputRange[0, 10, 2, 4, "Label" -> "v"]
+      }],
+      Function[uv,
+        points = Table[{Sin[t uv[[1]]], Cos[t uv[[2]]]}, {t, 0, 2 Pi, 0.02}]
+      ]
+    ] // EventFire
+  } // Row
+]
+```
+
+<WLJSEditor display={"codemirror"} nid={"10686975-e16f-498a-98ad-edc4177c3840"} id={"7ebb9b13-1142-4dfd-8814-b986583ea398"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28Graphics%5B%7BRGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%2C%20Line%5BOffload%5Bpoints%24473071%5D%5D%7D%2C%20Axes%20-%3E%20True%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHAvSizIyEwuhoiA5H0yi0vSmGHyQe5Ozvk5%2BUVFBdMmPVWZct2%2ByHDay%2Bkd5g%2Fsi463zPBete2ZPcJon8y8VAiPHUj4p6Xl5CemFPMC2QX5mXklxSom5sYG5oYIu4JKc1LBDMeK1GIwI6SoNBUAmY4tfw%3D%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%224c8f9c10-ca8d-4db7-b9d0-84b005b6e1ee%22%2C%20%22Initial%22%20-%3E%20%7B4%2C%204%7D%2C%20%22View%22%20-%3E%20%2284a7d33b-f71a-4cfc-8c1b-951443107584%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5gkmqcYGyfpppkbJuqaJKcl61okGybpWpoampgYGxqYm1qYAACHkRVD%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+
+### Full Re-evaluation
+
+This universal method uses [EditorView](frontend/Reference/GUI/EditorView.md), allowing updates for any expression, not just graphics.
+
+```mathematica
+Module[{editorString = ""},
+  {
+    EditorView[
+      editorString // Offload,
+      "ReadOnly" -> True,
+      "Selectable" -> False,
+      "KeepMaxHeight" -> True
+    ],
+    EventHandler[
+      InputGroup[{
+        InputRange[0, 10, 2, 4, "Label" -> "u", "Topic" -> {Null, "Default"}],
+        InputRange[0, 10, 2, 4, "Label" -> "v", "Topic" -> {Null, "Default"}]
+      }],
+      Function[uv,
+        editorString = ToString[
+          ParametricPlot[{Sin[t uv[[1]]], Cos[t uv[[2]]]}, {t, 0, 2 Pi}],
+          StandardForm
+        ]
+      ]
+    ] // EventFire
+  } // Reverse // Column
+]
+```
+
+<WLJSEditor display={"codemirror"} nid={"10686975-e16f-498a-98ad-edc4177c3840"} id={"77f60393-3232-4f8c-9d39-aea30a97c78e"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22ca139b12-08d3-47d4-955f-5ef54a260790%22%2C%20%22Initial%22%20-%3E%20%7B4%2C%204%7D%2C%20%22View%22%20-%3E%20%22b8cc088c-7289-418b-9b26-978f92aa6305%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1kkJxtYWCTrmhtZWOqaGFok6VomGZnpWppbpFkaJSaaGRuYAgCAWRUr%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%22eab872ed-83de-4dc9-91f3-83977bc72ff5%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpyYmWZgbpaboWhinpOqapCRb6loaphkDuZbm5knJ5kZpaaYAkskWIQ%3D%3D%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+:::warning
+This method may struggle with frequent updates of large expressions involving graphics. To avoid performance issues, [InputRange](frontend/Reference/GUI/InputRange.md) is configured to trigger updates only upon user action.
+:::
+
+---
+
+## Automatic Updates
+
+### Optimized Rendering
+
+Use built-in interactive plotting functions such as [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md) and [ManipulateParametricPlot](frontend/Reference/Plotting%20Functions/ManipulateParametricPlot.md) for efficient rendering.
+
+```mathematica
+ManipulateParametricPlot[
+  {Sin[t u], Cos[t v]},
+  {t, 0, 2 Pi}, {u, 0, 10, 2}, {v, 0, 10, 2}
+]
+```
+
+<WLJSEditor display={"codemirror"} nid={"10686975-e16f-498a-98ad-edc4177c3840"} id={"2e9cfc71-132c-4660-b44d-b66aaa7f1003"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28Graphics%5B%7BAbsoluteThickness%5B2%5D%2C%20RGBColor%5B0.368417%2C%200.506779%2C%200.709798%5D%2C%20Line%5BOffload%5BCoffeeLiqueur%60Extensions%60Manipulate%60Internal%60pts%24438683%5D%5D%7D%2C%20PlotRange%20-%3E%20%7B%7B-1.097829401271099%2C%201.097829401271099%7D%2C%20%7B-1.1%2C%201.1%7D%7D%2C%20%22TrackedExpression%22%20-%3E%20Null%2C%20AxesLabel%20-%3E%20%7B%7D%2C%20Prolog%20-%3E%20%7B%7D%2C%20Epilog%20-%3E%20%7B%7D%2C%20TransitionDuration%20-%3E%2050%2C%20TransitionType%20-%3E%20%22Linear%22%2C%20Axes%20-%3E%20True%2C%20PlotRange%20-%3E%20Automatic%2C%20ImageSize%20-%3E%20%7B400%2C%20300%7D%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyFUstOwkAUrUhQY2Kif2DC0o1ihF2jSJBYHyn9gA5wBycMM3UeCbp24U5iDD4%2Bwb1uWfoJbt1o4k7%2FwBkKISVEurg9d87p3HPv7XqN%2B3jOcRyZNuGA0wZettmiCWWBojNSl3h%2BxHtEqli9asJuTXKqFQRG1GIgJUmZ01htv%2FfLe0VOuRBR7%2FYze%2Ffuis3e9%2F11%2FsMVb1cPh8%2BvX%2B64tEcYxNmCCScYU44aMm9wkWMM4JFzDVqEpY4CJglnMjxCjESaIgVhhSkQDNEwUjK7nSvsFHI4Nbra1xTkkgGnlCsfsSaMuUFHiUw4%2FZ%2Bbl%2B5vfwTcCf7p0T6GHwI3WalqRxMIVG9Bo9SJhJ2LcWvpY03pFFu7HZAeqgHFznRbA2XGNiDMPJszZaWIzJKtxSbNJJVxt68Fsm%2ByZReYVK4klMFFBNXMcF9ITGjTw24GIBAa%2FltC3LtWvG1q16coK23UhCq5nFgX6ZrfhGyY8AcI3rqM%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22341fbb53-ce8d-44ee-b1d2-11b0d588226b%22%2C%20%22Initial%22%20-%3E%20%7B4%2C%204%7D%2C%20%22View%22%20-%3E%20%22a9865046-3cb1-4cce-a4f5-919cf81fd5e3%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ1pamJkamJjpGicnGeqaJCen6iaapJnqWhpaJqdZGKalmKYaAwCCpxXe%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+
+### Full Re-evaluation
+
+Use the general-purpose [Manipulate](frontend/Reference/GUI/Manipulate.md) expression for full expression re-evaluation on each parameter change.
+
+```mathematica
+Manipulate[
+  ParametricPlot[{Sin[t u], Cos[t v]}, {t, 0, 2 Pi}],
+  {u, 0, 10, 2}, {v, 0, 10, 2}
+]
+```
+
+<WLJSEditor display={"codemirror"} nid={"10686975-e16f-498a-98ad-edc4177c3840"} id={"3b68ff1e-778a-4038-94ca-01d77242b2a4"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22d32daefc-5c7a-464b-91f5-4fce992efd56%22%2C%20%22Initial%22%20-%3E%20%7B4%2C%204%7D%2C%20%22View%22%20-%3E%20%2284f750ae-d950-47a4-a54e-1aabdbce28f9%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5ikmZsaJKbqpliaGuiamCea6CaamqTqGiYmJqUkJacaWaRZAgCGjBY0%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%229b1d9023-4122-4e21-866f-2bd1343d0ab8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWyYZplgaGBnrmhgaGemapBoZ6lqYmaXpGiWlGBqbGKcYJCZZAABzcRUC%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+
+---
+
+## Mathematica Renderer
+
+By wrapping content with [MMAView](frontend/Reference/GUI/MMAView.md), you can delegate rendering to the native Mathematica engine. This enables high-quality, but non-interative rasterized output, bypassing limitations of WLJS 2D/3D graphics.
+
+---
+

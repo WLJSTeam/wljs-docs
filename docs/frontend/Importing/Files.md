@@ -1,0 +1,293 @@
+Wolfram Language standard library provides parsers than 200 supported file formats
+
+```mathematica
+Import[filename_String | _URL]
+```
+
+or explicitly set the format
+
+```mathematica
+Import[filename_String | _URL, format_String, opts___]
+```
+
+## List of supported formats
+
+<details>
+
+- 3DS
+- 7z
+- AC
+- ACO
+- Affymetrix
+- AgilentMicroarray
+- AIFF
+- ApacheLog
+- ArcGRID
+- ArrowDataset
+- ArrowIPC
+- ASC
+- ASE
+- AU
+- AVI
+- Base64
+- BDF
+- Binary
+- BioImageFormat
+- Bit
+- BLEND
+- BMP
+- BREP
+- BSON
+- Byte
+- BYU
+- BZIP2
+- CDED
+- CDF
+- CDX
+- CDXML
+- Character16
+- Character32
+- Character8
+- CIF
+- CML
+- Complex128
+- Complex256
+- Complex64
+- CSV
+- Cube
+- CUR
+- DAE
+- DBF
+- DICOM
+- DICOMDIR
+- DIF
+- DIMACS
+- Directory
+- DOCX
+- DOT
+- DTA
+- DXF
+- EDF
+- EML
+- EPS
+- ExpressionJSON
+- ExpressionML
+- FASTA
+- FASTQ
+- FBX
+- FCHK
+- FCS
+- FITS
+- FLAC
+- FLV
+- GaussianLog
+- GenBank
+- GeoJSON
+- GeoTIFF
+- GGUF
+- GIF
+- GLTF
+- GPX
+- Graph6
+- Graphlet
+- GraphML
+- GRIB
+- GTOPO30
+- GXF
+- GXL
+- GZIP
+- HarwellBoeing
+- HDF
+- HDF5
+- HEIF
+- HIN
+- HTML
+- HTTPRequest
+- HTTPResponse
+- ICC
+- ICNS
+- ICO
+- ICS
+- IFC
+- IGES
+- Ini
+- Integer128
+- Integer16
+- Integer24
+- Integer32
+- Integer64
+- Integer8
+- ISO
+- JavaProperties
+- JavaScriptExpression
+- JCAMP-DX
+- JPEG
+- JPEG2000
+- JSON
+- JSONLD
+- JVX
+- KML
+- LaTeX
+- LEDA
+- List
+- LWO
+- LXO
+- Markdown
+- MAT
+- MathML
+- Matroska
+- MBOX
+- MCTT
+- MDB
+- MESH
+- MGF
+- MIDI
+- MMCIF
+- MMJSON
+- MO
+- MOBI
+- MOL
+- MOL2
+- MP3
+- MP4
+- MPS
+- MS3D
+- MTP
+- MTX
+- MX
+- MXNet
+- NASACDF
+- NB
+- NDK
+- NetCDF
+- NEXUS
+- NOFF
+- NQuads
+- NTriples
+- OBJ
+- ODS
+- OFF
+- Ogg
+- ONNX
+- OpenEXR
+- ORC
+- OSM
+- OWLFunctional
+- Pajek
+- Parquet
+- PBM
+- PCAP
+- PCX
+- PDB
+- PDF
+- PEM
+- PGM
+- PHPIni
+- PLY
+- PNG
+- PNM
+- POR
+- PPM
+- PXR
+- PythonExpression
+- QuickTime
+- RAR
+- Raw
+- RawBitmap
+- RawJSON
+- RData
+- RDFXML
+- RDS
+- Real128
+- Real32
+- Real64
+- RIB
+- RLE
+- RSS
+- RTF
+- SAS7BDAT
+- SAV
+- SCT
+- SDF
+- SDTS
+- SDTSDEM
+- SFF
+- SHP
+- SMA
+- SME
+- SMILES
+- SND
+- SP3
+- SPARQLQuery
+- SPARQLResultsJSON
+- SPARQLResultsXML
+- SPARQLUpdate
+- Sparse6
+- STEP
+- STL
+- String
+- SurferGrid
+- SVG
+- SXC
+- Table
+- TAR
+- TerminatedString
+- TeX
+- Text
+- TGA
+- TGF
+- TIFF
+- TIGER
+- TLE
+- TriG
+- TSV
+- Turtle
+- UBJSON
+- UnsignedInteger128
+- UnsignedInteger16
+- UnsignedInteger24
+- UnsignedInteger32
+- UnsignedInteger64
+- UnsignedInteger8
+- USD
+- USGSDEM
+- UUE
+- VCF
+- VCS
+- VideoFormat
+- VTK
+- WARC
+- WAV
+- Wave64
+- WDX
+- WebP
+- WL
+- WLN
+- WLNet
+- WMLF
+- WXF
+- X3D
+- XBM
+- XGL
+- XHTML
+- XHTMLMathML
+- XLS
+- XLSX
+- XML
+- XPORT
+- XYZ
+- ZIP
+- ZSTD
+
+</details>
+
+Most of them will also work for string, i.e.
+
+```mathematica
+ImportString[_String, format_String]
+```
+
+### WLJS Notebook importer
+There is a special format in WLJS system - `"WLN"`, which evaluates notebooks in the isolated context and returns [Promise](frontend/Reference/Misc/Promise.md) as a result.
+
+See more  [Import notebook](frontend/Advanced/Manipulating%20Notebooks/Import%20notebook.md)

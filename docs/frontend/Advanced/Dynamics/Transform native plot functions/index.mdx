@@ -1,0 +1,82 @@
+# Transform native plot function
+## Decomposition
+
+Using the output of standard plotting functions, we craft a dynamic version. For example,
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore json={require('./attachments/6e7341c7-2708-4730-a4f7-78f8fb75193c.txt').default} notebook={require('./attachments/notebook-6e7.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"fec8b7d2-1586-44ac-8bf0-0c78d4374c9b"} type={"Input"} opts={{"InitGroup":true}} >{`model%20%3D%20RevolutionPlot3D%5B%7BSin%5Bt%5D%20%2B%20Sin%5B5%20t%5D%20%2F10%2C%0A%20%20%20Cos%5Bt%5D%20%2B%20Cos%5B5%20t%5D%20%2F10%7D%2C%20%7Bt%2C%200%2C%20Pi%7D%2C%0A%20%20RegionFunction%20-%3E%20%28Sin%5B5%20%28%234%20%2B%20%235%29%5D%20%3E%200%20%26%29%2C%20Mesh%20-%3E%20None%2C%0A%20%20BoundaryStyle%20-%3E%20Black%2C%20PlotStyle%20-%3E%20Thickness%5B.1%5D%2C%20MaxRecursion-%3E1%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"b639bf4c-588b-40b4-ab24-eca14f7a9949"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d434b057-6d17-4483-a975-bebc4bc9e8d3%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gYmyQZmJrrmqUYmuuamFgY6yZampvqJqUmJZskJVumWqQYAwB71RWt%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Here we can see that no matter how we change the parameters of the curve, our graphic is packed into a single `GraphicsComplex`.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"c069c49b-2bb5-4c29-b17c-8026a7557661"} type={"Input"} opts={{}} >{`Cases%5Bmodel%2C%20_GraphicsComplex%2C%203%5D%20%2F%2F%20First%20%2F%2F%20Short%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"5c562fc6-9928-474b-a32d-90a89f620633"} type={"Output"} opts={{}} >{`GraphicsComplex%5B%7B%7B3.639180084066151%60%2A%5E-7%2C1.6346410098583916%60%2A%5E-13%2C1.1499999999999044%60%7D%2C%7B0.3372026534904982%60%2C1.5143515717752036%60%2A%5E-7%2C1.0618546140245668%60%7D%2C%3C%3C7121%3E%3E%7D%2C%3C%3C1%3E%3E%5D`}</WLJSEditor>
+
+And 3 groups of polygons are stored in the list of the second argument.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"9b788644-54bb-4275-bf47-b748390b0b1c"} type={"Input"} opts={{}} >{`Cases%5BCases%5Bmodel%2C%20_GraphicsComplex%2C%203%5D%5B%5B1%2C2%5D%5D%2C%20_Polygon%2C%207%5D%20%2F%2F%20Short%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"9784ec09-328a-4140-963e-fc04e65dd1d4"} type={"Output"} opts={{}} >{`%7BPolygon%5B%7B%7B1224%2C1026%2C261%7D%2C%7B1281%2C430%2C337%7D%2C%7B982%2C541%2C248%7D%2C%3C%3C5578%3E%3E%7D%5D%2C%3C%3C1%3E%3E%7D`}</WLJSEditor>
+
+We can select them and construct a dynamic version of `RevolutionPlot3D`.
+
+## Making Dynamic Version
+Now let's define vertex and index symbols and a function to update them.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"fa33604c-2463-4e3e-8357-de230a3922e0"} type={"Input"} opts={{"InitGroup":true}} >{`normals%3B%0Avertices%3B%0Aindices1%3B%0Aindices2%3B%0A%0AupdateFigure%5Bmodel_%5D%20%3A%3D%20With%5B%7B%0A%20%20complex%20%3D%20Cases%5Bmodel%2C%20_GraphicsComplex%2C%203%2C%201%5D%5B%5B1%5D%5D%0A%7D%2C%0A%20%20With%5B%7Bpolygons%20%3D%20Cases%5Bcomplex%5B%5B2%5D%5D%2C%20_Polygon%2C%207%5D%5B%5BAll%2C1%5D%5D%7D%2C%0A%20%20%20%20%7Bindices1%2C%20indices2%7D%20%3D%20%7Bpolygons%5B%5B1%5D%5D%2C%20polygons%5B%5B2%5D%5D%7D%3B%0A%20%20%20%20%28%2A%20we%20discarded%20the%203rd%20set%20of%20polygons%2C%20%0A%20%20%20%20%20%20since%20it%20is%20small%20and%20only%20highlights%20the%20edges%20%2A%29%0A%0A%20%20%20%20normals%20%3D%20complex%5B%5B3%2C2%5D%5D%3B%0A%20%20%20%20vertices%20%3D%20complex%5B%5B1%5D%5D%3B%0A%20%20%5D%20%20%0A%5D%3B%0A%0AupdateFigure%5Bmodel%5D%3B`}</WLJSEditor>
+
+Now let's connect some sliders.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"5e68a203-f8ec-487d-a6f9-360036ba452b"} type={"Input"} opts={{"InitGroup":true}} >{`updateModel%5Bs_%3A5%2C%20a_%3A0.1%5D%20%3A%3D%20RevolutionPlot3D%5B%7BSin%5Bt%5D%20%2B%20Sin%5Bs%20t%5D%20a%2C%0A%20%20%20Cos%5Bt%5D%20%2B%20Cos%5Bs%20t%5D%20a%7D%2C%20%7Bt%2C%200%2C%20Pi%7D%2C%0A%20%20RegionFunction%20-%3E%20%28Sin%5B5%20%28%234%20%2B%20%235%29%5D%20%3E%200%20%26%29%2C%20Mesh%20-%3E%20None%2C%0A%20%20BoundaryStyle%20-%3E%20Black%2C%20PlotStyle%20-%3E%20Thickness%5B.1%5D%2C%20MaxRecursion-%3E1%5D%0A%0Asliders%20%3D%20EventHandler%5BInputGroup%5B%3C%7C%0A%20%20%22s%22%20-%3E%20InputRange%5B1%2C10%2C1%2C%20%22Label%22-%3E%22s%22%5D%2C%0A%20%20%22a%22%20-%3E%20InputRange%5B0.1%2C%200.5%2C%200.1%2C%200.1%2C%20%22Label%22-%3E%22a%22%5D%0A%7C%3E%5D%2C%20Function%5Bvalues%2C%0A%20%20model%20%3D%20updateModel%20%40%40%20Values%5Bvalues%5D%3B%0A%20%20updateFigure%5Bmodel%5D%3B%0A%5D%5D%3B`}</WLJSEditor>
+
+Now our dynamic 3D scene.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"459d20d7-a825-44a3-b5cf-7ec4f782bf5d"} type={"Input"} opts={{}} >{`%7B%0A%20%20Graphics3D%5BGraphicsComplex%5Bvertices%20%2F%2F%20Offload%2C%20%7B%0A%20%20%20%20Polygon%5Bindices1%20%2F%2F%20Offload%5D%2C%0A%20%20%20%20Polygon%5Bindices2%20%2F%2F%20Offload%5D%0A%20%20%7D%2C%20VertexNormals-%3EOffload%5Bnormals%2C%20%22Static%22-%3ETrue%5D%5D%2C%20ImageSize-%3EMedium%5D%2C%0A%0A%20%20sliders%0A%7D%20%2F%2F%20Row%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"d41dcb3e-1cc7-4a6b-ab11-01c5387161b9"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28Graphics3D%5BGraphicsComplex%5BOffload%5Bvertices%5D%2C%20%7BPolygon%5BOffload%5Bindices1%5D%5D%2C%20Polygon%5BOffload%5Bindices2%5D%5D%7D%2C%20VertexNormals%20-%3E%20Offload%5Bnormals%2C%20%22Static%22%20-%3E%20True%5D%5D%2C%20ImageSize%20-%3E%20Medium%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJyVT1sKwjAQrA98gXgGj6AeQUEFX7Tif2w2NZB0S7aV6undWMUi%2FvgzzM7OTDbjM4aqEQQBtRlWaKRq%2BmnAsHQiu%2BiYZgvV8tqops3RZgbKKtpl2CtlUEjqMb%2BCy3UMVFX54o2m%2FOM9oLklmP4O61T67OQ%2F%2B%2FTzVlgYoCGTE58B5Q6dFeZ1Sz3teVpfvsNRh0mUC%2F7DUzu6Ar7q%2B0zWViQQ6TuQ929B6sI%2BAOdgTwE%3D%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%2255f0f07c-3f5f-4460-92e9-2c79a64df756%22%2C%20%22Initial%22%20-%3E%20%3C%7C%22s%22%20-%3E%206%2C%20%22a%22%20-%3E%200.1%7C%3E%2C%20%22View%22%20-%3E%20%2284fdd81c-0763-412a-be07-9e24147a3cdf%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW5ikpaRYGCbrGpibGeuaGBol6ialGpjrWqYamRiamCcaJ6ekAQCBVhWg%22%2A%29%28%2A%5DVB%2A%29%7D%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+Viola! 
+
+:::note
+Due to performance reasons we published a static version here (docs you are reading now). Please download this notebook to try it out
+:::
+
+## Bonus 1: export as STL
+If this is running on the web, you might need to implement a download function in JavaScript, since there will be no files API available. However, here we shall stick to the easiest way
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"647be50d-2f72-4cad-99bf-b7ca416f8ea7"} type={"Input"} opts={{"InitGroup":true}} >{`export%5B_%5D%20%3A%3D%20Then%5BSystemDialogInputAsync%5B%22FileSave%22%2C%20%7BNull%2C%20%7B%22STL%20Formats%22%20-%3E%20%7B%22%2A.stl%22%7D%7D%7D%5D%2C%20Function%5Bpath%2C%0A%20%20If%5BStringQ%5Bpath%5D%2C%0A%20%20%20%20Export%5Bpath%2C%20model%5D%3B%0A%20%20%20%20Beep%5B%5D%3B%0A%20%20%5D%0A%5D%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"d5641931-b26d-4748-8457-2ec78d4bf202"} type={"Input"} opts={{}} >{`EventHandler%5BInputButton%5B%22Export%22%5D%2C%20export%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"96edbaba-dc97-48e0-87ad-522a22d1d81a"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22aba8526e-1719-406f-992e-6d24d1cd4026%22%2C%20%22Initial%22%20-%3E%20False%2C%20%22View%22%20-%3E%20%224e592d40-bec6-447d-bc35-be7c494ddd82%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6SaWhqlmBjoJqUmm%2BmamJin6CYlG5sCuebJJpYmKSkpFkYAiLcWDA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Bonus 2: Making a standalone app
+Taking all of this together, we can export it as a standalone widget. For that, we need to:
+
+1. Define initialization cells
+2. Put the output code of the widget into the last input cell of the notebook
+3. Click `Share` and export to widget
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+:::tip
+In this notebook, the first two steps are complete. You only need to export it to the WLJS Widget format.
+:::
+
+For the output, we use `.wlx` cells since they allow more styling options using pure HTML and CSS for the final look of the app.
+
+<WLJSEditor display={"codemirror"} nid={"6e7341c7-2708-4730-a4f7-78f8fb75193c"} id={"a0e38098-95ed-4502-a7d9-7f5249326df3"} type={"Input"} opts={{"InitGroup":false}} >{`.wlx%0A%0AWith%5B%7B%0A%20%20Preview%20%3D%20Graphics3D%5BGraphicsComplex%5Bvertices%20%2F%2F%20Offload%2C%20%7B%0A%20%20%20%20Polygon%5Bindices1%20%2F%2F%20Offload%5D%2C%0A%20%20%20%20Polygon%5Bindices2%20%2F%2F%20Offload%5D%0A%20%20%7D%2C%20VertexNormals-%3EOffload%5Bnormals%2C%20%22Static%22-%3ETrue%5D%5D%2C%20ImageSize-%3EMedium%5D%2C%0A%0A%20%20Sliders%20%3D%20sliders%2C%0A%20%20ExportButton%20%3D%20EventHandler%5BInputButton%5B%22Export%22%5D%2C%20export%5D%0A%7D%2C%0A%0A%20%20%3Cdiv%20class%3D%22bg-white%20p-4%20w-full%20h-full%22%3E%0A%20%20%20%20%3Cdiv%20class%3D%22flex%20flex-row%20gap-x-2%20justify-between%22%3E%0A%20%20%20%20%20%20%3CPreview%2F%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22flex%20flex-col%20gap-y-3%20justify-between%22%3E%0A%20%20%20%20%20%20%20%20%3CSliders%2F%3E%0A%20%20%20%20%20%20%20%20%3CExportButton%2F%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%5D`}</WLJSEditor>
+
+### Demonstration video
+Here is how it looks in action 🧙🏼‍♂️
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cJW0-dvhr8g?si=4567Q7AjIXb6JSk5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

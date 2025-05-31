@@ -1,0 +1,150 @@
+
+# Release notes *2.5.9*
+It contains the major improvements for `NeuralNet` standard package, provides more features for graphics and insets. We also fixed many bugs in `wljs-export-html` and in WXF deserializer. New examples are available in `Animation` folder.
+
+
+<!--truncate-->
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore json={require('./attachments/07c4ffc2-31c2-4ba8-b9c4-0596d13cba41.txt').default} notebook={require('./attachments/notebook-07c.wln').default}/>
+
+
+
+
+<WLJSEditor display={"js"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"94d58c7a-b6d0-4389-af98-c38b77800e62"} type={"Output"} opts={{}} >{`%0Aconst%20balloonContainer%20%3D%20document.getElementById%28%22balloon-container%22%29%3B%0A%0Afunction%20random%28num%29%20%7B%0A%20%20return%20Math.floor%28Math.random%28%29%20%2A%20num%29%3B%0A%7D%0A%0Afunction%20getRandomStyles%28%29%20%7B%0A%20%20var%20r%20%3D%20random%28255%29%3B%0A%20%20var%20g%20%3D%20random%28255%29%3B%0A%20%20var%20b%20%3D%20random%28255%29%3B%0A%20%20var%20mt%20%3D%20random%28200%29%3B%0A%20%20var%20ml%20%3D%20random%2850%29%3B%0A%20%20var%20dur%20%3D%20random%285%29%20%2B%205%3B%0A%20%20return%20%60%0A%20%20background-color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%0A%20%20color%3A%20rgba%28%24%7Br%7D%2C%24%7Bg%7D%2C%24%7Bb%7D%2C0.7%29%3B%20%0A%20%20box-shadow%3A%20inset%20-7px%20-3px%2010px%20rgba%28%24%7Br%20-%2010%7D%2C%24%7Bg%20-%2010%7D%2C%24%7Bb%20-%2010%7D%2C0.7%29%3B%0A%20%20margin%3A%20%24%7Bmt%7Dpx%200%200%20%24%7Bml%7Dpx%3B%0A%20%20animation%3A%20float%20%24%7Bdur%7Ds%20ease-in%20infinite%0A%20%20%60%3B%0A%7D%0A%0Afunction%20createBalloons%28num%29%20%7B%0A%20%20for%20%28var%20i%20%3D%20num%3B%20i%20%3E%200%3B%20i--%29%20%7B%0A%20%20%20%20var%20balloon%20%3D%20document.createElement%28%22div%22%29%3B%0A%20%20%20%20balloon.className%20%3D%20%22balloon%22%3B%0A%20%20%20%20balloon.style.cssText%20%3D%20getRandomStyles%28%29%3B%0A%20%20%20%20balloonContainer.append%28balloon%29%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20removeBalloons%28%29%20%7B%0A%20%20balloonContainer.style.opacity%20%3D%200%3B%0A%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0A%20%20%20%20balloonContainer.remove%28%29%0A%20%20%7D%2C%20500%29%0A%7D%0A%0AcreateBalloons%2810%29%3B%0AsetTimeout%28removeBalloons%2C%2015000%29%3B%0A%0Areturn%20%27%27%3B%0A`}</WLJSEditor>
+
+
+## Inset
+*An update for [`Inset`](https://jerryi.github.io/wljs-docs/frontend/Reference/Graphics/Inset) expression* 
+
+Now you can put any expression on top of your `Graphics` object. Please, make sure this expression supports *WLJS Execution Enveroment* (see top line of [reference](https://jerryi.github.io/wljs-docs/frontend/Reference/GUI/EditorView)
+)
+
+![](attachments/Screenshot%202024-10-19%20at%2011.59.47-ddb.png)
+
+For example
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"f54247a9-0a5f-4d51-aa54-ffab28d5d77c"} type={"Input"} opts={{}} >{`Plot%5Bx%2C%20%7Bx%2C0%2C10%7D%2C%20Epilog-%3E%7BInset%5BEditorView%5B%22%28%2AFB%5B%2A%29%28%281%29%28%2A%2C%2A%29%2F%28%2A%2C%2A%29%282%29%29%28%2A%5DFB%2A%29%22%5D%2C%20%7B3%2C5%7D%2C%20%7B10%2C30%7D%2C%20%7B1%2C3%7D%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"23bb25ff-ad9c-47e0-b2a3-53ce5de8137c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%223ca22e97-4a4d-4068-b58a-dc793fdfd51b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGycnGhmlWprrmiSapOiaGJhZ6CaZWiTqpiSbWxqnpaSlmBomAQCF1hYI%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Or even put a mermaid diagram using virtual cells
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"84799410-a655-49be-89ad-9f87c1133d83"} type={"Input"} opts={{}} >{`mermaid%20%3D%20CellView%5B%22graph%20LR%0A%20%20%20%20A%5BSquare%20Rect%5D%20--%20Link%20text%20--%3E%20B%28%28Circle%29%29%0A%20%20%20%20A%20--%3E%20C%28Round%20Rect%29%0A%20%20%20%20B%20--%3E%20D%7BRhombus%7D%0A%20%20%20%20C%20--%3E%20D%22%2C%20%22Display%22-%3E%22mermaid%22%5D%3B%0APlot%5Bx%2C%20%7Bx%2C0%2C10%7D%2C%20Epilog-%3E%7BInset%5Bmermaid%2C%20%7B2%2C5%7D%2C%20%7B10%2C30%7D%2C%20%7B7%2C4%7D%5D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"f6fa933f-dce8-4bdc-b241-c6de5614022d"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a0bb8b0e-c9e3-4c62-8ce0-b72f9844cf6f%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxokJVkkGaTqJlumGuuaJJsZ6VokpxroJpkbpVlamJgkp5mlAQCR6BY5%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Slides now supports scripts
+All inline JS scripts provided in slide cells will be executed. Use them for whatever ideas you come up with.
+
+## Tube now supports dynamics
+3D graphics primitive `Tube` now can be coupled to a dynamic symbol, as an example check this out 😉
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"7f345770-e19c-4c75-a43e-a47490d17606"} type={"Input"} opts={{"Fade":true}} >{`%28%2ABB%5B%2A%29%28%2A%20Just%20run%20this%20cell%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0ARandomIntegerVectorWithinBox%5Bmin_List%2C%20max_List%5D%20%3A%3D%20Table%5B%0A%20%20RandomInteger%5B%7Bmin%5B%5Bi%5D%5D%2C%20max%5B%5Bi%5D%5D%7D%5D%2C%0A%20%20%7Bi%2C%20Length%5Bmin%5D%7D%0A%5D%0A%0APositionKey%5Bpos_%5D%20%3A%3D%20ToString%5Bpos%5D%0A%0AWithinBoundsQ%5Bpos_%2C%20gridMin_%2C%20gridMax_%5D%20%3A%3D%20And%20%40%40%20Thread%5Bpos%20%3E%3D%20gridMin%5D%20%26%26%20And%20%40%40%20Thread%5Bpos%20%3C%3D%20gridMax%5D%0A%0AIsUnoccupied%5Bpos_%2C%20occupiedPositions_%5D%20%3A%3D%20%21%20KeyExistsQ%5BoccupiedPositions%2C%20PositionKey%5Bpos%5D%5D%0A%0A%28%2A%20Main%20function%20to%20simulate%20a%20pipe%20%2A%29%0ASimulatePipe%5B%5D%20%3A%3D%20Module%5B%0A%20%20%7B%0A%20%20%20%20gridMin%20%3D%20%7B-10%2C%20-10%2C%20-10%7D%2C%0A%20%20%20%20gridMax%20%3D%20%7B10%2C%2010%2C%2010%7D%2C%0A%20%20%20%20occupiedPositions%20%3D%20%3C%7C%7C%3E%2C%0A%20%20%20%20currentPosition%2C%0A%20%20%20%20positions%2C%0A%20%20%20%20lastPosition%2C%0A%20%20%20%20lastDirectionVector%20%3D%20Null%2C%0A%20%20%20%20directionVector%2C%0A%20%20%20%20newPosition%2C%0A%20%20%20%20axis%2C%0A%20%20%20%20dir%2C%0A%20%20%20%20possibleDirections%2C%0A%20%20%20%20triedDirections%2C%0A%20%20%20%20moveMade%0A%20%20%7D%2C%0A%20%20%0A%20%20%28%2A%20Initialize%20the%20starting%20position%20%2A%29%0A%20%20currentPosition%20%3D%20RandomIntegerVectorWithinBox%5BgridMin%2C%20gridMax%5D%3B%0A%20%20positions%20%3D%20%7BcurrentPosition%7D%3B%0A%20%20occupiedPositions%5BPositionKey%5BcurrentPosition%5D%5D%20%3D%20True%3B%0A%20%20%0A%20%20%28%2A%20Simulate%20the%20pipe%20growth%20%2A%29%0A%20%20Function%5BNull%2C%0A%20%20%20%20%0A%20%20%20%20%28%2A%20Initialize%20possible%20directions%20%2A%29%0A%20%20%20%20possibleDirections%20%3D%20%7B%0A%20%20%20%20%20%20%7B1%2C%200%2C%200%7D%2C%20%7B-1%2C%200%2C%200%7D%2C%0A%20%20%20%20%20%20%7B0%2C%201%2C%200%7D%2C%20%7B0%2C%20-1%2C%200%7D%2C%0A%20%20%20%20%20%20%7B0%2C%200%2C%201%7D%2C%20%7B0%2C%200%2C%20-1%7D%0A%20%20%20%20%7D%3B%0A%20%20%20%20%0A%20%20%20%20%28%2A%20Prioritize%20continuing%20in%20the%20same%20direction%20%2A%29%0A%20%20%20%20If%5BlastDirectionVector%20%3D%21%3D%20Null%20%26%26%20RandomReal%5B%5D%20%3C%200.5%2C%0A%20%20%20%20%20%20%28%2A%20Try%20to%20continue%20in%20the%20same%20direction%20%2A%29%0A%20%20%20%20%20%20directionVector%20%3D%20lastDirectionVector%3B%0A%20%20%20%20%20%20possibleDirections%20%3D%20Prepend%5BDeleteCases%5BpossibleDirections%2C%20directionVector%5D%2C%20directionVector%5D%3B%2C%0A%20%20%20%20%20%20%28%2A%20Shuffle%20possible%20directions%20%2A%29%0A%20%20%20%20%20%20possibleDirections%20%3D%20RandomSample%5BpossibleDirections%5D%3B%0A%20%20%20%20%5D%3B%0A%20%20%20%20%0A%20%20%20%20triedDirections%20%3D%20%7B%7D%3B%0A%20%20%20%20moveMade%20%3D%20False%3B%0A%20%20%20%20%28%2A%20Try%20each%20possible%20direction%20%2A%29%0A%20%20%20%20Do%5B%0A%20%20%20%20%20%20directionVector%20%3D%20dir%3B%0A%20%20%20%20%20%20newPosition%20%3D%20currentPosition%20%2B%20directionVector%3B%0A%20%20%20%20%20%20If%5B%0A%20%20%20%20%20%20%20%20WithinBoundsQ%5BnewPosition%2C%20gridMin%2C%20gridMax%5D%20%26%26%20IsUnoccupied%5BnewPosition%2C%20occupiedPositions%5D%2C%0A%20%20%20%20%20%20%20%20%28%2A%20Valid%20move%20found%20%2A%29%0A%20%20%20%20%20%20%20%20positions%20%3D%20Append%5Bpositions%2C%20newPosition%5D%3B%0A%20%20%20%20%20%20%20%20occupiedPositions%5BPositionKey%5BnewPosition%5D%5D%20%3D%20True%3B%0A%20%20%20%20%20%20%20%20lastDirectionVector%20%3D%20directionVector%3B%0A%20%20%20%20%20%20%20%20currentPosition%20%3D%20newPosition%3B%0A%20%20%20%20%20%20%20%20moveMade%20%3D%20True%3B%0A%20%20%20%20%20%20%20%20Break%5B%5D%3B%0A%20%20%20%20%20%20%5D%3B%0A%20%20%20%20%20%20AppendTo%5BtriedDirections%2C%20dir%5D%3B%0A%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%7Bdir%2C%20possibleDirections%7D%0A%20%20%20%20%5D%3B%0A%20%20%20%20%0A%20%20%20%20If%5B%21moveMade%2C%0A%20%20%20%20%20%20%28%2A%20No%20valid%20moves%2C%20terminate%20simulation%20%2A%29%0A%20%20%20%20%20%20%24Failed%0A%20%20%20%20%2C%0A%20%20%20%20%20%20positions%0A%20%20%20%20%5D%0A%0A%20%20%20%20%0A%20%20%5D%0A%20%20%0A%5D%0A%0A%0AWith%5B%7B%0A%20%20frame%20%3D%20CreateUUID%5B%5D%2C%0A%20%20win%20%3D%20CurrentWindow%5B%5D%0A%7D%2C%0A%20%20Module%5B%7B%0A%20%20%20%20pipeFunction%20%3D%20Function%5BNull%2C%20%24Failed%5D%2C%0A%20%20%20%20pipesNumber%20%3D%200%2C%0A%20%20%20%20trigger%20%3D%201%0A%20%20%7D%2C%0A%0A%20%20%20%20EventHandler%5Bframe%2C%20Function%5BNull%2C%0A%20%20%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20%20%20result%20%3D%20pipeFunction%5B%5D%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20If%5BFailureQ%5Bresult%5D%2C%0A%20%20%20%20%20%20%20%20%20%20With%5B%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20segments%20%3D%20Unique%5B%22pipe%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20generator%20%3D%20SimulatePipe%5B%5D%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20pipesNumber%2B%2B%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20pipeFunction%20%3D%20Function%5BNull%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20With%5B%7Bseg%20%3D%20generator%5B%5D%7D%2C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20If%5BFailureQ%5Bseg%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24Failed%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20segments%20%3D%20seg%20%2F%2F%20N%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%5D%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20pipeFunction%5B%5D%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20FrontSubmit%5B%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20ColorData%5B97%5D%5BpipesNumber%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tube%5Bsegments%20%2F%2F%20Offload%2C%200.2%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%20MetaMarker%5Bmarker%5D%2C%20%22Window%22-%3Ewin%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%5D%3B%0A%0A%20%20%20%20%20%20trigger%2B%2B%3B%0A%20%20%20%20%5D%5D%3B%0A%20%20%20%20%0A%0A%20%20%20%20Graphics3D%5B%7B%0A%20%20%20%20%20%20Opacity%5B0%5D%2C%20Cuboid%5B%7B-4%2C-4%2C-4%7D%2C%20%7B4%2C4%2C4%7D%5D%2C%20Opacity%5B1%5D%2C%20MetaMarker%5Bmarker%5D%2C%0A%20%20%20%20%20%20AnimationFrameListener%5Btrigger%20%2F%2F%20Offload%2C%20%22Event%22-%3Eframe%5D%0A%20%20%20%20%7D%5D%0A%20%20%5D%0A%5D`}</WLJSEditor>
+
+## Neural Networks
+We have finally added partial support for `NeuralNet` package. You can see training progress, representations of different layers and etc
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"4f82eee4-0464-46e9-99ef-99055a1dbae5"} type={"Input"} opts={{}} >{`%28%2ABB%5B%2A%29%28%2A%20try%20this%20one%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0Atrained%20%3D%20%0A%20NetTrain%5BLinearLayer%5B%5D%2C%20%7B1%20-%3E%201.9%2C%202%20-%3E%204.1%2C%203%20-%3E%206.0%2C%204%20-%3E%208.1%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"9de32f6d-fdd7-4159-af69-d43764b66f00"} type={"Input"} opts={{}} >{`trained%5B3%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"b531e016-501c-40f9-ab19-bf3cc8fcc9fb"} type={"Output"} opts={{}} >{`6.04994535446167%60`}</WLJSEditor>
+
+`NetGraph` is not supported as well as some icons. We need volunteers to work on it ;) Please contact us if you know something about ML and Wolfram Language `Graphics`.
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"4d43317d-fec1-46b8-af27-11ec934fc2a9"} type={"Input"} opts={{}} >{`net%20%3D%20NetModel%5B%22LeNet%20Trained%20on%20MNIST%20Data%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"d0093ecb-5a77-41ba-acd1-6470bf333d04"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29temporalStorage%24145507%28%2A%2C%2A%29%28%2A%221%3AeJwlkc1ymlAAhWmni06foslKoTNC0AvpTBb8KgISufyImSxALoLgRZErwmP0iWPSzTdnzu585yGp3ew7RVGXX3doadHWTVCgDv77RlEr1Cp5XOC3ER3Ib%2FT494j%2BQ49H9CP3Fy17rvQ566ZJdk6um7WriUoLxCQik3UiN2Ta6FZ13RZd4XhW7QwKhB5GfPrKX71DyxiZX6BFiWcaRrmNT5rImwKUjHNhYx%2FEVVmogw4uxpk3sdSnTlSd8c1JbvsK76Wj6857Z7pDVQ%2BAPdv6ZlIvu6ZtNusF6QCBRsswSqhZAjzG58uC58VkZwqi4Os2hzrzGu3mg2jlicB2WllUcENAUg1zNvQYdWo%2B8VubKG6aghbXe51Z%2BGHiuRAxcbpayblEOCNQHe1UBvF0rlmT7el2jiBrH4%2BRuc6k7HblUajLp0OQC7PVQV0aM2UC7tPDmMuP5kRhVWNZZumzUwrNRc%2Ba5wS4kzBXeqDrd0mS8loP04jHrck%2B7V9eHj%2BdvwcyPX7%2Ff9WPO1xSIfjzM6A4dXDVf7VeQ9AH8nGRcw%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"2d1e9597-ea8d-439a-b08b-355ba70b2e96"} type={"Input"} opts={{}} >{`net%5B%28%2AVB%5B%2A%29%28FrontEndRef%5B%227c52eb9d-6d46-4b1d-ab0a-a2043d2ccccc%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyebGqUmWabomqWYmOmaJBmm6CYmGSTqJhoZmBinGCWDAACODxZ6%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"b9696924-a4ec-411a-b59d-0b1cbf627ac7"} type={"Output"} opts={{}} >{`5`}</WLJSEditor>
+
+
+> ok, kinda looks like 5
+
+Some other examples
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"0a2fdc28-e317-4e89-a2be-a16842464197"} type={"Input"} opts={{}} >{`layer%20%3D%20NetInitialize%20%40%20LinearLayer%5B2%2C%20%22Input%22%20-%3E%202%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"5472595e-a535-4b55-b21c-279c4de92ae0"} type={"Output"} opts={{}} >{`LinearLayer%5B%28%2AVB%5B%2A%29%20%3C%7C%22Type%22%20-%3E%20%22Linear%22%2C%20%22Arrays%22%20-%3E%20%3C%7C%22Weights%22%20-%3E%20NumericArray%5B%7B%7B-0.3594474792480469%2C%20-0.04992305114865303%7D%2C%20%7B-1.127055048942566%2C%201.086535930633545%7D%7D%2C%20%22Real32%22%5D%2C%20%22Biases%22%20-%3E%20NumericArray%5B%7B0.%2C%200.%7D%2C%20%22Real32%22%5D%7C%3E%2C%20%22Parameters%22%20-%3E%20%3C%7C%22OutputDimensions%22%20-%3E%20%7B2%7D%2C%20%22%24OutputSize%22%20-%3E%202%2C%20%22%24InputSize%22%20-%3E%202%2C%20%22%24InputDimensions%22%20-%3E%20%7B2%7D%7C%3E%2C%20%22Inputs%22%20-%3E%20%3C%7C%22Input%22%20-%3E%20NeuralNetworks%60TensorT%5B%7B2%7D%2C%20NeuralNetworks%60AtomT%5D%7C%3E%2C%20%22Outputs%22%20-%3E%20%3C%7C%22Output%22%20-%3E%20NeuralNetworks%60TensorT%5B%7B2%7D%2C%20NeuralNetworks%60RealT%5D%7C%3E%7C%3E%2C%20%3C%7C%22Version%22%20-%3E%20%2214.1.2%22%2C%20%22Unstable%22%20-%3E%20False%7C%3E%20%28%2A%2C%2A%29%28%2A%221%3AeJytUMsKwjAQrI%2BLXgQ9CJ7qL3j0ptBiQSy00rORbCWQbGSboEX8d9NUqVfBy7A7M8sMuzzrrBwEQVAtHGz1PdakThsihhfguVWKUe3ostd4Jg5i0mgi5IUgY5lshaGDnZbcDweNUPY%2F9F5UpjP5zWvzr7x3TmJAFQJu%2BcxpqTVXa0IuFGAlNFbrsD0cO4i4MJq8tyn%2FWD27wMxKyEfNAIzXKcra00ey8GuPqdMS%2FHuN9ktWyhcQzmJg%22%2A%29%28%2A%5DVB%2A%29%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"07d19cde-773a-4de5-8948-ab4bc65b32d6"} type={"Input"} opts={{}} >{`NetExtract%5BLinearLayer%5B%28%2AVB%5B%2A%29%20%3C%7C%22Type%22%20-%3E%20%22Linear%22%2C%20%22Arrays%22%20-%3E%20%3C%7C%22Weights%22%20-%3E%20NumericArray%5B%7B%7B-0.3594474792480469%2C%20-0.04992305114865303%7D%2C%20%7B-1.127055048942566%2C%201.086535930633545%7D%7D%2C%20%22Real32%22%5D%2C%20%22Biases%22%20-%3E%20NumericArray%5B%7B0.%2C%200.%7D%2C%20%22Real32%22%5D%7C%3E%2C%20%22Parameters%22%20-%3E%20%3C%7C%22OutputDimensions%22%20-%3E%20%7B2%7D%2C%20%22%24OutputSize%22%20-%3E%202%2C%20%22%24InputSize%22%20-%3E%202%2C%20%22%24InputDimensions%22%20-%3E%20%7B2%7D%7C%3E%2C%20%22Inputs%22%20-%3E%20%3C%7C%22Input%22%20-%3E%20NeuralNetworks%60TensorT%5B%7B2%7D%2C%20NeuralNetworks%60AtomT%5D%7C%3E%2C%20%22Outputs%22%20-%3E%20%3C%7C%22Output%22%20-%3E%20NeuralNetworks%60TensorT%5B%7B2%7D%2C%20NeuralNetworks%60RealT%5D%7C%3E%7C%3E%2C%20%3C%7C%22Version%22%20-%3E%20%2214.1.2%22%2C%20%22Unstable%22%20-%3E%20False%7C%3E%20%28%2A%2C%2A%29%28%2A%221%3AeJytUMsKwjAQrI%2BLXgQ9CJ7qL3j0ptBiQSy00rORbCWQbGSboEX8d9NUqVfBy7A7M8sMuzzrrBwEQVAtHGz1PdakThsihhfguVWKUe3ostd4Jg5i0mgi5IUgY5lshaGDnZbcDweNUPY%2F9F5UpjP5zWvzr7x3TmJAFQJu%2BcxpqTVXa0IuFGAlNFbrsD0cO4i4MJq8tyn%2FWD27wMxKyEfNAIzXKcra00ey8GuPqdMS%2FHuN9ktWyhcQzmJg%22%2A%29%28%2A%5DVB%2A%29%5D%2C%20%22Weights%22%5D%20%2F%2F%20Normal`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"974c6cdc-967c-4ab5-88a0-9a642f8b952b"} type={"Output"} opts={{}} >{`%7B%7B-0.3594474792480469%60%2C-0.04992305114865303%60%7D%2C%7B-1.127055048942566%60%2C1.086535930633545%60%7D%7D`}</WLJSEditor>
+
+## Support for custom CSS
+Open your settings and add any styles you want. This is a new step towards customization 
+
+
+![](attachments/Screenshot%202024-10-19%20at%2012.40.10-464.png)
+
+## Print now supports formatted output
+Try this one
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"2152e0ce-4e5d-4d28-9dd3-bd8b9ce1bb41"} type={"Input"} opts={{}} >{`Print%5BStyle%5B%22Hey%22%2C%20Red%2C%2014%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"d221102e-cecc-4ecf-b2e9-5d25d99861b5"} type={"Output"} opts={{}} >{`%28%2ABB%5B%2A%29%28%22Hey%22%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNiYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCRYg4ZGfkwJRxgkkgkuKMvPSnfIr0phBQhxAIsjdyTk%2FJ78oE6QlkwFO8AEJiEaQMUGlOanBbHATwGIhRaWpAL9wHBA%3D%22%2A%29%28%2A%5DBB%2A%29`}</WLJSEditor>
+
+You can also print `Graphics` if needed
+
+## Offset support for labels
+It was always a bit of a pain to fight agains `FrameLabel` or `AxesLabel` and trying to position them. We extended the API for this (Mathematica does not have this feature)
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"36be9450-ac39-4868-b6b6-3010bb408b81"} type={"Input"} opts={{}} >{`Plot%5BPDF%5BNormalDistribution%5B0%2C%201%5D%2C%20x%5D%2C%20%7Bx%2C%20-10%2C%2010%7D%2C%20AxesLabel%20-%3E%20%7B%0A%20%20%7B%22wavenumber%20%28cm%5E%7B-1%7D%29%22%2C%20%7B-100%2C-15%7D%7D%2C%20%0A%20%20%7B%22absorption%20%5C%5Calpha%22%2C%20%7B112%2C0%7D%7D%0A%7D%2C%20PlotRange-%3EFull%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"c24beb23-f13e-4378-82f1-5b21351d50bd"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22257a6bab-bb74-4016-b624-a40b453a2e63%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG5maJ5olJSbpJiWZm%2BiaGBia6SaZGZnoJpoYJJmYGicapZoZAwCDIRVZ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Support for `Entity` and `Quantity`
+We recreated boxes for them
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"0316a498-2982-461b-ab6f-200bda46b1c6"} type={"Input"} opts={{}} >{`Quantity%5B1%2C%20%22Millimeters%22%2F%22Seconds%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"1e5f3530-9017-4c8d-ac3b-26ea7938f0da"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28q%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB43kAgsTcwrySypdMqvyAQpgciwAomQzNzU4mCQGt%2FMnBwgpyS1qBghHZBfnloUzA5kBacm5%2BelFGf%2BBwIA5ecbxA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"a54af2c8-c9b9-4749-b56a-8c645a581ff5"} type={"Input"} opts={{}} >{`Entity%5B%22Country%22%2C%20%22Germany%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"f1fa8297-ffe1-4f6e-a420-7fb997754342"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Entity%5B%22Country%22%2C%20%22Germany%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4nkHDNK8ksqXTKrwhmB%2FKc80vzSooqwWz31KLcxLxKAJLGDq8%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"4974c12c-f889-4afc-be3a-36e76d3e2322"} type={"Input"} opts={{}} >{`%25%5B%22Population%22%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"e5059b34-f01c-4390-8d3b-ab1e6750bddb"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28q%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB43kAgsTcwrySypdMqvyFzA950lmA0oGJCaX5CTCgBVHw3o%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Support for `SystemOpen`
+Works only if use our desktop application (not a console version)
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"52ff4d3b-4edc-4b3b-ba13-1e53f62248e4"} type={"Input"} opts={{}} >{`SystemOpen%5BNotebookDirectory%5B%5D%5D`}</WLJSEditor>
+
+## Better Audio support
+We also added a new snippet in the command palette
+
+*Record Voice*
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"b75924df-a71e-4ef9-a3b1-f33eb1c120c2"} type={"Input"} opts={{}} >{`%28%2AVB%5B%2A%29%28Notebook%60Editor%60Kernel%60PCMAudio%60Internal%60dump%24112924%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmyamJKUkmZnpJhoYJuqamKWY6CYmmVvqmpoYJZoYWBoaGpsmAwCODRWP%22%2A%29%28%2A%5DVB%2A%29%20%2F%2F%20AudioPlot`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"bd9c3ab8-873d-4469-abba-1ec5cece78a4"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22fc127432-1b30-420d-b760-f91b0846329e%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpyUbGpmbGBvpGiYZG%2BiaGBmk6CaZmxnoplkaJhlYmJgZG1mmAgB2gxTV%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## External API
+We know, that normally libraries for Wolfram Language are distributed as WL Packages or paclets, which do not have support for shipping Javascript / CSS files and etc.
+
+Now it is possible to inject them in a runtime, you have to do it only once
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"eb3d484b-e3b6-4266-860b-43a96b75bd77"} type={"Input"} opts={{}} >{`FrontEndRuntime%5B%7B%22Modules%22%2C%20%22js%22%7D%5D%20%3D%20Append%5BFrontEndRuntime%5B%7B%22Modules%22%2C%20%22js%22%7D%5D%2C%20File%5B%22path%20to%20your%20JS%22%5D%5D%20`}</WLJSEditor>
+
+See [docs](https://jerryi.github.io/wljs-docs/frontend/Reference/Frontend%20IO/FrontEndRuntime#append-javascript-css-from-wl-package) for more information
+
+To check if a code is running with WLJS frontend, you can check this system variable
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"b0c04e75-11b1-44ac-981a-26238bc282d3"} type={"Input"} opts={{}} >{`Internal%60Kernel%60WLJSQ`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"07c4ffc2-31c2-4ba8-b9c4-0596d13cba41"} id={"f7567c61-e358-4949-82bb-06343355e890"} type={"Output"} opts={{}} >{`True`}</WLJSEditor>
+
+*Ballon animation by Jemima (codepen)*
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

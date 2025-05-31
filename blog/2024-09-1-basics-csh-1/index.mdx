@@ -1,0 +1,129 @@
+---
+authors: jerryi
+enableComments: true
+tags:
+  - graphics
+  - opencl
+  - GPU
+---
+
+
+# Basics of Compute Shaders in WL 1
+A GPU is also a great tool for general-purpose computations. There are a few ways to couple it with Wolfram Language:
+
+- CUDALink
+- OpenCLLink
+- LibraryLink
+
+The first option requires hardware from Nvidia, which is a massive drawback considering there are many other processors on the market capable of crunching numbers. The last option allows integrating any dynamic library written in C/Rust (probably there are other bindings as well) into our Kernel, but the amount of effort required to write a general-purpose GPU library and deal with cross-platform issues is quite cumbersome and defeats the whole purpose of using WL here.
+
+We will go with the most cross-platform and hardware-agnostic solution: `OpenCL` 🚅
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-reactcells";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel.txt').default} json={require('./attachments/00c394a0-debc-4934-86e5-d68ca867ca52.txt').default} notebook={require('./attachments/notebook-00c.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"bd6478fa-a72d-4da8-8b7c-65ff4b7aea29"} type={"Input"} opts={{}} >{`Needs%5B%22OpenCLLink%60%22%5D%0AIf%5B%21OpenCLQ%5B%5D%2C%20Alert%5B%22Report%20the%20police%2C%20it%20doest%20not%20work%22%5D%20%2F%2F%20FrontSubmit%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"435c58eb-46b5-4204-ae69-670384f7bcc3"} type={"Output"} opts={{}} >{`True`}</WLJSEditor>
+
+We assume you already know the OpenCL programming language and its execution model. There are plenty of resources available online.
+
+## Drawing on Canvas
+The most visual way of seeing the work of your tiny GPU kernels is to ask them to generate data and interpret it as an image. Let us define a simple kernel that fills an entire screen.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"03ca5c8d-7664-4664-8201-290f3ca19ae2"} type={"Input"} opts={{}} >{`test.cl%0A%0A__kernel%20void%20render%28%0A%20%20__global%20uchar4%2A%20output%2C%20%0A%20%20const%20int%20width%2C%20%0A%20%20const%20int%20height%0A%29%20%7B%0A%20%20%20%20unsigned%20int%20work_item_id%20%3D%20get_global_id%280%29%3B%0A%20%20%20%20%0A%20%20%20%20unsigned%20int%20x_coord%20%3D%20work_item_id%20%25%20width%3B%0A%20%20%20%20unsigned%20int%20y_coord%20%3D%20work_item_id%20%2F%20width%3B%0A%0A%20%20%20%20float3%20finalcolor%20%3D%20%28float3%29%280.0f%2C%200.5f%2C%200.2f%29%3B%0A%0A%20%20%20%20%2F%2Fclamp%20to%208bits%20for%20each%20channel%0A%20%20%20%20%0A%20%20%20%20uchar4%20rgba%3B%0A%20%20%20%20rgba.x%3D%28uchar%29%28finalcolor.x%2A255.0%29%3B%0A%20%20%20%20rgba.y%3D%28uchar%29%28finalcolor.y%2A255.0%29%3B%0A%20%20%20%20rgba.z%3D%28uchar%29%28finalcolor.z%2A255.0%29%3B%0A%20%20%20%20rgba.w%3D255%3B%0A%0A%20%20%20%20output%5Bwork_item_id%5D%20%3D%20rgba%3B%0A%7D`}</WLJSEditor>
+
+
+A side note
+
+> If you run the cell above, it creates a file named `test.cl`
+
+We added a minor optimization: the resulting color will be normalized to the range of the `UnsignedInteger8` typed array in Wolfram Language.
+
+Now let us compile it.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"603b2ec0-a289-4698-8e65-fdcf7b8752bb"} type={"Input"} opts={{}} >{`render%20%3D%20OpenCLFunctionLoad%5BFile%5B%22test.cl%22%5D%2C%20%0A%20%20%22render%22%2C%20%7B%7B%22UnsignedByte%5B4%5D%22%2C%20_%2C%20%22Output%22%7D%2C%20_Integer%2C%20_Integer%7D%2C%20256%2C%20%22ShellOutputFunction%22-%3EPrint%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"608bf505-330a-4066-bec7-80c6106f70e1"} type={"Output"} opts={{}} >{`%22%20%22`}</WLJSEditor>
+
+Here we specified the local group size to be `256`, but at this stage, it does not matter for us. Just make sure that it does not exceed your CL device limitations.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"8404302d-93b3-43db-8d58-2e1b0a1fdca4"} type={"Input"} opts={{}} >{`Cases%5BOpenCLInformation%5B%5D%2C%20Rule%5B%22Maximum%20Work%20Group%20Size%22%2C%20r_%5D%20%3A%3E%20r%2C%20Infinity%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"68f87835-3fef-465e-a98f-fb79c3f30ca2"} type={"Output"} opts={{}} >{`%7B256%7D`}</WLJSEditor>
+
+Allocate memory for our generated image. Let it be small for now, `128x128`.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"c479f9d1-965a-48a1-845f-c16f694c89f1"} type={"Input"} opts={{}} >{`image%20%3D%20OpenCLMemoryLoad%5BTable%5B%7B0%2C%200%2C%200%2C%200%7D%2C%20%7Bi%2C%20128%7D%2C%20%7Bj%2C%20128%7D%5D%2C%20%22UnsignedByte%5B4%5D%22%5D%3B`}</WLJSEditor>
+
+
+A side note
+
+> Do not forget to unload this memory if you no longer need it.
+
+To execute our OpenCL function, we also need to specify the grid size (aka how many kernels we need to run). Since in our case this is a bitmap image and we are running 1 kernel per pixel the number will `128^2` according the resolution we picked for an image
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"ef9b9c2d-8d09-4f58-9c39-a49386f3dde4"} type={"Input"} opts={{}} >{`render%5Bimage%2C%20128%2C%20128%2C%20128%20128%5D%3B%0Aimage%20%2F%2F%20OpenCLMemoryGet%3B%0ANumericArray%5B%25%2C%20%22UnsignedInteger8%22%5D%3B%0AImage%5B%25%2C%20%22Byte%22%2C%20Magnification-%3E3%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"783d9533-0768-465c-bf44-e02cdc10e14f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22fe0488c4-e676-4a8a-9e38-79950149d078%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp6UamFhYJJvoppqZm%2BmaJFok6lqmGlvomltamhoYmlimGJhbAACA9RUH%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+It is important to note that __you should always try to utilize__ `NumericArray` when working with raster graphics, since Wolfram's native `List` is quite slow for this task. The second important thing is to specify the format explicitly in `Image` as well. There is a 1:1 correspondence:
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+| OpenCL             | NumericArray       | Image                |
+|--------------------|--------------------|----------------------|
+| `UnsignedByte`     | `UnsignedInteger8` | `Byte`               |
+| `Float`            | `Real32`           | `Real`               |
+
+Let us try something more interesting.
+
+Here is a very primitive example of what is called Signed-Distance-Fields (SDF). We set the "geometry" using a parametric equation and calculate the color of every pixel based on the distance to vertices or any other control points of our defined geometry. For example, to draw a disk we need only the equation of a circle with two parameters:
+
+$$
+\text{color} = R^2 - |\mathbf{r} - \mathbf{r}_c|^2 
+$$
+
+where $\mathbf{r}_c$ is the coordinates of the center and $R$ is the radius. After that, we should clip the resulting color to the range of `0.0` and `1.0` to avoid any artifacts.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"7c27851c-db56-4e7c-8ed2-a7738667825e"} type={"Input"} opts={{}} >{`test.cl%0A%0Afloat%20clip%28float%20val%2C%20const%20float%20min%2C%20const%20float%20max%29%20%7B%0A%20%20if%20%28val%20%3E%20max%29%20return%20max%3B%0A%20%20if%20%28val%20%3C%20min%29%20return%20min%3B%0A%20%20return%20val%3B%0A%7D%0A%0A__kernel%20void%20render%28%0A%20%20__global%20uchar4%2A%20output%2C%20%0A%20%20const%20int%20width%2C%20%0A%20%20const%20int%20height%0A%29%20%7B%0A%20%20%20%20unsigned%20int%20work_item_id%20%3D%20get_global_id%280%29%3B%0A%20%20%20%20%0A%20%20%20%20unsigned%20int%20x_coord%20%3D%20work_item_id%20%25%20width%3B%0A%20%20%20%20unsigned%20int%20y_coord%20%3D%20work_item_id%20%2F%20width%3B%0A%0A%20%20%20%20%2F%2Fnormalize%20screen%20coordinates%0A%20%20%20%20float%20fx%20%3D%20%28float%29x_coord%20%2F%20%28float%29width%3B%20%0A%09float%20fy%20%3D%20%28float%29y_coord%20%2F%20%28float%29height%3B%0A%0A%20%20%20%20float3%20finalcolor%20%3D%20%28float3%29%28fy%20%2A%200.1f%2C%20fy%20%2A%200.3f%2C%200.3f%29%3B%20%2F%2F%20a%20nice%20background%0A%0A%20%20%20%20float%20dist2%20%3D%20%28fx%20-%200.5f%29%2A%28fx%20-%200.5f%29%20%2B%20%28fy%20-%200.5f%29%2A%28fy%20-%200.5f%29%3B%0A%20%20%20%20finalcolor.x%20%2B%3D%20clip%2810.0f%2A%280.4f%2A0.4f%20-%20dist2%29%2C%200.0f%2C%201.0f%29%3B%0A%0A%20%20%20%20%2F%2Fclamp%20to%208bits%20for%20each%20channel%0A%20%20%20%20%0A%20%20%20%20uchar4%20rgba%3B%0A%20%20%20%20rgba.x%3D%28uchar%29%28finalcolor.x%2A255.0%29%3B%0A%20%20%20%20rgba.y%3D%28uchar%29%28finalcolor.y%2A255.0%29%3B%0A%20%20%20%20rgba.z%3D%28uchar%29%28finalcolor.z%2A255.0%29%3B%0A%20%20%20%20rgba.w%3D255%3B%0A%0A%20%20%20%20output%5Bwork_item_id%5D%20%3D%20rgba%3B%0A%7D`}</WLJSEditor>
+
+Reload
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"556b3b97-2eb3-4007-ab47-a302519f0b43"} type={"Input"} opts={{}} >{`render%20%3D%20OpenCLFunctionLoad%5BFile%5B%22test.cl%22%5D%2C%20%0A%20%20%22render%22%2C%20%7B%7B%22UnsignedByte%5B4%5D%22%2C%20_%2C%20%22Output%22%7D%2C%20_Integer%2C%20_Integer%7D%2C%20256%2C%20%22ShellOutputFunction%22-%3EPrint%5D%3B%0A%0Arender%5Bimage%2C%20128%2C%20128%2C%20128%20128%5D%3B%0Aimage%20%2F%2F%20OpenCLMemoryGet%3B%0ANumericArray%5B%25%2C%20%22UnsignedInteger8%22%5D%3B%0AImage%5B%25%2C%20%22Byte%22%2C%20Magnification-%3E3%5D`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"2b97bad1-105e-47d9-a575-387532f75b90"} type={"Output"} opts={{}} >{`%22%20%22`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"6ad9f415-273e-468a-a1ab-e80adcfb56c7"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22402e057f-1586-4e2d-8c5a-504dc17741f1%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxgYpRqYmqfpGppamOmapBql6FokmybqmhqYpCQbmpubGKYZAgB3XxUP%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Because our toy SDF function provides a squared distance, it creates a smooth transition on the edges before it starts to clip to 1.0.
+
+## Controls
+We can hook up some external controls to change the parameters of our disk. The simplest one will be the radius.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"ec921301-2fbf-4abb-9530-97be32896fa8"} type={"Input"} opts={{}} >{`test.cl%0A%0Afloat%20clip%28float%20val%2C%20const%20float%20min%2C%20const%20float%20max%29%20%7B%0A%20%20if%20%28val%20%3E%20max%29%20return%20max%3B%0A%20%20if%20%28val%20%3C%20min%29%20return%20min%3B%0A%20%20return%20val%3B%0A%7D%0A%0A__kernel%20void%20render%28%0A%20%20__global%20uchar4%2A%20output%2C%20%0A%20%20const%20int%20width%2C%20%0A%20%20const%20int%20height%2C%0A%20%20const%20float%20radius%20%2F%2F%3C----%20HERE%0A%29%20%7B%0A%20%20%20%20unsigned%20int%20work_item_id%20%3D%20get_global_id%280%29%3B%0A%20%20%20%20%0A%20%20%20%20unsigned%20int%20x_coord%20%3D%20work_item_id%20%25%20width%3B%0A%20%20%20%20unsigned%20int%20y_coord%20%3D%20work_item_id%20%2F%20width%3B%0A%0A%20%20%20%20%2F%2Fnormalize%20screen%20coordinates%0A%20%20%20%20float%20fx%20%3D%20%28float%29x_coord%20%2F%20%28float%29width%3B%20%0A%09float%20fy%20%3D%20%28float%29y_coord%20%2F%20%28float%29height%3B%0A%0A%20%20%20%20float3%20finalcolor%20%3D%20%28float3%29%28fy%20%2A%200.1f%2C%20fy%20%2A%200.3f%2C%200.3f%29%3B%20%2F%2F%20a%20nice%20background%0A%0A%20%20%20%20float%20dist2%20%3D%20%28fx%20-%200.5f%29%2A%28fx%20-%200.5f%29%20%2B%20%28fy%20-%200.5f%29%2A%28fy%20-%200.5f%29%3B%0A%20%20%20%20finalcolor.x%20%2B%3D%20clip%2810.0f%2A%28radius%2Aradius%20-%20dist2%29%2C%200.0f%2C%201.0f%29%3B%20%2F%2F%3C----%20HERE%0A%0A%20%20%20%20%2F%2Fclamp%20to%208bits%20for%20each%20channel%0A%20%20%20%20%0A%20%20%20%20uchar4%20rgba%3B%0A%20%20%20%20rgba.x%3D%28uchar%29%28finalcolor.x%2A255.0%29%3B%0A%20%20%20%20rgba.y%3D%28uchar%29%28finalcolor.y%2A255.0%29%3B%0A%20%20%20%20rgba.z%3D%28uchar%29%28finalcolor.z%2A255.0%29%3B%0A%20%20%20%20rgba.w%3D255%3B%0A%0A%20%20%20%20output%5Bwork_item_id%5D%20%3D%20rgba%3B%0A%7D`}</WLJSEditor>
+
+Now recompile it once.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"7b5f15dc-3c2d-49f1-800c-80a74e45c797"} type={"Input"} opts={{}} >{`render%20%3D%20OpenCLFunctionLoad%5BFile%5B%22test.cl%22%5D%2C%20%0A%20%20%22render%22%2C%20%7B%7B%22UnsignedByte%5B4%5D%22%2C%20_%2C%20%22Output%22%7D%2C%20_Integer%2C%20_Integer%2C%20%22Float%22%7D%2C%20256%2C%20%22ShellOutputFunction%22-%3EPrint%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"f229a7c3-a28d-4daa-b57c-58c104f595cf"} type={"Output"} opts={{}} >{`%22%20%22`}</WLJSEditor>
+
+To render dynamically, we provide an intermediate symbol to which an `Image` listener will be assigned.
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"5aa367d2-aefe-4372-930c-951d782cc9f0"} type={"Input"} opts={{}} >{`Module%5B%7Bbuffer%7D%2C%0A%20%20%7B%0A%20%20%20%20Image%5Bbuffer%20%2F%2F%20Offload%2C%20%22Byte%22%2C%20Magnification-%3E3%5D%2C%0A%0A%20%20%20%20EventHandler%5BInputRange%5B0.%2C%201.%2C%200.1%2C%20%22Label%22-%3E%22R%22%5D%2C%20Function%5Bradius%2C%0A%20%20%20%20%20%20render%5Bimage%2C%20128%2C%20128%2C%20radius%2C%20128%20128%5D%3B%0A%20%20%20%20%20%20buffer%20%3D%20NumericArray%5Bimage%20%2F%2F%20OpenCLMemoryGet%2C%20%22UnsignedInteger8%22%5D%3B%0A%20%20%20%20%5D%5D%20%2F%2F%20EventFire%20%28%2ABB%5B%2A%29%28%2A%20fire%20once%20to%20initialize%20buffer%20%2A%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn%2BBSWZ%2BXnFaYwgCS4g4Zyfm5uaV%2BKUXxEMUqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJEU%3D%22%2A%29%28%2A%5DBB%2A%29%0A%20%20%7D%20%2F%2F%20Row%20%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"00c394a0-debc-4934-86e5-d68ca867ca52"} id={"83d2fa9d-d9ca-4a59-a6bc-62d63b85a0d1"} type={"Output"} opts={{}} >{`%28%2AGB%5B%2A%29%7B%7B%28%2AVB%5B%2A%29%28FrontEndRef%5B%220b6d244d-9e67-4236-90f8-133aa756151a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGySZpRiZmKToWqaameuaGBmb6VoapFnoGhobJyaam5oZmhomAgB4zxTh%22%2A%29%28%2A%5DVB%2A%29%28%2A%7C%2A%29%2C%28%2A%7C%2A%29%28%2AVB%5B%2A%29%28EventObject%5B%3C%7C%22Id%22%20-%3E%20%22e86d4b59-0c98-45ff-af58-e0d00db0df09%22%2C%20%22Initial%22%20-%3E%200.5%2C%20%22View%22%20-%3E%20%22d4225ab7-34a1-4615-8131-947dbbfc6796%22%7C%3E%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5gYGZkmJpnrGpskGuqamBma6loYGhvqWpqYpyQlpSWbmVuaAQB3ohUV%22%2A%29%28%2A%5DVB%2A%29%7D%28%2A%7C%7C%2A%29%2C%28%2A%7C%7C%2A%29%7D%28%2A%5DGB%2A%29`}</WLJSEditor>
+
+
+When you drag the slider, it reruns the OpenCL kernel and provides a new bitmap image to be displayed on the screen.
+
+In the next part we will go deeper and try to take advantage of local groups, memory and do animations.

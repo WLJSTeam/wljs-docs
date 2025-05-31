@@ -1,0 +1,215 @@
+{
+  "main": {
+    "id": "56ecb1dcf56d6844",
+    "type": "split",
+    "children": [
+      {
+        "id": "b3a34634895f3b61",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ed5bf79a852e0a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2025-05-07-mma/index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5cf68b56228c7c79",
+    "type": "split",
+    "children": [
+      {
+        "id": "02e9ce8e18f38c44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "156cece66c48f9f4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5759ed5b994729f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Graphics`Canvas",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "680e9ba4ab9a817d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 239.5
+  },
+  "right": {
+    "id": "891513db97621f79",
+    "type": "split",
+    "children": [
+      {
+        "id": "16ea275940c48167",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a782eaa1f409ec3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for index"
+            }
+          },
+          {
+            "id": "cc5ecc839406af86",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from index"
+            }
+          },
+          {
+            "id": "cc73662379cc4e7c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "299af6206934c3f8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2023-12-20-fabrik/index.mdx"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "7ed5bf79a852e0a4",
+  "lastOpenFiles": [
+    "neverasked-ezgif.com-optimize.gif",
+    "2024-04-22-gauge.md",
+    "2025-05-07-mma/index.md",
+    "manipualte-ezgif.com-video-to-gif-converter.gif",
+    "fifffsa-ezgif.com-video-to-gif-converter.gif",
+    "2025-05-07-mma",
+    "Screenshot 2025-05-01 at 15.56.21.png",
+    "2025-03-02-ultimate-ppt/index.md",
+    "partypeople-ezgif.com-video-to-gif-converter.gif",
+    "procedural-ezgif.com-video-to-gif-converter.gif",
+    "dummy-ezgif.com-video-to-gif-converter.gif",
+    "Screenshot 2025-04-02 at 16.29.13.png",
+    "Screenshot 2025-04-02 at 16.24.19.png",
+    "Screenshot 2025-04-02 at 16.19.38.png",
+    "Screenshot 2025-04-02 at 16.18.39.png",
+    "2024-10-25-rtx-logo.md",
+    "2025-01-08-earth/index.mdx",
+    "2025-03-02-ultimate-ppt",
+    "2024-04-19-spider/index.md",
+    "2024-12-23-2ways.md",
+    "2024-11-25-diffraction.md",
+    "2024-12-16-charges.md",
+    "2024-01-01-autocomplete.md",
+    "2025-01-08-earth/index0.mdx",
+    "2025-01-08-earth/attachments/kernel.txt",
+    "2025-01-08-earth/attachments/notebook-a3d.wln",
+    "2025-01-08-earth/attachments/a3d056d8-5bf5-48ef-8ab5-9dd6ca7b3d69.txt",
+    "2025-01-08-earth/attachments",
+    "2025-01-07-nier.md",
+    "2024-12-04-proxy.md",
+    "2024-11-20-rtx-refine.md",
+    "2024-11-08-non-indexed.md",
+    "2024-09-07-raster.md",
+    "2024-05-26-atom.md",
+    "2024-10-08-statcnt.md",
+    "2024-10-24-worm.md",
+    "2024-10-15-speech2text.md",
+    "2024-09-11-barcharts.md",
+    "2024-05-13-json-llm.md",
+    "2025-01-08-earth/attachments/937d1596-70e7-41fc-a55e-431d443cd22e.txt",
+    "2025-01-08-earth/attachments/notebook-937.wln",
+    "2024-08-22-ellipce.md",
+    "2024-04-24-dynamic-env/index.md",
+    "2023-10-10-esm/index.md",
+    "2024-05-01-badapple/index.md",
+    "2024-05-01-badapple/index.md.md"
+  ]
+}

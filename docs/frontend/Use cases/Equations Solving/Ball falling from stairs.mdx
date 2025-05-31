@@ -1,0 +1,27 @@
+# Ball falling from stairs
+A basic example from WL library on solving differencial equations and animating the result
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/0kernel.txt').default} json={require('./attachments/255f54ea-c2be-4936-bb68-029635fc5779.txt').default} notebook={require('./attachments/notebook-255.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"bee55c23-5698-4844-aa83-8659b2e74877"} type={"Input"} opts={{}} >{`ballsteps%20%3D%20%0A%20%20NDSolve%5B%7Bx%27%27%5Bt%5D%20%3D%3D%200%2C%20y%27%27%5Bt%5D%20%3D%3D%20-9.8%2C%20y%5B0%5D%20%3D%3D%206%2C%20y%27%5B0%5D%20%3D%3D%200%2C%20%0A%20%20%20%20x%5B0%5D%20%3D%3D%200%2C%20x%27%5B0%5D%20%3D%3D%201%2C%20a%5B0%5D%20%3D%3D%205%2C%20%0A%20%20%20%20WhenEvent%5BMod%5Bx%5Bt%5D%2C%201%5D%20%3D%3D%200%2C%20%0A%20%20%20%20%20If%5Ba%5Bt%5D%20%3E%200%2C%20a%5Bt%5D%20-%3E%20a%5Bt%5D%20-%201%2C%20%22RemoveEvent%22%5D%5D%2C%20%0A%20%20%20%20WhenEvent%5B%0A%20%20%20%20%20y%5Bt%5D%20%3D%3D%20a%5Bt%5D%2C%20%7Bx%27%5Bt%5D%2C%20y%27%5Bt%5D%7D%20-%3E%20.9%20%7Bx%27%5Bt%5D%2C%20-y%27%5Bt%5D%7D%5D%7D%2C%20%7Bx%2C%20y%2C%20%0A%20%20%20%20a%7D%2C%20%7Bt%2C%200%2C%2015%7D%2C%20DiscreteVariables%20-%3E%20%7Ba%7D%5D%3B%0Atrajectory%20%3D%20%7Bx%2C%20y%7D%20%2F.%20ballsteps%5B%5B1%5D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"ef426ce3-586d-4a95-93ed-821b30e7a256"} type={"Output"} opts={{}} >{`%7B%28%2AVB%5B%2A%29BoxForm%60temporalStorage%24590706%28%2A%2C%2A%29%28%2A%221%3AeJxdkUuPmlAAhW2nTZr%2BinZWipMoMqA0mYU4PEVAEAQms%2BBxeXmB4XUB%2F9T8xWqX3Xw55%2BTsvt9%2BqUcPk8mk%2BXkDG6ZtWVsp6I3PL5OJWLSg%2Fiih16ZFzHVF0KZl8TbFLOYNm%2F2aYk%2FYbIo94n%2BANIamicv9cnusrXksxglg2M2eTFKJCkBOwOpUwlSU1No1bCeNzwaxFsFqQa9dHR433Jl7vsoDqS5UHhnJxcoJAmQ4fdJ2JSkg5eIFsrnskmogbHWnOmNnHSrk4mViiMrcIH2rPe6pfS17ASm68cfe7FMgy%2BwyKUu%2B6VGqU%2Bar6DRVMYCsYaNGWzvZkNYLSbQQQ8eWY2SVoPbGdYdakFdLnK4R7Yf8aog8dBVp6mKPg1sFtgaq40Zi4bNfuWN8mNs5EeR8SJtMbx9W2Zo3BUEh4AHk3IG3lL7abDSX6ljSOWlCJq2VZQI7W4wYU9k3%2BJw6Nn7njO3ZTa42HQpZbjteInssozflBSEQzbdJpUS03p23PW8ifmvkr9cFEE8Exyy07cvL493Bu8Vgs%2Ffo693jtxv0DgLjxz0AL1QLOP5bT3UH%2FvvcpRsAgqD1fAia77fKebABfwEqqKfI%22%2A%29%28%2A%5DVB%2A%29%2C%28%2AVB%5B%2A%29BoxForm%60temporalStorage%24590831%28%2A%2C%2A%29%28%2A%221%3AeJxdkUuTmkAAhE02qUrlV2z2pLBVig8eucGKii9keIatPTAwvB2QGYL4l%2FInoznm8lV3V5%2B6f8AKxE%2BDwYB8v0ONMlo1ToY688%2BnwUDDFDV1VQY0w8mqxSHNKvw%2BZBzlnRk9D5lXZjRkXrifaNtHts3tu4ls5A6baEmKFFXcLdJ8W3aY82tiX22tsENJJ4LeF3rv3mwIY1YiWn9BWS6LPuVF7OGlR65OD8Poyp71N8BzKA0PLlQ7g5x1QcrX63D1ax9EO8qzM7c6igYHOWhQHlhWTOrKSi6lO2lNc2G3BHWnm3Kh%2BwrjC1nIubjQ7BaEm82%2BA8lisxmbqZ6k2ZteVWtFIOpBWvuV1Ug09psZnClS4SVAcE6%2F7Z7TdOvIBjK7PWT%2BQa1h5y53t4ZaS9Be5Pkeh7WfNiB1pSyZbZzT3JkKWcuqRbua48CG1zkfE97ohaYASepe3WDsbyUh83tem2WSIHKsCyJwXnvG5Bio1VSMPDqFrFyTwzjICZE7fRWrMiVxyYpGsbQ86fTy2P%2FDUZjRR%2Fz58eGXO0BbIvPbQ6Ag0nHZ%2F0utpkX%2FdR6Hm6hEIQ1gicjXu10FJUF%2FATgLpe4%3D%22%2A%29%28%2A%5DVB%2A%29%7D`}</WLJSEditor>
+
+Now animate the solution
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"c2a1dc36-3228-474d-b264-ff43aca0ff86"} type={"Input"} opts={{}} >{`staircase%20%3D%20%0A%20Plot%5BClip%5BFloor%5B6%20-%20x%5D%2C%20%7B0%2C%20Infinity%7D%5D%2C%20%7Bx%2C%20-1%2C%2015%7D%2C%20Filling%20-%3E%200%2C%20%0A%20%20Exclusions%20-%3E%20None%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"2c35008e-f68d-4c8b-8857-7dd52bc91d6c"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22e15c088c-7209-47ef-ab18-9d1664f4be5b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxqaJhtYWCTrmhsZWOqamKem6SYmGVroWqYYmpmZpJkkpZomAQCAmBWu%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Animate a ball
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"62a0c7b4-1abc-4188-b19f-c0a70c32c97b"} type={"Input"} opts={{}} >{`Module%5B%7B%0A%20%20frame%20%3D%20CreateUUID%5B%5D%2C%0A%20%20pos%20%3D%20%7B0.%2C0.%7D%2C%0A%20%20t%20%3D%200.%0A%7D%2C%0A%20%20EventHandler%5Bframe%2C%20Function%5BNull%2C%0A%20%20%20%20pos%20%3D%20%23%5Bt%5D%20%26%2F%40%20trajectory%3B%0A%20%20%20%20t%20%3D%20If%5Bt%20%3E%3D%2015.0%2C%200.%2C%20t%20%2B%200.1%5D%3B%0A%20%20%5D%5D%3B%0A%0A%20%20Show%5Bstaircase%2C%20Graphics%5B%7B%0A%20%20%20%20%28%2AVB%5B%2A%29%28RGBColor%5B1%2C%200%2C%200%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeGJAIcndyzs%2FJLwouTyxJzghJzS3ISSxJTWMGyXMgyRcxgMEHeyiDgQHOAAALpBNd%22%2A%29%28%2A%5DVB%2A%29%2C%20Disk%5Bpos%20%2F%2F%20Offload%2C%200.12%5D%0A%20%20%7D%5D%2C%20Epilog-%3E%7B%0A%20%20%20%20AnimationFrameListener%5Bpos%20%2F%2F%20Offload%2C%20%22Event%22-%3Eframe%5D%0A%20%20%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"255f54ea-c2be-4936-bb68-029635fc5779"} id={"2b930522-c106-461e-8522-46872a46aa90"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%227347446e-0005-421d-bb87-19ab4cd80b82%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxubmJuYmKXqGhgYmOqaGBmm6CYlWZjrGlomJpkkp1gYJFkYAQBwjxUK%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>

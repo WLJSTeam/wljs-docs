@@ -1,0 +1,122 @@
+.heroBanner {
+    padding: 1rem 0;
+    text-align: center;
+    background-color: unset;
+    justify-content:center
+  }
+
+  .container {
+    text-align: left;
+    background-color: unset;
+    display: flex;
+    flex-direction: column;
+    border-radius:0.25rem;
+    margin-left:2rem;
+    margin-right:2rem;
+    padding-top:1rem;
+    width:40rem;
+  }
+
+
+  .specialGrow {
+
+    flex-grow: 0;
+    max-width: 55rem;
+    width: 37%;
+
+  }
+
+  @media screen and (width < 1230px) {
+
+
+    .heroBanner {
+        padding: 2rem 0;
+        text-align: center;
+        background-color: unset;
+        flex-wrap:wrap-reverse
+      }
+
+      .specialGrow {
+
+        flex-grow: 0;
+        max-width: 100%;
+        width: min-content;
+    
+      }
+
+      .container {
+        text-align: left;
+        background-color: unset;
+        display: flex;
+        flex-direction: column;
+        border-radius:0.25rem;
+        margin:0;
+        padding-top:1rem;
+        width: 100vw;
+      }
+    
+  }
+  
+  .buttons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    margin-left:auto;
+    margin-right:auto
+  }
+
+  .button {
+    border-radius: 4px;
+
+    width: 100%;
+    outline: 1px solid var(--ifm-background-surface-color);
+    text-align: left;
+    line-height: 1.2;
+    padding: 0.85rem 0.5rem 0.5rem;
+    background-color: var(--ifm-background-surface-color);
+    text-decoration: dotted !important;
+    color: var(--ifm-color-content) !important;
+  }
+  
+  .features {
+    padding: 2rem 0;
+  }
+  
+  .features h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .grid-container {
+    display:flex;
+  }
+
+ 
+
+
+  .typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+   
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: 
+      typing 1.5s steps(40, end)
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 20%; white-space:nowrap; }
+    to { width: 100%; white-space:normal; }
+  }
+
+  .fadeIn {
+    opacity: 1;
+    /*animation: fadeIn 1.5s ease-in forwards;*/
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
