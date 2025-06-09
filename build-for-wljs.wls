@@ -14,12 +14,3 @@ DeleteDirectory["blog", DeleteContents->True];
 DeleteDirectory["src/pages/wljs-demo", DeleteContents->True];*)
 
 Export["docusaurus.config.js", wljsConfig, "Text"];
-
-p = RunProcess["npm run build"];
-If[p["ExitCode"] =!= 0, 
-    Print[p["StandardError"] ]; 
-    Export["docusaurus.config.js", originalConfig, "Text"];
-    Exit[-1]; 
-];
-
-Export["docusaurus.config.js", originalConfig, "Text"];
