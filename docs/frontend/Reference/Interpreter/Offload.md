@@ -18,6 +18,10 @@ It has `HoldFirst` attribute.
 Please, see the tutorial [Dynamics](frontend/Dynamics.md)
 :::
 
+:::info
+Nested `Offload` is allowed
+:::
+
 ## Options
 ### `"Volatile"`
 Blocks or allows updates. Only normal evaluation will be allowed if it is set to `False`. The default values is `True`
@@ -31,26 +35,6 @@ Prevents or allows a parent instance to listen changes of an inner expression. T
 
 :::tip
 The typical case scenario is you don't want to create extra bondings between an objects and other dynamic symbols.
-
-For example
-
-```mathematica
-Line[{{0, a // Offload}, {1, a // Offload}}]
-```
-__Line will be reevalauted 2 times instead of 1__. 🔔 Since each instance of `a` causes the bond creation and reevaluation, once `a` has been changed.
-
-__Solution 1__ 👍🏼
-```mathematica
-Line[With[{p = a}, {{0, p}, {1, p}}] // Offload]
-```
-
-__Solution 2__ 👍🏼
-```mathematica
-Line[{{0, a // Offload}, {1, Offload[a, "Static"->True]}}]
-```
-
-
-
 :::
 
 ## Related
@@ -91,19 +75,3 @@ Graphics[{PointSize[0.02], Point[RandomReal[{-1,1}, {64, 2}] // Offload]}]
 ```
 
 Each time you load a notebook the distribution of the point will be different, since it reevaluate it on frontend's side each time.
-
-## Dev notes
-The actual implementation of the expression is extremely simple
-```mathematica
-SetAttributes[Offload, HoldFirst]
-```
-
-```js
-core.Offload = async (args, env) => {
-	return await intepretate(args[0], env)
-}
-core.Offload.update = core.Offload
-core.Offload.destroy = core.Offload
-```
-
-The difference from `Hold` is that it will not be affected by `ReleaseHold`.

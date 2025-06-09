@@ -115,7 +115,7 @@ colors = With[{mm = MinMax[probe[[All,3]]]},
 
 ```mathematica title="cell 2"
 Graphics3D[{
-  GraphicsComplex[probe // Offload, {Polygon[triangles]}, "VertexColors"->Offload[colors, "Static"->True]],
+  GraphicsComplex[probe // Offload, {Polygon[triangles]}, "VertexColors"->Offload[colors]],
 
   EventHandler[Sphere[{0,0,0}, 0.1], {"transform"->Function[data, With[{pos = data["position"]},
     probe = {#[[1]], #[[2]], f[#, pos]} &/@ samples // Chop;
@@ -201,7 +201,7 @@ LeakyModule[{
         
         GraphicsComplex[vertices // Offload, {
           Polygon[indices // Offload]
-        }, VertexNormals->Offload[normals, "Static"->True]]
+        }, VertexNormals->Offload[normals]]
         
       }, Lighting->None]
     } // Column // Panel 

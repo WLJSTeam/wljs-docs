@@ -1,0 +1,146 @@
+
+
+
+
+# Release notes *2.7.8*
+
+- **Performance**: Smarter WLJS interpreter avoids duplicate reevaluations in dynamic expressions.
+- **Graphics**: Added more 2D primitives; new `SVGGroup` supports grouped styling.
+- **Slides**: Refined `.slide` cell styles for cleaner presentations.
+- **Async**: `AsyncFunction` + `Await` simplify async logic; supports `If`, `Set`, `Module`, etc, but no loops yet.
+- **Animation Framework**: Functional 2D animation engine built on async; supports scenes, easing, object control.
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20.balloon%20%7B%0A%20%20height%3A%20125px%3B%0A%20%20width%3A%20105px%3B%0A%20%20border-radius%3A%2075%25%2075%25%2070%25%2070%25%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A.balloon%3Abefore%20%7B%0A%20%20content%3A%20%22%22%3B%0A%20%20height%3A%2075px%3B%0A%20%20width%3A%201px%3B%0A%20%20padding%3A%201px%3B%0A%20%20background-color%3A%20%23FDFD96%3B%0A%20%20display%3A%20block%3B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%20125px%3B%0A%20%20left%3A%200%3B%0A%20%20right%3A%200%3B%0A%20%20margin%3A%20auto%3B%0A%7D%0A%0A.balloon%3Aafter%20%7B%0A%20%20%20%20content%3A%20%22%E2%96%B2%22%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20display%3A%20block%3B%0A%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20color%3A%20inherit%3B%0A%20%20%20%20top%3A%20120px%3B%0A%20%20%20%20left%3A%200%3B%0A%20%20%20%20right%3A%200%3B%0A%20%20%20%20margin%3A%20auto%3B%0A%7D%0A%0A%40keyframes%20float%20%7B%0A%20%20from%20%7Btransform%3A%20translateY%28100vh%29%3B%0A%20%20opacity%3A%201%3B%7D%0A%20%20to%20%7Btransform%3A%20translateY%28-300vh%29%3B%0A%20%20opacity%3A%200%3B%7D%0A%7D%0A%23balloon-container%20%7B%0A%20%20height%3A%20100vh%3B%0A%20%20top%3A%200%3B%0A%20%20position%3Afixed%3B%0A%20%20bottom%3A%200%3B%0A%20%20z-index%3A%20-99%3B%20%20%0A%20%20padding%3A%201em%3B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20display%3A%20flex%3B%0A%20%20flex-wrap%3A%20wrap%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20transition%3A%20opacity%20500ms%3B%0A%7D%0A%3C%2Fstyle%3E%0A%0A%3Cdiv%20id%3D%22balloon-container%22%3E%0A%3C%2Fdiv%3E`}</WLJSHTML>
+
+
+<WLJSStore json={require('./attachments/1df55755-5f0e-45cd-90be-533a35e981d2.txt').default} notebook={require('./attachments/notebook-1df.wln').default}/>
+
+
+
+
+## Performance Optimizations
+> The WLJS Interpreter is a silent hero running in the browser, handling all interactivity, UI updates, the core of `ManipulatePlot`, and much more. It is essentially a tiny Wolfram Language interpreter.
+
+We optimized a subsystem responsible for dynamics to handle better such cases:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"bdae3d7a-30a1-42b3-889b-fbfaaa894706"} type={"Input"} opts={{}} >{`ov%20%3D%201.0%3B%0A%7BCircle%5B%5D%2C%20Line%5B%7B%7B0%2C0%7D%2C%20%7BSin%5Bov%5D%2C%20Cos%5Bov%5D%7D%20%2F%2F%20Offload%7D%5D%7D%20%2F%2F%20Graphics%20`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"19f09bb8-88d5-4eec-a2af-3600a356f773"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28Graphics%5B%7BCircle%5B%7B0%2C%200%7D%5D%2C%20Line%5B%7B%7B0%2C%200%7D%2C%20Offload%5B%7BSin%5Bov%5D%2C%20Cos%5Bov%5D%7D%5D%7D%5D%7D%2C%20ImageSize%20-%3E%20Small%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KWlMIB4HkHAvSizIyEwuhoiA5H0yi0sgqtmAhHNmUXJOKqpsJpBmABMIU30y89BU4dfDDiT809Jy8hNTsFnNDCSCM%2FOKQVL5ZQgx5%2FximBhcV1BpTmoxJ5DhmZuYnhqcWZVazArSnpuYkwMAQg4unA%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Before, each update of `ov` could cause __2x reevaluation__ of the `Line` primitive, which is a waste of resources. Now, our systems have become smarter and disregard the duplicates:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"d5e61309-75de-4d37-a75e-3b32cde37203"} type={"Input"} opts={{}} >{`ov%20%3D%20RandomReal%5B%7B0%2C2Pi%7D%5D%3B`}</WLJSEditor>
+
+## Better support of 2D graphics
+Even more supported primitives, modifiers!
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"76a9fd3e-992b-45e1-bbc5-67528328df18"} type={"Input"} opts={{}} >{`RadialAxisPlot%5B%7B%7B9%2C%207%2C%209%2C%205%2C%205%2C%207%7D%2C%20%7B6%2C%202%2C%203%2C%208%2C%208%2C%207%7D%2C%20%7B6%2C%208%2C%203%2C%204%2C%20%0A%20%20%201%2C%209%7D%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"ee8687ca-581e-49d7-b26f-4145559804e9"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22f343e8f9-f77e-43c1-b33b-2fcabc95147a%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxmbGKdapFnqppmbp%2BqaGCcb6iYZGyfpGqUlJyYlW5oampgnAgCK3RYJ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+### SVGGroup
+We intoroduce a new (with respect to Wolfram Language Library) element:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"13cdec9a-1cd7-4396-b3dd-08110f6d8516"} type={"Input"} opts={{}} >{`With%5B%7Bp%20%3D%20ContourPlot%5Bx%20y%2C%20%7Bx%2C0%2C1%7D%2C%20%7By%2C0%2C1%7D%5D%2F%2FFirst%7D%2C%0A%20%20Graphics%5B%7B%0A%20%20%20%20Pink%2C%20Disk%5B%5D%2C%20%7BOpacity%5B0.5%5D%2C%20Translate%5BSVGGroup%5Bp%5D%2C%20%7B0.05%2C0.05%7D%5D%7D%0A%20%20%7D%2C%20PlotRange-%3E%7B%7B0%2C1.05%7D%2C%20%7B0%2C1.05%7D%7D%5D%0A%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"f1820b0d-2d90-4d86-ab43-a7f875218dde"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22d34d9848-1b18-417a-96ab-95d8c2d25e07%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKpxibpFhamFjoGiYZWuiaGJon6lqaJSbpWpqmWCQbpRiZphqYAwB8ZhVQ%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+A standard library lacks tools for grouping primitives in order to apply the properties to the group container. Like transparency for example. The modified properties such as `RGBColor`, `Directive` will not affect the content of `SVGGroup`, which helps to isolate the styles.
+
+## Slides styles
+We refined the srtandard styles used for heading, titles and other sections on `.slide` cell type.
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"f116a2d2-4b70-4b08-b199-b349ce43481b"} type={"Input"} opts={{}} >{`.slide%0A%0A%3C%21--%20.slide%3A%20class%3D%22slide-standard%22%20--%3E%0A%0A%23%20Title%0A%0ASome%20text%0A`}</WLJSEditor>
+
+<WLJSEditor display={"slide"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"b3dd4717-c6ab-421b-bf7f-730c7878233a"} type={"Output"} opts={{}} >{`%3Cdummy%20%3E%0A%3C%21--%20.slide%3A%20class%3D%22slide-standard%22%20--%3E%0A%0A%23%20Title%0A%0ASome%20text%0A%3C%2Fdummy%3E`}</WLJSEditor>
+
+There is a shorthand class for standard PPT-like slides with left-aligned text and 100% height:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"394e346c-1fc4-434a-ab8a-b88adb805ee9"} type={"Input"} opts={{}} >{`.slide%0A%0A%3C%21--%20.slide%3A%20class%3D%22slide-standard%22%20--%3E`}</WLJSEditor>
+
+## Async functions
+We made a huge step in development of `Async` and `Promise` modules. `AsyncFunction` expression allows to write asynchronous sequential code avoiding callback hell. `AsyncFunction` and `Await` expressions and their concepts are built on top of promises:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"f1b4b61b-eb66-4a83-a420-f18711c0bca1"} type={"Input"} opts={{}} >{`temperature%20%3D%20%22%22%3B%0ATextView%5Btemperature%20%2F%2F%20Offload%5D%0AIf%5BKernels%5B%5D%20%3D%3D%20%7B%7D%2C%20LaunchKernels%5B1%5D%5D%3B%0A%0AAsyncFunction%5BNull%2C%20Module%5B%7Bresponse%7D%2C%0A%20%20temperature%20%3D%20%22Loading%22%3B%0A%20%20response%20%3D%20ParallelSubmitAsync%5BURLRead%5B%28%2AVB%5B%2A%29%28Uncompress%5B%221%3AeJwlx7EOgjAUBdD%2BigsbbVpkMSH8A64mptarkNC%2B5nHr9zN4tnN5yXJ%2FGGNWsh4352LdrFSUPoMQmyS7n3cfUaR4cN4jN7Y3pjHYMXS7lO%2F%2FfrBX36WmisKJyBUa2RTPkE%2B6nCL0%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNmYGAo5gUSYZmp5S6pyflFiSX5RcEcQBHP5Py8zKrUlMwKICeNCaSQBUgEleakBrMCGT6JSak5wSAhv%2Fy8VADrohJz%22%2A%29%28%2A%5DVB%2A%29%5D%5D%20%2F%2F%20Await%3B%0A%20%20temperature%20%3D%20ImportByteArray%5Bresponse%5B%22BodyByteArray%22%5D%2C%20%22RawJSON%22%5D%5B%22current%22%2C%20%22temperature_2m%22%5D%3B%0A%5D%5D%5B%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"cecd2e03-e8be-4793-98b0-7e94c33b3f1b"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%222a16bf93-2f13-4b32-ba46-798bc29795c8%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGyUamiWlWRrrGqUZGuuaJBkb6SYlmpjpmltaJCUbWZpbmiZbAAB%2FgBVN%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+## Heavy branching
+
+In this example we demonstrate __branching__, __assignments__ and compound expressions in asynchronous functions:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"d89140b4-0ecb-4639-bd5f-75e84ae98ef9"} type={"Input"} opts={{}} >{`p1%20%3D%20Promise%5B%5D%3B%0Ap2%20%3D%20Promise%5B%5D%3B%0Ap3%20%3D%20Promise%5B%5D%3B%0A%0Awin%20%3D%20CurrentWindow%5B%5D%3B%0A%0ASpeak%5B%22Let%27s%20see%20how%20it%20works%21%22%5D%3B%0APause%5B2.5%5D%3B%0A%0Af%20%3D%20AsyncFunction%5BNull%2C%20With%5B%7B%7D%2C%0A%20%20Speak%5B%22Press%20p1%22%2C%20%22Window%22-%3Ewin%5D%3B%0A%20%20p1%20%2F%2F%20Await%3B%0A%20%20Speak%5B%22Press%20p2A%20or%20p2B%22%2C%20%22Window%22-%3Ewin%5D%3B%0A%20%20Module%5B%7Bm%20%3D%20-100%7D%2C%0A%20%20%20%20m%20%3D%20Await%5Bp2%5D%3B%0A%20%20%20%20Speak%5B%22Pause%202%20seconds%22%2C%20%22Window%22-%3Ewin%5D%3B%0A%20%20%20%20PauseAsync%5B2%5D%20%2F%2F%20Await%3B%0A%20%20%20%20%0A%20%20%20%20If%5Bm%20%3E%204%2C%0A%20%20%20%20%20%20Speak%5B%22Press%20p3%22%2C%20%22Window%22-%3Ewin%5D%3B%0A%20%20%20%20%20%20m%20%3D%20Await%5Bp3%5D%3B%0A%20%20%20%20%5D%3B%0A%0A%20%20%20%20StringTemplate%5B%22Result%3A%20%60%60%22%5D%5Bm%5D%0A%20%20%5D%0A%5D%5D%3B%0A%0AThen%5Bf%5B%5D%2C%20Speak%5D%3B`}</WLJSEditor>
+
+To simulate async events here we use buttons
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"ab6f0e57-e86e-412b-a406-7f00b61a0769"} type={"Input"} opts={{}} >{`Button%5B%22p1%22%2C%20EventFire%5Bp1%2C%20Resolve%2C%20True%5D%5D%0AButton%5B%22p2A%22%2C%20EventFire%5Bp2%2C%20Resolve%2C%201%5D%5D%0AButton%5B%22p2B%22%2C%20EventFire%5Bp2%2C%20Resolve%2C%205%5D%5D%0AButton%5B%22p3%22%2C%20EventFire%5Bp3%2C%20Resolve%2C%2010%5D%5D`}</WLJSEditor>
+
+Writting this in a traditional way would lead straight to the callback hell.
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML><WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+## Limitations
+
+The following constructions are supported with `Await`:
+- `Set`
+- `CompoundExpression`
+- `If` 
+- `Module`, `With`
+- `_Symbol` or any other singular expressions
+
+What is not supported (by now)
+- Loops: `While`, `For`, `Do`
+- Tables and maps: `Map`, `Table`
+
+Please read the documentation for more examples.
+
+## Animation Framework 🌈
+__AF__ is a build-in library for creating complex event-driven 2D animations in a functional style. You create all necessary primitives by yourself  combining well-known expressions of Wolfram Language.
+
+<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML><WLJSHTML>{`%3Cdetails%20%3E%3Csummary%20%3E%0A%20%20%20%20Created%20using%20__AF__%0A%20%20%3C%2Fsummary%3E%3Ciframe%20width%3D%22720%22%20height%3D%22576%22%20src%3D%22https%3A%2F%2Fwww.youtube.com%2Fembed%2FvTrVGam84m8%22%20title%3D%22YouTube%20video%20player%22%20frameborder%3D%220%22%20allow%3D%22accelerometer%3B%20autoplay%3B%20clipboard-write%3B%20encrypted-media%3B%20gyroscope%3B%20picture-in-picture%22%3E%3C%2Fiframe%3E%3C%2Fdetails%3E`}</WLJSHTML><WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+The framework is entirely based on `AsyncFunction` and `Offload` acting as a wrapper. You may also use GUI helper tools such as a timeline __if you want__:
+
+
+![](attachments/TimelineAnimation-ezgif.com-optimize-2d4.gif)
+
+Or record a voice over right in-place.
+
+:::info
+See tutorials in the documentation on our website in `Advanced` section
+:::
+
+## Basic example
+Here is how you can make an animation quickly using WL primitives as building blocks
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"e1ea0974-e487-4454-bb5f-09a60ee51a21"} type={"Input"} opts={{}} >{`Needs%5B%22AnimationFramework%60%22%20-%3E%20%22af%60%22%5D%20%2F%2F%20Quiet`}</WLJSEditor>
+
+Create a scene:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"f1c7b3ac-68b6-4710-a18c-6df4dda8caf0"} type={"Input"} opts={{}} >{`s%20%3D%20af%60Scene%5B%5D%3B%0AFramed%5Bs%5D`}</WLJSEditor>
+
+Run animation
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"0da41170-fd10-4c2e-bc8a-70b447d24cbc"} type={"Input"} opts={{}} >{`AsyncFunction%5Bscene%2C%20Module%5B%7Bd%7D%2C%0A%20%20d%20%3D%20af%60AddTo%5Bscene%2C%20Disk%5B%23pos%2C%200.1%5D%2C%20%7B%0A%20%20%20%20%22pos%22%20-%3E%20%7B-1%2C0%7D%0A%20%20%7D%5D%3B%0A%0A%20%20af%60Animate%5Bscene%2C%20d%2C%20%22pos%22-%3E%7B1%2C0%7D%2C%20%22QuadOut%22%2C%201.5%5D%20%2F%2F%20Await%3B%0A%20%20%0A%20%20af%60Remove%5Bd%5D%3B%0A%5D%5D%5Bs%5D%3B`}</WLJSEditor>
+
+And that's all you need. Here is another example with two objects:
+
+<WLJSEditor display={"codemirror"} nid={"1df55755-5f0e-45cd-90be-533a35e981d2"} id={"614f25bf-a0d0-4f3c-95be-3d802ece89b3"} type={"Input"} opts={{"Fade":true}} >{`AsyncFunction%5Bscene%2C%20Module%5B%7Bd%2Cr%7D%2C%0A%20%20r%20%3D%20af%60AddTo%5Bscene%2C%20%7BRed%2C%20Translate%5BRotate%5B%0A%20%20%20%20%20%20Rectangle%5B0.2%7B-1%2C-1%7D%2C%200.2%7B1%2C1%7D%5D%0A%20%20%2C%20%23angle%5D%2C%20%23pos%5D%7D%2C%20%7B%0A%20%20%20%20%22pos%22%20-%3E%20%7B1.5%2C1.5%7D%2C%0A%20%20%20%20%22angle%22%20-%3E%200.%0A%20%20%7D%5D%3B%20%20%0A%0A%20%20d%20%3D%20af%60AddTo%5Bscene%2C%20%7BBlue%2C%20Disk%5B%23pos%2C%200.1%5D%7D%2C%20%7B%0A%20%20%20%20%22pos%22%20-%3E%20%7B-1.5%2C0%7D%0A%20%20%7D%5D%3B%0A%0A%20%20%7B%0A%20%20%20%20af%60Animate%5Bscene%2C%20d%2C%20%22pos%22-%3E%7B0%2C0%7D%2C%20%22QuadOut%22%2C%201.5%5D%2C%0A%20%20%20%20af%60Animate%5Bscene%2C%20r%2C%20%7B%0A%20%20%20%20%20%20%22pos%22-%3E%7B0%2C0%7D%2C%20%22angle%22-%3E2Pi%0A%20%20%20%20%7D%2C%20%22QuadOut%22%2C%201.5%5D%0A%20%20%7D%2F%2F%20Await%3B%0A%20%20%0A%20%20af%60Remove%5Bd%5D%3B%0A%20%20af%60Remove%5Br%5D%3B%0A%5D%5D%5Bs%5D%3B`}</WLJSEditor>
+
+To make more complex animations we also provide:
+
+- easing functions;
+- workers;
+- loops;
+
+and many more.
+
+---
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20img%20%7B%0A%20%20%20%20border-radius%3A%200.5rem%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>

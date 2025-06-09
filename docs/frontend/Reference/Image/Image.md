@@ -8,7 +8,7 @@ source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/kernel.js
 Represents a raster image and plots the list of pixel's colors to a canvas used in notebooks
 
 ```mathematica
-Image[{row1_List, row2_List...} | n_NumericArray, encoding_:"Real32"]
+Image[{row1_List, row2_List..} | n_NumericArray, encoding_:"Real32"]
 ```
 
 where each `row` is a list of pixel colors. It it better to pass `NumericArray` for the best performance.

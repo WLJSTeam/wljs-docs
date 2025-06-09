@@ -75,6 +75,24 @@ Use the projector feature:
 to show slides in a separate window.
 :::
 
+## PPT-like slide style
+By the default slides are centered and its height depends on the content, you can set the class for a slide to get more PPT-like layout:
+
+```markdown
+.slide
+
+<!-- .slide: class="slide-standard" -->
+
+# Title
+
+Content
+```
+
+![](./../../../Screenshot%202025-06-06%20at%2013.33.40.png)
+
+Here:
+- text is aligned to the left side
+- slide height is fixed to 100%
 
 ## Layout
 This method is not opinionated about how you organize content on a slide. By default, titles marked with `#`, `##`, etc., are centered and rendered with standard HTML `h1`, `h2`, etc. tags. Paragraphs are wrapped in `p` tags behind the scenes.

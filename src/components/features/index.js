@@ -168,7 +168,7 @@ t // TableView`}</CodeMirror>
     ),
     description: (
       <>
-        Turn a notebook into a <a href="/frontend/Exporting/Standalone Widgets.md">small app</a> or <a href="/frontend/Advanced/Manipulating Notebooks/Import notebook.md">a library</a> without the hassle of custom frontends, deployment, namespaces and packaging
+        Turn a notebook into a <a href="/frontend/Exporting/Mini Apps.md">mini app</a> or <a href="/frontend/Advanced/Manipulating Notebooks/Import notebook.md">a library</a> without the hassle of custom frontends, deployment, namespaces and packaging
       </>
     ),
   },

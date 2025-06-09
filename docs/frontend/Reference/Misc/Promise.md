@@ -12,6 +12,10 @@ To resolve or reject a promise - use [`EventFire`](frontend/Reference/Misc/Event
 EventFire[p_Promise, Resolve | Reject, data_]
 ```
 
+:::info
+`Promise` is actively used in __async functions__. See more at [Async](frontend/Reference/Misc/Async.md)
+:::
+
 ## `Then`
 An expression for asynchronous subscribing to promise resolution or rejection
 
@@ -28,7 +32,19 @@ The key difference between [`EventHandler`](frontend/Reference/Misc/Events.md#`E
 
 Being applied to a `List` of `_Promise` objects it will wait until all of them are resolved before evaluating `resolve` function.
 
-Any Wolfram Expressions, which is not a `List` or `Promise` __counts as resolved__.
+Any Wolfram Expressions, which is not a `List` of `Promise` __counts as resolved__, i.e. this is valid
+
+```mathematica
+Then[1+1, Function[result, Print]];
+```
+
+```mathematica
+p = Promise[];
+
+Then[{1+1, p}, Function[result, Print]];
+Pause[3];
+EventFire[p, Resolve, 43];
+```
 
 ### Example
 Let's try with a multiple promise events
@@ -46,6 +62,13 @@ Then[{p1,p2,Null}, Function[Null,
 ```
 
 Here `Null` as a last element of a list was used just for demonstration purposes. It can also be any non `_Promise | _List` expression.
+
+### Relation to EventObject
+```mathematica
+Then[e_EventObject, resolve_]
+```
+
+It effectively assigns an event handler to `e` and calls `resolve` on __any pattern captured__. 
 
 ## `WaitAll`
 A __synchronous blocking function__ to wait until a promise has resolved and returns the result

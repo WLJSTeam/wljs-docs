@@ -1,10 +1,9 @@
 ---
 env:
   - WLJS
-update: 
+update: true
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/Kernel.wl
 package: wljs-graphics-d3
-
 ---
 Allows to directly set SVG attribute to a 2D graphics object
 ```mathematica
@@ -25,3 +24,17 @@ Graphics[
 
 <Wl >{`Graphics[SVGAttribute[Line[{{-1,-1}, {1,1}}], "stroke-dasharray"->"3"], ImageSize->500]`}</Wl>
 
+Make it blurry
+
+```mathematica
+Graphics[
+	SVGAttribute[
+		SVGGroup[{
+			Red, Disk[{0,0}, 0.5],
+			Blue, Line[{{-1,-1}, {1,1}}]
+		}]
+	, "style"->"filter: blur(10px)"]
+]
+```
+
+![](./../../../Screenshot%202025-06-03%20at%2011.38.32.png)

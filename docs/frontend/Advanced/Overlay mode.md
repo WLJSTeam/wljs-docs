@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 WLJS Notebook App registers a global shortcut to provide instant access to a floating bar with an empty input cell. This floating input cell does not belong to any notebook but functions like a normal one.
 
 ![](./../../Screenshot%202024-08-25%20at%2016.52.14.png)

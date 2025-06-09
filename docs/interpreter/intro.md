@@ -29,7 +29,7 @@ This is not meant for the heavy computations, pattern matching is missing as wel
 :::
 
 *Symbolic computing is not possible*
-*Only `JSONExpression` format is supported* 
+*Only `ExpressionJSON` format is supported* 
 
 ## Quick start
 To run a sandbox you need to have only `wolframscript`, `nodejs` and any modern browser installed

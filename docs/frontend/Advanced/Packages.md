@@ -1,3 +1,7 @@
+---
+sidebar_position: 12
+---
+
 __By default, the following packages **are loaded into the Kernel on startup**__
 
 ### Wolfram Language Packages

@@ -80,7 +80,7 @@ Common equation editing shortcuts:
 - `Ctrl-/` – fraction
 - `Ctrl--` – subscript
 - `Ctrl-6` – superscript
-- `ESC + ..` – Greek letters
+- `ESC + ..` – Greek letters (pick from autocomplete)
 - `Ctrl-=` - Semantic interpretation
 
 Editor shortcuts:

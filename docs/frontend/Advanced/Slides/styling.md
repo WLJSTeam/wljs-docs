@@ -120,8 +120,22 @@ Here `slide` is applied to an entire slide, while `element` is localized to the 
 ## Misc
 
 
+
 ### Align things on a slide
 There are many ways on how to do that, here is one of the examples
+
+#### Standard slide
+To use PPT-like layout: __text left__, __content height 100%__ use a shortcut with a special class predefined in WLJS Notebook
+
+```markdown
+.slide
+
+<!-- .slide: class="slide-standard" -->
+
+# Title
+
+Content
+```
 
 #### Local style
 Define your own class inside slide or outside in [HTML](frontend/Cell%20types/HTML.md) cell for example

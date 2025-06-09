@@ -19,6 +19,24 @@ To generate a new unique object, one can also use this constructor
 newEvent = EventObject[]
 ```
 
+*string equivalent*
+```mathematica
+newEvent = CreateUUID[]
+```
+
+To define `EventObject` with a provided Id
+
+```mathematica
+existingEvent = EventObject["eventId"]
+```
+
+*string equivalent*
+```mathematica
+existingEvent = "eventId"
+```
+
+
+
 ### `"Initial"`
 Stores initial data, which makes sense if an event object was produced by some sliders, toggle switches or other UI elements. 
 

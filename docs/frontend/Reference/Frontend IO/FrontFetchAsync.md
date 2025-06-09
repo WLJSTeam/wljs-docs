@@ -19,7 +19,8 @@ specifies a window socket, to which an expression will be sent. Use [CurrentWind
 
 ### `"Format"`
 The default expression form used to import raw data acquired from the frontend. It effectively applies `ImportString` on raw JSON data. The possible values
-- `"JSON"` (*the default*)
+- `"RawJSON"` (*the default*)
+- `"JSON"`
 - `"ExpressionJSON"`
 - `"Raw"` bypasses parser and returns a string
 

@@ -6,7 +6,7 @@ package: wljs-graphics-d3
 source: https://github.com/JerryI/wljs-graphics-d3/blob/dev/src/kernel.js
 ---
 ```mathematica
-Rectangle[{xmin_, ymin_}, {xmax_, ymax_}]
+Rectangle[{xmin_, ymin_}, {xmax_, ymax_}, opts___]
 ```
 
 represents a basic rectangle
@@ -16,6 +16,11 @@ Graphics[{Red, Rectangle[{0, 0}], Blue, Rectangle[{0.5, 0.5}]}]
 ```
 
 <Wl >{`Graphics[{Red, Rectangle[{0, 0}], Blue, Rectangle[{0.5, 0.5}]}]`}</Wl>
+
+
+## Options
+### `RoundingRadius`
+Accepts `_Real | _Integer` or a list of values for X and Y rounding.  By the default is `0`. It uses printer points.
 
 
 ## Parameters

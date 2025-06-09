@@ -7,7 +7,7 @@ draft: false
 ## Post processing on frontend
 For instance you are passing some symbol `vec` to `Graphics` primitive and would like to change the order of elements or rescale it.
 
-The naive approach ❌
+__Good approach__ 👍🏼
 
 ```mathematica
 vec = {1,1};
@@ -18,9 +18,11 @@ Graphics[{
 ```
 ![](./../../../Screenshot%202025-05-09%20at%2010.10.55.png)
 
-This will still work, but inefficient. Each update of `vec` will cause **3 subsequent reevaluation of Arrow primitive**.
+This will work, but will be slightly inefficient when it comes to large arrays of data or multiple copies of `Arrow`. 
 
-Try to minimize to a single instance of `vec` ✅
+Try to minimize to a single instance of `vec` :
+
+__Best approach__ 👌
 
 ```mathematica
 vec = {1,1};
@@ -30,12 +32,12 @@ Graphics[{
 }]
 ```
 
-Then if you set `vec = RandomReal[{0,1}, 2]` it will **only cause 1 revaluation** of `Arrow`.
+Then if you set `vec = RandomReal[{0,1}, 2]` it will **only cause 1 revaluation** of `vec` instance.
 
 *Think of an onion from the Shrek movie!*
 
 <details>
-<summary>Another possible wrong solution</summary>
+<summary>Possible wrong solution</summary>
 
 You might try to do the following ❌
 
@@ -75,6 +77,9 @@ Graphics[{
 
 It will still work, but it depends how you update `pos` and `radius`. If they are completely independent in terms on time it makes sense to couple them to `Disk` equally.
 
+<details>
+<summary>Optimization</summary>
+
 However, if you always update `pos` and `radius` **at the same time**, you might rewrite it as follows ✅
 
 ```mathematica
@@ -83,7 +88,7 @@ Graphics[{
 }]
 ```
 
-It might be misleading, but here setting a new value to `radius` won't cause re-evaluation of `Disk`, but `pos` will. It does not mean, that new values of `radius` are not in-sync with the frontend, only re-evaluation is not triggered. Then you can update two as
+It might be misleading, but here setting a new value to `radius` won't cause re-evaluation of `Disk`. Then you can update two as
 
 ```mathematica
 radius = newRadius; (* only sync *)
@@ -91,6 +96,8 @@ pos = newPos; (* sync + re-evalaution of Disk *)
 ```
 
 Here order matters, if you flip it `Disk` might still use `radius` values from the previous update (1 step lagging behind `pos`). 
+
+</details>
 
 ## Tables of data
 You can explicitly choose what will be interpreted on the frontend or backend. There are a few possibilities for our function inside the `Line` expression.

@@ -13,26 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Slides/Slides.md",
+                "file": "frontend/Advanced/Animation Framework/Animation Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Slides"
+              "title": "Animation Framework"
             }
           },
           {
-            "id": "ddfd43395dc6d1df",
+            "id": "3b2971a92786269d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Cell types/Markdown.md",
+                "file": "frontend/Advanced/Animation Framework/Timeline.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Markdown"
+              "title": "Timeline"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Reference/Formatting/Bra.md",
+                "file": "frontend/Advanced/Animation Framework/Reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bra"
+              "title": "Reference"
             }
           },
           {
@@ -75,7 +75,8 @@
               "title": "Drawing 2025-02-08 23.24.35.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -107,7 +108,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Markdown",
+                "query": "async",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -128,8 +129,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -233,53 +233,52 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "169c9c88173f07a3",
+  "active": "3b2971a92786269d",
   "lastOpenFiles": [
-    "frontend/Cell types/Markdown.md",
-    "frontend/Importing/Markdown.md",
-    "frontend/Advanced/Command palette/Templates.md",
-    "frontend/Advanced/Slides/Slides.md",
-    "frontend/Advanced/Slides/Styling.md",
-    "frontend/Advanced/Styling.md",
-    "frontend/Reference/GUI/EditorView.md",
-    "Screenshot 2025-05-29 at 08.32.01.png",
-    "frontend/Advanced/Dynamics/Scoping.md",
-    "frontend/Exporting/Dynamic HTML.md",
-    "frontend/Dynamics.md",
-    "manupualtetetet-ezgif.com-video-to-gif-converter.gif",
-    "frontend/instruction.md",
-    "frontend/Advanced/Packages.md",
+    "frontend/Advanced/Animation Framework/Animation Framework.md",
+    "frontend/Advanced/Animation Framework/Tutorial.md",
+    "TimelineAnimation-ezgif.com-optimize.gif",
+    "frontend/Advanced/Events system/Asynchronous Functions.md",
+    "frontend/Advanced/Animation Framework/Timeline.md",
+    "Screenshot 2025-06-09 at 10.15.21.png",
+    "frontend/Advanced/Animation Framework/Reference.md",
     "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
-    "frontend/Reference/GUI/Animate.md",
-    "frontend/Reference/Plotting Functions/ManipulatePlot.md",
-    "frontend/Reference/Plotting Functions/ManipulateParametricPlot.md",
-    "frontend/Reference/GUI/Manipulate.md",
-    "frontend/Reference/Cells and Notebook/CellPrint.md",
+    "frontend/Development/Plugins/Structure.md",
+    "frontend/Development/API/REST-HTTP.md",
+    "frontend/Development/API/REST.md",
+    "frontend/Exporting/MDX.md",
+    "interpreter/intro.md",
+    "interpreter/Extras/implementation.md",
+    "frontend/Reference/Frontend IO/FrontFetchAsync.md",
+    "frontend/Exporting/Files.md",
+    "frontend/Importing/Files.md",
+    "frontend/Development/FAQ.md",
+    "frontend/Development/Expressions rendering.md",
+    "bganim-ezgif.com-optimize.gif",
+    "frontend/Reference/Misc/Async.md",
+    "frontend/Advanced/Animation Framework/Recording.md",
+    "frontend/Advanced/Animation Framework/Prototyping.md",
+    "workers-ezgif.com-video-to-gif-converter.gif",
+    "stop2-ezgif.com-video-to-gif-converter.gif",
+    "stop1-ezgif.com-video-to-gif-converter.gif",
+    "frontend/Reference/Formatting/Bra.md",
+    "sliders-ezgif.com-optimize.gif",
+    "rectangle-ezgif.com-video-to-gif-converter.gif",
+    "annya-ezgif.com-video-to-gif-converter.gif",
+    "hello-ezgif.com-video-to-gif-converter.gif",
+    "TimelineAnimation.mp4",
+    "frontend/Advanced/Events system/Dynamic symbols generation.md",
+    "frontend/Advanced/Events system/Cells and windows.md",
+    "frontend/Advanced/Slides/animations.md",
+    "frontend/Advanced/Slides/Styling.md",
+    "frontend/Advanced/Animation Framework",
     "tutor5.mp4",
     "Tutor3.mp4",
-    "frontend/Reference/Plotly/PlotlyRestyle.md",
-    "frontend/Reference/GUI/MMAView.md",
-    "frontend/Reference/GUI/InputButton.md",
-    "frontend/Development/Rendering composition.md",
     "Example with Animate.mp4",
-    "5193032764637704507.jpg",
-    "5193032764637704505.jpg",
-    "5193032764637704506.jpg",
     "frontend/Advanced/Mini apps/Multi-window/index.mdx",
     "Multiwindow-example.wlw",
-    "windowsdemo-ezgif.com-video-to-gif-converter.gif",
     "frontend/Advanced/Mini apps/Multi-window/attachments/notebook-798.wln",
     "frontend/Advanced/Mini apps/Multi-window/attachments/7985ca69-abc8-4429-83a5-86b12828f55f.txt",
-    "frontend/Advanced/Mini apps/index.mdx",
-    "frontend/Advanced/Mini apps/attachments/notebook-798.wln",
-    "frontend/Advanced/Mini apps/attachments/7985ca69-abc8-4429-83a5-86b12828f55f.txt",
-    "frontend/Reference/Slides/SlideEventListener.md",
-    "frontend/Reference/Cells and Notebook/RemoteCellObj.md",
-    "frontend/Advanced/Dynamics/Animation.md",
-    "AnimateExample-ezgif.com-video-to-gif-converter.gif",
-    "frontend/Reference/Formatting/TeXForm.md",
-    "Screenshot 2025-05-22 at 19.08.07.png",
-    "Screenshot 2025-05-22 at 19.07.26.png",
-    "bubbleseasy-ezgif.com-video-to-gif-converter.gif"
+    "frontend/Advanced/Mini apps/index.mdx"
   ]
 }

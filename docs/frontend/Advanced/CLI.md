@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 WLJS Notebook app registers (if you allowed this during the installation) CLI-tool globally in your operating system.
 
 Here is a list of commands you can use

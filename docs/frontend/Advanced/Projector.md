@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 There is an option to unpin the output cell to a new window.
 
 ![](./../../Screenshot%202024-08-25%20at%2017.09.18.png)

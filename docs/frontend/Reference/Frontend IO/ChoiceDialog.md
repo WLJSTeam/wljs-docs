@@ -19,6 +19,25 @@ includes buttons with labels `labeli` and returns `valuei` if clicked. Labels an
 It will use [StandardForm](frontend/Reference/Formatting/StandardForm.md) for displaying expressions
 :::
 
+## Examples
+Confirm action
+
+```mathematica
+ChoiceDialog["Ok or not Ok?"]
+```
+
+Choose from the list of expressions
+
+```mathematica
+ChoiceDialog["Choose the Date", {Now->Now, Now + Quantity[1, "Days"] -> Now + Quantity[1, "Days"]}]
+```
+
+Choose from the list of labels
+
+```mathematica
+ChoiceDialog["Choose the Date", {"Now"->Now, "Tomorrow" -> Now + Quantity[1, "Days"]}]
+```
+
 ## Options
 In a case of a lost context provide 
 

@@ -358,7 +358,7 @@ Module[{
         SpotLight[Green, 5 {1,-1,1}], PointLight[Magenta, {10,10,10}],
         GraphicsComplex[vertices // Offload, {
           Polygon[indices // Offload]
-        }, VertexNormals->Offload[normals, "Static"->True]]
+        }, VertexNormals->Offload[normals]]
       }, Lighting->None]
     } // Column // Panel 
 ]

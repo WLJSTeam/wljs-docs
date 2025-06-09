@@ -1,3 +1,7 @@
+---
+sidebar_position: 13
+---
+
 
 Notebook UI is styled using Tailwind CSS framework, however, there are predefined empty CSS classes for certain elements:
 

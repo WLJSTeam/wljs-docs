@@ -45,6 +45,17 @@ Disposes created group (s)
 Delete[_FrontInstanceGroup | __FrontInstanceGroup]
 ```
 
+### `FrontInstanceGroupRemove`
+Akin to `Delete` but allows to specify the window
+
+```mathematica
+FrontInstanceGroupRemove[_FrontInstanceGroup | __FrontInstanceGroup | {__FrontInstanceGroup}, opts___]
+```
+
+where `opts` can be
+
+#### `"Window"`
+By the default is [CurrentWindow](frontend/Reference/Frontend%20IO/CurrentWindow.md)
 
 ## Example
 The common use case is to be able to add and remove groups of expressions from the some frontend instance. For example to add and then remove primitives from a plot
