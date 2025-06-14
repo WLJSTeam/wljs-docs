@@ -16,8 +16,8 @@ Here is our data
 
 <div class="justify-center flex flex-row ml-auto mr-auto">
 
-<Stat Count={128}>Label 1</Stat>
-<Stat Count={256}>Label 2</Stat>
+<StatCounter Count={128}>Label 1</Stat>
+<StatCounter Count={256}>Label 2</Stat>
 
 </div>
 ```

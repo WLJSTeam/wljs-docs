@@ -416,7 +416,7 @@ Let us try to use it with a defined output forms
 gameOfLife = {224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 1}};
 board = RandomInteger[1, {40, 40}];
 
-MyFunction /: MakeBoxes[m_MyFunction, StandardForm | WLXForm] := ViewBox[m,m]
+MyFunction /: MakeBoxes[m_MyFunction, StandardForm] := ViewBox[m,m]
 ```
 
 and then create out first instance
@@ -501,7 +501,7 @@ If you copy and paste any expressions from the given examples to a normal text e
 What if the inner expressions are too big to be displayed? For example [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md) can include 10000 of polygons. To cope with this problem you can wrap it into [Frontend Objects](frontend/Advanced/Frontend%20interpretation/Frontend%20Objects.md), i.e.
 
 ```mathematica
-MyFunction /: MakeBoxes[m_MyFunction, StandardForm | WLXForm] := With[{
+MyFunction /: MakeBoxes[m_MyFunction, StandardForm] := With[{
 	o = CreateFrontEndObject[m]
 }, 
 	ViewBox[Null, o]

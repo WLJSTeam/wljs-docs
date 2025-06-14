@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "169c9c88173f07a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "frontend/Advanced/Animation Framework/Animation Framework.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Animation Framework"
-            }
-          },
-          {
             "id": "3b2971a92786269d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Animation Framework/Timeline.md",
+                "file": "frontend/Advanced/Animation Framework/Prototyping.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Timeline"
+              "title": "Prototyping"
             }
           },
           {
@@ -41,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Animation Framework/Reference.md",
+                "file": "frontend/Advanced/Syntax sugar/Output forms.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reference"
+              "title": "Output forms"
             }
           },
           {
@@ -75,8 +61,7 @@
               "title": "Drawing 2025-02-08 23.24.35.excalidraw"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "async",
+                "query": "Scroll",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -235,42 +220,43 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
+    "frontend/Dynamics.md",
+    "Screenshot 2025-06-14 at 13.31.03 1.png",
     "frontend/Advanced/Animation Framework/Animation Framework.md",
-    "frontend/Advanced/Animation Framework/Tutorial.md",
-    "TimelineAnimation-ezgif.com-optimize.gif",
-    "frontend/Advanced/Events system/Asynchronous Functions.md",
-    "frontend/Advanced/Animation Framework/Timeline.md",
-    "Screenshot 2025-06-09 at 10.15.21.png",
-    "frontend/Advanced/Animation Framework/Reference.md",
-    "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
-    "frontend/Development/Plugins/Structure.md",
-    "frontend/Development/API/REST-HTTP.md",
-    "frontend/Development/API/REST.md",
-    "frontend/Exporting/MDX.md",
-    "interpreter/intro.md",
-    "interpreter/Extras/implementation.md",
-    "frontend/Reference/Frontend IO/FrontFetchAsync.md",
-    "frontend/Exporting/Files.md",
-    "frontend/Importing/Files.md",
-    "frontend/Development/FAQ.md",
-    "frontend/Development/Expressions rendering.md",
-    "bganim-ezgif.com-optimize.gif",
-    "frontend/Reference/Misc/Async.md",
-    "frontend/Advanced/Animation Framework/Recording.md",
+    "Screenshot 2025-06-14 at 13.31.03.png",
     "frontend/Advanced/Animation Framework/Prototyping.md",
-    "workers-ezgif.com-video-to-gif-converter.gif",
-    "stop2-ezgif.com-video-to-gif-converter.gif",
-    "stop1-ezgif.com-video-to-gif-converter.gif",
-    "frontend/Reference/Formatting/Bra.md",
-    "sliders-ezgif.com-optimize.gif",
-    "rectangle-ezgif.com-video-to-gif-converter.gif",
-    "annya-ezgif.com-video-to-gif-converter.gif",
-    "hello-ezgif.com-video-to-gif-converter.gif",
-    "TimelineAnimation.mp4",
-    "frontend/Advanced/Events system/Dynamic symbols generation.md",
-    "frontend/Advanced/Events system/Cells and windows.md",
-    "frontend/Advanced/Slides/animations.md",
+    "drag-ezgif.com-optimize.gif",
+    "frontend/Command palette.md",
+    "gizmo-ezgif.com-optimize.gif",
+    "Screenshot 2025-06-14 at 13.16.40.png",
+    "Screenshot 2025-06-14 at 13.16.14.png",
+    "Screenshot 2025-06-14 at 13.14.29.png",
+    "frontend/Advanced/Syntax sugar/Output forms.md",
+    "frontend/Advanced/Syntax sugar/Decorating symbols.md",
+    "frontend/Advanced/Animation Framework/Reference.md",
+    "frontend/Advanced/Animation Framework/Tutorial.md",
+    "frontend/Advanced/Animation Framework/Timeline.md",
+    "frontend/Advanced/Animation Framework/Recording.md",
+    "frontend/Reference/Graphics/SVGGroup.md",
+    "shooting-ezgif.com-optimize.gif",
     "frontend/Advanced/Slides/Styling.md",
+    "frontend/Advanced/Components library/Stats counter.md",
+    "frontend/Advanced/CLI.md",
+    "frontend/Cell types/WLX.md",
+    "Screenshot 2025-06-12 at 20.41.27.png",
+    "Screenshot 2025-06-12 at 20.37.37.png",
+    "frontend/Reference/Formatting/Low-level/InterpretationBox.md",
+    "frontend/Reference/Formatting/StandardForm.md",
+    "frontend/Cell types/Many more.md",
+    "frontend/Cell types/Markdown.md",
+    "frontend/Reference/Formatting/WLXForm.md",
+    "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
+    "frontend/Reference/Slides/SlideEventListener.md",
+    "frontend/Reference/Formatting/MakeBoxes.md",
+    "frontend/Reference/Graphics3D/Graphics3D.md",
+    "frontend/Reference/Graphics/Graphics.md",
+    "frontend/Reference/Frontend Objects/CreateFrontEndObject.md",
+    "TimelineAnimation.mp4",
     "frontend/Advanced/Animation Framework",
     "tutor5.mp4",
     "Tutor3.mp4",

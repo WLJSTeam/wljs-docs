@@ -211,6 +211,19 @@ The standard Power Point's slide content alignment can be achieved using
 Content
 ```
 
+### How to escape tags
+To escape any XML-like tags inside WLX cell use `Escape` keyword:
+
+```jsx
+.slide
+
+# Heading
+
+<Escape>
+	It won't be parsed by WLX
+</Escape>
+```
+
 ## Images
 RevealJS uses standard Markdown image syntax:
 

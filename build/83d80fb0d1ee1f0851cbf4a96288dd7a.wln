@@ -1,0 +1,462 @@
+<|"Notebook" -> <|"Controller" -> "9539cf46-4913-4e66-96a2-bb2fbe47c36d", 
+   "FocusedCell" -> CoffeeLiqueur`Notebook`Cells`CellObj[
+     CoffeeLiqueur`Notebook`Cells`CellObj`$42], "HaveToSaveAs" -> False, 
+   "MessangerChannel" -> Messanger, "ModalsChannel" -> 
+    "d4bd7013-2fb6-421d-a34b-3385f3e7076e", 
+   "Objects" -> <|"7d87834b-90f8-41e8-8392-f8b43c713a0e" -> 
+      <|"Public" -> Hold[Graphics[{{RGBColor[1, 0.5, 0], 
+            {Rectangle[{-8, 0}, {-7, Offload[2*rectangleBins[[1]]]}], 
+             Rectangle[{-7, 0}, {-6, Offload[2*rectangleBins[[2]]]}], 
+             Rectangle[{-6, 0}, {-5, Offload[2*rectangleBins[[3]]]}], 
+             Rectangle[{-5, 0}, {-4, Offload[2*rectangleBins[[4]]]}], 
+             Rectangle[{-4, 0}, {-3, Offload[2*rectangleBins[[5]]]}], 
+             Rectangle[{-3, 0}, {-2, Offload[2*rectangleBins[[6]]]}], 
+             Rectangle[{-2, 0}, {-1, Offload[2*rectangleBins[[7]]]}], 
+             Rectangle[{-1, 0}, {0, Offload[2*rectangleBins[[8]]]}], 
+             Rectangle[{0, 0}, {1, Offload[2*rectangleBins[[9]]]}], 
+             Rectangle[{1, 0}, {2, Offload[2*rectangleBins[[10]]]}], 
+             Rectangle[{2, 0}, {3, Offload[2*rectangleBins[[11]]]}], 
+             Rectangle[{3, 0}, {4, Offload[2*rectangleBins[[12]]]}], 
+             Rectangle[{4, 0}, {5, Offload[2*rectangleBins[[13]]]}], 
+             Rectangle[{5, 0}, {6, Offload[2*rectangleBins[[14]]]}], 
+             Rectangle[{6, 0}, {7, Offload[2*rectangleBins[[15]]]}], 
+             Rectangle[{7, 0}, {8, Offload[2*rectangleBins[[16]]]}], 
+             Rectangle[{8, 0}, {9, Offload[2*rectangleBins[[17]]]}]}}, 
+           {{GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-15, 0}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-14.5, 1}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-14, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-13.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-13, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-12.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-12, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-11.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-11, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-14, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-13.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-13, 2}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-12.5, 3}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-12, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-11.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-11, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-10.5, 7}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-10, 8}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-13, 0}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-12.5, 1}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-12, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-11.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-11, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-10.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-10, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-9.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-9, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-12, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-11.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-11, 2}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-10.5, 3}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-10, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-9.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-9, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-8.5, 7}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-8, 8}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-11, 0}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-10.5, 1}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-10, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-9.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-9, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-8.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-8, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-7.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-7, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-10, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-9.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-9, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-8.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-8, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-7.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-7, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-6.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-6, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-9, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-8.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-8, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-7.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-7, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-6.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-6, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-5.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-5, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-8, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-7.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-7, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-6.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-6, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-5.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-5, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-4.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-4, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-7, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-6.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-6, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-5.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-5, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-4.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-4, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-3.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-3, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-6, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-5.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-5, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-4.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-4, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-3.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-3, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-2.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-2, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-5, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-4.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-4, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-3.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-3, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-2.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-2, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-1.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-1, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-4, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-3.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-3, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-2.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-2, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-1.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-1, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-0.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-3, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-2.5, 1}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-2, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-1.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-1, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-0.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{0, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{0.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{1, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{-2, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{-1.5, 1}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{-1, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-0.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0.5, 5}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{1, 6}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{1.5, 7}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{2, 8}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-1, 0}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{-0.5, 1}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0, 2}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0.5, 3}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{1, 4}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{1.5, 5}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{2, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{2.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{3, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{0.5, 1}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{1, 2}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{1.5, 3}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{2, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{2.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{3, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{3.5, 7}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{4, 8}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{1, 0}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{1.5, 1}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{2, 2}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{2.5, 3}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{3, 4}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{3.5, 5}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{4, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{4.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{5, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{2, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{2.5, 1}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{3, 2}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{3.5, 3}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{4, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{4.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{5, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{5.5, 7}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{6, 8}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{3, 0}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{3.5, 1}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{4, 2}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{4.5, 3}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{5, 4}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{5.5, 5}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{6, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{6.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{7, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{4, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{4.5, 1}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{5, 2}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{5.5, 3}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{6, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{6.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{7, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{7.5, 7}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{8, 8}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{5, 0}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{5.5, 1}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{6, 2}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{6.5, 3}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{7, 4}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{7.5, 5}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{8, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{8.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{9, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{6, 0}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{6.5, 1}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{7, 2}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{7.5, 3}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{8, 4}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{8.5, 5}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{9, 6}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{9.5, 7}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{10, 8}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{7, 0}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{7.5, 1}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{8, 2}, 0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{8.5, 3}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{9, 4}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{9.5, 5}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{10, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{10.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{11, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{8, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{8.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{9, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{9.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{10, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{10.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{11, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{11.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{12, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{9, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{9.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{10, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{10.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{11, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{11.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{12, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{12.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{13, 8}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{10, 0}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{10.5, 1}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{11, 2}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{11.5, 3}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{12, 4}, 0.25]}, {GrayLevel[0.85], EdgeForm[
+              GrayLevel[0.5]], Disk[{12.5, 5}, 0.25]}, {GrayLevel[0.85], 
+             EdgeForm[GrayLevel[0.5]], Disk[{13, 6}, 0.25]}, 
+            {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], Disk[{13.5, 7}, 
+              0.25]}, {GrayLevel[0.85], EdgeForm[GrayLevel[0.5]], 
+             Disk[{14, 8}, 0.25]}}, {PointSize[0.02], Opacity[0.8], 
+            RGBColor[0, 0, 1], Point[Offload[visPositions]]}, 
+           AnimationFrameListener[Offload[visPositions], 
+            "Event" -> "frameEvent"]}, AspectRatio -> 0.5, 
+          PlotRange -> {{-10, 10}, {0, 10}}, PlotRangeClipping -> True, 
+          ImageSize -> Large, TransitionType -> None]]|>|>, 
+   "Path" -> "/Users/kirill/Github/wljs-demos-archive/Demos/Animation/C - \
+Galton Board.wln", "PublicFields" -> {"Properties"}, "Quick" -> True, 
+   "Symbols" -> <|"rectangleBins" -> 
+      CoffeeLiqueur`Extensions`FrontendObject`Tools`ExtractJSON["JTVCMCUyQzAl\
+MkMwJTJDMCUyQzAuMTI1JTJDMC41NjI1JTJDMSUyQzAuNTYyNSUyQzAuODEyNSUyQzAuNjI1JTJDM\
+C4xMjUlMkMwLjEyNSUyQzAlMkMwJTJDMCUyQzAlMkMwLjAwMDYyNSU1RA=="], 
+     "visPositions" -> 
+      CoffeeLiqueur`Extensions`FrontendObject`Tools`ExtractJSONCompressed["eJ\
+w1lYeNI0kMRRPSNehNLIvNP417bGkxgEbqZtF8w/rz5z95zNx7LH1kZlf7o09apG5lbkZK2d/PH3l\
+qKof3cv9G7MPZadNq43emOmGcVUvzjOCVanzsUduYzSZdu8ebbJo4K5Htq18UpZGt1ggfUkwSR3uy\
+Y2oiUaSt1CRherR0CAl9Ui8jkS6mOXElzHW7aVDdRVxFet96F0mlmAsgY2/vEpdt1V1lVCv3tzZ1x\
+pvaSQYq5TUZpZJdoRnWbhfIaa3Iql6jS/P6+BNanu2xUz5U+caN2XjykarUJaxXpiToNprOv/1pmT\
+CKKYRYFf1FeilRYAMj34n1oRfiAL6s6MY/8SjUBXzw3EKOOOJkrE3G+SzAvHnFIM7XtZK3P1xa8kh\
+Pgfz2zJtXp2z4RB25+47RcJLAAvP0HK8QrBXWNFoBq+3mtQeaGKABi3qjMOeMwMNOwBZK/Jjzjg3L\
+N5AOSQgHEwgNKGhG+zqEzqFC2Or1zPk5rSIXeKLB3YWEN1ACrSQ5HRQQ3wRgpzHrUNptkeSB6A9Ss\
+aHoeMF93MgHkpKdpJIvhKdX0EMZodfr5GF4MlWgoc+g9o87gw70cmbJd2RHfyYuBSlTL9TMt3KSYW\
+zMtB5BQjjET1nYAaz1R4qgwgm6QyK4jLit4YeorKO4ONHYIxq+O6eIKdKhch+X5Tu9SdZhrY8XKu8\
+s5S8IJe50D0D4BFmT4at9zhVYgzRuLnMCMTqP6JZ+GhV+A5EkUqJmlvDmEnIAfYCqK9D/ENRkWmwX\
+bIHRVj8j62ko9Szu9bZ4kUgkPDCn+A11lsdqeLAxGNad+UKTbI9kY7A2MK7frnG+YQjkcEttTg0wi\
+h8G0MAGzSFYf77w9+trpvn6mLXQMKQ0BBjsuRMNTfQ7B0P2lxQoWNRqpRCAyrw/yaKiP1YdUNDP/p\
+tlIDcJUxA77+NRaBS8eRiuvCvkBMZaYcYKwwiKwOJxPT/gphm28M2MsFmFtXkNoWZAns887JhbSX7\
+P+Pad5ex53GFQtnYRhm+z4RPtwOvJhv50ullISKfoay8dA2FnRI2joP63hxX5sjOPZ3wRe3WFMBLS\
+EZO/y4vCchlBln1tu0Eck986HE7Py93VFRZqDoLnKfwRZgANdBOn6i/H1GWd3O6eRcfMWJ89SwDWl\
+LIE7Hs5gQqq8VtmdA7xThzmB7+Zkx53w28zDOPTv3I38Iawmz8xcS/q+idCwYwBiMO2OZAYRNlzOJ\
+WzkM4a/t5kXE3omoIODYi0g5RMAHfFHco3PxW+Kdlj0nfZst9jArOABECcjJLmff9NbSCFKe/2umV\
+rb3EI5+4595w7f+PAQac7WNMIN+NFwo+CIUJkDNO/f/8H/zOnzg=="]|>, 
+   "TOC" -> {CoffeeLiqueur`Extensions`TOC`Private`heading[1, "Galton Board", 
+      CoffeeLiqueur`Notebook`Cells`CellObj[
+       CoffeeLiqueur`Notebook`Cells`CellObj`$37]]}|>, 
+ "Cells" -> {<|"Data" -> ".md\n# Galton Board\nAdapted example by [Gabriel \
+Lemieux](https://www.wolframcloud.com/obj/gabriel.lemieux/Published/GaltonBoa\
+rd.nb) (2025)\n\n> The Galton Board notebook simulates the behavior of a \
+physical Galton board\[LongDash]a device that demonstrates the Central Limit \
+Theorem using a grid of pegs and falling balls that bounce randomly to form a \
+bell-shaped distribution.", "Display" -> "codemirror", 
+    "Hash" -> "8dcb555f-0105-460e-9c65-69ce1dc3420c", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "# Galton Board\nAdapted example by [Gabriel \
+Lemieux](https://www.wolframcloud.com/obj/gabriel.lemieux/Published/GaltonBoa\
+rd.nb) (2025)\n\n> The Galton Board notebook simulates the behavior of a \
+physical Galton board\[LongDash]a device that demonstrates the Central Limit \
+Theorem using a grid of pegs and falling balls that bounce randomly to form a \
+bell-shaped distribution.", "Display" -> "markdown", 
+    "Hash" -> "8c93eb10-71a6-4795-a3e1-31e7068e978a", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "(*BB[*)(* Initialization \
+*)(*,*)(*\"1:eJxTTMoPSmNhYGAo5gcSAUX5ZZkpqSn+BSWZ+XnFaYwgCS4g4Zyfm5uaV+KUXxEM\
+Uqxsbm6exgSSBPGCSnNSg9mAjOCSosy8dLBYSFFpKpoKkDkeqYkpEFXBILO1sCgJSczMQVYCAOFrJ\
+EU=\"*)(*]BB*)\nClearAll[ball, pos, mom, bins, peg];\n\nball = <|\n  r -> \
+0.1,         (* Radius of the ball *)\n  n -> 50          (* Number of \
+simultaneous balls *)\n|>;\n\npeg = <|\n  r -> 0.25         (* Radius of the \
+pegs *)\n|>;\n\nsim = <|\n  \\[CapitalDelta]t -> 0.05,    (* Higher Value \
+need to correct collision positions *)\n  \\[Epsilon] -> 0.4,           (* \
+1.0 means all energy back in the ball *)\n  g -> {0, -9.81},             (* \
+You can tilt the board *)\n  n -> 300                    (* Total Number of \
+Balls *)\n|>;\n\n(* Initialize Position and Momentum Matrices *)\nrandomBall \
+:= {RandomReal[{-0.05, 0.05}], RandomReal[{0, 1}] + 10};\nball[pos] = \
+Table[randomBall, ball[n]];\nball[mom] = Table[0, ball[n], 2];\nball[bins] = \
+{};\n\n(* positions of bin rectangles : only for visualizaiton \
+*)\nrectangleBins = Table[0.01, {i,-8,8,1}];\n\n(* Peg position *)\npeg[pos] \
+= Flatten[Table[{ii + 0.5 jj, jj}, {ii, -15, 10}, {jj, 0, 8}], \
+1];\n\nvisPositions = ball[pos];\n\nsimulateNext[] := With[{},\n  (* Step \
+*)\n  (* Scheme: Backward Euler *)\n\n  (* Next Step Momentum *)\n  ball[mom] \
++= Threaded[sim[\\[CapitalDelta]t] sim[g]];\n\n  (* Next Position Prediction \
+*)\n  next = ball[pos] + sim[\\[CapitalDelta]t] ball[mom];\n\n  (* Distance: \
+Do not parallelize, it's already in the algo. *)\n  dist = \
+DistanceMatrix[next, peg[pos]];\n\n  (* Collisions between current and future \
+step *)\n  col = MapIndexed[\n    {v, i} |-> {\n      SelectFirst[v, (# < \
+ball[r] + peg[r]) & -> \"Index\"], i[[1]]\n    } /. ({Missing[_], _} -> \
+Nothing),\n    dist\n  ];\n\n  (* Correct Momentum to include collisions *)\n \
+ If[Length[col] > 1,\n    {\n      up, val\n    } = Transpose[\n       \
+MapApply[\n        {p, b} |-> {\n          b,\n          sim[\\[Epsilon]] * \
+Norm[ball[mom][[b]]] Normalize[next[[b]] - peg[pos][[p]]]\n        },\n       \
+ col\n      ]\n    ];\n    momt = ball[mom];\n    momt[[up]] = val;\n    \
+ball[mom] = momt;\n  ];\n\n  (* Update pos with corrected momentum *)\n  \
+ball[pos] += sim[\\[CapitalDelta]t] ball[mom];\n\n  (* Filter through the \
+balls, remove/reset and register those exiting *)\n  exited = \
+Select[ball[pos], #[[2]] < 0 & -> \"Index\"];\n  ingame = Select[ball[pos], \
+#[[2]] > 0 & -> \"Index\"];\n  \n  If[Length[exited] > 0,\n    ball[bins] = \
+Join[ball[bins], ball[pos][[exited, 1]]]\n  ];\n\n  (* Remove them from the \
+pos and mom matrices *) \n  ball[pos] = ball[pos][[ingame]];\n  ball[mom] = \
+ball[mom][[ingame]];\n\n  (* Insert new ball *)\n  left = sim[n] - \
+Length[ball[bins]] - Length[ball[pos]];\n  toAdd = Min[left, ball[n] - \
+Length[ball[pos]]];\n  Do[\n    AppendTo[ball[pos], randomBall];\n    \
+AppendTo[ball[mom], {0, 0}],\n    toAdd\n  ];\n\n  (* Update visible \
+positions *)\n  visPositions = ball[pos];\n\n  (* Update bins *)\n  \
+If[Length[ball[bins]] > 5,  With[{h = HistogramList[ball[bins], {-8, 8, \
+1}]},\n    rectangleBins = Rescale @ ReplacePart[\n        \
+ConstantArray[0.01, Length@h[[1]]],           (* 17 entries at .01 *)\n       \
+ Thread[Most@h[[1]] + 9 -> h[[2]]]              (* now integers \
+1,2,\[Ellipsis]16 *)\n      ]\n  ]];\n];", "Display" -> "codemirror", 
+    "Hash" -> "341eaf74-68f4-4ba4-948e-424d05abe339", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"InitGroup" -> True, "Fade" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> ".md\nDisplay function:", "Display" -> "codemirror", 
+    "Hash" -> "7bb59ac5-7d91-42b5-acf7-737699ec44e1", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "Display function:", "Display" -> "markdown", 
+    "Hash" -> "16408bee-7d5c-4d9c-a161-143f24ca4408", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "Graphics[{\n\n  {Orange, Table[With[{i=i, j=i+9},\n    \
+Rectangle[{i,0}, {i+1, 2.0 rectangleBins[[j]] // Offload}]\n  ], \
+{i,-8,8,1}]},\n\n  {LightGray, EdgeForm[Gray], Disk[{#1, #2}, peg[r]]} & @@@ \
+peg[pos],\n  {PointSize[0.02], Opacity[0.8], Blue, Point[visPositions // \
+Offload]},\n  \n  AnimationFrameListener[visPositions // Offload, \
+\"Event\"->\"frameEvent\"]\n},\n  AspectRatio -> 0.5,\n  PlotRange -> {10 \
+{-1, 1}, 10 {0, 1}},\n  PlotRangeClipping -> True,\n  ImageSize -> Large,\n  \
+TransitionType->None\n]\n\nEventHandler[\"frameEvent\", Function[Null,\n  \
+If[Length[ball[pos]] > 0, simulateNext[] ];\n]];", "Display" -> "codemirror", 
+    "Hash" -> "d0b3e9bc-6b7a-4790-bb17-b6e58ea0b995", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "(*VB[*)(FrontEndRef[\"7d87834b-90f8-41e8-8392-f8b43c713a0e\"]\
+)(*,*)(*\"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6dYm\
+FsYmyTpWhqkWeiaGKZa6FoYWxrpplkkmRgnmxsaJxqkAgB4rxUo\"*)(*]VB*)", 
+    "Display" -> "codemirror", "Hash" -> 
+     "dba1bee2-869e-422e-8482-34815703c9d6", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> ".md\nTo reset the model run:", "Display" -> "codemirror", 
+    "Hash" -> "cff77f7a-d4c0-4746-bc0b-19651231a89b", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <|"Hidden" -> True|>, 
+    "PublicFields" -> {"Properties"}, "State" -> "Idle", "Type" -> "Input", 
+    "UID" -> Null, "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "To reset the model run:", "Display" -> "markdown", 
+    "Hash" -> "f972d97e-09a6-4551-91ec-02db10772d46", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Output", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>, 
+   <|"Data" -> "randomBall := {RandomReal[{-0.05, 0.05}], RandomReal[{0, 1}] \
++ 10};\nball[pos] = Table[randomBall, ball[n]];\nball[mom] = Table[0, \
+ball[n], 2];\nball[bins] = {};\nvisPositions = ball[pos];\n\nrectangleBins = \
+Table[0.01, {i,-8,8,1}];", "Display" -> "codemirror", 
+    "Hash" -> "b11557cd-1dcf-4ed2-99cb-258a4a5c5c10", "Invisible" -> False, 
+    "MetaOnly" -> False, "Props" -> <||>, "PublicFields" -> {"Properties"}, 
+    "State" -> "Idle", "Type" -> "Input", "UID" -> Null, 
+    "Notebook" -> "490156c5-537f-4c82-b877-c28f6478e3ad"|>}, 
+ "serializer" -> "jsfn4"|>

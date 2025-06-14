@@ -32,6 +32,18 @@ Table[
 There is no need in writing `(*funny comments*)` and etc. manually, this is a representation of cell's elements (Boxes) from a normal WL editor. __Just copy the text from it__  (input/output cell)
 :::
 
+:::tip
+Use `<Escape>` tag to escape XML-like expressions:
+
+```mathematica
+<Escape>
+	<div></div>
+</Escape>
+```
+
+The inner content will not be parsed and is returned as string
+:::
+
 ## Source code
 Copy and paste it into an input cell
 ```jsx

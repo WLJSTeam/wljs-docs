@@ -110,8 +110,12 @@ length = 0.5;
 
 Note: The binding here is between `Rectangle` and `length`, not the whole `Graphics` expression. Learn more in the advanced section of the documentation.
 
-:::danger
-Not all functions support dynamic updates. Check the __Reference__ to confirm whether a function supports updates.
+:::warning
+Not all primitives or their properties support dynamics. Check the __Reference__ section to confirm:
+
+![](./../Screenshot%202025-06-14%20at%2013.31.03%201.png)
+
+Please, open an issue on Github page if you need more support of these features
 :::
 
 ## Event-Based Approach

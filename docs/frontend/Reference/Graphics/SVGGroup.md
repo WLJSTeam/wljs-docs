@@ -25,3 +25,6 @@ o = 0.1;
 ```
 
 Here `Opacity` is applied to a container, but does not affect opacity of inner objects.
+
+### Z-ordering
+If you dynamically add primitives to [Graphics](frontend/Reference/Graphics/Graphics.md), by adding them to `SVGGroup` can help you to control z-order with respect to other groups.

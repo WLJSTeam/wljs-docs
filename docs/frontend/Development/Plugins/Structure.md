@@ -35,10 +35,11 @@ This is standard package declaration file from NodeJS, but modified with extra f
   "version": "<X.Y.Z>",
   "description": "<short-description>",
   "wljs-meta": {
-    "js": "dist/kernel.js", //will be injected to HEAD
-    "minjs": "dist/kernel.min.js", //will used when exported to HTML
-    "kernel": "src/Kernel.wl", //loaded to Evaluation Kernel
-    "frontend": "src/Frontend.wl", //loaded to Main Kernel
+    "js": "dist/kernel.js" | Array<string>, //will be injected to HEAD
+    "minjs": "dist/kernel.min.js" | Array<string>, //will used when exported to HTML
+    "kernel": "src/Kernel.wl" | Array<string>, //loaded to Evaluation Kernel
+    "deferred": "src/package" | Array<string>, //will be exposed to PATH of Evaluation Kernel
+    "frontend": "src/Frontend.wl" | Array<string>, //loaded to Main Kernel
     "category": "<catergory-name>",
     "priority": 5000, 
     "menu": [ //top-menu items
@@ -65,6 +66,7 @@ This is standard package declaration file from NodeJS, but modified with extra f
 
 All fields inside `wljs-meta` are optional, there is no need in putting all listed in the example above.
 
+It is worth to note, that `deferred` can be used to load paclets or standard Wolfram Packages to Evaluation Kernel, since the content will not be loaded to the kernel, but only exposed to be required later by `Needs`.
 
 :::warning
 Documentation is not yet complete. Please open on issue on Github for us to prioritize this direction.

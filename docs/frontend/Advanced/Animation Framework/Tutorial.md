@@ -15,9 +15,6 @@ s = af`Scene[];
 Framed[s]
 ```
 
-:::tip
-Use [Projector](frontend/Advanced/Projector.md) to output this cell to a separate window
-:::
 
 ### Animation Flow
 All animations on the scene should follows the pattern:

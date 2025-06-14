@@ -275,7 +275,13 @@ const FeatureList = [
             <div className={styles.badgeHolder}>
             <span className={styles.badge} style={{background: 'var(--ifm-color-warning-light)'}}>Animated</span>
             </div>                  
-          </li>       
+          </li>   
+
+          <li className={styles.featureLi}>
+            <Link className={styles.featureLink}  to={"/wljs-demo/mix-hljs"}><b>Highlight.js</b> with slides and Markdown</Link>   
+            <div className={styles.badgeHolder}>
+            </div>                  
+          </li>     
         </ul>
 
          

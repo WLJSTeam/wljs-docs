@@ -1,0 +1,9 @@
+{
+"objects":[
+	"Association",
+	["Rule","'39642a5b-f8c5-4616-84c3-7dc13faab5ad'",["Hold",["HLJSView","'\n#include <stdio.h>\n\nint main() {\n    int *ptr;  \/\/ Declaring a pointer, but not initializing it\n\n    *ptr = 42; \/\/ 🔫 Writing to an uninitialized pointer — undefined behavior!\n\n    printf(\"Value at ptr: %d\\n\", *ptr);\n\n    return 0;\n}\n'","'c'"]]]
+], 
+"symbols":[
+	"Association"
+]
+}

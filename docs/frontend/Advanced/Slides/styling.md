@@ -197,14 +197,36 @@ Use native HTML5 tag for it
 
 ![](./../../../Screenshot%202024-09-03%20at%2009.16.28.png)
 
-### Scroll bar
+### Scrollable slide
 If the content is too large, but you still want to keep it on a single slide, one can tune the settings for a slide element
 
 ```md
 .slide
 
-<!-- .slide: style="height:100%; overflow-y:scroll" -->
+<!-- .slide: class="slide-standard-scroll" -->
 
+## Title
+
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+
+<br/><br/><br/>
+...large content goes
+
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
+...large content goes
+<br/><br/><br/>
 ...large content goes
 
 ```

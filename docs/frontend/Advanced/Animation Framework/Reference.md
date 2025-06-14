@@ -328,6 +328,9 @@ layer = af`Layer[scene, {
 af`AddTo[layer, Table[{RandomColor[], Disk[RandomReal[{-0.2,0.2},2], 0.05]}, {10}]];
 ```
 
+### Z-ordering
+To preserve z-order of your primitives, one can use `Layer` together with [SVGGroup](frontend/Reference/Graphics/SVGGroup.md). 
+
 ### Supported methods
 - [AddTo](#AddTo)
 - [Update](#Update)

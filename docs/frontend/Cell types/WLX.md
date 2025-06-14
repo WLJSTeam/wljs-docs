@@ -2,7 +2,7 @@
 
 > Type `.wlx` in the first line of an input cell
 
-This allows you to use [Wolfram Language XML](https://jerryi.github.io/wlx-docs/docs/Reference/WLX/) in your cell. It's especially useful when creating complex cell structures or enhancing them with the power of HTML, CSS, and JavaScript.
+This allows you to use [Wolfram Language XML](https://jerryi.github.io/wlx-docs/docs/Reference/WLX/) in your cell. It's extremely powerful and especially useful when creating complex cell structures or enhancing them with the power of HTML, CSS, and JavaScript.
 
 ## Embed Figures into a Custom Layout
 Plot a figure into a symbol **starting with a capital letter**:
@@ -61,6 +61,18 @@ You can now use it in your layout:
 Leverage the power of WLX when making [Slides](frontend/Cell%20types/Slides.md).
 :::
 
+:::info
+Use `<Escape>` tag to escape XML-like expressions:
+
+```mathematica
+<Escape>
+	<Div>It won't be parsed by WLX</Div>
+</Escape>
+```
+
+The inner content will not be parsed and is returned as string
+:::
+
 All WL expressions **are accessible from within WLX**:
 
 ```jsx
@@ -91,3 +103,4 @@ Module[{Slider = InputRange[0.1, 1, 0.1, 0.5], Figure, lines},
 ```
 
 ![](./../../WLXwidget-ezgif.com-video-to-apng-converter.png)
+
