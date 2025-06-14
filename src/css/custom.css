@@ -2803,6 +2803,18 @@ padding-bottom: 0.75rem;
   line-height:1.25;
 }
 
+.slide-standard {
+  height:100vh !important; 
+  text-align:left !important;
+}
+
+.slide-standard-scroll {
+  text-align:left !important;
+  height:100% !important; 
+  text-align:left; 
+  overflow-y:scroll
+}
+
 .reveal p {font-size: 1.75rem; /* 16px */line-height: 1.15; /* 24px */}
 
 .cursor-dot,.cursor-dot-outline{pointer-events:none;position:absolute;top:0;left:0;border-radius:50%;opacity:0;transform:translate(-50%,-50%);transition:opacity 0.3s ease-in-out,transform 0.3s ease-in-out;}.cursor-dot{width:12px;height:12px;background-color:rgb(0, 255, 162);z-index:1;}.no-cursor{cursor:none;}.no-cursor a,.no-cursor div,.no-cursor span{cursor:none;}
