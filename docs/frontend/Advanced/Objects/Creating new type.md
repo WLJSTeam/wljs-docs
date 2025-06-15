@@ -46,10 +46,10 @@ See the full guide from Kirill Belov on *Objects* core package at [Wolfam Commun
 There is no need in installing *Objects* paclet. This is already a part of WLJS Notebook Kernel
 :::
 
-Time to define sort of *methods* of created types. It is based solely on `TagSet` technique widely used in Wolfram Language
+Time to define sort of *methods* of created types:
 
 ```mathematica
-StateMachine /: StateMachineChange[s_StateMachine, state_Integer] := With[{},
+StateMachineChange[s_StateMachine, state_Integer] := With[{},
   s["State"] = state;
   s
 ]
@@ -70,17 +70,40 @@ machine["State"]
 1
 ```
 
-In a case if you want an experience close to traditional OOP, one can utilize contexts
+### Namespaces (Optional)
+In a case if you want to use reserved symbol names (or possible reserved in the future) such as `Update` or `Change` directly - use namespaces aka context separation:
 
 ```mathematica
-StateMachine /: StateMachine`Change[s_StateMachine, state_Integer] := With[{},
+CreateType[StateMachine`StateMachine, init, {"State"->1}]
+init[o_] := o["UId"] = CreateUUID[];
+
+StateMachine`Change[s_StateMachine`StateMachine, state_Integer] := With[{},
   s["State"] = state;
   s
 ]
+
+StateMachine`Delete[s_StateMachine`StateMachine] := With[{},
+  DeleteObject[s]
+]
 ```
 
+Then make an alias:
+
 ```mathematica
-StateMachine`Change[machine, 1];
+$ContextAliases["s`"] = "StateMachine`";
+```
+
+:::tip
+If you make it into a Wolfram Package later you can import it using `Needs` as following
+
+```mathematica
+Needs["StateMachine`" -> "s`"]
+```
+:::
+
+```mathematica
+machine = s`StateMachine[];
+s`Change[machine, 1];
 machine["State"]
 ```
 
@@ -101,7 +124,7 @@ StateMachine /: EventRemove[s_StateMachine] := EventRemove[s["UId"]]
 To notify all subscribers we need to modify our method of settings the state
 
 ```mathematica
-StateMachine /: StateMachineChange[s_StateMachine, state_Integer] := With[{},
+StateMachineChange[s_StateMachine, state_Integer] := With[{},
   s["State"] = state;
   EventFire[s, "State", state]; (* THIS LINE *)
   s

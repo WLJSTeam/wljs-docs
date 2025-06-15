@@ -4,13 +4,28 @@ sidebar_position: 2
 
 
 :::info
-A ready-to-go example is available in [this repository](https://github.com/JerryI/wljs-plugin-example-2). Clone it to `<AppData>/wljs-notebook/wljs_packages` using:
+A ready-to-go example is available in [this repository](https://github.com/JerryI/wljs-plugin-example-2). 
+
+__Option 1__:
+Open `Settings` menu and paste 
+
+```
+https://github.com/JerryI/wljs-plugin-example-2
+```
+
+To the following box:
+
+![](./../../../../Screenshot%202025-06-15%20at%2012.37.10.png)
+
+
+__Option 2__:
+Clone it to `<AppData>/wljs-notebook/wljs_packages` using:
 
 ```bash
 git clone https://github.com/JerryI/wljs-plugin-example-2
 ```
 
-Then restart WLJS Notebook.
+Then restart WLJS Notebook and click `Update` in the launcher menu or click check updates from the *settings menu*.
 :::
 
 In this short tutorial, we will discuss how to add a basic UI element to the WLJS Notebook interface and cover some fundamentals of cell evaluation. In general, we need to create a package for the *main kernel*.
@@ -22,11 +37,7 @@ This tutorial will cover:
 - Adding a native top-menu button that duplicates the action of the UI button.
 
 ## Preparations
-Use the [wljs-plugin-template](https://github.com/JerryI/wljs-plugin-template) to create a new repository, then clone it to the `<AppData>/wljs-notebook/wljs_packages` folder. For example:
-
-```bash
-git clone https://github.com/JerryI/wljs-plugin-example-2
-```
+Use [wljs-plugin-template](https://github.com/JerryI/wljs-plugin-template) template and create a new repository or use a ready-to-go example given in the heading of this tutorial.
 
 Next, edit the contents of `package.json`:
 

@@ -3,13 +3,28 @@ sidebar_position: 1
 ---
 
 :::info
-A ready to-go example is in [this repository](https://github.com/JerryI/wljs-plugin-example-1), Clone it to `<AppData>/wljs-notebook/wljs_packages`
+A ready to-go example is in [this repository](https://github.com/JerryI/wljs-plugin-example-1)
+
+__Option 1__:
+Open `Settings` menu and paste 
+
+```
+https://github.com/JerryI/wljs-plugin-example-1
+```
+
+To the following box:
+
+![](./../../../../Screenshot%202025-06-15%20at%2012.37.10.png)
+
+
+__Option 2__:
+Clone it to `<AppData>/wljs-notebook/wljs_packages` using:
 
 ```bash
 git clone https://github.com/JerryI/wljs-plugin-example-1
 ```
 
-and restart WLJS Notebook
+Then restart WLJS Notebook and click `Update` in the launcher menu or click check updates from the *settings menu*.
 :::
 
 Here is the simples example on what you can do with extensions. Why not to add [ApexCharts](https://apexcharts.com/)? They looks beautiful and already animated. What we need
@@ -22,11 +37,7 @@ __Summary__ what will be done
 - Javascript module, which renders the content of `ApexCharts` expression
 
 ## Preparations
-Use [wljs-plugin-template](https://github.com/JerryI/wljs-plugin-template) template and create a new repository. Then clone new repository to `<AppData>/wljs-notebook/wljs_packages` folder. For example
-
-```bash
-git clone https://github.com/JerryI/wljs-plugin-example-1
-```
+Use [wljs-plugin-template](https://github.com/JerryI/wljs-plugin-template) template and create a new repository or use a ready-to-go example given in the heading of this tutorial.
 
 Then edit the content of `package.json`
 

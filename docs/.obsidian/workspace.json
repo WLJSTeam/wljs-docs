@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Animation Framework/Prototyping.md",
+                "file": "frontend/Advanced/Objects/Creating new type.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prototyping"
+              "title": "Creating new type"
             }
           },
           {
@@ -93,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Scroll",
+                "query": "CreateType",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -114,7 +114,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -220,12 +221,17 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
+    "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
+    "frontend/Development/Plugins/Examples/New cell type and Kernel evaluation.md",
+    "frontend/Development/Plugins/Examples/Javascript library functions.md",
+    "Screenshot 2025-06-15 at 12.37.10.png",
+    "frontend/Development/Plugins/Structure.md",
+    "frontend/Advanced/Animation Framework/Prototyping.md",
     "rounding-ezgif.com-optimize.gif",
     "frontend/Dynamics.md",
     "Screenshot 2025-06-14 at 13.31.03 1.png",
     "frontend/Advanced/Animation Framework/Animation Framework.md",
     "Screenshot 2025-06-14 at 13.31.03.png",
-    "frontend/Advanced/Animation Framework/Prototyping.md",
     "drag-ezgif.com-optimize.gif",
     "frontend/Command palette.md",
     "gizmo-ezgif.com-optimize.gif",
@@ -244,8 +250,6 @@
     "frontend/Advanced/Components library/Stats counter.md",
     "frontend/Advanced/CLI.md",
     "frontend/Cell types/WLX.md",
-    "Screenshot 2025-06-12 at 20.41.27.png",
-    "Screenshot 2025-06-12 at 20.37.37.png",
     "frontend/Reference/Formatting/Low-level/InterpretationBox.md",
     "frontend/Reference/Formatting/StandardForm.md",
     "frontend/Cell types/Many more.md",
@@ -253,9 +257,6 @@
     "frontend/Reference/Formatting/WLXForm.md",
     "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
     "frontend/Reference/Slides/SlideEventListener.md",
-    "frontend/Reference/Formatting/MakeBoxes.md",
-    "frontend/Reference/Graphics3D/Graphics3D.md",
-    "frontend/Reference/Graphics/Graphics.md",
     "TimelineAnimation.mp4",
     "frontend/Advanced/Animation Framework",
     "tutor5.mp4",
