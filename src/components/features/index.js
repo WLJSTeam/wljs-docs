@@ -97,7 +97,7 @@ My~equation
     ),
     description: (
       <>
-        Make interactive <a href="/frontend/Cell types/Slides.md"><b>data-driven slides</b></a>, embed live figures into reports and share your notes
+        Make interactive <a href="/frontend/Cell types/Slides"><b>data-driven slides</b></a>, embed live figures into reports and share your notes
       </>
     ),
   },  
@@ -112,7 +112,7 @@ My~equation
     ),
     description: (
       <>
-        <a href="/frontend/Exporting/Static HTML.md"><b>Export and share</b></a> your notebook as a standalone <code>.html</code> or <code>.md</code> file—plots stay interactive, and sliders remain draggable. <small>Exported notebooks are no longer subject to the license limitations of the freeware Wolfram Engine.</small>
+        <a href="/frontend/Exporting/Static HTML"><b>Export and share</b></a> your notebook as a standalone <code>.html</code> or <code>.md</code> file—plots stay interactive, and sliders remain draggable. <small>Exported notebooks are no longer subject to the license limitations of the freeware Wolfram Engine.</small>
       </>
     ),
   },
@@ -168,7 +168,7 @@ t // TableView`}</CodeMirror>
     ),
     description: (
       <>
-        Turn a notebook into a <a href="/frontend/Exporting/Mini Apps.md">mini app</a> or <a href="/frontend/Advanced/Manipulating Notebooks/Import notebook.md">a library</a> without the hassle of custom frontends, deployment, namespaces and packaging
+        Turn a notebook into a <a href="/frontend/Exporting/Mini Apps">mini app</a> or <a href="/frontend/Advanced/Manipulating Notebooks/Import notebook">a library</a> without the hassle of custom frontends, deployment, namespaces and packaging
       </>
     ),
   },
