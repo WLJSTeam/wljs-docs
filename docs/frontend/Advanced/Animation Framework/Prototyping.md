@@ -68,3 +68,7 @@ Here we used `drag gizmo` with added offset to prevent overlapping:
 ```
 
 `Offload` or `Hold` is needed to prevent Wolfram Kernel from applying vector math and adding our control box to each coordinate of the vector.
+
+Here is another example with [Rectangle](frontend/Reference/Graphics/Rectangle.md) and rounding radius with a slider  helper:
+
+![](./../../../rounding-ezgif.com-optimize.gif)
