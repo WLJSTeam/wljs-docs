@@ -37,9 +37,7 @@ Before, each update of `ov` could cause __2x reevaluation__ of the `Line` primit
 <WLJSEditor display={"codemirror"} nid={"d2327a34-64fc-4054-b341-4ccdb9fd25df"} id={"8b3d40a1-17fe-4429-876d-858c1b2a0d08"} type={"Input"} opts={{}} >{`ov%20%3D%20RandomReal%5B%7B0%2C2Pi%7D%5D%3B`}</WLJSEditor>
 
 ### Symbols compression
-We added `gzip` compression to any dynamic symbols exeeding 2048 bytes, which reduces the filesize of a notebook as well as saving and loading time. If you open now a notebook in the editor one can spot a Base63 encoded compressed data:
-
-<WLJSHTML>{`%3Cpre%20class%3D%22text-sm%20pt-1%22%3E%3C%7C%22Notebook%22%20-%3E%20%3C%7C%0A%20%20%20%22Objects%22%20-%3E%20%3C%7C%7C%3E%2C%20%0A%20%20%20%22Path%22%20-%3E%20%22%2Fusers%2Fkirill%2FDownloads%2FTest.wln%22%2C%20%0A%20%20%20%22PublicFields%22%20-%3E%20%7B%22Properties%22%7D%2C%20%22Quick%22%20-%3E%20True%2C%0A%20%20%20%22Symbols%22%20-%3E%0A%20%20%20%20%3C%7C%22buffer%24310657%22%20-%3E%20CoffeeLiqueur%60Extensions%60FrontendObject%60Tools%60ExtractCompressed%5B%22eJzszrE%5C%0AJAgEAQ9FdrrYSbgs3EAew1v2xMoGbIMUrQuBV%2F3k83p%2Fvcbv%2B%2FTz%2Fe0EIIYQQQgghhBBCCCGEEEII%5C%0AIYQQQgghhBBCCCGEEEIIIYQQQjiC1b02CCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEE%5C%0A...%0A%3C%2Fpre%3E`}</WLJSHTML>
+We added `gzip` compression to any dynamic symbols exeeding 2048 bytes, which reduces the filesize of a notebook as well as saving and loading time. 
 
 
 It is similar to what we did to big graphs or sound data.

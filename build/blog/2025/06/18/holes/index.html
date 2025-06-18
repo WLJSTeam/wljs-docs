@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.3.2">
+<title data-rh="true">Estimate the Area of an Image Segment | WLJS Notebook</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://wljs.io/blog/2025/06/18/holes"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="msvalidate.01" content="558ACAAD3C892A685EC4981186E3711D"><meta data-rh="true" name="google-site-verification" content="EfqZCis7_qdi7v5e_xZFG-q1I2nGROZLaqCDsVDlt0Y"><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><meta data-rh="true" property="og:title" content="Estimate the Area of an Image Segment | WLJS Notebook"><meta data-rh="true" name="description" content="Using Basic ML with Wolfram Engine"><meta data-rh="true" property="og:description" content="Using Basic ML with Wolfram Engine"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2025-06-18T00:00:00.000Z"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wljs.io/blog/2025/06/18/holes"><link data-rh="true" rel="alternate" href="https://wljs.io/blog/2025/06/18/holes" hreflang="en"><link data-rh="true" rel="alternate" href="https://wljs.io/blog/2025/06/18/holes" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://wljs.io/blog/2025/06/18/holes","mainEntityOfPage":"https://wljs.io/blog/2025/06/18/holes","url":"https://wljs.io/blog/2025/06/18/holes","headline":"Estimate the Area of an Image Segment","name":"Estimate the Area of an Image Segment","description":"Using Basic ML with Wolfram Engine","datePublished":"2025-06-18T00:00:00.000Z","author":[],"keywords":[],"isPartOf":{"@type":"Blog","@id":"https://wljs.io/blog","name":"WLJS Notebook Blog"}}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/releases/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/releases/atom.xml" title="WLJS Notebook Atom Feed">
+<link rel="alternate" type="application/rss+xml" href="/widgets/rss.xml" title="WLJS Notebook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/widgets/atom.xml" title="WLJS Notebook Atom Feed">
+
+
+
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/dist/interpreter.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-interpreter@base/src/core.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-cells@base/src/module.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/boxes.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/metamarkers.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/objects.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-editor@base/src/frontsubmit.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-js-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-magic-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-mermaid-support@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sound@master/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-inputs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-html-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-wlx-support@base/src/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-mk@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-sharedlib-three@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-manipulate@base/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-revealjs@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-graphics-d3@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/wljs-plotly@base/dist/kernel.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/JerryI/Mathematica-ThreeJS-graphics-engine@base/dist/kernel.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.545b1a7a.css">
+<script src="/assets/js/runtime~main.5b4b2551.js" defer="defer"></script>
+<script src="/assets/js/main.87b8a21e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo3.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo2.svg" alt="WLJS Notebook" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WLJS</b></a><a class="navbar__item navbar__link" href="/setup">Documentation</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/releases">Release notes</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/wljs-demo">Demonstration Project</a><a class="navbar__item navbar__link" href="/widgets">Mini apps</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link" style="border:0;border-radius:6px">Discuss</a><a class="navbar__item navbar__link" style="border:0;border-radius:6px" href="/sponsorship">Support us</a><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="container margin-vert--lg"><div class="row"><aside class="col col--3"><nav class="sidebar_re4s thin-scrollbar" aria-label="Blog recent posts navigation"><div class="sidebarItemTitle_pO2u margin-bottom--md">All our posts</div><ul class="sidebarItemList_Yudw clean-list"><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/12/06/galton">Galton Board</a></li><li class="sidebarItem__DBe"><a aria-current="page" class="sidebarItemLink_mo7H sidebarItemLinkActive_I1ZP" href="/blog/2025/06/18/holes">Estimate the Area of an Image Segment</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/05/07/mma">Mathematica&#x27;s render in animations and dynamics</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/05/04/glass">Interactive Magnifying Glass Effect</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/05/01/rim">Basic Verlet Integration implementation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/03/02/ultimate-ppt">Dynamic Presentation, or How to Code a Slide with Markdown and WL</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/01/08/earth">Modeling Earth</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2025/01/07/nier">Automata-like shooter. A teaser</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/12/23/2ways">Custom input element with 2 ways data-binding</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/12/16/charges">Point charges plot</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/12/04/proxy">Attempts to make sort of a fast OOP structures</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/11/25/diffraction">Fraunhofer diffraction</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/11/20/rtx-refine">Path-tracing example</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/10/25/rtx-logo">RevealJS x WL logo code</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/10/08/statcnt">How to make simple counter animation for slides</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/09/11/barcharts">Animated bar charts</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/09/07/raster">Trippy raster animation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/09/1/basics-csh-1">Basics of Compute Shaders in WL 1</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/08/22/ellipce">Covariant Matrices and Ellipses</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/08/21/fluid-3">Real-time Fluid Simulation Part 3</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/08/19/fluid-2">Real-time Fluid Simulation Part 2</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/08/18/fluid-1">Real-time Fluid Simulation Part 1</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/07/12/maxwell">1D FDTD Method</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/07/10/rick">Mesh region with Rick Astley</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/06/20/fem">Realtime Finite Elements Method</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/05/26/atom">&quot;Atom&quot; animation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/05/20/thz-model">THz Time-domain modelling</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/05/15/triangulation-polygons">Triangulation and basics of dynamic polygons</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/05/13/json-llm">Converting JSON crystal data to Graphics using AI Assistant</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/05/01/badapple">Bad Apple, but it’s Wolfram Language Plot</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/04/24/dynamic-env">Dynamic color and opacity implementation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/04/22/gauge">Dynamic gauge</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/spider">Procedural spider animation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/image-trace">Image tracing and animation</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2024/01/01/autocomplete">Autocomplete Input</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2023/12/20/fabrik">Simples example of the Planar Inverse Kinematics</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2023/12/12/notebook">An overview of Wolfram Language and WLJS</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/2023/10/10/spin-hamiltonian">Modelling quantum spin-system with orbital degeneracy</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/imageraster">Image and Raster were implemented!</a></li><li class="sidebarItem__DBe"><a class="sidebarItemLink_mo7H" href="/blog/rtx-intro">Realtime path-tracing</a></li></ul></nav></aside><main class="col col--7"><article itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting"><header><h2 class="title_xvU1" itemprop="headline">Estimate the Area of an Image Segment</h2><div class="container_iJTo margin-vert--md"><time datetime="2025-06-18T00:00:00.000Z" itemprop="datePublished"></time> · <!-- -->5 min read</div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><p><em>Using Basic ML with Wolfram Engine</em></p>
+<p>Hi there! I am working as a spectroscopist. We shine light through the samples and estimate how much is absorbed and at which frequency. In this case, it is quite crucial to know the light spot, which is collimated by a special copper aperture:</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/DistanceHoles-ezgif.com-optimize-162-371ef18873fb44dd707ffb216614c46d.gif" width="800" height="387" class="img_ev3q"></p>
+<!-- -->
+<a href="/44a2a3ba69b0daf7cac838c7d8b39c84.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
+<p>Let&#x27;s drag and drop our image and adjust the brightness:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Import[&quot;yourPathToDroppedImage.jpeg&quot;];
+ImageAdjust[ImageResize[%, 400], {0.01, 2}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Here is my sample image:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">img = (*VB[*)(FrontEndRef[&quot;29e2ab9f-8a3d-492a-a77a-13df130878b9&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG1mmGiUmWabpWiQap+iaWBol6iaamyfqGhqnpBkaG1iYWyRZAgCJ+xWr&quot;*)(*]VB*);</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="image-segmentation">Image segmentation<a href="#image-segmentation" class="hash-link" aria-label="Direct link to Image segmentation" title="Direct link to Image segmentation">​</a></h2>
+<p>There is a local neural network, which is ready to be used for a general image segmentation:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(segments = ImageSegmentationComponents[img]) // AbsoluteTiming;
+Quantity[% // First, &quot;Seconds&quot;]
+segments // Colorize </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(Quantity[63.408851, &quot;Seconds&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KWnMIB4vkAjLTC13SU3OL0osyS8K5gCKBJYm5pVkllQWvfl+xCp0i79DMDtQNBioJi+lGADByRWf&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;33a9e052-8529-40e9-bb21-d580107ea254&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKGxsnWqYamBrpWpgaWeqaGKRa6iYlGRnqpphaGBgamKcmGpmaAAB1TxTa&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>It takes <strong>a lot of time</strong>! Can we do better for our case?</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="morphological-components">Morphological components<a href="#morphological-components" class="hash-link" aria-label="Direct link to Morphological components" title="Direct link to Morphological components">​</a></h3>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">MorphologicalComponents[img] // Colorize </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;8f24228f-919c-4006-9f65-a8eca3335f86&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6QZmRgZWaTpWhpaJuuaGBiY6VqmmZnqJlqkJicaGxubplmYAQB4JhUn&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Wow cool. It is faster than CNN (I guess), but requires some tweaking:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">MorphologicalComponents[img, 0.5] // Colorize </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;e584841b-1ba8-4ff7-ba7f-0a8f79268bab&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKp5pamFiYGCbpGiYlWuiapKWZ6yYlmqfpGiRapJlbGplZJCUmAQCHXRYP&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Nope 🥺
+I did not manage to make it work with a simpler approach. I guess, we have to stick to CNN.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="back-to-cnn">Back to CNN<a href="#back-to-cnn" class="hash-link" aria-label="Direct link to Back to CNN" title="Direct link to Back to CNN">​</a></h2>
+<p>Let&#x27;s pick a point on our image:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">HighlightImage[img, {Red, Point[(*BB[*)({268,177.65625`})(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRAeB5AILqnMSXXKr0hjgskHleakFnMBGU6JydnpRfmleSlpzDDlQe5Ozvk5+UVFDGDwwR6dwcAAAAHdFiw=&quot;*)(*]BB*)]}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;2d6fd627-6c9f-469a-8add-1613a1062c9a&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKG6WYpaWYGZnrmiVbpumamFkm6lokpqToGpoZGicaGpgZJVsmAgCHARWn&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Do not do by repeated revaluation of the same cell. Use <strong>Command Palette</strong> tool ==Inline navigation drag gizmo== while selecting the coordinates of a point highlighted in yellow</p><p><img decoding="async" loading="lazy" src="/assets/images/draggizmo-ezgif.com-optimize-d42-a60da74175c76a2d3bb305f2711a9bfc.gif" width="686" height="441" class="img_ev3q"></p></div></div>
+<p>Now let us try again:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">segments = ImageSegmentationComponents[img];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Select one with a minimal area and one that includes our point:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">hole = With[{i = SortBy[Select[ComponentMeasurements[{img, segments}, &quot;BoundingBox&quot;], RegionMember[Rectangle @@ #[[2]], (*BB[*)({268,177.65625`})(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRAeB5AILqnMSXXKr0hjgskHleakFnMBGU6JydnpRfmleSlpzDDlQe5Ozvk5+UVFDGDwwR6dwcAAAAHdFiw=&quot;*)(*]BB*)]&amp;], Area[Rectangle @@ #]&amp;]//Last//First},
+  SelectComponents[{img, segments}, (#Label == i) &amp;] // Last 
+];
+
+hole // Colorize </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;c5cbc3ab-ac8a-485d-993d-54d53cccc5e5&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ5smJyUbJybpJiZbJOqaWJim6FpaGqfompqkmBonA4FpqikAmiAWlA==&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Measure the area</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">ComponentMeasurements[hole, &quot;Area&quot;] // First // Last </code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">1358.875`</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="calibration">Calibration<a href="#calibration" class="hash-link" aria-label="Direct link to Calibration" title="Direct link to Calibration">​</a></h2>
+<p>To get the correct value in real units, we need to adjust the integrated value by the corresponding Jacobian. Assuming that perspective distortions are negligible and the aspect ratio of the image was not changed, the area can be corrected by a constant multiplier corresponding to:</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Area</mtext><mo>=</mo><msup><mtext>UnitsPerPixel</mtext><mn>2</mn></msup><mo>⋅</mo><mtext>PixelArea</mtext></mrow><annotation encoding="application/x-tex">\text{Area} = \text{UnitsPerPixel}^2 \cdot \text{PixelArea}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord text"><span class="mord">Area</span></span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.8984em"></span><span class="mord"><span class="mord text"><span class="mord">UnitsPerPixel</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em"><span style="top:-3.1473em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.6944em"></span><span class="mord text"><span class="mord">PixelArea</span></span></span></span></span></span>
+<p>We simply place two points using gizmo helpers:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">HighlightImage[img, {Red, Line[{{129,24.828125000000018`}, {129,262.828125`}}]}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;539e7a14-15ed-475e-8766-e19f8116320b&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKmxpbpponGproGpqmpuiamJum6lqYm5npphpaplkYGpoZGxkkAQB5tRTx&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Esimate units per pixel</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Line[{{129,24.828125000000018`}, {129,262.828125`}}] // ArcLength;
+20.0 / %</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">0.08403361344537816`</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Final result: area of the hole</strong></p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">HighlightImage[Blend[{img, Colorize[hole]}, 0.5], 
+  {Directive[Red, FontSize-&gt;18], Text[StringTemplate[&quot;Area: `` mm^{2}&quot;][(*SpB[*)Power[0.08403(*|*),(*|*)2](*]SpB*) 1358.87], {268,177.65625 + 35}, {0,0}]}
+]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef[&quot;83b999da-39b4-4e04-9c78-32b37c57299a&quot;])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKWxgnWVpapiTqGlsmmeiapBqY6Fomm1voGhslGZsnm5obWVomAgB+BxUv&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="automate-it">Automate it!<a href="#automate-it" class="hash-link" aria-label="Direct link to Automate it!" title="Direct link to Automate it!">​</a></h2>
+<p>Let&#x27;s create a widget that can accomplish this task in a few steps:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="overlay">Overlay<a href="#overlay" class="hash-link" aria-label="Direct link to Overlay" title="Direct link to Overlay">​</a></h3>
+<p>Here, we overlay our image with an inset that includes a dynamic <code>Image</code>. We reload the image data with masked regions depending on where the user&#x27;s cursor is pointing:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Module[{
+  overlay, 
+  segment = 1
+}, With[{
+  masks = Values[ComponentMeasurements[{img, segments}, {&quot;Mask&quot;, &quot;BoundingBox&quot;, &quot;Label&quot;, &quot;Area&quot;, &quot;BoundingBoxArea&quot;}]]
+},
+  
+  overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+
+  EventHandler[HighlightImage[Blend[{img, Colorize[segments]}, 0.4], {
+    {Opacity[0.2], Inset[Image[overlay // Offload, &quot;Byte&quot;], Center, Center]}
+  }], {&quot;mousemove&quot; -&gt; Function[xy, 
+    With[{
+      r = SortBy[Select[masks, RegionMember[Rectangle @@ #[[2]], xy]&amp;], Last] // First // Quiet
+    },
+      If[!ListQ[r], Return[]];
+      If[r[[3]] == segment, Return[]];
+      
+      segment = r[[3]];
+      overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+    ]
+  ]}]
+
+]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Here we pick a segment with a minimal bounding box area to discard tiny distributed non-connected features.</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="virtual-ruler">Virtual Ruler<a href="#virtual-ruler" class="hash-link" aria-label="Direct link to Virtual Ruler" title="Direct link to Virtual Ruler">​</a></h3>
+<p>We need to match the scale of the image with real units. For that resound we construct two handles to place two points on the image. The easiest one would be this:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Graphics[{
+  Line[{{0,1}, {0,-1}}], Line[{{-0.3,1}, {0.3,1}}], Line[{{-0.3,-1}, {0.3,-1}}],
+  Opacity[0.5], Red, Rectangle[{0,1}-{0.2,0.2}, {0,1}+{0.2,0.2}], Rectangle[{0,-1}-{0.2,0.2}, {0,-1}+{0.2,0.2}]
+}, PlotRange-&gt;1.2{{-1,1}, {-1,1}}, ImageSize-&gt;Small]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(Graphics[{Line[{{0, 1}, {0, -1}}], Line[{{-0.3, 1}, {0.3, 1}}], Line[{{-0.3, -1}, {0.3, -1}}], Opacity[0.5], RGBColor[1, 0, 0], Rectangle[{-0.2, 0.8}, {0.2, 1.2}], Rectangle[{-0.2, -1.2}, {0.2, -0.8}]}, PlotRange -&gt; {{-1.2, 1.2}, {-1.2, 1.2}}, ImageSize -&gt; Small])(*,*)(*&quot;1:eJxTTMoPSmNkYGAoZgESHvk5KWnMIB4HkHAvSizIyEwuTmOHyftkFpcgVPtk5qWmMaHIofAygTRDJkg5NvH/QEC8WUXGYHB5PxbzYHL2EDkyzAS7BYeZCHeCgsG/IDE5s6SyiAEMHtgjQivI3ck5Pye/COwIiBcZ4E7lBClITS5JzEvPQXNT0ayZIHByP5Tx0h67vD3USZ/tSTASqmU/LiOhViLJB5XmpILNDsjJLwkCGk5MEH7ej+Y4YuThNnnmJqanBmdWpRazAnnBuYk5OQCX9Kl6&quot;*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Where two red rectangles can be used as dragging area for a user mouse. Of course we have to recalculate the posiitons of upper and bottom segments considering the angle, i.e. not only for horisontal or vertical directions.</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Module[{
+  overlay, 
+  segment = 1, 
+  nav = {{0.5,0.6} ImageDimensions[img], {0.5,0.4} ImageDimensions[img]},
+  minScale = {0.1,0.1} ImageDimensions[img] / 4.0
+}, With[{
+  masks = Values[ComponentMeasurements[{img, segments}, {&quot;Mask&quot;, &quot;BoundingBox&quot;, &quot;Label&quot;, &quot;Area&quot;, &quot;BoundingBoxArea&quot;}]],
+  helperLines = Function[p, With[{dir = Normalize[p[[2]]-p[[1]]]},
+    {p, 
+      {p[[1]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[1]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}, 
+      {p[[2]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[2]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}
+    }
+  ]]
+},
+
+  nav = helperLines[nav];
+  
+  overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+
+  EventHandler[HighlightImage[Blend[{img, Colorize[segments]}, 0.4], {
+
+    {Opacity[0.2], Inset[Image[overlay // Offload, &quot;Byte&quot;], Center, Center]},
+  
+    Cyan, Line[nav[[1]] // Offload], 
+    Line[nav[[2]] // Offload], Line[nav[[3]] // Offload],
+
+    { Opacity[0],
+      EventHandler[Rectangle[nav[[1,1]] - minScale, nav[[1,1]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 1]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}],
+      EventHandler[Rectangle[nav[[1,2]] - minScale, nav[[1,2]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 2]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}]
+    }
+    
+  }], {&quot;mousemove&quot; -&gt; Function[xy, 
+    With[{
+      r = SortBy[Select[masks, RegionMember[Rectangle @@ #[[2]], xy]&amp;], Last] // First // Quiet
+    },
+      If[!ListQ[r], Return[]];
+      If[r[[3]] == segment, Return[]];
+      
+      segment = r[[3]];
+      overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+    ]
+  ]}]
+
+]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="final-version">Final version<a href="#final-version" class="hash-link" aria-label="Direct link to Final version" title="Direct link to Final version">​</a></h3>
+<p>Let&#x27;s add a panel with a slider to enter the length of the measured distance in real-world units and a text window with calculated area:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">Module[{
+  overlay, 
+  segment = 1, 
+  distance = 1.0,
+  area = 0.0,
+  nav = {{0.5,0.6} ImageDimensions[img], {0.5,0.4} ImageDimensions[img]},
+  minScale = {0.1,0.1} ImageDimensions[img] / 4.0
+}, With[{
+  masks = Values[ComponentMeasurements[{img, segments}, {&quot;Mask&quot;, &quot;BoundingBox&quot;, &quot;Label&quot;, &quot;Area&quot;, &quot;BoundingBoxArea&quot;}]],
+  helperLines = Function[p, With[{dir = Normalize[p[[2]]-p[[1]]]},
+    {p, 
+      {p[[1]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[1]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}, 
+      {p[[2]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[2]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}
+    }
+  ]],
+
+  computeArea = Function[{d,p,m,s}, (*SpB[*)Power[((*FB[*)((d)(*,*)/(*,*)(Norm[p[[1,1]]-p[[1,2]]]))(*]FB*))(*|*),(*|*)2](*]SpB*) m[[s, 4]]]
+},
+
+  nav = helperLines[nav];
+  area = computeArea[distance, nav, masks, segment];
+  
+  overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+
+ {
+   EventHandler[HighlightImage[Blend[{img, Colorize[segments]}, 0.4], {
+
+    {Opacity[0.2], Inset[Image[overlay // Offload, &quot;Byte&quot;], Center, Center]},
+  
+    Cyan, Line[nav[[1]] // Offload], 
+    Line[nav[[2]] // Offload], Line[nav[[3]] // Offload],
+
+    { Opacity[0],
+      EventHandler[Rectangle[nav[[1,1]] - minScale, nav[[1,1]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 1]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}],
+      EventHandler[Rectangle[nav[[1,2]] - minScale, nav[[1,2]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 2]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}]
+    }
+    
+  }], {&quot;mousemove&quot; -&gt; Function[xy, 
+    With[{
+      r = SortBy[Select[masks, RegionMember[Rectangle @@ #[[2]], xy]&amp;], Last] // First // Quiet
+    },
+      If[!ListQ[r], Return[]];
+      If[r[[3]] == segment, Return[]];
+      
+      segment = r[[3]];
+      overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+      area = computeArea[distance, nav, masks, segment];
+    ]
+  ]}],
+  
+  Panel[{
+    EventHandler[InputRange[0, 50, 0.01, 1.0, &quot;Label&quot;-&gt;&quot;Distance&quot;], Function[d, 
+      distance = d;
+      area = computeArea[distance, nav, masks, segment];
+    ]],
+
+    TextView[area // Offload, &quot;Label&quot;-&gt;&quot;Area&quot;]
+  } // Column]
+ } // Row 
+
+]]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="final-final-version">Final final version<a href="#final-final-version" class="hash-link" aria-label="Direct link to Final final version" title="Direct link to Final final version">​</a></h3>
+<p>As a last commit we can add a file browser and contrast/brightness correction widget:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="h-fade-20 codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">widget1[img_Image] := Module[{
+  overlay, 
+  segment = 1, 
+  distance = 1.0,
+  area = 0.0,
+  nav = {{0.5,0.6} ImageDimensions[img], {0.5,0.4} ImageDimensions[img]},
+  minScale = {0.1,0.1} ImageDimensions[img] / 4.0,
+  segments = ImageSegmentationComponents[img]
+}, With[{
+  masks = Values[ComponentMeasurements[{img, segments}, {&quot;Mask&quot;, &quot;BoundingBox&quot;, &quot;Label&quot;, &quot;Area&quot;, &quot;BoundingBoxArea&quot;}]],
+  helperLines = Function[p, With[{dir = Normalize[p[[2]]-p[[1]]]},
+    {p, 
+      {p[[1]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[1]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}, 
+      {p[[2]] - minScale[[1]]  {dir[[2]], -dir[[1]]}, p[[2]] + minScale[[1]]  {dir[[2]], -dir[[1]]}}
+    }
+  ]],
+
+  computeArea = Function[{d,p,m}, (*SpB[*)Power[((*FB[*)((d)(*,*)/(*,*)(Norm[p[[1,1]]-p[[1,2]]]))(*]FB*))(*|*),(*|*)2](*]SpB*) m[[4]]]
+},
+
+  nav = helperLines[nav];
+  area = computeArea[distance, nav, masks[[segment]]];
+  
+  overlay = ImageData[Colorize[masks[[segment, 1]]], &quot;Byte&quot;];
+
+ {
+   EventHandler[HighlightImage[Blend[{img, Colorize[segments]}, 0.4], {
+
+    {Opacity[0.2], Inset[Image[overlay // Offload, &quot;Byte&quot;], Center, Center]},
+  
+    Cyan, Line[nav[[1]] // Offload], 
+    Line[nav[[2]] // Offload], Line[nav[[3]] // Offload],
+
+    { Opacity[0],
+      EventHandler[Rectangle[nav[[1,1]] - minScale, nav[[1,1]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 1]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}],
+      EventHandler[Rectangle[nav[[1,2]] - minScale, nav[[1,2]] + minScale], {&quot;drag&quot;-&gt;Function[xy,
+        nav[[1, 2]] = xy;
+        nav = helperLines[nav[[1]]];
+      ]}]
+    }
+    
+  }], {&quot;mousemove&quot; -&gt; Function[xy, 
+    With[{
+      r = SortBy[Select[masks, RegionMember[Rectangle @@ #[[2]], xy]&amp;], Last] // First // Quiet
+    },
+      If[!ListQ[r], Return[]];
+      If[r[[3]] == segment, Return[]];
+      
+      segment = r[[3]];
+      overlay = ImageData[Colorize[masks[[segment]][[1]]], &quot;Byte&quot;];
+      area = computeArea[distance, nav, masks[[segment]]];
+    ]
+  ]}],
+  
+  Panel[{
+    EventHandler[InputRange[0, 50, 0.01, 1.0, &quot;Label&quot;-&gt;&quot;Distance&quot;], Function[d, 
+      distance = d;
+      area = computeArea[distance, nav, masks[[segment]]];
+    ]],
+
+    TextView[area // Offload, &quot;Label&quot;-&gt;&quot;Area&quot;]
+  } // Column]
+ } // Row 
+
+]];
+
+widget2[img_] := Module[{
+  imageData = ImageData[img, &quot;Byte&quot;]
+}, With[{o = img},
+
+  {
+    Image[imageData // Offload, &quot;Byte&quot;],
+    EventHandler[InputGroup[{
+      InputRange[-1,2,0.1, &quot;Label&quot;-&gt;&quot;Contrast&quot;],
+      InputRange[0,2,0.1, &quot;Label&quot;-&gt;&quot;Brightness&quot;]
+    }], Function[c,
+      img = ImageAdjust[o, c];
+      imageData = ImageData[img, &quot;Byte&quot;];
+    ]]
+  } // Row
+
+]];
+
+SetAttributes[widget2, HoldFirst]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<ol>
+<li>Evaluate this cell</li>
+</ol>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">path = SystemDialogInput[&quot;FileOpen&quot;];
+img = Null;
+
+If[ImageQ[img = Import[path]],
+  img = ImageResize[img, 350];
+  widget2[img]
+, $Failed]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<ul>
+<li>After adjusting evaluate this one</li>
+</ul>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">widget1[img]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="convert-to-a-mini-app">Convert to a Mini App<a href="#convert-to-a-mini-app" class="hash-link" aria-label="Direct link to Convert to a Mini App" title="Direct link to Convert to a Mini App">​</a></h2>
+<p>You can export this entire notebook into a mini-app. There are a few rules to follow:</p>
+<ul>
+<li>All initialization cells will be executed on start.</li>
+<li>The last input cell will represent the main window of the app.</li>
+<li>Any defined variables in the notebook will be isolated.</li>
+</ul>
+<p>Since we have two widgets, it might be handy to work with multiple windows.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="main-window">Main Window<a href="#main-window" class="hash-link" aria-label="Direct link to Main Window" title="Direct link to Main Window">​</a></h3>
+<p>This will just be a file browser button. But first, define some helper components:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="h-fade-20 codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">.wlx
+
+progressBarIcon = &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-teal-600&quot; viewBox=&quot;0 0 100 101&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z&quot; fill=&quot;currentColor&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z&quot; fill=&quot;currentFill&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">&lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-teal-600&quot; viewBox=&quot;0 0 100 101&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z&quot; fill=&quot;currentColor&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z&quot; fill=&quot;currentFill&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Now our window and it&#x27;s logic:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">notebook = EvaluationNotebook[];
+img = Null;
+
+ClearAll[MainWindow];
+
+MainWindow := Panel[{
+  Style[&quot;Open an image&quot;, 10, Lighter[Black],FontFamily-&gt;&quot;system-ui&quot;],
+  EventHandler[
+    InputButton[&quot;Browse&quot;], 
+    AsyncFunction[Null, Module[{path, cell, progressBar = &quot;&quot;}, 
+      path = SystemDialogInputAsync[&quot;FileOpen&quot;] // Await;
+      If[StringQ[path],
+        With[{i = Import[path]},
+          If[ImageQ[i], 
+            img = ImageResize[i, 350];
+            cell = CellPrint[
+             Panel[{
+              widget2[img], {
+              EventHandler[InputButton[&quot;Continue&quot;], Function[Null,
+                  If[progressBar =!= &quot;&quot;, Return[]];
+                  progressBar = progressBarIcon;
+                  CellPrint[
+                    Panel[widget1[img]], 
+                    &quot;Target&quot;-&gt;_, &quot;Notebook&quot;-&gt;notebook, 
+                    ImageSize-&gt;{800,500}
+                  ];
+                  Delete[cell];
+                  ClearAll[progressBar];
+                ]
+              ], 
+              HTMLView[progressBar // Offload]
+            } //Row 
+           } //Column ]
+        , &quot;Target&quot;-&gt;_, &quot;Notebook&quot;-&gt;notebook, ImageSize-&gt;{800,500}]
+      ]
+    ]
+  ];
+  
+  ClearAll[path];
+]]]} // Column]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>As a final step - export this notebook to a mini app using <code>Share</code> menu</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">MainWindow</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Blog post page navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/blog/2025/12/06/galton"><div class="pagination-nav__sublabel">Newer Post</div><div class="pagination-nav__label">Galton Board</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/blog/2025/05/07/mma"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">Mathematica&#x27;s render in animations and dynamics</div></a></nav></main><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#image-segmentation" class="table-of-contents__link toc-highlight">Image segmentation</a><ul><li><a href="#morphological-components" class="table-of-contents__link toc-highlight">Morphological components</a></li></ul></li><li><a href="#back-to-cnn" class="table-of-contents__link toc-highlight">Back to CNN</a></li><li><a href="#calibration" class="table-of-contents__link toc-highlight">Calibration</a></li><li><a href="#automate-it" class="table-of-contents__link toc-highlight">Automate it!</a><ul><li><a href="#overlay" class="table-of-contents__link toc-highlight">Overlay</a></li><li><a href="#virtual-ruler" class="table-of-contents__link toc-highlight">Virtual Ruler</a></li><li><a href="#final-version" class="table-of-contents__link toc-highlight">Final version</a></li><li><a href="#final-final-version" class="table-of-contents__link toc-highlight">Final final version</a></li></ul></li><li><a href="#convert-to-a-mini-app" class="table-of-contents__link toc-highlight">Convert to a Mini App</a><ul><li><a href="#main-window" class="table-of-contents__link toc-highlight">Main Window</a></li></ul></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/JerryI/wolfram-js-frontend/discussions" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discussions<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://t.me/wljs_support" target="_blank" rel="noopener noreferrer" class="footer__link-item">Telegram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">WLJS Notebook Project is open-source and licensed under GPL3</div></div></div></footer></div>
+</body>
+</html>
