@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Objects/Creating new type.md",
+                "file": "frontend/Reference/Misc/EchoLabel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Creating new type"
+              "title": "EchoLabel"
             }
           },
           {
@@ -93,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "CreateType",
+                "query": "",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -114,8 +114,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -221,6 +220,9 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
+    "frontend/Reference/Misc/Assert.md",
+    "frontend/Reference/Misc/EchoLabel.md",
+    "frontend/Advanced/Objects/Creating new type.md",
     "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
     "frontend/Development/Plugins/Examples/New cell type and Kernel evaluation.md",
     "frontend/Development/Plugins/Examples/Javascript library functions.md",
@@ -254,9 +256,6 @@
     "frontend/Reference/Formatting/StandardForm.md",
     "frontend/Cell types/Many more.md",
     "frontend/Cell types/Markdown.md",
-    "frontend/Reference/Formatting/WLXForm.md",
-    "frontend/Advanced/Frontend interpretation/WLJS Functions.md",
-    "frontend/Reference/Slides/SlideEventListener.md",
     "TimelineAnimation.mp4",
     "frontend/Advanced/Animation Framework",
     "tutor5.mp4",
