@@ -1,0 +1,1 @@
+Please wait for a pop-up window with your search results
