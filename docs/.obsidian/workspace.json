@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Reference/Misc/EchoLabel.md",
+                "file": "frontend/Importing/Wolfram Language.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EchoLabel"
+              "title": "Wolfram Language"
             }
           },
           {
@@ -220,8 +220,10 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
-    "frontend/Reference/Misc/Assert.md",
+    "frontend/Importing/Mathematica.md",
+    "Screenshot 2025-06-22 at 20.41.55.png",
     "frontend/Reference/Misc/EchoLabel.md",
+    "frontend/Reference/Misc/Assert.md",
     "frontend/Advanced/Objects/Creating new type.md",
     "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
     "frontend/Development/Plugins/Examples/New cell type and Kernel evaluation.md",
@@ -247,7 +249,6 @@
     "frontend/Advanced/Animation Framework/Timeline.md",
     "frontend/Advanced/Animation Framework/Recording.md",
     "frontend/Reference/Graphics/SVGGroup.md",
-    "shooting-ezgif.com-optimize.gif",
     "frontend/Advanced/Slides/Styling.md",
     "frontend/Advanced/Components library/Stats counter.md",
     "frontend/Advanced/CLI.md",
@@ -255,7 +256,6 @@
     "frontend/Reference/Formatting/Low-level/InterpretationBox.md",
     "frontend/Reference/Formatting/StandardForm.md",
     "frontend/Cell types/Many more.md",
-    "frontend/Cell types/Markdown.md",
     "TimelineAnimation.mp4",
     "frontend/Advanced/Animation Framework",
     "tutor5.mp4",

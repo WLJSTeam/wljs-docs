@@ -109,6 +109,13 @@ const FeatureList = [
         </li>
 
         <li className={styles.featureLi}>
+          <Link className={styles.featureLink}  to={"/wljs-demo/intro-pendulum"}><b>Triple Pendulum</b> Acrobatics of a simple physical model</Link>
+          <div className={styles.badgeHolder}>
+            <span className={styles.badge} style={{background: 'var(--ifm-color-warning-light)'}}>Animated</span>
+          </div>        
+        </li>
+
+        <li className={styles.featureLi}>
           <Link className={styles.featureLink}  to={"/wljs-demo/mid-inteferogram"}><b>Michelson Interferometer</b> Move mirrors in a virtual experiment and record interferogram</Link>
           <div className={styles.badgeHolder}>
             <span className={styles.badge} style={{background: 'var(--ifm-color-success-light)'}}>Interactive</span>
