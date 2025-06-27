@@ -2,11 +2,146 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wljs.io/releases</id>
     <title>WLJS Notebook Blog</title>
-    <updated>2025-06-09T00:00:00.000Z</updated>
+    <updated>2025-06-27T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wljs.io/releases"/>
     <subtitle>WLJS Notebook Blog</subtitle>
     <icon>https://wljs.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release notes *2.7.9* 🔔]]></title>
+        <id>https://wljs.io/releases/2025/06/27/2.7.9</id>
+        <link href="https://wljs.io/releases/2025/06/27/2.7.9"/>
+        <updated>2025-06-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[- EchoLabel Upgrades: Now supports notifications, warnings, errors, spinners, and progress bars.]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><strong>EchoLabel Upgrades</strong>: Now supports notifications, warnings, errors, spinners, and progress bars.</li>
+<li><strong>Documentation Integration</strong>: Autocomplete includes links to both: WLJS and Wolfram documentation.</li>
+<li><strong>Improved Code Pasting</strong>: Special handler converts unsupported Mathematica expressions using a local kernel.</li>
+<li><strong>NB format Support</strong>: Enhanced parser of <code>.nb</code> files.</li>
+<li><strong>New <code>dragsignal</code> Event</strong>: Enables manual control over drag behavior for constrained interactions.</li>
+<li><strong>Code Formatter Fixes</strong>: Now it handels WLJS syntax sugar properly.</li>
+<li><strong>Information Display</strong>: Switched to Wolfram's native <code>Information</code> output (image-based).</li>
+<li><strong>Docs &amp; Tutorials</strong>: New guides including porting dynamics from Mathematica to WLJS.</li>
+<li><strong>Autocomplete UI</strong>: More user-friendly info boxes for symbol suggestions.</li>
+</ul>
+<!-- -->
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="echolabel-tools">EchoLabel tools<a href="https://wljs.io/releases/2025/06/27/2.7.9#echolabel-tools" class="hash-link" aria-label="Direct link to EchoLabel tools" title="Direct link to EchoLabel tools">​</a></h2>
+<p>There is a very old symbol <code>EchoLabel</code>, which is an operator form of <code>Echo</code> with a label. We extended its properties, which allows user programs to various push notifications:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EchoLabel["Test"]["This is normal one"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">&gt;&gt; "Test" "This is normal one"</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Print to notifications:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EchoLabel["Notification"]["This will always appear at the top"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Warning</strong> messages:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EchoLabel["Warning"]["This will a warning"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Error</strong> message:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">EchoLabel["Error"]["This will an error"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Spinner</strong>:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">spinner = EchoLabel["Spinner"]["Hey. I am spinning"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">spinner["Cancel"]; (* or Delete[spinner] *)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p><strong>Progress bar</strong>:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">bar = EchoLabel["ProgressBar"]["I am progressing"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">bar["Set", 0.5];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">bar["SetMessage", "Hey!"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">bar["Cancel"];</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="links-to-documentation">Links to documentation<a href="https://wljs.io/releases/2025/06/27/2.7.9#links-to-documentation" class="hash-link" aria-label="Direct link to Links to documentation" title="Direct link to Links to documentation">​</a></h2>
+<p>We extended our autocomplete window to work with WLJS specific symbols. Clicking on 🔎 icon will pop up a window with our documentation search results:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-20%20at%2019.15.28-471-f6a6d3c050a8bcea6026e30b6357db8d.png" width="1594" height="1108" class="img_ev3q"></p><div><br></div><p></p>
+<p>For Wolfram Language standard symbols an official WR documentation will be opened.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pasting-mathematica-code">Pasting Mathematica code<a href="https://wljs.io/releases/2025/06/27/2.7.9#pasting-mathematica-code" class="hash-link" aria-label="Direct link to Pasting Mathematica code" title="Direct link to Pasting Mathematica code">​</a></h2>
+<p>When you copy code from Wolfram Language documentation it may include some special elements like compressed graphics expressions or other, which can be understood by Mathematica, but not WLJS.</p>
+<p>We added a special handler for such cases, that will automatically convert expressions using a local kernel:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-21%20at%2019.03.28-454-1699aea62bb3ba4b433eb7ea3affe5ac.png" width="842" height="312" class="img_ev3q"></p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">i=(*VB[*)(FrontEndRef["a08ba99a-3516-4aa4-a284-d753c6a25ee2"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxpYJCVaWibqGpsamumaJCaa6CYaWZjoppibGiebJRqZpqYaAQCDiRWa"*)(*]VB*);</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Make sure, that any kernel is connected to a notebook</p></div></div>
+<p>This also works with Mathematica or Wolfram Player <strong>directly</strong>:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-21%20at%2019.21.36-75c-61241a70e4a0ce2f3e051e538d97764d.png" width="1524" height="476" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="better-support-of-mathematica-notebooks">Better support of Mathematica notebooks<a href="https://wljs.io/releases/2025/06/27/2.7.9#better-support-of-mathematica-notebooks" class="hash-link" aria-label="Direct link to Better support of Mathematica notebooks" title="Direct link to Better support of Mathematica notebooks">​</a></h2>
+<p>We made quite a big step towards <code>.nb</code> format by writting a custom <code>Box</code> converter from <code>StandardForm</code> of Mathematica to <code>StandardForm</code> of WLJS Notebook. Here are some examples:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-22%20at%2020.36.22-db2-1637639e1e960b44a594179fbecfb785.png" width="1526" height="1124" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-22%20at%2019.16.18-1d7-822c2d921d3a20c591fbe864efa0d8d1.png" width="1128" height="806" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-22%20at%2020.41.55-881-ad204765bdcb0d96803bdef448a5d730.png" width="2298" height="1176" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="drag-event-expansion">Drag event expansion<a href="https://wljs.io/releases/2025/06/27/2.7.9#drag-event-expansion" class="hash-link" aria-label="Direct link to Drag event expansion" title="Direct link to Drag event expansion">​</a></h2>
+<p>You might have already used the <code>drag</code> event handler on some graphics primitives. We have extended it with a sibling event, <code>dragsignal</code>. Here is the catch:</p>
+<p><code>dragsignal</code> allows you to capture a drag event without actually dragging the graphics primitive. Why bother? It gives you manual control over the position of the primitive, for example, for constrained dragging:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="h-fade-20 codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">outer = RegionDifference[
+  Rectangle[{-1,-1}, {1,1}],
+  RegionUnion[
+    Rectangle[{-0.9,-0.9}, {0.9,-0.4}]  ,
+    Rectangle[{0.4,-0.9}, {0.9,0.4}]  
+  ]
+];
+
+outer = Rationalize[outer, 0]; (* WL14 bug *)
+RegionPlot[outer];
+
+distanceOp = RegionDistance[outer, Translate[Rectangle[-{0.2,0.2}, {0.2,0.2}], #]]&amp;;
+
+rect = {0.65, 0.15};
+
+RegionPlot[outer, Epilog-&gt;{
+  Red, 
+  Translate[EventHandler[
+    Rectangle[-{0.2,0.2}, {0.2,0.2}], 
+    {"dragsignal" -&gt; Function[target,
+      rect = {
+        If[distanceOp[{target[[1]], rect[[2]]}] &gt; 0.01,
+          target[[1]]
+        ,
+          FixedPoint[If[distanceOp[{#, rect[[2]]}] &gt; 0.01,
+             # + 0.01 (target[[1]] - #)   
+          ,
+             #
+          ]&amp;, rect[[1]]] - 0.01 (target[[1]] - rect[[1]]) 
+        ],
+        If[distanceOp[{rect[[1]], target[[2]]}] &gt; 0.01,
+          target[[2]]
+        ,
+          FixedPoint[If[distanceOp[{rect[[1]], #}] &gt; 0.01,
+             # + 0.01 (target[[2]] - #)   
+          ,
+             #
+          ]&amp;, rect[[2]]] - 0.01 (target[[2]] - rect[[2]])  
+        ]
+      }
+    ]}
+  ], Offload[rect]]
+}]</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["4d06c1b4-b92f-483c-9c7b-69a29bacbc9c"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6QYmCUbJpnoJlkapemaWBgn61ommyfpmlkmGlkmJSYnJVsmAwCG6hY3"*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>Evaluate the <strong>cell above</strong> and try to drag a rectangle. When you drag, it esimates the distance to the cutout and manually moves a rectangle to the closest position allowed.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-formatter">Code Formatter<a href="https://wljs.io/releases/2025/06/27/2.7.9#code-formatter" class="hash-link" aria-label="Direct link to Code Formatter" title="Direct link to Code Formatter">​</a></h2>
+<p>We have improved our code formatter, which relies on the official <code>CodeFormatter</code> package:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-26%20at%2021.00.25-380-d265cef24bdb256ade779d9ec15047db.png" width="1354" height="230" class="img_ev3q"></p>
+<p>It was broken for a long time, but now it can correctly escape our syntax sugar.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="informationdata">InformationData<a href="https://wljs.io/releases/2025/06/27/2.7.9#informationdata" class="hash-link" aria-label="Direct link to InformationData" title="Direct link to InformationData">​</a></h2>
+<p>We removed our representation of <code>Information</code> in a favour of Wolfram's standard one:</p>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">?Integrate</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">(*VB[*)(FrontEndRef["57588672-b8c7-443f-996e-b085b8c08b87"])(*,*)(*"1:eJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5qbWliYmRvpJlkkm+uamBin6VpamqXqJhlYmAKFDCySLMwBc/UVCg=="*)(*]VB*)</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
+<p>As a drawback: it is picture and non-interactable.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="documentation">Documentation<a href="https://wljs.io/releases/2025/06/27/2.7.9#documentation" class="hash-link" aria-label="Direct link to Documentation" title="Direct link to Documentation">​</a></h2>
+<p>New examples, new tutorials!</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>See how to port or optimize dynamics from Mathematica to WLJS:</p><p><a href="https://wljs.io/frontend/Advanced/Dynamics/Porting%20from%20MMA/" target="_blank" rel="noopener noreferrer">https://wljs.io/frontend/Advanced/Dynamics/Porting%20from%20MMA/</a></p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="better-autocomplete">Better Autocomplete<a href="https://wljs.io/releases/2025/06/27/2.7.9#better-autocomplete" class="hash-link" aria-label="Direct link to Better Autocomplete" title="Direct link to Better Autocomplete">​</a></h2>
+<p>We reformatted all autocomplete info boxes to make it beautiful:</p>
+<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202025-06-27%20at%2016.43.20-939-1dfac38061fe263de7559cf22833bff8.png" width="1586" height="440" class="img_ev3q"></p>
+<div>
+<style>
+  img {
+    border-radius: 0.5rem;
+  }
+</style></div>
+<div>
+<style>
+  [transparency="false"] .bg-g-trans {
+    background: transparent !important;
+  }
+
+  [transparency="true"] .bg-g-trans {
+    background: transparent !important;
+  }
+</style></div>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release notes *2.7.8*]]></title>
         <id>https://wljs.io/releases/2025/06/09/2.7.8</id>
@@ -56843,139 +56978,6 @@ graph LR
 <p>We have a new sponsor for this release</p>
 <p><strong>Gani Ganapathi, USA 🥳</strong></p>
 <p>Thank you for supporting our project 💛</p>
-<p><em>Ballon animation by Jemima (codepen)</em></p>
-<div>
-<style>
-  [transparency="false"] .bg-g-trans {
-    background: transparent !important;
-  }
-
-  [transparency="true"] .bg-g-trans {
-    background: transparent !important;
-  }
-</style></div>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release notes *2.5.4*]]></title>
-        <id>https://wljs.io/releases/2024/06/13/2.5.4</id>
-        <link href="https://wljs.io/releases/2024/06/13/2.5.4"/>
-        <updated>2024-06-13T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Perfomance improvements (mostly in WLJS Interpreter, removed a lot of logging and outdated APIs), new UI features, better support of WL functions]]></summary>
-        <content type="html"><![CDATA[<p>Perfomance improvements (mostly in WLJS Interpreter, removed a lot of logging and outdated APIs), new UI features, better support of WL functions</p>
-<div>
-<style>
-  .balloon {
-  height: 125px;
-  width: 105px;
-  border-radius: 75% 75% 70% 70%;
-  position: relative;
-}
-
-.balloon:before {
-  content: "";
-  height: 75px;
-  width: 1px;
-  padding: 1px;
-  background-color: #FDFD96;
-  display: block;
-  position: absolute;
-  top: 125px;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.balloon:after {
-    content: "▲";
-    text-align: center;
-    display: block;
-    position: absolute;
-    color: inherit;
-    top: 120px;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-@keyframes float {
-  from {transform: translateY(100vh);
-  opacity: 1;}
-  to {transform: translateY(-300vh);
-  opacity: 0;}
-}
-#balloon-container {
-  height: 100vh;
-  top: 0;
-  position:fixed;
-  bottom: 0;
-  z-index: -99;  
-  padding: 1em;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-  transition: opacity 500ms;
-}
-</style>
-
-<div id="balloon-container">
-</div></div>
-<!-- -->
-<a href="https://wljs.io/e88294d5fab7232b757c1752ea76231e.wln" class="p-2 text-xs w-full flex ring-1 ring-inset text-gray-600 shadow ring-gray-300 bg-gray-300 my-2">Download original notebook <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5 ml-auto" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17 17h.01m.39-3h.6c.932 0 1.398 0 1.765.152a2 2 0 0 1 1.083 1.083C21 15.602 21 16.068 21 17s0 1.398-.152 1.765a2 2 0 0 1-1.083 1.083C19.398 20 18.932 20 18 20H6c-.932 0-1.398 0-1.765-.152a2 2 0 0 1-1.083-1.083C3 18.398 3 17.932 3 17s0-1.398.152-1.765a2 2 0 0 1 1.083-1.083C4.602 14 5.068 14 6 14h.6m5.4 1V4m0 11-3-3m3 3 3-3"></path></svg></a>
-<div style="filter:none" class="language-mathematica codeBlockContainer_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module theme-code-block"><div class="codeBlockContent_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"><pre tabindex="0" class="prism-code language-mathematica codeBlock_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module thin-scrollbar" style="color:rgb(57, 58, 52);background-color:rgb(246, 248, 250)"><code style="white-space:pre-wrap" class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module">
-const balloonContainer = document.getElementById("balloon-container");
-
-function random(num) {
-  return Math.floor(Math.random() * num);
-}
-
-function getRandomStyles() {
-  var r = random(255);
-  var g = random(255);
-  var b = random(255);
-  var mt = random(200);
-  var ml = random(50);
-  var dur = random(5) + 5;
-  return `
-  background-color: rgba(${r},${g},${b},0.7);
-  color: rgba(${r},${g},${b},0.7); 
-  box-shadow: inset -7px -3px 10px rgba(${r - 10},${g - 10},${b - 10},0.7);
-  margin: ${mt}px 0 0 ${ml}px;
-  animation: float ${dur}s ease-in infinite
-  `;
-}
-
-function createBalloons(num) {
-  for (var i = num; i &gt; 0; i--) {
-    var balloon = document.createElement("div");
-    balloon.className = "balloon";
-    balloon.style.cssText = getRandomStyles();
-    balloonContainer.append(balloon);
-  }
-}
-
-function removeBalloons() {
-  balloonContainer.style.opacity = 0;
-  setTimeout(() =&gt; {
-    balloonContainer.remove()
-  }, 500)
-}
-
-createBalloons(10);
-setTimeout(removeBalloons, 15000);
-
-return '';
-</code><code class="codeBlockLines_node_modules-@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module"></code></pre></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="outline-feature">Outline feature<a href="https://wljs.io/releases/2024/06/13/2.5.4#outline-feature" class="hash-link" aria-label="Direct link to Outline feature" title="Direct link to Outline feature">​</a></h2>
-<p>Table of content is automatically created for notebook with more than 1 headings. It scans all markdown cells and extracts headings from them</p>
-<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202024-08-14%20at%2020.54.17-ad52a0d320cb33e77f75f205eea1d07a.png" width="1490" height="1108" class="img_ev3q"></p>
-<p>If you click on labels it will automatically scroll into its view</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="find-and-replace">Find and replace<a href="https://wljs.io/releases/2024/06/13/2.5.4#find-and-replace" class="hash-link" aria-label="Direct link to Find and replace" title="Direct link to Find and replace">​</a></h2>
-<p>The most basic feature you know from other IDE is now implemented. The search is localized for each cell and can be called using <code>Ctrl/Cmd+f</code> combination of keys</p>
-<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202024-08-14%20at%2020.56.31-5d5a99b54c94290f9563708318c4f765.png" width="1568" height="394" class="img_ev3q"></p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="links-to-documentation-in-autocomplete-panel">Links to documentation in autocomplete panel<a href="https://wljs.io/releases/2024/06/13/2.5.4#links-to-documentation-in-autocomplete-panel" class="hash-link" aria-label="Direct link to Links to documentation in autocomplete panel" title="Direct link to Links to documentation in autocomplete panel">​</a></h2>
-<p>Click to 🔎 icon to open a documentation on a given symbol</p>
-<p><img decoding="async" loading="lazy" src="https://wljs.io/assets/images/Screenshot%202024-08-15%20at%2012.50.31-6970be0ec2092cb68a440615d408af25.png" width="1078" height="218" class="img_ev3q"></p>
 <p><em>Ballon animation by Jemima (codepen)</em></p>
 <div>
 <style>

@@ -1,0 +1,146 @@
+
+
+# Release notes *2.7.9* 🔔
+
+- **EchoLabel Upgrades**: Now supports notifications, warnings, errors, spinners, and progress bars.
+- **Documentation Integration**: Autocomplete includes links to both: WLJS and Wolfram documentation.
+- **Improved Code Pasting**: Special handler converts unsupported Mathematica expressions using a local kernel.
+- **NB format Support**: Enhanced parser of `.nb` files.
+- **New `dragsignal` Event**: Enables manual control over drag behavior for constrained interactions.
+- **Code Formatter Fixes**: Now it handels WLJS syntax sugar properly.
+- **Information Display**: Switched to Wolfram's native `Information` output (image-based).
+- **Docs & Tutorials**: New guides including porting dynamics from Mathematica to WLJS.
+- **Autocomplete UI**: More user-friendly info boxes for symbol suggestions.
+
+<!--truncate-->
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-6580533372006862848.txt').default} json={require('./attachments/2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4.txt').default}/>
+
+
+## EchoLabel tools
+There is a very old symbol `EchoLabel`, which is an operator form of `Echo` with a label. We extended its properties, which allows user programs to various push notifications:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"8b404b53-9282-4e3b-9334-fd28e2c4029c"} type={"Input"} opts={{}} >{`EchoLabel%5B%22Test%22%5D%5B%22This%20is%20normal%20one%22%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"print"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"3a315d47-c011-4f02-adf0-9c80a361ff5a"} type={"Output"} opts={{}} >{`%3E%3E%20%22Test%22%20%22This%20is%20normal%20one%22`}</WLJSEditor>
+
+Print to notifications:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"ca6bfe22-fa4d-4aca-b4f0-c4d41dfae5f9"} type={"Input"} opts={{}} >{`EchoLabel%5B%22Notification%22%5D%5B%22This%20will%20always%20appear%20at%20the%20top%22%5D%3B`}</WLJSEditor>
+
+__Warning__ messages:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"5df860e1-f8e7-4b20-83de-b5f10b537894"} type={"Input"} opts={{}} >{`EchoLabel%5B%22Warning%22%5D%5B%22This%20will%20a%20warning%22%5D%3B`}</WLJSEditor>
+
+__Error__ message:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"7bb97c5d-1a22-4feb-bae4-d092dfa03015"} type={"Input"} opts={{}} >{`EchoLabel%5B%22Error%22%5D%5B%22This%20will%20an%20error%22%5D%3B`}</WLJSEditor>
+
+__Spinner__:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"7bf61601-2cb4-4271-aee0-1011bde8e6c4"} type={"Input"} opts={{}} >{`spinner%20%3D%20EchoLabel%5B%22Spinner%22%5D%5B%22Hey.%20I%20am%20spinning%22%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"57ef9cf7-1489-4cf1-981f-12d1288301ab"} type={"Input"} opts={{}} >{`spinner%5B%22Cancel%22%5D%3B%20%28%2A%20or%20Delete%5Bspinner%5D%20%2A%29`}</WLJSEditor>
+
+__Progress bar__:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"e4b17748-1095-40ff-99d6-64fede37fa68"} type={"Input"} opts={{}} >{`bar%20%3D%20EchoLabel%5B%22ProgressBar%22%5D%5B%22I%20am%20progressing%22%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"a3d41c9b-b83f-4bb1-9eb6-417353692abf"} type={"Input"} opts={{}} >{`bar%5B%22Set%22%2C%200.5%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"0e19ac1c-0fd0-4da5-9304-9cdefd5d184a"} type={"Input"} opts={{}} >{`bar%5B%22SetMessage%22%2C%20%22Hey%21%22%5D%3B`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"194261c3-ca59-4d72-adb5-1584ca4e1285"} type={"Input"} opts={{}} >{`bar%5B%22Cancel%22%5D%3B`}</WLJSEditor>
+
+---
+
+## Links to documentation
+We extended our autocomplete window to work with WLJS specific symbols. Clicking on 🔎 icon will pop up a window with our documentation search results:
+
+
+![](attachments/Screenshot%202025-06-20%20at%2019.15.28-471.png)<WLJSHTML>{`%3Cbr%20%2F%3E`}</WLJSHTML>
+
+For Wolfram Language standard symbols an official WR documentation will be opened.
+
+## Pasting Mathematica code
+When you copy code from Wolfram Language documentation it may include some special elements like compressed graphics expressions or other, which can be understood by Mathematica, but not WLJS.
+
+We added a special handler for such cases, that will automatically convert expressions using a local kernel:
+
+
+![](attachments/Screenshot%202025-06-21%20at%2019.03.28-454.png)
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"21727ef4-25ec-40de-bf26-878d5a218c50"} type={"Input"} opts={{}} >{`i%3D%28%2AVB%5B%2A%29%28FrontEndRef%5B%22a08ba99a-3516-4aa4-a284-d753c6a25ee2%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJxpYJCVaWibqGpsamumaJCaa6CYaWZjoppibGiebJRqZpqYaAQCDiRWa%22%2A%29%28%2A%5DVB%2A%29%3B`}</WLJSEditor>
+
+:::note
+Make sure, that any kernel is connected to a notebook
+:::
+
+This also works with Mathematica or Wolfram Player __directly__:
+
+
+![](attachments/Screenshot%202025-06-21%20at%2019.21.36-75c.png)
+
+
+## Better support of Mathematica notebooks
+We made quite a big step towards `.nb` format by writting a custom `Box` converter from `StandardForm` of Mathematica to `StandardForm` of WLJS Notebook. Here are some examples:
+
+
+![](attachments/Screenshot%202025-06-22%20at%2020.36.22-db2.png)
+
+
+![](attachments/Screenshot%202025-06-22%20at%2019.16.18-1d7.png)
+
+
+![](attachments/Screenshot%202025-06-22%20at%2020.41.55-881.png)
+
+## Drag event expansion
+You might have already used the `drag` event handler on some graphics primitives. We have extended it with a sibling event, `dragsignal`. Here is the catch:
+
+`dragsignal` allows you to capture a drag event without actually dragging the graphics primitive. Why bother? It gives you manual control over the position of the primitive, for example, for constrained dragging:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"d69597e1-3852-4e8c-a3a0-9a611febadf9"} type={"Input"} opts={{"Fade":true}} >{`outer%20%3D%20RegionDifference%5B%0A%20%20Rectangle%5B%7B-1%2C-1%7D%2C%20%7B1%2C1%7D%5D%2C%0A%20%20RegionUnion%5B%0A%20%20%20%20Rectangle%5B%7B-0.9%2C-0.9%7D%2C%20%7B0.9%2C-0.4%7D%5D%20%20%2C%0A%20%20%20%20Rectangle%5B%7B0.4%2C-0.9%7D%2C%20%7B0.9%2C0.4%7D%5D%20%20%0A%20%20%5D%0A%5D%3B%0A%0Aouter%20%3D%20Rationalize%5Bouter%2C%200%5D%3B%20%28%2A%20WL14%20bug%20%2A%29%0ARegionPlot%5Bouter%5D%3B%0A%0AdistanceOp%20%3D%20RegionDistance%5Bouter%2C%20Translate%5BRectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%23%5D%5D%26%3B%0A%0Arect%20%3D%20%7B0.65%2C%200.15%7D%3B%0A%0ARegionPlot%5Bouter%2C%20Epilog-%3E%7B%0A%20%20Red%2C%20%0A%20%20Translate%5BEventHandler%5B%0A%20%20%20%20Rectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%0A%20%20%20%20%7B%22dragsignal%22%20-%3E%20Function%5Btarget%2C%0A%20%20%20%20%20%20rect%20%3D%20%7B%0A%20%20%20%20%20%20%20%20If%5BdistanceOp%5B%7Btarget%5B%5B1%5D%5D%2C%20rect%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20target%5B%5B1%5D%5D%0A%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20FixedPoint%5BIf%5BdistanceOp%5B%7B%23%2C%20rect%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%2B%200.01%20%28target%5B%5B1%5D%5D%20-%20%23%29%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%5D%26%2C%20rect%5B%5B1%5D%5D%5D%20-%200.01%20%28target%5B%5B1%5D%5D%20-%20rect%5B%5B1%5D%5D%29%20%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20If%5BdistanceOp%5B%7Brect%5B%5B1%5D%5D%2C%20target%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20target%5B%5B2%5D%5D%0A%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20FixedPoint%5BIf%5BdistanceOp%5B%7Brect%5B%5B1%5D%5D%2C%20%23%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%2B%200.01%20%28target%5B%5B2%5D%5D%20-%20%23%29%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%5D%26%2C%20rect%5B%5B2%5D%5D%5D%20-%200.01%20%28target%5B%5B2%5D%5D%20-%20rect%5B%5B2%5D%5D%29%20%20%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%5D%7D%0A%20%20%5D%2C%20Offload%5Brect%5D%5D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"80dd9b62-18fe-4d9f-8439-829f1d850da0"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%224d06c1b4-b92f-483c-9c7b-69a29bacbc9c%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm6QYmCUbJpnoJlkapemaWBgn61ommyfpmlkmGlkmJSYnJVsmAwCG6hY3%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Evaluate the __cell above__ and try to drag a rectangle. When you drag, it esimates the distance to the cutout and manually moves a rectangle to the closest position allowed.
+
+## Code Formatter
+We have improved our code formatter, which relies on the official `CodeFormatter` package:
+
+![](attachments/Screenshot%202025-06-26%20at%2021.00.25-380.png)
+
+It was broken for a long time, but now it can correctly escape our syntax sugar.
+
+## InformationData
+We removed our representation of `Information` in a favour of Wolfram's standard one:
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"d6f3b650-f2e0-483c-90d1-fc9b9b07d26f"} type={"Input"} opts={{}} >{`%3FIntegrate`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"2abfaf9c-0e2c-4c22-ae1c-e5084f2466a4"} id={"4352bc6d-b26c-4c20-8b21-63f43f31c438"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%2257588672-b8c7-443f-996e-b085b8c08b87%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKm5qbWliYmRvpJlkkm%2BuamBin6VpamqXqJhlYmAKFDCySLMwBc%2FUVCg%3D%3D%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+As a drawback: it is picture and non-interactable.
+
+## Documentation
+New examples, new tutorials!
+
+:::info
+See how to port or optimize dynamics from Mathematica to WLJS:
+
+https://wljs.io/frontend/Advanced/Dynamics/Porting%20from%20MMA/
+:::
+
+## Better Autocomplete
+We reformatted all autocomplete info boxes to make it beautiful:
+
+
+![](attachments/Screenshot%202025-06-27%20at%2016.43.20-939.png)
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20img%20%7B%0A%20%20%20%20border-radius%3A%200.5rem%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
+
+<WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20%5Btransparency%3D%22false%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%0A%20%20%5Btransparency%3D%22true%22%5D%20.bg-g-trans%20%7B%0A%20%20%20%20background%3A%20transparent%20%21important%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
