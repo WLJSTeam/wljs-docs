@@ -182,6 +182,8 @@ This approach offers some benefits over using [Primitives](#Primitives). For ins
 - `"keydown"`: Captures keyboard input after the canvas is clicked
 - `"capturekeydown"`: Same as above but also prevents page scrolling
 - `"mousemove"`: Captures mouse movement
+- `"mouseup"`: Captures mouse up
+- `"mousedown"`: Captures mouse down
 - `"click"`: Captures clicks (without the Alt key)
 - `"altclick"`: Captures clicks with the Alt key held
 
@@ -226,6 +228,7 @@ Certain graphic primitives also support `EventHandler`. Supported primitives inc
 They support these patterns:
 
 - `"drag"`: Makes the primitive draggable and returns coordinates
+- `"dragsignal"`: Makes the primitive to capture dragging, but does not drag the primitive itself. Returns coordinates
 - `"dragall"`: Like `"drag"`, but also fires events at drag start and end
 - `"click"`: Captures clicks without the Alt key
 - `"altclick"`: Captures clicks with the Alt key
@@ -246,7 +249,7 @@ getGauss[{x0_, A_, width_}] := getGauss[x0, A, width];
 ```
 
 ```mathematica @
-LeakyModule[{line, initial},
+Module[{line, initial},
   initial = {-0.2, 0.8, 0.1};
   line = getGauss[initial];
 
@@ -287,6 +290,38 @@ Graphics[{
 
 ![](./../../../mours-ezgif.com-crop.gif)
 
+Here is another example, where we make an object draggable, but update it manually. In general it allows us to apply additional constraints:
+
+```mathematica
+outer = RegionDifference[
+  Rectangle[{-1,-1}, {1,1}],
+  RegionUnion[
+    Rectangle[{-0.9,-0.9}, {0.9,-0.4}]  ,
+    Rectangle[{0.4,-0.9}, {0.9,0.4}]  
+  ]
+];
+
+outer = Rationalize[outer, 0]; (* WL14 bug *)
+RegionPlot[outer];
+
+distanceOp = RegionDistance[outer, Translate[Rectangle[-{0.2,0.2}, {0.2,0.2}], #]]&;
+
+rect = {0.65, 0.15};
+
+RegionPlot[outer, Epilog->{
+  Red, 
+  Translate[EventHandler[
+    Rectangle[-{0.2,0.2}, {0.2,0.2}], 
+    {"dragsignal" -> Function[target,
+      If[distanceOp[target] > 0, rect = target]
+    ]}
+  ], Offload[rect]]
+}]
+```
+
+![](./../../../drag_stuff-ezgif.com-video-to-gif-converter.gif)
+
+
 ## 3D Graphics
 Currently, event listeners in [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md) are limited.
 
@@ -298,6 +333,7 @@ The following 3D primitives support `EventHandler` methods:
 They support:
 
 - `"transform"`: Makes the object draggable and sends an association with a `"position"` field
+- `"drag"`: a simplified version of `transform` that only sends the coordinates
 
 This is especially useful for dynamic lighting systems. For example:
 

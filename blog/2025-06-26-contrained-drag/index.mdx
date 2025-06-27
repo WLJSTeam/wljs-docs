@@ -1,0 +1,52 @@
+# Dragging object inside a custom region
+
+In this example, we construct a solid region with a $\Gamma$-shaped cutout, where a small rectangle is going to be dragged by a user's mouse.
+
+Then we utilize a very powerful standard function of a Wolfram library, `RegionDistance`, allowing estimation of the minimal distance between regions in a single line.
+
+<!--truncate-->
+
+:::note
+Region computations are supported not only for `Region`, `Mesh`-like objects, but also basic geometrical primitives such as `Rectangle` are absolutely valid for the input.
+:::
+
+## Region cutout
+We start from cutting a hole inside a big rectangle using boolean operations:
+
+
+
+import { WLJSHTML, WLJSEditor, WLJSStore } from "@site/src/components/wljs-notebook-react";
+
+
+
+<WLJSStore kernel={require('./attachments/kernel-7738205344313459329.txt').default} json={require('./attachments/912191b6-6d68-4c13-a6ef-604b41d1c71a.txt').default} notebook={require('./attachments/notebook-912.wln').default}/>
+
+
+
+
+<WLJSEditor display={"codemirror"} nid={"912191b6-6d68-4c13-a6ef-604b41d1c71a"} id={"a9eadae0-0331-4077-a352-e6d1f01bd8ec"} type={"Input"} opts={{"Hidden":false,"InitGroup":true}} >{`outer%20%3D%20RegionDifference%5B%0A%20%20Rectangle%5B%7B-1%2C-1%7D%2C%20%7B1%2C1%7D%5D%2C%0A%20%20RegionUnion%5B%0A%20%20%20%20Rectangle%5B%7B-0.9%2C-0.9%7D%2C%20%7B0.9%2C-0.4%7D%5D%20%20%2C%0A%20%20%20%20Rectangle%5B%7B0.4%2C-0.9%7D%2C%20%7B0.9%2C0.4%7D%5D%20%20%0A%20%20%5D%0A%5D%3B%0A%0Aouter%20%3D%20Rationalize%5Bouter%2C%200%5D%3B%20%28%2A%20WL14%20bug%20%2A%29%0ARegionPlot%5Bouter%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"912191b6-6d68-4c13-a6ef-604b41d1c71a"} id={"43a0d1a3-851d-46c2-bb04-afc1df2fae2f"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%229d93a0de-9527-4680-9631-305ddb4d125b%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKW6ZYGicapKTqWpoameuamFkY6FqaGRvqGhuYpqQkmaQYGpkmAQB53RUW%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+:::warning
+[There is a bug](https://mathematica.stackexchange.com/questions/314230/understanding-2d-regions-boolean-manipulation-graphics-vs-region) in the standard library of WL14. You need to apply `Rationalize` on the final primitive; otherwise, it won't work correctly.
+:::
+
+## Dynamic Scene
+Here we assemble a dynamic scene, where we add a draggable red rectangle and update its position if the minimal distance between it and the outer region is greater than 0:
+
+
+<WLJSEditor display={"codemirror"} nid={"912191b6-6d68-4c13-a6ef-604b41d1c71a"} id={"da94b800-c7b0-484f-85f4-c9ed1f0eaff6"} type={"Input"} opts={{}} >{`distanceOp%20%3D%20RegionDistance%5Bouter%2C%20Translate%5BRectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%23%5D%5D%26%3B%0A%0Arect%20%3D%20%7B0.65%2C%200.15%7D%3B%0A%0ARegionPlot%5Bouter%2C%20Epilog-%3E%7B%0A%20%20Red%2C%20%0A%20%20Translate%5BEventHandler%5B%0A%20%20%20%20Rectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%0A%20%20%20%20%7B%22dragsignal%22%20-%3E%20Function%5Btarget%2C%0A%20%20%20%20%20%20If%5BdistanceOp%5Btarget%5D%20%3E%200%2C%20rect%20%3D%20target%5D%0A%20%20%20%20%5D%7D%0A%20%20%5D%2C%20Offload%5Brect%5D%5D%0A%7D%5D`}</WLJSEditor>
+
+We use the `dragsignal` event instead of `drag` on the `Rectangle` to prevent the primitive from being actually dragged by the mouse, and instead update its position manually.
+
+> You may notice that the dragging behavior is a bit off our expectations. An object abruptly stops once the mouse enters the "forbidden" land.
+
+One easy approach to fix this (but not quite efficient) is to iteratively approach the target separately by the x- and y-axis:
+
+
+<WLJSEditor display={"codemirror"} nid={"912191b6-6d68-4c13-a6ef-604b41d1c71a"} id={"6633dfcf-3abb-4d5b-9e3d-100dcb3af453"} type={"Input"} opts={{}} >{`distanceOp%20%3D%20RegionDistance%5Bouter%2C%20Translate%5BRectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%23%5D%5D%26%3B%0A%0Arect%20%3D%20%7B0.65%2C%200.15%7D%3B%0A%0ARegionPlot%5Bouter%2C%20Epilog-%3E%7B%0A%20%20Red%2C%20%0A%20%20Translate%5BEventHandler%5B%0A%20%20%20%20Rectangle%5B-%7B0.2%2C0.2%7D%2C%20%7B0.2%2C0.2%7D%5D%2C%20%0A%20%20%20%20%7B%22dragsignal%22%20-%3E%20Function%5Btarget%2C%0A%20%20%20%20%20%20rect%20%3D%20%7B%0A%20%20%20%20%20%20%20%20If%5BdistanceOp%5B%7Btarget%5B%5B1%5D%5D%2C%20rect%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20target%5B%5B1%5D%5D%0A%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20FixedPoint%5BIf%5BdistanceOp%5B%7B%23%2C%20rect%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%2B%200.01%20%28target%5B%5B1%5D%5D%20-%20%23%29%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%5D%26%2C%20rect%5B%5B1%5D%5D%5D%20-%200.01%20%28target%5B%5B1%5D%5D%20-%20rect%5B%5B1%5D%5D%29%20%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20If%5BdistanceOp%5B%7Brect%5B%5B1%5D%5D%2C%20target%5B%5B2%5D%5D%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20target%5B%5B2%5D%5D%0A%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20FixedPoint%5BIf%5BdistanceOp%5B%7Brect%5B%5B1%5D%5D%2C%20%23%7D%5D%20%3E%200.01%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%2B%200.01%20%28target%5B%5B2%5D%5D%20-%20%23%29%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%23%0A%20%20%20%20%20%20%20%20%20%20%5D%26%2C%20rect%5B%5B2%5D%5D%5D%20-%200.01%20%28target%5B%5B2%5D%5D%20-%20rect%5B%5B2%5D%5D%29%20%20%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%5D%7D%0A%20%20%5D%2C%20Offload%5Brect%5D%5D%0A%7D%5D`}</WLJSEditor>
+
+<WLJSEditor display={"codemirror"} nid={"912191b6-6d68-4c13-a6ef-604b41d1c71a"} id={"ff5c3edf-2ba8-44bf-b4c6-1e8d240d4c74"} type={"Output"} opts={{}} >{`%28%2AVB%5B%2A%29%28FrontEndRef%5B%22ad1a8914-bc32-4529-b601-9edc89756513%22%5D%29%28%2A%2C%2A%29%28%2A%221%3AeJxTTMoPSmNkYGAoZgESHvk5KRCeEJBwK8rPK3HNS3GtSE0uLUlMykkNVgEKJ6YYJlpYGproJiUbG%2BmamBpZ6iaZGRjqWqamJFtYmpuamRoaAwCA%2FxUY%22%2A%29%28%2A%5DVB%2A%29`}</WLJSEditor>
+
+Now it should feel *more natural*

@@ -3,21 +3,74 @@ sidebar_position: 2
 ---
 
 
-The entire notebook interface is built using plain JavaScript and HTML, powered by a [Wolfram WebServer](https://github.com/KirillBelovTest/HTTPHandler) and [WLX](https://jerryi.github.io/wlx-docs/) running locally on a Wolfram Kernel. This means you can work remotely __by running the server anywhere you like__ (see how in the [instruction guide](frontend/instruction.md)).
+The notebook combines live code in Wolfram, Javascript  and others. We provide GUI building blocks for user input, KaTeX for equations, Markdown for narrative text and presentations. Think about it as a computations platform for research or a powerful sandbox, where you can try out your ideas, write a story about it alongside and then publish it somewhere on web. 
 
-Some computations are partially performed by your browser, and you can [control this behavior](frontend/Dynamics.md) if desired. All UI elements and cell operations are written in JavaScript and Wolfram Language, and handled by the WLJS Interpreter.
+WLJS Notebook is **free software** based on the [Wolfram Engine](https://www.wolfram.com/engine/) and open-source technologies.
 
-> **WLJS Interpreter** is a tiny (3 kB) Wolfram Language interpreter that runs in the browser, written in vanilla JavaScript. It fully integrates the JavaScript environment with the Wolfram Language backend. We'll also refer to this as the *frontend* or *client*.
+The graphical interface is built using web-technologies and is powered by [WebServer](https://github.com/KirillBelovTest/HTTPHandler) and [WLX](https://jerryi.github.io/wlx-docs/). This means you can do both: use as a normal desktop app or run it on a remote machine and operate via browser (see how in the [instruction guide](frontend/instruction.md)).
+
+<details>
+<summary>Technical details</summary>
+
+Some computations are partially performed by your browser, and you can [control this behavior](frontend/Dynamics.md) if desired. All UI elements, cell and interactivity in the notebook are operated by WLJS Interpreter.
+
+> **WLJS Interpreter** is a tiny (3 kB) Wolfram Language interpreter that runs in the browser, written in vanilla JavaScript. It fully integrates the JavaScript environment with the Wolfram Language backend. We'll also refer to this as the *frontend* or *browser*.
+
+</details>
 
 ![](./../imgs/Interface-1.png)
 
-:::info
-Unlike Mathematica, the cell design follows a mostly flat structure, similar to Jupyter Notebook. Only `input` and `output` cells are grouped together.
-:::
-
-Output cells are editable. We do not explicitly separate them (as Mathematica or Jupyter do), because the whole document is a **notebook** — it doesn't distinguish between inputs and outputs. You can freely edit, copy, and reevaluate any output expression in place. So we distinguish them only formally.
+A notebook follows a mostly flat structure __similar to Jupyter Notebook__. Only input and output cell pairs are grouped together. You can freely edit, copy, and reevaluate any output expression in place. 
 
 [__See live example__](https://jerryi.github.io/wljs-docs/wljs-demo/intro-notebook/)
+
+
+## Is it like an open-source Mathematica? 🐺
+If you're familiar with the Wolfram Language, you'll feel at home using WLJS Notebook. Notably:
+
+- Output cells are editable and valid for evaluation
+- Support for syntax sugar (fractions, powers, etc.)
+- Support for [Graphics](frontend/Reference/Graphics/Graphics.md), [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md), [Sound](frontend/Reference/Sound/Sound.md), [Video](frontend/Reference/Video/Video.md), and more interactive content
+- Most [plotting functions](https://jerryi.github.io/wljs-docs/wljs-demo/plot-1d) are supported (see [Reference](frontend/Reference/Reference.md))
+- Compatible with standard Wolfram Packages and Paclets
+- Support for resource functions and [neural networks](https://jerryi.github.io/wljs-docs/wljs-demo/neuralnet-1)
+- [Formatting options](https://jerryi.github.io/wljs-docs/wljs-demo/intro-mathinput/) (a bit more limited compared to MMA)
+- [Dynamics](frontend/Dynamics.md) and interactivity out of the box: [Manipulate](frontend/Reference/GUI/Manipulate.md), and etc.
+
+### Can it open .nb files?
+__Yes!__ There are [some limitations](frontend/Importing/Mathematica.md) regarding complex styling / formatting of the text, and dynamic modules (see below). But we gradually improve the compatibility with every update. 
+
+### What differs or missing?
+
+- Limited text formatting support (see Decorations in [Reference](frontend/Reference/Reference.md))
+- We rely on a different low-level [dynamics](frontend/Dynamics.md) implementation, that prioritizes speed and fine-grained control over updates
+- No `DynamicModule`, `Slider`, or `Button` — instead: [InputRange](frontend/Reference/GUI/InputRange.md), [InputButton](frontend/Reference/GUI/InputButton.md)
+- Flat notebook structure
+- Markdown is the main language for text cells ([Markdown](frontend/Cell%20types/Markdown.md))
+- No evaluation history (only the last output is preserved)
+- Not all graphics primitives are implemented (but we are gradually improving)
+
+:::tip
+If something does not look like as it should, try [MMAView](frontend/Reference/GUI/MMAView.md) wrapper
+
+```mathematica
+With[{p = Plot3D[f[x] y, {x,0,10}, {y,0,10}]},
+  MMAView[p]
+]
+```
+
+![](./../neverasked-ezgif.com-optimize.gif)
+
+:::
+
+## Why not Jupyter Lab?
+We chose to build our own system because:
+- A Jupyter kernel for Wolfram Engine already exists
+- We wanted powerful syntax sugar, editable output cells, __multimedia__ cells — which require a custom code editor
+- *Jupyter Frontend - Kernel* interface is quite robust, but it doesn't meet our needs for a low-latency communication with text and binary large payloads
+- Adding a 3rd language or API would increase long-term maintenance
+
+## UI Overview
 
 ### Cell Control Buttons
 All cells are grouped under a parent input cell. Other than that, the notebook structure is flat. Control buttons apply to the entire group:
@@ -58,7 +111,7 @@ The last button expands into:
 See __more keybindings__ in the [Input Cell](frontend/Cell%20types/Input%20cell.md) reference.
 
 ## Wolfram Language
-When you start typing, the editor assumes you're using the Wolfram Language. Press `Shift+Enter` (or click the play button) to evaluate.
+When you start typing, the editor assumes you're using the Wolfram Language. If you are not familiar with it, please, have a look at [Wolfram Language](frontend/Wolfram%20Language.md) page. Press `Shift+Enter` (or click the play button) to evaluate.
 
 ![](./../imgs/Screenshot%202024-03-13%20at%2018.58.12.png)
 
@@ -83,46 +136,6 @@ Or use the special toolbar (snippet palette):
 
 ![](./../plattte-ezgif.com-optimize%201.gif)
 
-## What Differs from Mathematica 💡
-If you're familiar with the Wolfram Language, you'll feel at home using WLJS Notebook. Notable differences:
-
-- Output cells are editable
-- Full support for syntax sugar (fractions, powers, etc.)
-- Support for [Graphics](frontend/Reference/Graphics/Graphics.md), [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md), [Sound](frontend/Reference/Sound/Sound.md), [Video](frontend/Reference/Video/Video.md), and more
-- Most [plotting functions](https://jerryi.github.io/wljs-docs/wljs-demo/plot-1d) are supported (see [Reference](frontend/Reference/Reference.md))
-- Compatible with standard Wolfram Packages and Paclets
-- Support for resource functions and [neural networks](https://jerryi.github.io/wljs-docs/wljs-demo/neuralnet-1)
-- [Formatting options](https://jerryi.github.io/wljs-docs/wljs-demo/intro-mathinput/) (limited)
-
-Partial support for [Mathematica](frontend/Importing/Mathematica.md) `.nb` format:
-- Limited text formatting support (see Decorations in [Reference](frontend/Reference/Reference.md))
-- Different [dynamics](frontend/Dynamics.md) implementation
-- No `DynamicModule`, `Slider`, or `Button` — use [InputRange](frontend/Reference/GUI/InputRange.md), [InputButton](frontend/Reference/GUI/InputButton.md)
-- Flat notebook structure
-- Markdown is the main language for text cells ([Markdown](frontend/Cell%20types/Markdown.md))
-- No extended evaluation history (only the last output)
-- Not all graphics primitives are implemented (gradually improving)
-
-:::tip
-If something does not look like as it should, try [MMAView](frontend/Reference/GUI/MMAView.md)
-
-```mathematica
-With[{p = Plot3D[f[x] y, {x,0,10}, {y,0,10}]},
-  MMAView[p]
-]
-```
-
-![](./../neverasked-ezgif.com-optimize.gif)
-
-:::
-
-## Why Not Jupyter Ecosystem?
-We chose to build our own system because:
-- A Jupyter kernel for Wolfram Engine already exists
-- We wanted syntax sugar, editable output cells, multimedia cells — which require a custom cell editor
-- Jupyter uses `ZMQ`, which doesn't meet our needs for fast, low-latency communication with large payloads
-- Adding a third language or API would increase long-term maintenance
-
 ## Command Palette
 
 :::tip
@@ -141,8 +154,9 @@ Snippets are just special notebooks with built-in UI elements.
 A single input cell can output:
 - Wolfram Language results
 - An HTML page
-- A JavaScript window
+- A JavaScript code (DOM element)
 - A slide in a presentation
+- and [Many more](frontend/Cell%20types/Many%20more.md)
 
 ![](./../imgs/Dropfiles-ezgif.com-optipng.png)
 
@@ -150,12 +164,12 @@ You can even draw inside the code editor:
 
 ![](./../Excalidraw-ezgif.com-speed%201.gif)
 
-## Overlay Mode
+## WLJS Bar
 If the WLJS App is running (tray or regular), press `Shift+Alt+Space` for quick input access.
 
 ![](./../Screenshot%202024-08-25%20at%2016.52.14.png)
 
-More: [Overlay Mode](frontend/Advanced/Overlay%20mode.md)
+More: [WLJS Bar](frontend/Advanced/Overlay%20mode.md)
 
 ## Graphics 2D & 3D
 Most Mathematica plotting functions produce low-level primitives. Most of them are supported here:
@@ -169,6 +183,7 @@ Try dragging and panning with your mouse!
 ![](./../imgs/Screenshot%202024-03-13%20at%2019.07.00.png)
 
 ## Powered by SVG and WebGL
+We optimized every inch on a low-level to achieve the maximum performance:
 
 ![](./../Isingspins-ezgif.com-optipng.png)
 
@@ -193,6 +208,18 @@ Need to share your notes? You have several options:
 
 **No internet dependency** — it works offline and will remain functional even after future updates. You can always re-import the exported notebook. Ideal for sharing notes or publishing on a blog.
 
+__No external programms or plugins__ - just your browser.
+
+<details>
+
+<summary>Why HTML is the best?</summary>
+
+<iframe width="315" height="560" src="https://youtube.com/embed/vTrVGam84m8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+</details>
+
+
 ## Other Languages
 Need annotations? No need to switch cell types. Just type `.md` on the first line of a cell to enable Markdown.
 
@@ -204,7 +231,8 @@ You can also mix WL and JavaScript to create stunning visualizations:
 
 ![](./../imgs/Spark-ezgif.com-speed.png)
 
-Built-in support for:
+### First class support:
+
 - [JavaScript](frontend/Cell%20types/Javascript.md)
 - [Markdown](frontend/Exporting/Markdown.md)
 - [Slides](frontend/Cell%20types/Slides.md)
@@ -221,8 +249,15 @@ Access via the command palette.
 More: [Debugger](frontend/Advanced/Command%20palette/Debugger.md)
 
 ## AI Copilot
-Try it out: [AI Assistant](frontend/Advanced/Command%20palette/AI%20Assistant.md)
+We won't force you to use it, it is fully optional and we do not have any profit from it. See more if you are interested at [AI Assistant](frontend/Advanced/Command%20palette/AI%20Assistant.md)
+
+<details>
+
+<summary>Quick overview</summary>
 
 <iframe width="315" height="560" src="https://youtube.com/embed/wenBdDRpD4g?si=bB5h28zAHb7r6Nmh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <iframe width="315" height="560" src="https://youtube.com/embed/pXe1mSir47Q?si=UTclXIdPiB3HydPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+</details>

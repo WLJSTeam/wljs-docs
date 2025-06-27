@@ -4,24 +4,9 @@ sidebar_position: 8
 
 The way dynamics work here is quite different from Wolfram Mathematica. Key changes were made for the sake of performance, flexibility—and perhaps a bit of @JerryI’s imagination (one of the maintainers).
 
-## Architecture
+However we have some shortcuts to help beginners or Mathematica users to pick up.
 
-All dynamics—similar to what you’d expect in Mathematica—are handled entirely on the frontend, i.e., in your browser.
-
-The core engine is powered by the [WLX Library](https://jerryi.github.io/wlx-docs/docs/WLX/dynamics#dynamic-symbols) (via the WLJSTransport package).
-
-Some expressions are designed to run directly on the frontend, without needing Kernel-side definitions. In other cases, you can use the `Offload` expression to explicitly tell the Kernel to pass unevaluated expressions to the frontend. This allows flexible structuring of your code to balance performance and control.
-
-:::tip
-Learn more [here](https://jerryi.github.io/wlx-docs/docs/WLX/dynamics#dynamic-symbols)
-:::
-
-:::tip
-Always keep track of which parts of your code execute on the Wolfram Kernel (server) vs. the frontend (browser). This is crucial for writing predictable and performant code.
-:::
-
-## If You're Looking for Just `Manipulate`
-
+## If you're looking for the easiest way
 If you want to see how curves change with parameters, check out [ManipulatePlot](frontend/Reference/Plotting%20Functions/ManipulatePlot.md) or [ManipulateParametricPlot](frontend/Reference/Plotting%20Functions/ManipulateParametricPlot.md) or general [Manipulate](frontend/Reference/GUI/Manipulate.md)
 
 ```mathematica
@@ -67,6 +52,8 @@ Animate[Row[{Sin[x], "==", Series[Sin[x], {x,0,n}], Invisible[1/2]}], {n, 1, 10,
 
 ![](./../animatedsn-ezgif.com-video-to-gif-converter.gif)
 ### Fallback to Mathematica's Rendering
+<details>
+
 Using [MMAView](frontend/Reference/GUI/MMAView.md) wrapper allows to rasterize interactive output using Wolfram Engine in real-time keeping the original looks of Mathematica's plots
 
 ```mathematica
@@ -86,9 +73,25 @@ Animate[Plot[Sin[x y], {x,0,1}], {y,0,5}] // MMAView
 Please do not overuse [MMAView](frontend/Reference/GUI/MMAView.md) since it uses raw raster images streamed in real-time, which is a heavy load to the system. Try to use mostly WLJS's dynamics if possible
 :::
 
+</details>
+
+## Architecture
+
+All dynamics—similar to what you’d expect in Mathematica—are handled mostly on the frontend, i.e., in your browser.
+
+Some expressions are designed to run directly on the frontend, without needing Kernel-side evaluation. In other cases, you can use `Offload` expression to explicitly tell the Kernel to pass unevaluated expressions to the frontend. This allows flexible structuring of your code to balance performance and control where and how your code is executed.
+
+:::tip
+Learn more [here](https://jerryi.github.io/wlx-docs/docs/WLX/dynamics#dynamic-symbols)
+:::
+
+:::tip
+Keep track of which parts of your code execute on the Wolfram Kernel (server) vs. the frontend (browser). This is crucial for writing predictable and performant code.
+:::
+
 
 ## Automatic Tracking of Held Symbols
-This doesn’t mean `Set` will automatically reevaluate on nested symbol changes, but many graphics primitives work out of the box. Use [Offload](frontend/Reference/Interpreter/Offload.md) to send symbols to the frontend:
+This doesn’t mean `Set` will automatically reevaluate on nested symbol changes, but many graphics primitives work out of the box. Use [Offload](frontend/Reference/Interpreter/Offload.md) to evaluate symbols on the frontend:
 
 ```mathematica
 length = 1;
@@ -99,7 +102,7 @@ Graphics[{Cyan,
 ```
 
 :::info
-`Offload` wraps the value in a symbol unknown to the frontend, forcing it to fetch and create a dynamic link.
+`Offload` wraps the inner expression and keeps it unevaluated, then it appears to be unknown to the frontend, forcing it to fetch and create a dynamic link.
 :::
 
 Now try to evaluate in a new cell
@@ -119,8 +122,7 @@ Please, open an issue on Github page if you need more support of these features
 :::
 
 ## Event-Based Approach
-
-You can use GUI elements as event generators:
+You can use GUI elements (see more at [Mouse and keyboard](frontend/Advanced/Events%20system/Mouse%20and%20keyboard.md)) as event generators:
 
 ```mathematica
 slider = InputRange[-1, 1, 0.1, "Label" -> "Length"]
