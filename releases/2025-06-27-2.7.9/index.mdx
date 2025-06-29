@@ -11,6 +11,7 @@
 - **Information Display**: Switched to Wolfram's native `Information` output (image-based).
 - **Docs & Tutorials**: New guides including porting dynamics from Mathematica to WLJS.
 - **Autocomplete UI**: More user-friendly info boxes for symbol suggestions.
+- **Better support of PlotLabel and Inset**
 
 <!--truncate-->
 
@@ -140,6 +141,20 @@ We reformatted all autocomplete info boxes to make it beautiful:
 
 
 ![](attachments/Screenshot%202025-06-27%20at%2016.43.20-939.png)
+
+
+## Better support of PlotLabel and Inset
+There was a complain, why in WLJS all labels have to be string. We changed that:
+
+```mathematica @
+Plot[(*SpB[*)Power[x(*|*),(*|*)2](*]SpB*) - x, {x,0,10}, PlotLabel->HoldForm[(*SpB[*)Power[x(*|*),(*|*)2](*]SpB*) - x]]
+```
+
+The same counts for `Inset`:
+
+```mathematica
+Graphics[{Circle[], Inset[x^2 + y^2 == 1, {0, 0}]}, ImageSize->Small]
+```
 
 <WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20img%20%7B%0A%20%20%20%20border-radius%3A%200.5rem%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
 
