@@ -1,11 +1,15 @@
-Unlike Mathematica, we interpret all expressions passed to `Text`, `PlotLabel`, etc., normally. Therefore, this approach can conflict with Mathematica's method of displaying equations or Wolfram Language (WL) expressions in labels. For example:
+~~Unlike Mathematica, we interpret all expressions passed to `Text`, `PlotLabel`, etc., normally. Therefore, this approach can conflict with Mathematica's method of displaying equations or Wolfram Language (WL) expressions in labels. For example:~~
+
+:::info
+*UPD: 29.06.2025*
+This is no longer an issue. You can pass any expression to [Inset](frontend/Reference/Graphics/Inset.md)
+:::
 
 ```mathematica
-Plot[x, {x, 0, 1}, PlotLabel -> x]    ❌
+Plot[x, {x, 0, 1}, PlotLabel -> x]    ✅
 Plot[x, {x, 0, 1}, PlotLabel -> "x"]  ✅
 ```
 
-However, we provide other tools to achieve the same goals.
 
 ## Plain Superscript/Subscript and Greek Symbols
 
@@ -25,12 +29,12 @@ ListLinePlot[yourData, Frame -> True, FrameLabel -> {"ω (THz)", "α (absorption
 
 ## Render WL Expressions
 
-Using [EditorView](frontend/Reference/GUI/EditorView.md) inside [Inset](frontend/Reference/Graphics/Inset.md), you can place any valid WL expression in [StandardForm](frontend/Reference/Formatting/StandardForm.md):
+Using `HoldForm` inside [Inset](frontend/Reference/Graphics/Inset.md) on any expression to prevent it from evaluating:
 
 ```mathematica
 Plot[x, {x, 0, 10}, Epilog -> {
     Inset[
-        EditorView["(*FB[*)((1)(*,*)/(*,*)(2))(*]FB*)"],
+        HoldForm[(*FB[*)((1)(*,*)/(*,*)(2))(*]FB*)],
         {3, 5}
     ]
 }]
@@ -38,48 +42,10 @@ Plot[x, {x, 0, 10}, Epilog -> {
 
 <Wl>{`Plot[x, {x, 0, 10}, Epilog->{Inset[EditorView["(*FB[*)((1)(*,*)/(*,*)(2))(*]FB*)"], {3,5}]}]`}</Wl>
 
-These *symbols in the string* are just copied text from a standard input or output Wolfram cell (see [Introduction](frontend/Symbolic%20programming.md#Introduction)). You can also render expressions in-place:
-
-```mathematica
-Plot[Sin[x]/x, {x, 0, 10}, Epilog -> {
-    Inset[
-        EditorView @ ToString[Sin[x]/x, StandardForm],
-        {3, 0.5}
-    ]
-}]
-```
 
 ## Render LaTeX
 
 ### Option 1
-
-Using [CellView](frontend/Reference/GUI/CellView.md), you can insert an entire output cell into an [Inset](frontend/Reference/Graphics/Inset.md), with its content provided as a string. There is special [cell type for LaTeX](frontend/Cell%20types/Many%20more.md)
-
-```mathematica
-Plot[Sin[x]/x, {x, 0, 10}, Epilog -> {
-    Inset[
-        CellView["\\hat{T} = i \\hbar \\frac{\\partial}{\\partial t}", "Display" -> "latex"],
-        {3, 0.5}, Center, {3,1}
-    ]
-}]
-```
-
-<Wl>{`Plot[Sin[x]/x, {x, 0, 10}, Epilog->{Inset[CellView["$\\hat{T} = i \\hbar \\frac{\\partial}{\\partial t}$", "Display"->"markdown"], {3,0.5}]}]`}</Wl>
-
-#### Generate on-fly
-Using [TeXForm](frontend/Reference/Formatting/TeXForm.md) one can convert existing expression to LaTeX
-
-```mathematica
-Plot[Sin[x]/x, {x, 0, 10}, Epilog -> {
-    Inset[
-        CellView[TeXForm[Sin[x]/x], "Display" -> "latex"],
-        {3, 0.5}, Center, {3,1}
-    ]
-}]
-```
-
-
-### Option 2
 
 Using the [MaTeX package](https://github.com/szhorvat/MaTeX), you can directly render LaTeX equations into [Graphics](frontend/Reference/Graphics/Graphics.md) primitives. Install it from the official repository or use a resource function available online:
 

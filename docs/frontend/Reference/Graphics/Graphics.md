@@ -217,12 +217,14 @@ Defines if plot range has to be clipped. By the default is `True`, that hides al
 Specifies a label for a plot
 
 ```mathematica
-Plot[Sin[x], {x, 0, 10}, PlotLabel -> Offset["Sin[x]", {0,-1}], LabelStyle -> Directive[Orange, FontSize->14]]
+Plot[Sin[x], {x, 0, 10}, PlotLabel -> Sin[x]]
 ```
 
-can be used with [Offset](frontend/Reference/Graphics/Offset.md) as well
+```mathematica
+Plot[Sin[x], {x, 0, 10}, PlotLabel -> "Sin[x]", LabelStyle -> Directive[Orange, FontSize->14]]
+```
 
-<Wl>{`Plot[Sin[x], {x, 0, 10}, PlotLabel -> Offset["Sin[x]", {0,-1}], LabelStyle -> Directive[Orange, FontSize->14], ImageSize->350]`}</Wl>
+
 
 ### `Axes`
 Show or hide axes 
