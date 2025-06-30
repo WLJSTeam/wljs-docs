@@ -12,6 +12,7 @@
 - **Docs & Tutorials**: New guides including porting dynamics from Mathematica to WLJS.
 - **Autocomplete UI**: More user-friendly info boxes for symbol suggestions.
 - **Better support of PlotLabel and Inset**
+- **Better ticks for 3D plots**
 
 <!--truncate-->
 
@@ -155,6 +156,17 @@ The same counts for `Inset`:
 ```mathematica
 Graphics[{Circle[], Inset[x^2 + y^2 == 1, {0, 0}]}, ImageSize->Small]
 ```
+
+## Better ticks for 3D plots 
+It is only getting better!
+
+```mathematica
+NDSolve[{D[u[t, x], t] == D[u[t, x], x, x], u[0, x] == 0, u[t, 0] == Sin[t], u[t, 5] == 0}, u, {t, 0, 10}, {x, 0, 5}]; 
+
+Plot3D[Evaluate[u[t, x] /. %], {t, 0, 10}, {x, 0, 5}, PlotRange -> All, ColorFunction -> "SunsetColors"]
+```
+
+*Try this one*
 
 <WLJSHTML>{`%0A%3Cstyle%3E%0A%20%20img%20%7B%0A%20%20%20%20border-radius%3A%200.5rem%3B%0A%20%20%7D%0A%3C%2Fstyle%3E`}</WLJSHTML>
 
