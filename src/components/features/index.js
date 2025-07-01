@@ -25,7 +25,7 @@ const FeatureList = [
     ),
     description: (
       <>
-        WLJS Notebook is compatible with Wolfram Mathematica and has a flat and minimal notebook structure like in Jupyter Lab. All power of Wolfram Language standard library is at your hands
+        WLJS Notebook is compatible with Wolfram Mathematica (it can open <code>.nb</code> files) and has a flat and minimal notebook structure like in Jupyter Lab. All power of Wolfram Language standard library is at your hands
       </>
     ),
   },

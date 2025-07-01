@@ -31,19 +31,19 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="apple" label="Mac" default>
     <ul>
-      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.8/wljs-notebook-2.7.8-arm64-macos.dmg">Apple Silicon</Link></li>
-      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.8/wljs-notebook-2.7.8-x64-macos.dmg">Intel</Link></li>
+      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.9/wljs-notebook-2.7.9-arm64-macos.dmg">Apple Silicon</Link></li>
+      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.9/wljs-notebook-2.7.9-x64-macos.dmg">Intel</Link></li>
     </ul>
   </TabItem>
   <TabItem value="orange" label="Window">
     <ul>
-      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.8/wljs-notebook-2.7.8-x64-win.exe">x86/64</Link></li>
+      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.9/wljs-notebook-2.7.9-x64-win.exe">x86/64</Link></li>
     </ul>
   </TabItem>
   <TabItem value="banana" label="GNU/Linux">
     <ul>
-      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.8/wljs-notebook-2.7.8-amd64-gnulinux.deb">x86/64</Link></li>
-      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.8/wljs-notebook-2.7.8-arm64-gnulinux.deb">ARM64</Link></li>
+      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.9/wljs-notebook-2.7.9-amd64-gnulinux.deb">x86/64</Link></li>
+      <li><Link to="https://github.com/WLJSTeam/wolfram-js-frontend/releases/download/v2.7.9/wljs-notebook-2.7.9-arm64-gnulinux.deb">ARM64</Link></li>
     </ul>
   </TabItem>
   <TabItem value="baba" label="Docker">
