@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Advanced/Dynamics/Porting from MMA/Porting from MMA.md",
+                "file": "frontend/Exporting/MDX.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Porting from MMA"
+              "title": "MDX"
             }
           },
           {
@@ -93,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Haptic",
+                "query": "MDX",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -114,7 +114,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -220,8 +221,8 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
-    "frontend/Reference/GUI/MMAView.md",
     "frontend/Advanced/Dynamics/Porting from MMA/Porting from MMA.md",
+    "frontend/Reference/GUI/MMAView.md",
     "frontend/Reference/Cells and Notebook/HapticFeedback.md",
     "frontend/Advanced/Dynamics/Porting from MMA/Animation.md",
     "frontend/Reference/Misc/Let.md",

@@ -112,7 +112,7 @@ My~equation
     ),
     description: (
       <>
-        <a href="/frontend/Exporting/Static HTML"><b>Export and share</b></a> your notebook as a standalone <code>.html</code> or <code>.md</code> file—plots stay interactive, and sliders remain draggable. <small>Exported notebooks are no longer subject to the license limitations of the freeware Wolfram Engine.</small>
+        <a href="/frontend/Exporting/Static HTML"><b>Export and share</b></a> your notebook as a standalone <code>.html</code> or <code>.md</code> file—plots stay interactive, and sliders remain draggable. See <a href="https://wljsteam.github.io/wljs-nextjs-example/">NextJS demo</a>. <small>Exported notebooks are no longer subject to the license limitations of the freeware Wolfram Engine.</small>
       </>
     ),
   },

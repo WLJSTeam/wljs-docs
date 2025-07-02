@@ -67,7 +67,7 @@ You would also need to preprocess these files using remark plugin. __Please see 
 ## NextJS Example
 Here is an example repository
 - __Github__ [wljs-nextjs-example](https://github.com/JerryI/wljs-nextjs-example)
-- [Online demo](https://jerryi.github.io/wljs-nextjs-example/)
+- [Online demo](https://wljsteam.github.io/wljs-nextjs-example/)
 
 It features a working SSR-based website built using a minimal setup
 
