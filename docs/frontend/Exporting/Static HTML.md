@@ -67,5 +67,5 @@ __will still work being exported to a static HTML file__ out of the box, since t
 
 ## Examples
 See some interactive examples from __our blog page__ and demonstration project
-- [2D Fourier Image Filtering](https://jerryi.github.io/wljs-docs/wljs-demo/intro-2df)
+- [2D Fourier Image Filtering](https://wljs.io/wljs-demo/intro-2df)
 - [Electric field 3D plot](https://jerryi.github.io/wljs-demo/pointcharge3D.html)

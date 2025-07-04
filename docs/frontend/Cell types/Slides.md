@@ -49,7 +49,7 @@ By default, slide cells support plain HTML mixed with Markdown syntax and WLX. F
   style="margin-left:auto; margin-right:auto; border-radius: 10px"
   width="600"
   height="500"
-  src="https://jerryi.github.io/wljs-docs/">
+  src="https://wljs.io/">
 </iframe>
 ```
 

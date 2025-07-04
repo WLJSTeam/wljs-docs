@@ -23,7 +23,7 @@ Containers help to work with the data more efficiently. For example, if we plot 
 
 ### Dynamic binding
 *second key feature, why we need containers*
-The ideas for WLJS Frontend were inspired by an amazing project [Observable](https://observablehq.com/@jerryi) - JavaScript notebook interface working in the browser, where the dynamics was polished perfectly.
+The ideas for WLJS Frontend were inspired by an amazing project [Observable](https://observablehq.com/) - JavaScript notebook interface working in the browser, where the dynamics was polished perfectly.
 
 In Observable all expressions are `Dynamic` in terms of Mathematica by the default. Me, as a maintainer (@JerryI) I tried to bring it as close as possible to such behaviour, leaving out lags of Mathematica's frontend and functions overhead as mush as possible.
 

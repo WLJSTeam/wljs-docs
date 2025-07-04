@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/Exporting/MDX.md",
+                "file": "frontend/Development/Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MDX"
+              "title": "Architecture"
             }
           },
           {
@@ -93,10 +93,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "MDX",
+                "query": "jerryi",
                 "matchingCase": true,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
@@ -221,6 +221,19 @@
   },
   "active": "3b2971a92786269d",
   "lastOpenFiles": [
+    "frontend/Exporting/Dynamic HTML.md",
+    "frontend/Cell types/WLX.md",
+    "frontend/Exporting/Static HTML.md",
+    "frontend/Overview.md",
+    "frontend/Cell types/Slides.md",
+    "frontend/instruction.md",
+    "frontend/Reference/Graphics3D/Graphics3D.md",
+    "frontend/Advanced/Events system/event-generators.md",
+    "frontend/Dynamics.md",
+    "interpreter/Advanced/containers.md",
+    "frontend/Development/Architecture.md",
+    "frontend/Development/API/REST.md",
+    "frontend/Exporting/MDX.md",
     "frontend/Advanced/Dynamics/Porting from MMA/Porting from MMA.md",
     "frontend/Reference/GUI/MMAView.md",
     "frontend/Reference/Cells and Notebook/HapticFeedback.md",
@@ -233,9 +246,6 @@
     "frontend/Advanced/Events system/Mouse and keyboard.md",
     "frontend/Advanced/Dynamics/Porting from MMA",
     "drag_stuff-ezgif.com-video-to-gif-converter.gif",
-    "frontend/Advanced/Events system/event-generators.md",
-    "frontend/Dynamics.md",
-    "frontend/Overview.md",
     "frontend/Importing/Wolfram Language.md",
     "frontend/Importing/Mathematica.md",
     "Screenshot 2025-06-22 at 20.41.55.png",
@@ -243,21 +253,11 @@
     "frontend/Advanced/Objects/Creating new type.md",
     "frontend/Development/Plugins/Examples/Action Button in UI and Cell Evaluation.md",
     "frontend/Development/Plugins/Examples/New cell type and Kernel evaluation.md",
-    "frontend/Development/Plugins/Examples/Javascript library functions.md",
     "Screenshot 2025-06-15 at 12.37.10.png",
-    "frontend/Development/Plugins/Structure.md",
-    "frontend/Advanced/Animation Framework/Prototyping.md",
     "rounding-ezgif.com-optimize.gif",
     "Screenshot 2025-06-14 at 13.31.03 1.png",
-    "frontend/Advanced/Animation Framework/Animation Framework.md",
     "Screenshot 2025-06-14 at 13.31.03.png",
     "drag-ezgif.com-optimize.gif",
-    "frontend/Command palette.md",
-    "frontend/Advanced/Syntax sugar/Output forms.md",
-    "frontend/Advanced/Syntax sugar/Decorating symbols.md",
-    "frontend/Advanced/Animation Framework/Reference.md",
-    "frontend/Advanced/Animation Framework/Tutorial.md",
-    "frontend/Advanced/Animation Framework/Timeline.md",
     "TimelineAnimation.mp4",
     "frontend/Advanced/Animation Framework",
     "tutor5.mp4",

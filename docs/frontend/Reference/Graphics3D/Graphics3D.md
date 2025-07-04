@@ -84,7 +84,7 @@ Stops rendering after N milliseconds (`1000` by the default). The rendering proc
 ### `"Renderer"`
 Sets the rendering engine
 - `"Rasterization"` __default__
-- `"PathTracing"` photorealistic images (high computing load to GPU). See examples [here](https://jerryi.github.io/wljs-docs/wljs-demo/plot-rtx)
+- `"PathTracing"` photorealistic images (high computing load to GPU). See examples [here](https://wljs.io/wljs-demo/plot-rtx)
 
 ### `"Lightmap"`
 Sets an URL to an HDR light-map. __Currently only remote sources are supported__.

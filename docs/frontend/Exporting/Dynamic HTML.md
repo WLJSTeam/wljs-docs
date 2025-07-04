@@ -331,6 +331,6 @@ import vid4 from './../../Example with Animate.mp4';
 
 ## Other Examples
 Check out some interactive examples from our blog and demo projects:
-- [TDS-THz in 10 lines](https://jerryi.github.io/wljs-docs/wljs-demo/mid-thz-tds/)
+- [TDS-THz in 10 lines](https://wljs.io/wljs-demo/mid-thz-tds/)
 - [Why fitting raw data matters](https://jerryi.github.io/wljs-demo/fitting_tds_ppt.html)
 

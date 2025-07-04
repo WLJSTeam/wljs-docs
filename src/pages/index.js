@@ -292,8 +292,8 @@ function HomepageHeader() {
           <div className={clsx(styles.buttons, styles.fadeIn)} >
             <Link
               className="button button--secondary button--lg" style={{"background": "var(--ifm-color-primary-button)", "box-shadow": "0 0 31px -14px rgba(0, 0, 0, 0.8)", "color": "var(--ifm-color-primary-text-alt)", "textDecoration":"none !important"}}
-              to="/wljs-demo">
-              See online
+              to="/frontend/Overview">
+              Overview
             </Link>
             <Link
               className="button button--secondary button--lg" style={{"background": "var(--ifm-color-primary-button)", "box-shadow": "0 0 31px -14px rgba(0, 0, 0, 0.8)", "color": "var(--ifm-color-primary-text-alt)", "textDecoration":"none !important"}}

@@ -57,7 +57,7 @@ docker run -it \
   -e PGID=$(id -g) \
   -p 8000:3000 \
   --name wljs \
-  ghcr.io/jerryi/wolfram-js-frontend:main
+  ghcr.io/wljsteam/wolfram-js-frontend:main
 ```
 
   </TabItem>
@@ -126,7 +126,7 @@ docker run -it \
   -e PGID=$(id -g) \
   -p 8000:3000 \
   --name wljs \
-  ghcr.io/jerryi/wolfram-js-frontend:main
+  ghcr.io/wljsteam/wolfram-js-frontend:main
 ```
 
 Then open `http://127.0.0.1:8000` 
@@ -191,9 +191,9 @@ wolframscript -f Scripts/start.wls -entitlement XXX-CODE-OF-ENTITLEMENT-XXX
 <div style={{textAlign: 'center', display: 'flex', gap: '2rem', justifyContent: 'center'}}>
 
 
-[🔬 __Explore Examples__](https://jerryi.github.io/wljs-docs/wljs-demo/intro-notebook)
+[🔬 __Explore Examples__](https://wljs.io/wljs-demo/intro-notebook)
 
-[📺 __Demonstration Project__](https://jerryi.github.io/wljs-docs/wljs-demo)
+[📺 __Demonstration Project__](https://wljs.io/wljs-demo)
 
 </div>
 
@@ -207,7 +207,7 @@ wolframscript -f Scripts/start.wls -entitlement XXX-CODE-OF-ENTITLEMENT-XXX
 
 
 - **📘 [Wolfram Language](./Wolfram%20Language.md)**  
-- **📺 [Live Demos](https://jerryi.github.io/wljs-docs/wljs-demo)**  
+- **📺 [Live Demos](https://wljs.io/wljs-demo)**  
 - **🛠️ [GitHub Repo](https://github.com/JerryI/wolfram-js-frontend)**  
 - **💬 [Community](https://github.com/JerryI/wolfram-js-frontend/discussions)** 
 - [🐴 __Telegram__](https://t.me/+PBotB9UJw-hiZDEy)

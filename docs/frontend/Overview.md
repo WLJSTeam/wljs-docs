@@ -22,7 +22,7 @@ Some computations are partially performed by your browser, and you can [control 
 
 A notebook follows a mostly flat structure __similar to Jupyter Notebook__. Only input and output cell pairs are grouped together. You can freely edit, copy, and reevaluate any output expression in place. 
 
-[__See live example__](https://jerryi.github.io/wljs-docs/wljs-demo/intro-notebook/)
+[__See live example__](https://wljs.io/wljs-demo/intro-notebook/)
 
 
 ## Is it like an open-source Mathematica? 🐺
@@ -31,10 +31,10 @@ If you're familiar with the Wolfram Language, you'll feel at home using WLJS Not
 - Output cells are editable and valid for evaluation
 - Support for syntax sugar (fractions, powers, etc.)
 - Support for [Graphics](frontend/Reference/Graphics/Graphics.md), [Graphics3D](frontend/Reference/Graphics3D/Graphics3D.md), [Sound](frontend/Reference/Sound/Sound.md), [Video](frontend/Reference/Video/Video.md), and more interactive content
-- Most [plotting functions](https://jerryi.github.io/wljs-docs/wljs-demo/plot-1d) are supported (see [Reference](frontend/Reference/Reference.md))
+- Most [plotting functions](https://wljs.io/wljs-demo/plot-1d) are supported (see [Reference](frontend/Reference/Reference.md))
 - Compatible with standard Wolfram Packages and Paclets
-- Support for resource functions and [neural networks](https://jerryi.github.io/wljs-docs/wljs-demo/neuralnet-1)
-- [Formatting options](https://jerryi.github.io/wljs-docs/wljs-demo/intro-mathinput/) (a bit more limited compared to MMA)
+- Support for resource functions and [neural networks](https://wljs.io/wljs-demo/neuralnet-1)
+- [Formatting options](https://wljs.io/wljs-demo/intro-mathinput/) (a bit more limited compared to MMA)
 - [Dynamics](frontend/Dynamics.md) and interactivity out of the box: [Manipulate](frontend/Reference/GUI/Manipulate.md), and etc.
 
 ### Can it open .nb files?
